@@ -2,12 +2,12 @@
 
 
  <% @goods_props.each do |prop| %>
-  <div>
+  <li>
     <span><%= prop.name%> : </span> 
-    <div style="padding-left: 10px;">
+    <div style="padding-left: 50px;">
     	<% prop.goods_prop_values.each do |pv| %>    	
     		<span><%= pv.prop_value %></span>
     	<% end %>
     </div>
-  </div>
+  </li>
 <% end %>
