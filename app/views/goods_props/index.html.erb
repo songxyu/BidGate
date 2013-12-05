@@ -1,0 +1,13 @@
+ <h1>Goods Properies in BidGate: </h1>
+
+
+ <% @goods_props.each do |prop| %>
+  <div>
+    <span><%= prop.name%> : </span> 
+    <div style="padding-left: 10px;">
+    	<% prop.goods_prop_values.each do |pv| %>    	
+    		<span><%= pv.prop_value %></span>
+    	<% end %>
+    </div>
+  </div>
+<% end %>
