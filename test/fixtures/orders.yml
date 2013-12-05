@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  create_time: 2013-12-05 20:50:24
+  price: 9.99
+  price_type: 1
+  status: 1
+  buyer_id: 1
+  seller_id: 1
+  deal_price: 9.99
+  deadline: 2013-12-05 20:50:24
+  deal_date: 2013-12-05 20:50:24
+
+two:
+  create_time: 2013-12-05 20:50:24
+  price: 9.99
+  price_type: 1
+  status: 1
+  buyer_id: 1
+  seller_id: 1
+  deal_price: 9.99
+  deadline: 2013-12-05 20:50:24
+  deal_date: 2013-12-05 20:50:24

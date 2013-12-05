@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: 
+  bid_time: 2013-12-05 20:50:19
+  price: 9.99
+  seller_id: 1
+
+two:
+  order: 
+  bid_time: 2013-12-05 20:50:19
+  price: 9.99
+  seller_id: 1
