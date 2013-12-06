@@ -1,4 +1,4 @@
 class OrderGoods < ActiveRecord::Base
   belongs_to :order
-  attr_accessible :category, :model, :name, :price, :quantity
+  attr_accessible :category, :model, :name, :price, :quantity, :order_id
 end
