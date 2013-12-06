@@ -32,11 +32,11 @@ GoodsPropValue.create(prop_value:"长度:1~60mm", category_id: 1, goods_prop_id:
 ## status:
 #   1: Selled
 #   2: OnBiding
-Order.create(buyer_id:1, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 20000, price: 20000, price_type: '2', seller_id: 2, status: 1)
-Order.create(buyer_id:2, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 35000, price: 22000, price_type: '1', seller_id: 3, status: 2)
-Order.create(buyer_id:3, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 100000, price: 95000, price_type: '1', seller_id: 4, status: 1)
-Order.create(buyer_id:4, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 47000, price: 46000, price_type: '1', seller_id: 1, status: 1)
-Order.create(buyer_id:2, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 88000, price: 70000, price_type: '2', seller_id: 3, status: 2)
+Order.create(category_id:2, buyer_id:1, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 20000, price: 20000, price_type: '2', seller_id: 2, status: 1)
+Order.create(category_id:2, buyer_id:2, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 35000, price: 22000, price_type: '1', seller_id: 3, status: 2)
+Order.create(category_id:3, buyer_id:3, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 100000, price: 95000, price_type: '1', seller_id: 4, status: 1)
+Order.create(category_id:3, buyer_id:4, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 47000, price: 46000, price_type: '1', seller_id: 1, status: 1)
+Order.create(category_id:3, buyer_id:2, create_time: DateTime.new(2013,11,20), deadline: DateTime.new(2013,11,20), deal_date: 0, deal_price: 88000, price: 70000, price_type: '2', seller_id: 3, status: 2)
 
 # OrderGoods
 OrderGoods.create(order_id: 1, quantity: 50, price: 400, name: "不锈钢", category: '钢材', model: '301')
