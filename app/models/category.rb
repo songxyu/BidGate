@@ -1,3 +1,6 @@
 class Category < ActiveRecord::Base
   attr_accessible :is_parent, :name, :parent_id, :sort_order, :status
+  
+  has_many :child_categories, class_name: "Category", foreign_key: "parent_id" # foreign key must be specified in has_many!
+  belongs_to :parent_category, class_name: "Category"
 end

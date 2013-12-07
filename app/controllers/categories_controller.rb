@@ -4,6 +4,9 @@ class CategoriesController < ApplicationController
   end
 
   def index
-  	@categories = Category.all
+  	@categoriesTree = Category.where(parent_id: 0)
+  	@categoriesTree.each do |parentCate|
+      parentCate.child_categories = Category.where(parent_id: parentCate.id)     
+    end
   end
 end
