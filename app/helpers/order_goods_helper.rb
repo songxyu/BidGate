@@ -1,0 +1,2 @@
+module OrderGoodsHelper
+end

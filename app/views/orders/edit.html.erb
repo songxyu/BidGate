@@ -1,0 +1,25 @@
+<h1>竞价!</h1>
+ 
+<%= form_for :order, url: order_path(@order), method: :patch do |f| %>
+   
+  <p>
+    <%= f.label :price %> :
+    <%= f.text_field :price,:readonly => true %>
+  </p>
+ 
+  <p>
+    <%= f.label :deadline %>:
+    <%= f.text_field :deadline ,:readonly => true %>
+  </p>
+  
+  <p>
+    <%= f.label :deal_price %>:
+    <%= f.text_field :deal_price %>
+  </p> 
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<div> <%= link_to '<=Back to order list', orders_path %> </div>

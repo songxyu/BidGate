@@ -8,4 +8,12 @@ class OrdersController < ApplicationController
       oneOrder.order_price_histories = OrderPriceHistory.where(order_id: oneOrder.id)
     end
   end
+  
+  def show
+    @order = Order.find(params[:id])
+  end
+  
+  def edit
+    @order = Order.find(params[:id])
+  end
 end

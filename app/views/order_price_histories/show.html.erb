@@ -1,0 +1,9 @@
+<h2>竞价详情 : for order id: <%= @order.id %>, bid id: <%= @price_history.id %></h2>
+   
+	<div style="padding-left: 50px;">    		
+		<li>Time: <%= @price_history.bid_time %> </li>  
+		<li>Bid Price: <%= @price_history.price %> </li>
+		<li>竞价人ID: <%= @price_history.seller_id %> </li>
+	</div>
+ 
+<p> <%= link_to '<=Back to 竞价列表',  order_order_price_histories_path(@order.id) %> </p>

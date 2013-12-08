@@ -14,6 +14,10 @@ BidGate::Application.routes.draw do
   #   resources :products
 
   resources :categories, :goods_props, :orders, :order_goods, :order_price_histories 
+  
+  resources :orders do
+    resources :order_goods, :order_price_histories
+  end
 
   # Sample resource route with options:
   #   resources :products do
