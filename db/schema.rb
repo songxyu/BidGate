@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206133811) do
+ActiveRecord::Schema.define(:version => 20131209124709) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20131206133811) do
     t.integer  "order_id"
     t.datetime "bid_time"
     t.decimal  "price",      :precision => 8, :scale => 2
-    t.integer  "seller_id"
+    t.integer  "buyer_id"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
   end
