@@ -6,7 +6,10 @@
     <br>Deadline: <%= @order.deadline %>
     <br>deal_date: <%= @order.deal_date %> 
     <br>deal_price: <%= @order.deal_price %> 
-    <br>seller_id: <%= @order.seller_id %> 
+    <br>seller: <%= @order.seller.nickname %>
+    <br>seller公司: <%= @order.seller.company.name %>
+    <br>Buyer: <%= @order.buyer.nickname %>  
+    <br>Buyer公司: <%= @order.buyer.company.name %>
 </li> 
     
     	 <p>订单货品: </p>
