@@ -81,6 +81,13 @@ OrderPriceHistory.create(order_id: 4, price: 47000, buyer_id: 1, bid_time: DateT
 OrderPriceHistory.create(order_id: 5, price: 79000, buyer_id: 3, bid_time: DateTime.new(2013,11,20))
 OrderPriceHistory.create(order_id: 5, price: 87000, buyer_id: 7, bid_time: DateTime.new(2013,11,20))
 
+# GoodsExt
+GoodsExt.create(goods_prop_id: 3, prop_value: "宝钢", order_goods_id: 1)
+GoodsExt.create(goods_prop_id: 4, prop_value: "直径100mm", order_goods_id: 1)
+
+
+GoodsExt.create(goods_prop_id: 1, prop_value: "长方体截面", order_goods_id: 2)
+GoodsExt.create(goods_prop_id: 4, prop_value: "长100mm宽55mm", order_goods_id: 2)
 # 3.times do |i|
   # Category.create(name: "Product ##{i}", description: "A product.")
 # end

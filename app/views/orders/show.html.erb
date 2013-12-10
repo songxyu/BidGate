@@ -12,7 +12,7 @@
     <br>Buyer公司: <%= @order.buyer.company.name %>
 </li> 
     
-    	 <p>订单货品: </p>
+    	 <p>订单货品: <%= link_to '=>货品列表', order_order_goods_path( :order_id => @order.id ) %> </p>
 	     <% @order.order_goods.each do |goods| %>    
 	    	<div style="padding-left: 50px;">    		
 	    		<span>ID: <%= goods.id %>   Name:<%= goods.name %>  Price: <%= goods.price %>  
