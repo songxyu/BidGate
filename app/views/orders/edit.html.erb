@@ -1,20 +1,20 @@
 <h1>竞价!</h1>
  
-<%= form_for :order, url: order_path(@order), method: :patch do |f| %>
+<%= form_for @order, url: order_order_price_histories_path(@order), method: :post do |f| %>
    
   <p>
-    <%= f.label :price %> :
-    <%= f.text_field :price,:readonly => true %>
+    <span> Recent Price: <%= @order.price %></span>
   </p>
  
   <p>
-    <%= f.label :deadline %>:
-    <%= f.text_field :deadline ,:readonly => true %>
+    <%= label_tag(:deadline, "Deadline: ") %>
+    <%= @order.deadline %>
   </p>
   
   <p>
-    <%= f.label :deal_price %>:
-    <%= f.text_field :deal_price %>
+    <div style="font-weight: bold; color: red;">My Price:</div>
+    <input id="bid_price" name="bid_price" value='' >
+    
   </p> 
  
   <p>
