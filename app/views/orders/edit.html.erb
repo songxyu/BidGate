@@ -1,25 +1,26 @@
-<h1>竞价!</h1>
+<h1>Bid This Order</h1>
  
 <%= form_for @order, url: order_order_price_histories_path(@order), method: :post do |f| %>
    
   <p>
-    <span> Recent Price: <%= @order.price %></span>
+ <!--   <span> Recent Price: <%= @order.price %></span> -->
+ 	<%= label_tag(:price, "最新报价")%>: 
+ 	<%= @order.price %>
   </p>
  
   <p>
-    <%= label_tag(:deadline, "Deadline: ") %>
+    <%= label_tag(:deadline, "终止日期") %>: 
     <%= @order.deadline %>
   </p>
   
   <p>
-    <div style="font-weight: bold; color: red;">My Price:</div>
-    <input id="bid_price" name="bid_price" value='' >
-    
+    <div style="font-weight: bold; color: red;">我的报价: 
+<!--    <input id="bid_price" name="bid_price" value='' > -->
+    <%= text_field_tag(:bid_price,) %>  
+    <%= submit_tag("竞价") %>
+    </div>
   </p> 
  
-  <p>
-    <%= f.submit %>
-  </p>
 <% end %>
  
 <div> <%= link_to '<=Back to order list', orders_path %> </div>
