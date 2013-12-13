@@ -15,11 +15,16 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
   
-  def create
-    @order = Order.new(params[:order])
-    @order.save
+  def create 
+    @category = Category.find(params[:sub_category])
     
-    redirect_to show_order_path(params[:id])
+    @order = Order.new(create_time: DateTime.current, deadline: params[:deadline],  price: params[:order_price], buyer_id: 1, seller_id: 2)
+    @order.order_goods.build(category: @category.name, model: params[:goods_model])  
+        
+    @order.save    
+    
+    
+    redirect_to order_path(@order)
   end
   
   def show
