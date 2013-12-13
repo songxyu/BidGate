@@ -1,11 +1,11 @@
-<h1>Bid This Order</h1>
+<h1>竞价中...</h1>
  
 <%= form_for @order, url: order_order_price_histories_path(@order), method: :post do |f| %>
    
   <p>
  <!--   <span> Recent Price: <%= @order.price %></span> -->
  	<%= label_tag(:price, "最新报价")%>: 
- 	<%= @order.price %>
+ 	<%= @order.price %> 元
   </p>
  
   <p>
@@ -16,7 +16,7 @@
   <p>
     <div style="font-weight: bold; color: red;">我的报价: 
 <!--    <input id="bid_price" name="bid_price" value='' > -->
-    <%= text_field_tag(:bid_price,) %>  
+    <%= text_field_tag(:bid_price,) %> 元
     <%= submit_tag("竞价") %>
     </div>
   </p> 

@@ -11,6 +11,17 @@ class OrdersController < ApplicationController
     end
   end
   
+  def new
+    @order = Order.new
+  end
+  
+  def create
+    @order = Order.new(params[:order])
+    @order.save
+    
+    redirect_to show_order_path(params[:id])
+  end
+  
   def show
     @order = Order.find(params[:id])
     #@order.seller = User.find( @order.seller_id )  # no need do this!
