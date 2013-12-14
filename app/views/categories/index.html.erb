@@ -1,13 +1,17 @@
- <h1>Categoies in BidGate: </h1>
+ 
+ 
+	<h1>Categoies in BidGate: </h1> 
 
-
- <% @categoriesTree.each do |cate| %>
-  <div>
-    <span><%= cate.id %></span> - <span><%= cate.name %>: </span> 
-    <% cate.child_categories.each do |child| %>    
-    	<div style="padding-left: 50px;">    		
-    		<span><%= child.id %> - <%= child.name %></span>
-    	</div>
-    <% end %>
-  </div>
-<% end %>
+	 <% @categoriesTree.each do |cate| %>
+	  <div>
+	    <span><%= cate.id %></span> - <span><%= cate.name %>: </span> 
+	    <% cate.child_categories.each do |child| %>    
+	    	<div style="padding-left: 50px;">    		
+	    		<span><%= child.id %> - <%= child.name %></span>
+	    	</div>
+	    <% end %>
+	  </div>
+	<% end %>
+	
+	
+ 

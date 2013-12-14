@@ -18,6 +18,8 @@ BidGate::Application.routes.draw do
   resources :orders do
     resources :order_goods, :order_price_histories
   end
+  
+   #match '/categories', :to => 'categories#index', :as => :index,
 
   # Sample resource route with options:
   #   resources :products do

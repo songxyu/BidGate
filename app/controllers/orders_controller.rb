@@ -1,14 +1,16 @@
 class OrdersController < ApplicationController
   
   def index
+    param_cate_id = params[:category_id] 
+    @filter_category = param_cate_id ? Category.where(id: param_cate_id)[0] : nil
     
-    @orders = Order.all
-    @orders.each do |oneOrder|
+    @orders = param_cate_id ? Order.where(category_id: param_cate_id) : Order.all
+    #@orders.each do |oneOrder|
       #oneOrder.order_goods = OrderGoods.where(order_id: oneOrder.id)
       #oneOrder.order_price_histories = OrderPriceHistory.where(order_id: oneOrder.id)
       #oneOrder.seller = User.find( oneOrder.seller_id ) # no need do this!
       #oneOrder.buyer = User.find( oneOrder.buyer_id )
-    end
+    #end
   end
   
   def new
@@ -24,7 +26,7 @@ class OrdersController < ApplicationController
     @order.save    
     
     
-    redirect_to order_path(@order)
+    redirect_to @order
   end
   
   def show

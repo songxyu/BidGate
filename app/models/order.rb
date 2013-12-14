@@ -7,4 +7,18 @@ class Order < ActiveRecord::Base
   
   belongs_to :buyer, :class_name => "User", :foreign_key => 'buyer_id'
   belongs_to :seller, :class_name => "User", :foreign_key => 'seller_id'
+  
+  
+  def self.hot_tags
+    allOrders = Order.all
+    hashList = {}
+    allOrders.each do |oneOrder|
+      oneOrder.order_goods.each do |good|
+        if good.name
+          hashList[good.name] = oneOrder
+        end
+      end
+    end
+    return hashList
+  end
 end

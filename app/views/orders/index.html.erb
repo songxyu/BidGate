@@ -6,6 +6,10 @@
 
 <h1>Orders in BidGate: </h1>
 
+<% if @filter_category %>
+	<p> <strong><%= @filter_category.name %> </strong> 相关的订单:</p>
+<% end %>
+
 <% @orders.each do |order| %>
 <div style="border-top: 1px solid #000; padding: 5px 0;">
 	<li>

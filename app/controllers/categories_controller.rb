@@ -9,4 +9,6 @@ class CategoriesController < ApplicationController
       parentCate.child_categories = Category.where(parent_id: parentCate.id)     
     end
   end
+  
+
 end

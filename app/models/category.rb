@@ -3,4 +3,11 @@ class Category < ActiveRecord::Base
   
   has_many :child_categories, class_name: "Category", foreign_key: "parent_id" # foreign key must be specified in has_many!
   belongs_to :parent_category, class_name: "Category"
+  
+  
+    # data for news archive widget, only visible entries
+  def self.all_categories_tree
+    Category.where(parent_id: 0)
+  end
+  
 end
