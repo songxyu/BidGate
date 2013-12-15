@@ -2,52 +2,70 @@
 
 <%= form_for @order do |f| %>
 <div style="padding-left: 50px;">
-	<span><b>订单类型：</b></span><br>
+	<span><b>订单类型：</b></span>
+	<br>
 	<div style="padding-left: 50px;">
-<!--		<%= select_tag(:category, options_for_select([['钢材', 1], ['橡胶', 2], ['木材', 3]])) %><br> -->
-		<%= radio_button_tag :category, '1' %><%= label_tag :category_1, '钢材'%><br />
-		<%= radio_button_tag :category, '2' %><%= label_tag :category_2, '橡胶'%><br />
-		<%= radio_button_tag :category, '3' %><%= label_tag :category_3, '木材'%><br />
+		<% @category.each do |cate| %>
+		<% if cate.is_parent %>
+		<div style='padding-left: 50px;'>
+			<%= radio_button_tag :category, cate.id %><%= label_tag cate.name %>
+			<br />
+
+		</div>
+		<% end %>
+		<% end %>
 	</div>
-	<hr>
-	
-	<span><b>物品种类：</b></span><br>
+	<hr />
+
+	<span><b>物品种类：</b></span>
+	<br>
 	<div style="padding-left: 50px;">
-<!--		<%= select_tag(:category, options_for_select([['钢材', 1], ['橡胶', 2], ['木材', 3]])) %><br> -->
-		<%= radio_button_tag :sub_category, '1' %><%= label_tag :category_4, '不锈钢'%><br />
-		<%= radio_button_tag :sub_category, '2' %><%= label_tag :category_5, '普通钢'%><br />
-		<%= radio_button_tag :sub_category, '3' %><%= label_tag :category_6, '高速钢'%><br />
-		<%= radio_button_tag :sub_category, '4' %><%= label_tag :category_7, '螺纹钢'%><br />
-		<%= radio_button_tag :sub_category, '5' %><%= label_tag :category_8, '硅橡胶'%><br />
-		<%= radio_button_tag :sub_category, '6' %><%= label_tag :category_9, '乙丙胶'%><br />
-		<%= radio_button_tag :sub_category, '7' %><%= label_tag :category_10, '红柳木'%><br />
-		<%= radio_button_tag :sub_category, '8' %><%= label_tag :category_11, '美国红桃木'%><br />
+		<% @category.each do |cate| %>
+		<% if !cate.is_parent %>
+		<div style='padding-left: 50px;'>
+			<%= radio_button_tag :sub_category, cate.id %><%= label_tag cate.name %>
+			<br />
+
+		</div>
+		<% end %>
+		<% end %>
 	</div>
-	<hr>
-	
+	<hr />
+
 	<span><b>型号：</b></span>
-	<%= text_field_tag (:goods_model) %><br>
-	
+	<%= text_field_tag (:goods_model) %>
+	<br>
+
 	<span><b>材质：</b></span>
-	<%= text_field_tag (:goods_material) %><br>
-	
+	<%= text_field_tag (:goods_material) %>
+	<br>
+
 	<span><b>产地：</b></span>
-	<%= text_field_tag (:goods_product_location) %><br>
-	
+	<%= text_field_tag (:goods_product_location) %>
+	<br>
+
 	<span><b>规格：</b></span>
-	<%= text_field_tag (:goods_style) %><br>
-	<hr>
+	<%= text_field_tag (:goods_style) %>
+	<br>
 	
+	<span><b>数量：</b></span>
+	<%= text_field_tag (:goods_quantity) %>
+	<br>
+	<hr>
+
 	<span><b>竞拍价格：</b></span>
-	<%= text_field_tag (:order_price) %><br>
-	
+	<%= text_field_tag (:order_price) %>
+	<br>
+
 	<span><b>截止日期：</b></span>
-	<%= text_field_tag (:deadline) %><br>
-	
+	<%= text_field_tag (:deadline) %>
+	<br>
+
 	<span><b><font color='#68217A'>一口价：</font></b></span>
-	<%= text_field_tag (:one_price) %><br>
+	<%= text_field_tag (:one_price) %>
+	<br>
 	<hr>
-	
+
 	<%= button_to  '提交' %>
 </div>
 
