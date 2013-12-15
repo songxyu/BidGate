@@ -6,8 +6,8 @@
 
 <h1>Orders in BidGate: </h1>
 
-<% if @filter_category %>
-	<p> <strong><%= @filter_category.name %> </strong> 相关的订单:</p>
+<% if @filter_category || @filter_tag_name %>
+	<p> <strong><%= @filter_category ? "类别: "+ @filter_category.name : "Tag: "+ @filter_tag_name %> </strong> 相关的订单:</p>
 <% end %>
 
 <% @orders.each do |order| %>

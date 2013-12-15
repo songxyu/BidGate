@@ -9,16 +9,31 @@ class Order < ActiveRecord::Base
   belongs_to :seller, :class_name => "User", :foreign_key => 'seller_id'
   
   
-  def self.hot_tags
-    allOrders = Order.all
-    hashList = {}
-    allOrders.each do |oneOrder|
-      oneOrder.order_goods.each do |good|
-        if good.name
-          hashList[good.name] = oneOrder
+  def self.hot_tags    
+     hashList = {}
+     
+    # allOrders = Order.all   
+    # allOrders.each do |oneOrder|
+      # oneOrder.order_goods.each do |good|
+        # if good.name
+          # hashList[good.name] = oneOrder # only the last one is kept...
+        # end
+      # end
+    # end
+    
+    # get top 10 order goods...
+    top10Goods = OrderGoods.select(" name, count(*) as name_counter " ).group("name").order("name_counter DESC").limit(10)
+    top10Goods.each do |g|
+      if g.name
+        hashList[g.name] = []
+        orderGoods = OrderGoods.where(name: g.name)
+        orderGoods.each do |goods|
+          hashList[g.name] << goods.order_id
         end
       end
     end
+   
     return hashList
   end
+  
 end

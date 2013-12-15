@@ -2,9 +2,18 @@ class OrdersController < ApplicationController
   
   def index
     param_cate_id = params[:category_id] 
+    order_id_list = params[:order_id_list]
+    @filter_tag_name = params[:tag_name]
     @filter_category = param_cate_id ? Category.where(id: param_cate_id)[0] : nil
     
-    @orders = param_cate_id ? Order.where(category_id: param_cate_id) : Order.all
+    if param_cate_id
+      @orders = Order.where(category_id: param_cate_id)
+    elsif order_id_list
+      @orders = Order.find(order_id_list)      
+    else
+      @orders = Order.all
+    end
+    
     #@orders.each do |oneOrder|
       #oneOrder.order_goods = OrderGoods.where(order_id: oneOrder.id)
       #oneOrder.order_price_histories = OrderPriceHistory.where(order_id: oneOrder.id)

@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   belongs_to :parent_category, class_name: "Category"
   
   
-    # data for news archive widget, only visible entries
+  
   def self.all_categories_tree
     Category.where(parent_id: 0)
   end
