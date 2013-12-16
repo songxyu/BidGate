@@ -2,13 +2,14 @@
 
 <%= form_for @order do |f| %>
 <div style="padding-left: 50px;">
+	<!-- category selection area -->
 	<span><b>订单类型：</b></span>
 	<br>
 	<div style="padding-left: 50px;">
 		<% @category.each do |cate| %>
 		<% if cate.is_parent %>
 		<div style='padding-left: 50px;'>
-			<%= radio_button_tag :category, cate.id %><%= label_tag cate.name %>
+			<%= radio_button_tag :parent_category, cate.id %><%= label_tag cate.name %>
 			<br />
 
 		</div>
@@ -23,7 +24,7 @@
 		<% @category.each do |cate| %>
 		<% if !cate.is_parent %>
 		<div style='padding-left: 50px;'>
-			<%= radio_button_tag :sub_category, cate.id %><%= label_tag cate.name %>
+			<%= radio_button_tag :category, cate.id %><%= label_tag cate.name %>
 			<br />
 
 		</div>
@@ -32,37 +33,40 @@
 	</div>
 	<hr />
 
-	<span><b>型号：</b></span>
-	<%= text_field_tag (:goods_model) %>
-	<br>
-
-	<span><b>材质：</b></span>
-	<%= text_field_tag (:goods_material) %>
-	<br>
-
-	<span><b>产地：</b></span>
-	<%= text_field_tag (:goods_product_location) %>
-	<br>
-
-	<span><b>规格：</b></span>
-	<%= text_field_tag (:goods_style) %>
-	<br>
+	<!-- order goods data fill area -->
+	<p><b> 货物信息:  	</b></p>
+	<%= fields_for :order_goods,  @order.order_goods.new do | goods_form | %>
+		<span><b>名称：</b></span>
+		<%= goods_form.text_field :name  %>
+		<br>
+		
+		<span><b>型号：</b></span>
+		<%= goods_form.text_field :model  %>
+		<br>
+		
+		<span><b>价格：</b></span>
+		<%= goods_form.text_field :price %>
+		<br>
 	
-	<span><b>数量：</b></span>
-	<%= text_field_tag (:goods_quantity) %>
-	<br>
-	<hr>
+		<span><b>数量：</b></span>
+		<%= goods_form.text_field :quantity  %>
+		<br>
 
-	<span><b>竞拍价格：</b></span>
-	<%= text_field_tag (:order_price) %>
+	<% end %>
+
+	<hr />
+
+	<span><b>竞拍总价格：</b></span>
+	<%= f.text_field (:price) %>
+	<br>
+
+	<!-- order basic data fill area -->
+	<span><b><font color='#68217A'>一口价：</font></b></span>
+	<%= f.select(:price_type, [["正常竞价", 1], ["一口价", 0]]) %>
 	<br>
 
 	<span><b>截止日期：</b></span>
-	<%= text_field_tag (:deadline) %>
-	<br>
-
-	<span><b><font color='#68217A'>一口价：</font></b></span>
-	<%= text_field_tag (:one_price) %>
+	<%= select_datetime Date.today, :prefix => :deadline %>
 	<br>
 	<hr>
 

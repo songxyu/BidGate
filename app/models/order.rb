@@ -8,7 +8,10 @@ class Order < ActiveRecord::Base
   belongs_to :buyer, :class_name => "User", :foreign_key => 'buyer_id'
   belongs_to :seller, :class_name => "User", :foreign_key => 'seller_id'
   
-  
+  accepts_nested_attributes_for :order_goods
+  accepts_nested_attributes_for :order_price_histories
+   
+   
   def self.hot_tags    
      hashList = {}
      
