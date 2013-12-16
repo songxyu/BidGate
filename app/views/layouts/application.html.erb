@@ -12,21 +12,24 @@
 		<%= yield :header %>
 
 		<div class="left_area">
-			<div class="category_area">				
+			<div class="category_area">
 				<%= render "categories/tree", :object => Category.all_categories_tree %>
 			</div>
 
-			<div class="hot_tags_area">				 
-				<%= render "orders/hot_tags" %>
-			</div>
 		</div>
 
 		<div class="content_area">
 			<%= yield %>
 		</div>
 
+		<div class="right_area">
+			<div class="hot_tags_area">
+				<%= render "orders/hot_tags" %>
+			</div>
+		</div>
+
 		<%= render "layouts/footer" %>
 		<%= yield :footer %>
-		
+
 	</body>
 </html>

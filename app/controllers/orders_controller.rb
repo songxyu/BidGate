@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     @category = Category.find(params[:sub_category])
     
     @order = Order.new(create_time: DateTime.current, deadline: params[:deadline],
-      deal_price: params[:order_price], buyer_id: 1, seller_id: 2, price_type: 1, status: 1)
+      price: params[:order_price], buyer_id: 1, seller_id: 2, price_type: 1, status: 1)
     @order.order_goods.build(name: @category.name, category: @parent_category.name, 
       price: params[:order_price], model: params[:goods_model], quantity: params[:goods_quantity])  
         

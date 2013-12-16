@@ -15,9 +15,10 @@
 html {
 	display: block;
 	font-family: Arial, Helvetica, sans-serif;
+	background-color: #DDE1E5;
 }
 
-body, input, select, textarea, button{
+body, input, select, textarea, button {
 	font-size: 13px;
 	line-height: 1.4;
 }
@@ -33,13 +34,23 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .header {
-	background-color: #eee;
+	background-image: url("./header_bg.png");
+	line-height: 40px;
+}
+
+.header .homepage {
+	width: 100%;
+	color: #EEE;
+	font-size: 20px;
+	padding-left: 200px;
+	vertical-align: middle;
 }
 
 .left_area {
 	display: block;
 	clear: left;
 	float: left;
+	margin-left: 200px;
 	width: 200px;
 	height: 100%;
 }
@@ -49,7 +60,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background-color: #eee;
 }
 
-.hot_tags_area {
+.right_area {
+	display: block;
+	margin-left: 1500px;
+	width: 200px;
+	height: 100%;
+}
+
+.right_area .hot_tags_area {
 	display: block;
 	margin-top: 50px;
 	min-height: 100px;
@@ -57,8 +75,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .content_area {
-	margin-left: 250px;
+	margin-left: 450px;
 	min-height: 600px;
+	width: 1000px;
 }
 
 .footer {
