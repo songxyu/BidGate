@@ -38,19 +38,26 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	line-height: 40px;
 }
 
-.header .homepage {
-	width: 100%;
+.homepage a{
 	color: #EEE;
 	font-size: 20px;
-	padding-left: 200px;
+	margin-left: 200px;
 	vertical-align: middle;
+	text-decoration: none;
 }
 
-.left_area {
+.homepage a:hover {
+	color: #ccc;
+	cursor: hand;
+}
+
+
+
+.left_wrapper {
 	display: block;
 	clear: left;
 	float: left;
-	margin-left: 200px;
+	padding-left: 200px;
 	width: 200px;
 	height: 100%;
 }
@@ -60,29 +67,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background-color: #eee;
 }
 
-.right_area {
+.right_wrapper {
 	display: block;
-	margin-left: 1500px;
+	float: left;
 	width: 200px;
-	height: 100%;
-}
-
-.right_area .hot_tags_area {
-	display: block;
+	margin-left: 50px;
 	margin-top: 50px;
-	min-height: 100px;
 	background-color: #eee;
+}
+.hot_tags_area {
+	
+	min-height: 100px;
 }
 
 .content_area {
-	margin-left: 450px;
+	float: left;
+	margin-left: 50px;
 	min-height: 600px;
-	width: 1000px;
+	width: 800px;
 }
 
 .footer {
+	clear: both;
 	width: 100%;
-	margin: 20px 0;
+	margin-bottom: 20px;
 	text-align: center;
 	border-top: solid 1px #999;
 }

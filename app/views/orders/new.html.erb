@@ -58,7 +58,8 @@
 	<br>
 
 	<span><b>截止日期：</b></span>
-	<%= text_field_tag (:deadline) %>
+	<label for='deadline'></label>
+	<%= date_select('deadline_date', :deadline)%>
 	<br>
 
 	<span><b><font color='#68217A'>一口价：</font></b></span>
