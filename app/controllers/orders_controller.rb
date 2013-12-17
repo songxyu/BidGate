@@ -28,19 +28,47 @@ class OrdersController < ApplicationController
   end
   
   def create
-    # category:4
-    # order_goods[name]:不锈钢啊
-    # order_goods[model]:1111
-    # order_goods[price]:600.0
-    # order_goods[quantity]:10
-    # price:6000.0
-    # order[price_type]:0
-    # deadline[year]:2013
-    # deadline[month]:12
-    # deadline[day]:16
-    # deadline[hour]:00
-    # deadline[minute]:00
+    # These params are obsolete:
+=begin   
+    category:4
+    order_goods[name]:不锈钢啊
+    order_goods[model]:1111
+    order_goods[price]:600.0
+    order_goods[quantity]:10
+    price:6000.0
+    order[price_type]:0
+    deadline[year]:2013
+    deadline[month]:12
+    deadline[day]:16
+    deadline[hour]:00
+    deadline[minute]:00  
+=end   
     
+    # new param list:
+=begin    
+    {"utf8"=>"✓",
+     "authenticity_token"=>"tTolOrDsZGyImStWzUWlea+aCObGZ4WTS5iKcIXSBss=",
+     "parent_category"=>"3",
+     "category"=>"10",
+     "order"=>{
+       "order_goods_attributes"=>{
+         "0"=>{"name"=>"1",
+               "model"=>"1",
+               "price"=>"1",
+               "quantity"=>"1",
+               "_destroy"=>"false"},
+         "1387295983613"=>{"name"=>"2",
+               "model"=>"2",
+               "price"=>"2",
+               "quantity"=>"2",
+               "_destroy"=>"false"}
+        },
+     "price"=>"222",
+     "price_type"=>"1",
+     "deadline"=>"2013-12-20"
+     }}
+=end
+
     #@parent_category = Category.find(params[:parent_category])    
     cateId = params[:category]
     cateId = cateId ? cateId : params[:parent_category]
@@ -50,9 +78,17 @@ class OrdersController < ApplicationController
       price: params[:order][:price], buyer_id: 1, seller_id: 2, price_type: params[:order][:price_type], 
       status: 1, category_id: @category.id)
     
-    filledOrderGoods = params[:order_goods];
-    filledOrderGoods['category'] = @category.name
-    @order.order_goods.build(filledOrderGoods)  
+    arrOrderGoods = []
+    filledOrderGoods = params[:order][:order_goods_attributes] #params[:order_goods];
+    filledOrderGoods.each do |key, valueArr|
+      puts valueArr
+      valueArr['category'] = @category.name
+      valueArr.delete("_destroy") # remove the unused field "_destroy", added by nested-form gem
+      arrOrderGoods << valueArr
+    end
+    
+    puts arrOrderGoods
+    @order.order_goods.build(arrOrderGoods)  
         
     @order.save    
     

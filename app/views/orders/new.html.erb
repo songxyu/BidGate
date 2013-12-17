@@ -1,6 +1,6 @@
 <h1>Fill your order</h1>
 
-<%= form_for @order do |f| %>
+<%= nested_form_for  @order do |f| %>
 <div style="padding-left: 50px;">
 	<!-- category selection area -->
 	<span><b>订单类型：</b></span>
@@ -26,7 +26,10 @@
 
 	<!-- order goods data fill area -->
 	<p><b> 货物信息:  	</b></p>
-	<%= fields_for :order_goods,  @order.order_goods.new do | goods_form | %>
+	<p><%= f.link_to_add "增加货物", :order_goods, :data => { :target => ".add_order_goods_area" } %></p>
+	
+	<div>
+	<%= f.fields_for :order_goods,  @order.order_goods.new do | goods_form | %>
 		<span><b>名称：</b></span>
 		<%= goods_form.text_field :name  %>
 		<br>
@@ -42,9 +45,13 @@
 		<span><b>数量：</b></span>
 		<%= goods_form.text_field :quantity  %>
 		<br>
-
-	<% end %>
-
+		<%= goods_form.link_to_remove "删除该货" %>		
+		<br>
+		<br/>
+	<% end %>	
+	</div>
+	
+	<div class="add_order_goods_area"></div>
 	<hr />
 
 	<span><b>竞拍总价格：</b></span>
