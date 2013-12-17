@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   
   def new
     @order = Order.new
-    @category = Category.all
+    @category = Category.where(parent_id: 0)
   end
   
   def create
@@ -40,11 +40,14 @@ class OrdersController < ApplicationController
     # deadline[day]:16
     # deadline[hour]:00
     # deadline[minute]:00
-    #@parent_category = Category.find(params[:parent_category])
-    @category = Category.find(params[:category])
     
-    @order = Order.new(create_time: DateTime.current, deadline: params[:deadline],
-      price: params[:price], buyer_id: 1, seller_id: 2, price_type: params[:price_type], 
+    #@parent_category = Category.find(params[:parent_category])    
+    cateId = params[:category]
+    cateId = cateId ? cateId : params[:parent_category]
+    @category = Category.find(cateId)
+    
+    @order = Order.new(create_time: DateTime.current, deadline: params[:order][:deadline],
+      price: params[:order][:price], buyer_id: 1, seller_id: 2, price_type: params[:order][:price_type], 
       status: 1, category_id: @category.id)
     
     filledOrderGoods = params[:order_goods];

@@ -25,7 +25,7 @@ class Order < ActiveRecord::Base
     # end
     
     # get top 10 order goods...
-    top10Goods = OrderGoods.select(" name, count(*) as name_counter " ).group("name").order("name_counter DESC").limit(10)
+    top10Goods = OrderGoods.select(" name, count(*) as name_counter " ).where("name is not null").group("name").order("name_counter DESC").limit(10)
     top10Goods.each do |g|
       if g.name
         hashList[g.name] = []

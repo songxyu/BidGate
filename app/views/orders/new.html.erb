@@ -6,32 +6,23 @@
 	<span><b>订单类型：</b></span>
 	<br>
 	<div style="padding-left: 50px;">
-		<% @category.each do |cate| %>
-		<% if cate.is_parent %>
-		<div style='padding-left: 50px;'>
+		<% @category.each do |cate| %>		
+		<div>
 			<%= radio_button_tag :parent_category, cate.id %><%= label_tag cate.name %>
 			<br />
-
-		</div>
-		<% end %>
-		<% end %>
-	</div>
-	<hr />
-
-	<span><b>物品种类：</b></span>
-	<br>
-	<div style="padding-left: 50px;">
-		<% @category.each do |cate| %>
-		<% if !cate.is_parent %>
-		<div style='padding-left: 50px;'>
-			<%= radio_button_tag :category, cate.id %><%= label_tag cate.name %>
-			<br />
-
-		</div>
-		<% end %>
+			
+			<% cate.child_categories.each do |child_cate| %>			
+			<div style='padding-left: 50px;'>
+				<%= radio_button_tag :category, child_cate.id %><%= label_tag child_cate.name %>
+				<br />	
+			</div> 
+			<% end %>
+			
+		</div>		
 		<% end %>
 	</div>
 	<hr />
+
 
 	<!-- order goods data fill area -->
 	<p><b> 货物信息:  	</b></p>
