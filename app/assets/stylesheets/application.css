@@ -48,7 +48,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .homepage a:hover {
 	color: #ccc;
-	cursor: hand;
+	cursor: pointer;
 }
 
 
@@ -58,7 +58,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	clear: left;
 	float: left;
 	padding-left: 200px;
-	width: 200px;
+	width: 10%;
 	height: 100%;
 }
 
@@ -70,7 +70,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .right_wrapper {
 	display: block;
 	float: left;
-	width: 200px;
+	width: 12%;
 	margin-left: 50px;
 	margin-top: 50px;
 	background-color: #eee;
@@ -84,7 +84,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	float: left;
 	margin-left: 50px;
 	min-height: 600px;
-	width: 800px;
+	width: 50%;
 }
 
 .footer {

@@ -28,16 +28,30 @@ class OrdersController < ApplicationController
   end
   
   def create
-    @parent_category = Category.find(params[:category])
-    @category = Category.find(params[:sub_category])
+    # category:4
+    # order_goods[name]:不锈钢啊
+    # order_goods[model]:1111
+    # order_goods[price]:600.0
+    # order_goods[quantity]:10
+    # price:6000.0
+    # order[price_type]:0
+    # deadline[year]:2013
+    # deadline[month]:12
+    # deadline[day]:16
+    # deadline[hour]:00
+    # deadline[minute]:00
+    #@parent_category = Category.find(params[:parent_category])
+    @category = Category.find(params[:category])
     
     @order = Order.new(create_time: DateTime.current, deadline: params[:deadline],
-      price: params[:order_price], buyer_id: 1, seller_id: 2, price_type: 1, status: 1)
-    @order.order_goods.build(name: @category.name, category: @parent_category.name, 
-      price: params[:order_price], model: params[:goods_model], quantity: params[:goods_quantity])  
-        
-    @order.save
+      price: params[:price], buyer_id: 1, seller_id: 2, price_type: params[:price_type], 
+      status: 1, category_id: @category.id)
     
+    filledOrderGoods = params[:order_goods];
+    filledOrderGoods['category'] = @category.name
+    @order.order_goods.build(filledOrderGoods)  
+        
+    @order.save    
     
     redirect_to @order
   end
