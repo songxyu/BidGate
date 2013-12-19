@@ -1,4 +1,6 @@
 BidGate::Application.routes.draw do
+  get "sessions/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -13,13 +15,20 @@ BidGate::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :categories, :goods_props, :orders, :order_goods, :order_price_histories 
-  
+  resources :categories, :goods_props, :orders, :order_goods, :order_price_histories
+
   resources :orders do
     resources :order_goods, :order_price_histories
   end
-  
-   #match '/categories', :to => 'categories#index', :as => :index,
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  #root :to => "users#new"
+  resources :users
+  resources :sessions
+
+  #match '/categories', :to => 'categories#index', :as => :index,
 
   # Sample resource route with options:
   #   resources :products do
@@ -58,9 +67,9 @@ BidGate::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'orders#index'
 
-  # See how all your routes lay out with "rake routes"
+# See how all your routes lay out with "rake routes"
 
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+# This is a legacy wild controller route that's not recommended for RESTful applications.
+# Note: This route will make all actions in every controller accessible via GET requests.
+# match ':controller(/:action(/:id))(.:format)'
 end

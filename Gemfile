@@ -39,3 +39,5 @@ gem 'jquery-rails'
 
 
 gem "nested_form"
+
+gem "bcrypt-ruby", :require => "bcrypt"  # Using bcrypt-ruby (3.1.2)

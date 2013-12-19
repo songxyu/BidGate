@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209124709) do
+ActiveRecord::Schema.define(:version => 20131219142940) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -110,8 +110,13 @@ ActiveRecord::Schema.define(:version => 20131209124709) do
     t.integer  "company_id"
     t.string   "user_type"
     t.integer  "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "email"
+    t.string   "password"
+    t.datetime "signup_time"
+    t.datetime "last_signin_time"
+    t.string   "last_signin_ip"
   end
 
   add_index "users", ["company_id"], :name => "index_users_on_company_id"
