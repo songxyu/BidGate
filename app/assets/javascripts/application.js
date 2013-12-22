@@ -16,6 +16,3 @@
 
 //= require jquery_nested_form
 
-$(function (){
-	$('#order_deadline').datepicker();
-});
