@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   has_many :bid_histories, :class_name => "OrderPriceHistory", :foreign_key => 'buyer_id'
 
   attr_accessible :nickname, :status, :user_type, :company_id, :email, :password, :signup_time,
-              :last_signin_time,  :last_signin_ip, :password_confirmation
+              :last_signin_time,  :last_signin_ip, :password_confirmation 
 
-  attr_accessor :password, :password_hash, :password_salt
+  #attr_accessor :password # do not set this accessor!
   before_save :encrypt_password
 
   validates_confirmation_of :password
@@ -17,20 +17,26 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
   
+  #has_secure_password
+  
   def self.authenticate(email, password)
     user = find_by_email(email)
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-    user
+    if user && user.password == BCrypt::Engine.hash_secret(password, user.password_salt)
+      user
     else
       nil
     end
   end
 
   def encrypt_password
+     
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-      self.password = self.password_hash
+      self.password = BCrypt::Engine.hash_secret(password, password_salt)
+            
+      logger.debug "User: password_salt="+ self.password_salt + ',  encrypted_password='+self.password
+      #p( self )
+      
     end
   end
 end

@@ -8,8 +8,10 @@
     <br>deal_price: <%= @order.deal_price %> 
     <br>seller: <%= @order.seller.nickname %>
     <br>seller公司: <%= @order.seller.company.name %>
-    <br>Buyer: <%= @order.buyer.nickname %>  
-    <br>Buyer公司: <%= @order.buyer.company.name %>
+        
+	<br>Buyer: <%= @order.buyer ? @order.buyer.nickname : '' %>  
+    <br>Buyer公司: <%= @order.buyer ? @order.buyer.company.name : '' %>
+    
 </li> 
     
     	 <p>订单货品: <%= link_to '=>货品列表', order_order_goods_path( :order_id => @order.id ) %> </p>
@@ -29,4 +31,6 @@
 	    	</div>
 	    <% end %>
 	    
+	    <p>debug:</p>
+	    <%= debug @order %>
 <p>	 <%= link_to '<=Back to order list', orders_path %> </p>

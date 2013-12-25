@@ -75,7 +75,7 @@ class OrdersController < ApplicationController
     @category = Category.find(cateId)
     
     @order = Order.new(create_time: DateTime.current, deadline: params[:order][:deadline],
-      price: params[:order][:price], buyer_id: 1, seller_id: 2, price_type: params[:order][:price_type], 
+      price: params[:order][:price], buyer_id: nil, seller_id: session[:user_id], price_type: params[:order][:price_type], 
       status: 1, category_id: @category.id)
     
     arrOrderGoods = []
@@ -87,12 +87,18 @@ class OrdersController < ApplicationController
       arrOrderGoods << valueArr
     end
     
-    puts arrOrderGoods
+    #puts arrOrderGoods
     @order.order_goods.build(arrOrderGoods)  
         
     @order.save    
     
     redirect_to @order
+  end
+  
+  
+  def order_detail_params
+    params.require(:order).permit(:deadline, :price, :price_type, 
+      order_goods_attributes: [:name, :model, :price, :quantity, :_destroy]) # when remove, need _destroy
   end
   
   def show
