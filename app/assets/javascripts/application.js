@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require_tree
 
+//= require jquery.ui.all
+
 //= require jquery_nested_form
 
