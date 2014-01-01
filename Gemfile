@@ -12,7 +12,7 @@ gem 'sqlite3'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  #gem 'coffee-rails', '~> 3.2.1' # comment it if use js instead of coffee
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -45,5 +45,5 @@ gem "nested_form"
 
 
 group :development do
-  gem 'meta_request'
+  gem 'meta_request','0.2.8'
 end

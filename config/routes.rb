@@ -21,6 +21,9 @@ BidGate::Application.routes.draw do
     resources :order_goods, :order_price_histories
   end
 
+
+  get "props_by_category" => "goods_props#props_by_category", :as => "props_by_category"
+  
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
