@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131219142940) do
+ActiveRecord::Schema.define(:version => 20140108123510) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -21,18 +21,28 @@ ActiveRecord::Schema.define(:version => 20131219142940) do
     t.integer  "sort_order"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image_path"
   end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.string   "contact"
     t.string   "contact_tel"
-    t.string   "address"
+    t.string   "register_address"
     t.integer  "register_capital"
     t.string   "main_biz"
     t.string   "legal_person"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.binary   "license_image"
+    t.string   "account_num"
+  end
+
+  create_table "follow_relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "goods_exts", :force => true do |t|
@@ -66,6 +76,14 @@ ActiveRecord::Schema.define(:version => 20131219142940) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "zip_code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "order_goods", :force => true do |t|
     t.integer  "order_id"
     t.integer  "quantity"
@@ -75,6 +93,8 @@ ActiveRecord::Schema.define(:version => 20131219142940) do
     t.string   "model"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+    t.binary   "image"
+    t.string   "memo"
   end
 
   add_index "order_goods", ["order_id"], :name => "index_order_goods_on_order_id"
@@ -83,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20131219142940) do
     t.integer  "order_id"
     t.datetime "bid_time"
     t.decimal  "price",      :precision => 8, :scale => 2
-    t.integer  "buyer_id"
+    t.integer  "vendor_id"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
   end
@@ -92,31 +112,40 @@ ActiveRecord::Schema.define(:version => 20131219142940) do
 
   create_table "orders", :force => true do |t|
     t.datetime "create_time"
-    t.decimal  "price",       :precision => 8, :scale => 2
+    t.decimal  "price",          :precision => 8, :scale => 2
     t.integer  "price_type"
     t.integer  "status"
     t.integer  "buyer_id"
-    t.integer  "seller_id"
-    t.decimal  "deal_price",  :precision => 8, :scale => 2
+    t.integer  "vendor_id"
+    t.decimal  "deal_price",     :precision => 8, :scale => 2
     t.datetime "deadline"
     t.datetime "deal_date"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.integer  "category_id"
+    t.string   "order_num"
+    t.integer  "location_id"
+    t.integer  "payment_method"
+    t.integer  "currency"
+    t.string   "vendor_list"
   end
 
   create_table "users", :force => true do |t|
     t.string   "nickname"
     t.integer  "company_id"
-    t.string   "user_type"
     t.integer  "status"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.datetime "signup_time"
     t.datetime "last_signin_time"
     t.string   "last_signin_ip"
+    t.string   "username"
+    t.string   "contact"
+    t.string   "contact_cellphone"
+    t.string   "contact_tel"
+    t.integer  "contact_title"
   end
 
   add_index "users", ["company_id"], :name => "index_users_on_company_id"

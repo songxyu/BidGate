@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :bid_histories, :class_name => "OrderPriceHistory", :foreign_key => 'buyer_id'
 
-  attr_accessible :nickname, :status, :user_type, :company_id, :email, :password, :signup_time,
-              :last_signin_time,  :last_signin_ip, :password_confirmation 
+  attr_accessible :nickname, :status, :company_id, :email, :password, :signup_time,
+              :last_signin_time,  :last_signin_ip, :password_confirmation, :username,
+              :contact, :contact_cellphone, :contact_tel, :contact_title
 
   #attr_accessor :password # do not set this accessor!
   before_save { self.email = email.downcase } #:encrypt_password

@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
-  attr_accessible :buyer_id, :create_time, :deadline, :deal_date, :deal_price, :price, :price_type, :seller_id, :status, :category_id
+  attr_accessible :buyer_id, :create_time, :deadline, :deal_date, :deal_price, :price, :price_type, 
+          :vendor_id, :status, :category_id, :order_num, :location_id, :payment_method, :currency, :vendor_list
   attr_accessible :order_goods_attributes # for nested form gem
 
   belongs_to :category  

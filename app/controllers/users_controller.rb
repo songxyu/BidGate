@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     
     createdUserInfo = params[:user]
     createdUserInfo['status'] = 0
-    createdUserInfo['user_type'] = 'B'
     createdUserInfo['company_id'] = 1
     createdUserInfo['signup_time'] = DateTime.current
     createdUserInfo['last_signin_time'] = DateTime.current
