@@ -9,6 +9,7 @@ class Order < ActiveRecord::Base
   
   belongs_to :buyer, :class_name => "User", :foreign_key => 'buyer_id'
   belongs_to :vendor, :class_name => "User", :foreign_key => 'vendor_id'
+  belongs_to :location, :class_name => "Location", :foreign_key => 'location_id'
   
   accepts_nested_attributes_for :order_goods, :allow_destroy => true
   accepts_nested_attributes_for :order_price_histories, :allow_destroy => true

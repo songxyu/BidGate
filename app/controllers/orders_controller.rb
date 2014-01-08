@@ -6,12 +6,13 @@ class OrdersController < ApplicationController
     @filter_tag_name = params[:tag_name]
     @filter_category = param_cate_id ? Category.where(id: param_cate_id)[0] : nil
     
+    visible_order_status = [0, 1, 2]
     if param_cate_id
-      @orders = Order.where(category_id: param_cate_id)
+      @orders = Order.where(category_id: param_cate_id, status: visible_order_status)
     elsif order_id_list
       @orders = Order.find(order_id_list)      
     else
-      @orders = Order.all
+      @orders = Order.where(status: visible_order_status)
     end
     
     #@orders.each do |oneOrder|

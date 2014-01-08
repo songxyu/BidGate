@@ -15,7 +15,7 @@
 	<li>
 		Order ID: <%= order.id %>   <%= link_to '=>details', order %>
 		<br>
-		Created: <%= order.create_time %>
+		Created: <%= order.create_time %>   <b> <%=order.location ? order.location.full_location_name : '' %></b>
 		<br>
 		Total: <%= order.price %>  <%= link_to '=>Bid it!', edit_order_path(order) %>
 	</li>
