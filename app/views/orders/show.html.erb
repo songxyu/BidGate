@@ -6,8 +6,8 @@
     <br>Deadline: <%= @order.deadline %>
     <br>deal_date: <%= @order.deal_date %> 
     <br>deal_price: <%= @order.deal_price %> 
-    <br>seller: <%= @order.seller.nickname %>
-    <br>seller公司: <%= @order.seller.company.name %>
+    <br>供应商联系人: <%= @order.vendor ?  @order.vendor.nickname : '' %>
+    <br>供应商公司: <%= @order.vendor ?  @order.vendor.company.name : '' %>
         
 	<br>Buyer: <%= @order.buyer ? @order.buyer.nickname : '' %>  
     <br>Buyer公司: <%= @order.buyer ? @order.buyer.company.name : '' %>

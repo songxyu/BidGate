@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     #@orders.each do |oneOrder|
       #oneOrder.order_goods = OrderGoods.where(order_id: oneOrder.id)
       #oneOrder.order_price_histories = OrderPriceHistory.where(order_id: oneOrder.id)
-      #oneOrder.seller = User.find( oneOrder.seller_id ) # no need do this!
+      #oneOrder.vendor = User.find( oneOrder.vendor_id ) # no need do this!
       #oneOrder.buyer = User.find( oneOrder.buyer_id )
     #end
   end
@@ -75,7 +75,7 @@ class OrdersController < ApplicationController
     @category = Category.find(cateId)
     
     @order = Order.new(create_time: DateTime.current, deadline: params[:order][:deadline],
-      price: params[:order][:price], buyer_id: nil, seller_id: session[:user_id], price_type: params[:order][:price_type], 
+      price: params[:order][:price], buyer_id: session[:user_id], vendor_id: nil, price_type: params[:order][:price_type], 
       status: 1, category_id: @category.id)
     
     arrOrderGoods = []
@@ -103,7 +103,7 @@ class OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
-    #@order.seller = User.find( @order.seller_id )  # no need do this!
+    #@order.vendor = User.find( @order.vendor_id )  # no need do this!
     #@order.buyer = User.find( @order.buyer_id )
   end
   

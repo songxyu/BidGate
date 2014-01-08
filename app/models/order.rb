@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   has_many :order_price_histories, dependent: :destroy
   
   belongs_to :buyer, :class_name => "User", :foreign_key => 'buyer_id'
-  belongs_to :seller, :class_name => "User", :foreign_key => 'seller_id'
+  belongs_to :vendor, :class_name => "User", :foreign_key => 'vendor_id'
   
   accepts_nested_attributes_for :order_goods, :allow_destroy => true
   accepts_nested_attributes_for :order_price_histories, :allow_destroy => true
