@@ -1,21 +1,60 @@
 <% content_for :header do %>
 <div class="header">
-	<div class='homepage'>
-		<%= link_to "HOME PAGE", orders_path %>
+	<div class="header-top-row">
+		<span class="welcome-signin">欢迎来到壹百万，
+			<% if current_user %>
+			当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", log_out_path %>
+			<% else %>
+			请<%= link_to "登录",  log_in_path %> 或 <%= link_to "免费注册", sign_up_path %>
+			<% end %> </span>
+		<span class="my-profile-link"><%= link_to "我的壹百万",  user_profile_path %> </span>
+		<span class="service-info">服务电话: 400-830-4545 </span>
 	</div>
 
-	<div class="user_nav">
-		<% if current_user %>
-		Logged in as <b><%= current_user.nickname %> </b>
-		<%= link_to "Log out", log_out_path %>
-		<% else %>
-		<%= link_to "Sign up", sign_up_path %> or
-		<%= link_to "log in", log_in_path %>
-		<% end %>
+	<div class="header-middle-row">
+		<ul>
+			<li>
+				<span class="logo"></span>
+			</li>
+			<li>
+				<span class="intro-text"> 全国领先的原材料商品交易平台 </span>
+			</li>
+			<li>
+				<span class="feature-list"> </span>
+			</li>
+	</div>
+
+	<div class="nav_menu">
+		<ul>
+			<li>
+				分类筛选
+			</li>
+			<li>
+				<%= link_to "首页", orders_path %>
+			</li>
+			<li>
+				发现采购单
+			</li>
+			<li>
+				我要下单
+			</li>
+			<li>
+				发现供应商
+			</li>
+			<li>
+				什么是壹百万
+			</li>
+			<li>
+				<div class="search-bar">
+					<input size="20">
+				</div>
+			</li>
+		</ul>
+
 	</div>
 
 	<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<%= content_tag :div, msg, :id => "flash_#{name}" %>
 	<% end %>
 </div>
 

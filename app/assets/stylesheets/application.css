@@ -10,14 +10,14 @@
  *
  *= require_self
  *= require_tree .
- * 
+ *
  *= require jquery.ui.all
  */
 
 html {
 	display: block;
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: #DDE1E5;
+	background-color: white;
 }
 
 body, input, select, textarea, button {
@@ -36,24 +36,87 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .header {
-	background-image: url("./header_bg.png");
-	line-height: 40px;
+	min-width: 800px;
+	/*background-image: url("./header_bg.png");
+	 line-height: 40px;*/
 }
 
-.header .user_nav{
-	clear: all;
+.header .header-top-row {
+	background-color: #eee;
+}
+
+.header .welcome-signin {
+	margin: 0 100px;
+}
+
+.header .my-profile-link {
+	margin: 0 50px;
+}
+
+.header .service-info {
+	clear: both;
 	float: right;
-	right: 10px;
-	color: white;
-	top: 5px;
-	position: absolute;
+	position: relative;
+	margin-right: 50px;
+	color: red;
 }
 
-.header .user_nav a{
-	color: #88f;
+.header .header-middle-row{
+	height: 120px;
+	display:inline-block;
 }
 
-.homepage a{
+
+.header .header-middle-row li{
+	float: left;	 
+	position: relative;
+	list-style: none;
+	min-width: 200px;
+}
+
+.header .logo {
+	display: block;	
+	float: left;
+	height: 120px;
+	width: 200px;
+	background: url("../img/logo.png") no-repeat center center; /* image is put under folder public */
+}
+
+.header .intro-text{ 
+	width: 300px;	
+	margin: 40px 50px;	
+	position: relative;
+}
+
+
+.header .feature-list{
+	height: 120px;
+	width: 300px;
+	clear: both;
+	float: right;
+	position: relative;
+	margin-right: 100px;
+	background: url("../img/feature-list.png") no-repeat center center; 
+}
+
+
+.header .nav_menu {
+	 display:inline-block;
+	 margin-top: 8px;
+	 background-color: #78d;
+}
+
+
+.header .nav_menu li{
+	float: left;
+	width: 160px;
+	position: relative;
+	list-style: none;
+}
+
+
+
+.homepage a {
 	color: #EEE;
 	font-size: 20px;
 	margin-left: 200px;
@@ -65,8 +128,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	color: #ccc;
 	cursor: pointer;
 }
-
-
 
 .left_wrapper {
 	display: block;
@@ -91,7 +152,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background-color: #eee;
 }
 .hot_tags_area {
-	
+
 	min-height: 100px;
 }
 

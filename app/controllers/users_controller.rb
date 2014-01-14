@@ -25,5 +25,10 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+  
+  def profile
+    @user = User.find( session[:user_id] )
+    render "show"
+  end
 
 end
