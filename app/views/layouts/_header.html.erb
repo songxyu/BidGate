@@ -46,7 +46,12 @@
 			</li>
 			<li>
 				<div class="search-bar">
-					<input size="20">
+					<%= form_tag orders_search_path, :method => :get do %>
+					<p>
+						<%= text_field_tag :search, params[:search] %>
+						<%= submit_tag "搜索", :name => nil %>
+					</p>
+					<% end %>
 				</div>
 			</li>
 		</ul>

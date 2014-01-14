@@ -45,6 +45,10 @@ gem "nested_form"
 
 gem 'kaminari'
 
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+
+
 group :development do
   gem 'meta_request','0.2.8'
 end

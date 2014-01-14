@@ -23,6 +23,18 @@ class OrdersController < ApplicationController
     #end
   end
   
+  
+  def search
+     logger.debug "Search param:" + params[:search]  
+     @search = Order.search do
+        fulltext params[:search] 
+     end
+     @orders = @search.results
+     
+     logger.debug "Search result count: " + @orders.count.to_s
+     render "index"
+  end
+  
   def new
     @order = Order.new
     @category = Category.where(parent_id: 0)

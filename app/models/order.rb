@@ -1,6 +1,8 @@
 class Order < ActiveRecord::Base
   attr_accessible :buyer_id, :create_time, :deadline, :deal_date, :deal_price, :price, :price_type, 
-          :vendor_id, :status, :category_id, :order_num, :location_id, :payment_method, :currency, :vendor_list
+          :vendor_id, :status, :category_id, :order_num, :location_id, :payment_method, :currency, :vendor_list,
+          :location_searchable
+          
   attr_accessible :order_goods_attributes # for nested form gem
 
   belongs_to :category  
@@ -18,6 +20,28 @@ class Order < ActiveRecord::Base
   #pagination related
   paginates_per 2
    
+  # full-text search 
+  searchable do
+    text :order_num, :category, :location_searchable
+    text :order_goods do
+      order_goods.map { |order_gd| order_gd.name order_gd.model order_gd.memo    }
+    end
+    
+    text :vendor do
+      vendor.map { |v| v.company.name    }
+    end
+    
+    text :buyer do
+      buyer.map { |b| b.company.name    }
+    end
+    
+    
+  end
+  
+  
+  
+  
+  
   def self.hot_tags    
      hashList = {}
      

@@ -14,12 +14,22 @@ BidGate::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  
+  get "orders/search" => "orders#search"
+  # not use the following to avoid duplicate collection paths
+  # resources :orders do
+     # collection do
+      # get :search #, to: 'orders#search', on: :collection
+     # end
+  # end
 
   resources :categories, :goods_props, :orders, :order_goods, :order_price_histories
 
   resources :orders do
-    resources :order_goods, :order_price_histories
+    resources :order_goods, :order_price_histories 
   end
+  
+
 
 
   get "props_by_category" => "goods_props#props_by_category", :as => "props_by_category"
@@ -29,6 +39,8 @@ BidGate::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   
   get "user_profile" => "users#profile", :as => "user_profile"
+   
+ 
   
   
   #root :to => "users#new"

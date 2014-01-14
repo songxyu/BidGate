@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140108123510) do
+ActiveRecord::Schema.define(:version => 20140114150159) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -112,22 +112,23 @@ ActiveRecord::Schema.define(:version => 20140108123510) do
 
   create_table "orders", :force => true do |t|
     t.datetime "create_time"
-    t.decimal  "price",          :precision => 8, :scale => 2
+    t.decimal  "price",               :precision => 8, :scale => 2
     t.integer  "price_type"
     t.integer  "status"
     t.integer  "buyer_id"
     t.integer  "vendor_id"
-    t.decimal  "deal_price",     :precision => 8, :scale => 2
+    t.decimal  "deal_price",          :precision => 8, :scale => 2
     t.datetime "deadline"
     t.datetime "deal_date"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.integer  "category_id"
     t.string   "order_num"
     t.integer  "location_id"
     t.integer  "payment_method"
     t.integer  "currency"
     t.string   "vendor_list"
+    t.string   "location_searchable"
   end
 
   create_table "users", :force => true do |t|

@@ -57,5 +57,9 @@ call rails generate model Location name:string parent_id:integer  zip_code:integ
 call rails generate model FollowRelationship follower_id:integer followed_id:integer
 
 
+echo add the location column in order table for search
+call rails generate migration AddLocationSearchableToOrders location_searchable:string
+
+
 echo  ----- finished changes ----
 pause

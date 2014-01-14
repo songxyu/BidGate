@@ -7,6 +7,8 @@
 	<p> <strong><%= @filter_category ? "类别: "+ @filter_category.name : "Tag: "+ @filter_tag_name %> </strong> 相关的订单:</p>
 <% end %>
 
+<p>总计订单数: <%= @orders.total_count %></p>
+
 <% @orders.each do |order| %>
 <div style="border-top: 1px solid #000; padding: 5px 0;">
 	<li>
