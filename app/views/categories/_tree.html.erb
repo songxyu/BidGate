@@ -1,14 +1,17 @@
- 
- <h3>类别树: </h3>
- 
-<% Category.all_categories_tree.each do |cate| %>
-  <div>
-    <span><%= cate.id %></span> - <span><%= cate.name %>: </span> 
-    <% cate.child_categories.each do |child| %>    
-    	<div style="padding-left: 50px;">    		
-    		<li><%= child.id %> - <%= link_to child.name, orders_path(:category_id => child.id) %></li>
-    	</div>
-    <% end %>
-  </div>
-<% end %>
- 
+<div class="tree_container">
+	<h3>类别树: </h3>
+
+	<% Category.all_categories_tree.each do |cate| %>
+	<div>
+		<span><%= cate.id %></span> - <span><%= cate.name %>: </span>
+		<% cate.child_categories.each do |child| %>
+		<div style="padding-left: 50px;">
+			<li>
+				<%= child.id %> - <%= link_to child.name, orders_path(:category_id => child.id) %>
+			</li>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+
+</div>

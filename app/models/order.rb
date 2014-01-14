@@ -15,6 +15,9 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :order_price_histories, :allow_destroy => true
    
    
+  #pagination related
+  paginates_per 2
+   
   def self.hot_tags    
      hashList = {}
      

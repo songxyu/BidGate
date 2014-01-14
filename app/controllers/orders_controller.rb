@@ -8,11 +8,11 @@ class OrdersController < ApplicationController
     
     visible_order_status = [0, 1, 2]
     if param_cate_id
-      @orders = Order.where(category_id: param_cate_id, status: visible_order_status)
+      @orders = Order.where(category_id: param_cate_id, status: visible_order_status).page(params[:page])
     elsif order_id_list
-      @orders = Order.find(order_id_list)      
+      @orders = Order.find(order_id_list).page(params[:page])
     else
-      @orders = Order.where(status: visible_order_status)
+      @orders = Order.where(status: visible_order_status).page(params[:page])
     end
     
     #@orders.each do |oneOrder|

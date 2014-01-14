@@ -18,6 +18,10 @@
 				<%= render "categories/tree", :object => Category.all_categories_tree %>
 			</div>
 
+
+			<div class="hot_tags_area">
+				<%= render "orders/hot_tags" %>
+			</div>
 		</div>
 
 		<div class="content_area">
@@ -25,9 +29,7 @@
 		</div>
 
 		<div class="right_wrapper">
-			<div class="hot_tags_area">
-				<%= render "orders/hot_tags" %>
-			</div>
+			
 		</div>
 
 		<%= render "layouts/footer" %>

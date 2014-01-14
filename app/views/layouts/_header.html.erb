@@ -16,7 +16,7 @@
 			<li>
 				<span class="logo"></span>
 			</li>
-			<li>
+			<li class="padding-top-40">
 				<span class="intro-text"> 全国领先的原材料商品交易平台 </span>
 			</li>
 			<li>
@@ -29,14 +29,14 @@
 			<li>
 				分类筛选
 			</li>
-			<li>
+			<li class="padding-left-100">
 				<%= link_to "首页", orders_path %>
 			</li>
 			<li>
-				发现采购单
+				<%= link_to "发现采购单", orders_path %>
 			</li>
 			<li>
-				我要下单
+				<%= link_to  '我要下单', new_order_path  %>
 			</li>
 			<li>
 				发现供应商

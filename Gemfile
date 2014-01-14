@@ -43,6 +43,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem "nested_form"
 
+gem 'kaminari'
 
 group :development do
   gem 'meta_request','0.2.8'

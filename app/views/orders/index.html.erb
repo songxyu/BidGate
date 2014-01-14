@@ -1,10 +1,7 @@
 <!--<div style="background-color: #68217A;"> -->
 <!-- <div style="background: url('/assets/nav_bg.png') repeat #fff; background: repeat;"> -->
-<div>
-	<%= button_to  '我要下单', new_order_path, :method => :get %>
-</div>
-
-<h1>Orders in BidGate: </h1>
+ 
+<h1>Orders </h1>
 
 <% if @filter_category || @filter_tag_name %>
 	<p> <strong><%= @filter_category ? "类别: "+ @filter_category.name : "Tag: "+ @filter_tag_name %> </strong> 相关的订单:</p>
@@ -45,5 +42,5 @@
 </div>
 <% end %>
 
-</div>
+<%= paginate @orders %>
 <!-- </div> -->
