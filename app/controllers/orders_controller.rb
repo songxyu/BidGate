@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
      logger.debug "Search param:" + params[:search]  
      @search = Order.search do
         fulltext params[:search] 
+        order_by :create_time, :desc
+        paginate :page => params[:page], :per_page => 2
      end
      @orders = @search.results
      

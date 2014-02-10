@@ -46,9 +46,10 @@ gem "nested_form"
 gem 'kaminari'
 
 gem 'sunspot_rails'
-gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development, run using:  rake sunspot:solr:run
 
 
 group :development do
   gem 'meta_request','0.2.8'
+  gem 'progress_bar' # for fulltext index progress reporting, when use rake sunspot:reindex
 end

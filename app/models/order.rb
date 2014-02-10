@@ -17,22 +17,29 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :order_price_histories, :allow_destroy => true
    
    
-  #pagination related
+  # pagination related
   paginates_per 2
    
   # full-text search 
   searchable do
-    text :order_num, :category, :location_searchable
+    text :order_num, :location_searchable
+    time :create_time
     text :order_goods do
-      order_goods.map { |order_gd| order_gd.name order_gd.model order_gd.memo    }
+      order_goods.map { |order_gd| order_gd.name  } #  order_gd.model order_gd.memo TODO: how index multiple fields?  
+     #order_goods.map { |order_gd| order_gd.model }
+     #order_goods.map { |order_gd| order_gd.memo  }
+    end 
+    
+    text :category do
+      category do |c| c.name end
     end
     
     text :vendor do
-      vendor.map { |v| v.company.name    }
+      vendor do |v| v.company.name end
     end
     
     text :buyer do
-      buyer.map { |b| b.company.name    }
+      buyer do |v| v.company.name end
     end
     
     

@@ -34,6 +34,8 @@ GEM
     callsite (0.0.11)
     erubis (2.7.0)
     execjs (2.0.2)
+    fattr (2.2.1)
+    highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -57,10 +59,17 @@ GEM
     mini_portile (0.5.2)
     multi_json (1.8.2)
     nested_form (0.3.2)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     nokogiri (1.6.1-x86-mingw32)
       mini_portile (~> 0.5.0)
+    options (2.3.0)
+      fattr
     polyglot (0.3.3)
     pr_geohash (1.0.0)
+    progress_bar (1.0.0)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -129,6 +138,7 @@ DEPENDENCIES
   kaminari
   meta_request (= 0.2.8)
   nested_form
+  progress_bar
   rails (= 3.2.15)
   sass-rails (~> 3.2.3)
   sqlite3
