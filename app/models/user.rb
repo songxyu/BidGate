@@ -43,4 +43,6 @@ class User < ActiveRecord::Base
       # #p( self )      
     # end
   # end
+   
+ 
 end

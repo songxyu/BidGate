@@ -24,28 +24,41 @@ class Order < ActiveRecord::Base
   searchable do
     text :order_num, :location_searchable
     time :create_time
-    text :order_goods do
-      order_goods.map { |order_gd| order_gd.name  } #  order_gd.model order_gd.memo TODO: how index multiple fields?  
+    
+    # the following do not work, as solr needs any data that comes from associations in your database is flattened down into your document.
+    #text :order_goods do
+     # order_goods.map { |order_gd| order_gd.order_goods_indexing_info  }      
+     #order_goods.map { |order_gd| order_gd.name  } #  order_gd.model order_gd.memo TODO: how index multiple fields?  
      #order_goods.map { |order_gd| order_gd.model }
      #order_goods.map { |order_gd| order_gd.memo  }
-    end 
+    #end 
+    
+    text :order_goods_search
     
     text :category do
-      category do |c| c.name end
+      category.name
     end
     
-    text :vendor do
-      vendor do |v| v.company.name end
-    end
-    
-    text :buyer do
-      buyer do |v| v.company.name end
-    end
-    
+    text :vendor_search    
+    text :buyer_search    
     
   end
   
+  def order_goods_search
+    self.order_goods.map{|item| (item.name ? item.name : '') + ',' + (item.model ? item.model : '') + ',' + (item.memo ? item.memo : '') + (item.category ? item.category : '') }.join(',')
+  end
+
+  def vendor_search
+    if self.vendor && self.vendor.company
+      self.vendor.company.name
+    end
+  end
   
+   def buyer_search
+    if self.buyer && self.buyer.company
+      self.buyer.company.name
+    end
+  end
   
   
   
