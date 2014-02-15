@@ -30,13 +30,13 @@
 				分类筛选
 			</li>
 			<li class="padding-left-100">
-				<%= link_to "首页", orders_path %>
+				<%= link_to "首页", orders_path, remote: true %>
 			</li>
 			<li>
-				<%= link_to "发现采购单", orders_path %>
+				<%= link_to "发现采购单", orders_path, remote: true %>
 			</li>
 			<li>
-				<%= link_to  '我要下单', new_order_path  %>
+				<%= link_to  '我要下单', new_order_path, remote: true  %>
 			</li>
 			<li>
 				发现供应商
@@ -46,7 +46,7 @@
 			</li>
 			<li>
 				<div class="search-bar">
-					<%= form_tag orders_search_path, :method => :get do %>
+					<%= form_tag orders_search_path, :method => :get, :remote => true do %>
 					<p>
 						<%= text_field_tag :search, params[:search] %>
 						<%= submit_tag "搜索", :name => nil %>

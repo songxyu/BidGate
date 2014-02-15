@@ -1,0 +1,11 @@
+<%
+	logger.debug "======= responded with rendered content_area.js.erb ======"
+	ctrl_name = params[:controller]  # bug when use controller.controller_name!
+ 	action_name = params[:action] # controller.action_name
+  	logger.debug "*** controller_name= " + ctrl_name +", action_name= " + action_name 
+  	action_path = ctrl_name + '/' + action_name 
+  	logger.debug "*** action_path: " + action_path
+%>
+
+$(".content_area").html("<%= escape_javascript render(:partial => action_path ) %>");
+ 

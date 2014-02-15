@@ -1,16 +1,1 @@
-<h2>货品详情 : for order id: <%= @order.id %>, bid id: <%= @one_order_goods.id %></h2>
-   
-	<div style="padding-left: 50px;">    		
-		<li>名称: <%= @one_order_goods.name %> </li>  
-		<li>价格: <%= @one_order_goods.price %> </li>
-		<li>数量: <%= @one_order_goods.quantity %> </li>
-		<li>型号: <%= @one_order_goods.model %> </li>
-		<li>类别: <%= @one_order_goods.category %> </li>
-		
-		<p><b>扩展属性:</p>			
-		<% @one_order_goods.goods_exts.each do |ext_prop_value| %>
-			<li><%= ext_prop_value.goods_prop.name %> : <%= ext_prop_value.prop_value %> </li>
-		<% end %>
-	</div>
- 
-<p> <%= link_to '<=Back to 货品列表',  order_order_goods_path(:order_id => @order.id) %> </p>
+<%= render "show" %>

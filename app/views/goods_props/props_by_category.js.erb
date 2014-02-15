@@ -1,2 +1,3 @@
 
-$(".extPropArea").html("<%= escape_javascript(render @goods_props) %>");
+$(".extPropArea").html("<%= escape_javascript render(:partial => 'goods_props/goods_prop_by_cate') %>");
+

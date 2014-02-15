@@ -1,0 +1,12 @@
+ 
+
+<h2>竞价历史列表: for order id: <%= @order.id %></h2>
+<% @price_histories.each do |histo| %>    
+	<div style="padding-left: 50px;">    		
+		<li>Time: <%= histo.bid_time %>,  | Bid Price: <%= histo.price %>,  | 竞价人: <%= histo.vendor ? histo.vendor.nickname : "" %> 
+		<%= link_to '=>竞价详情 ', order_order_price_history_path(:order_id => @order.id, :id=>histo.id), remote: true %>	
+		</li>
+	</div>
+<% end %>
+	  
+<p> <%= link_to '<=Back to 订单详情', order_path(@order), remote: true %> </p>

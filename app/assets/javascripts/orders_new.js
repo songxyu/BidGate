@@ -9,7 +9,7 @@ $('.addExtProp').bind('click', function(event) {
 	//	cate_id = $("input[type='radio', name='parent_category']").val();
 	}
 
-	alert(cate_id);
+	//alert('category_id=' +cate_id);
 
 	$.ajax({
 		url : '/props_by_category', //Note the my_controller and action here, i.e. change accordingly
@@ -18,9 +18,10 @@ $('.addExtProp').bind('click', function(event) {
 			'category_id' : cate_id
 		}
 	}).done(function(data) {
-		alert(JSON.stringify(data));
+		//alert(JSON.stringify(data));
+		$('.addExtProp').unbind('click').addClass('disabled_link');
 	}).fail(function(jqXHR, textStatus) {
-		alert("Request failed: " + textStatus);
+		//alert("Request failed: " + textStatus);
 	});
 });
 

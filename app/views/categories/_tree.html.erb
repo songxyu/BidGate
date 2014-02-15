@@ -6,7 +6,7 @@
 		<% cate.child_categories.each do |child| %>
 		<div style="padding-left: 50px;">
 			<li>
-				<%= child.id %> - <%= link_to child.name, orders_path(:category_id => child.id) %>
+				<%= child.id %> - <%= link_to child.name, orders_path(:category_id => child.id), remote: true %>
 			</li>
 		</div>
 		<% end %>

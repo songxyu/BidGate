@@ -1,0 +1,8 @@
+<% @goods_props.each do |prop| %>
+  <li>
+    <span><%= prop.name%> : </span> 
+     <input type="text" value="" id= "order_order_goods_attributes_0_propid_<%= prop.id %>" 
+    name= "order[order_goods_attributes][0][propid_<%= prop.id %>]"    size="30" >   
+    
+  </li>
+<% end %>
