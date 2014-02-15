@@ -5,9 +5,7 @@
 
 $(document).ready(function(){
     
-  // use jquery datepicker for some date fields
-  $('#order_deadline').datepicker();
-  $('#order_deadline').datepicker('option', 'dateFormat', 'yy-m-dd');
+
 });
 
   

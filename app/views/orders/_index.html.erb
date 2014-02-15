@@ -18,11 +18,14 @@
       params[:search_sort_by] ? params[:search_sort_by] : 1
     ]
 %>
-<p>
-	在城市 <%= select_tag( :search_location_id, options_for_select(@location_array, selected_filter_id_array[0]) ) %>
-	查找  <%= select_tag( :search_category_id, options_for_select(@category_array, selected_filter_id_array[1]) ) %> 类别的订单,
-	并以  <%= select_tag( :search_sort_by, options_for_select([['日期', 1], ['价格', 2], ['数量', 3] ], selected_filter_id_array[2]) ) %>  排序
-</p>
+	<%= form_tag orders_search_path, :id => "search_filter_form",  :method => :get, remote: true   do |f| %>	 
+		在城市 <%= select_tag( :search_location_id, options_for_select(@location_array, selected_filter_id_array[0]) ) %>
+		查找  <%= select_tag( :search_category_id, options_for_select(@category_array, selected_filter_id_array[1]) ) %> 类别的订单,
+		并以  <%= select_tag( :search_sort_by, options_for_select(
+				[['订单日期', 1], ['截止日期', 2], ['价格(小->大)', 3], ['价格(大->小)', 4], 
+				['数量(少->多)', 5], ['数量(多->少)', 6] ], selected_filter_id_array[2]) ) %>  排序
+		<%= hidden_field_tag( :search, params[:search] ) %>	 
+	<% end %>
 <% end %>
 
 <% if @filter_category || @filter_tag_name %>
@@ -65,7 +68,7 @@
 	</p>
 	<% order.order_goods.each do |goods| %>
 	<div style="padding-left: 50px;">
-		<span>ID: <%= goods.id %>   Name:<%= goods.name %>  Price: <%= goods.price %>
+		<span>ID: <%= goods.id %>   Name:<%= goods.name %>  价格: <%= goods.price %> 数量: <%= goods.quantity %>
 			型号: <%= goods.model %>   类别:<%= goods.category %></span>
 	</div>
 	<% end %>

@@ -16,7 +16,7 @@ class OrdersController < CommonController
     if param_cate_id
       @orders = Order.where(category_id: param_cate_id, status: visible_order_status).order(default_order_by).page(params[:page])
     elsif order_id_list
-      @orders = Kaminari.paginate_array( Order.find(order_id_list).sort {|x,y| y.create_time <=> x.create_time} ).page(params[:page])
+      @orders = Kaminari.paginate_array( Order.where(status: visible_order_status).find(order_id_list).sort {|x,y| y.create_time <=> x.create_time} ).page(params[:page])
     else
       @orders = Order.where(status: visible_order_status).order(default_order_by).page(params[:page])
     end
@@ -34,11 +34,33 @@ class OrdersController < CommonController
   
   
   def search
-     logger.debug "Search param:" + params[:search]  
+     search_keywords = params[:search] 
+     # NOTE: params[] var is string!  
+     filter_location_id = params[:search_location_id] 
+     filter_category_id = params[:search_category_id] 
+     sort_by_id =  params[:search_sort_by]
+     
+     filter_location_id = filter_location_id ? filter_location_id.to_i : 0
+     filter_category_id = filter_category_id ? filter_category_id.to_i : 0
+     sort_by_id = sort_by_id ? sort_by_id.to_i : 0
+     sort_by_arr = get_sortby_arr_by_id(sort_by_id)
+          
+     logger.debug "Search keywords param=" + search_keywords \
+                + ", filter_location_id= " + filter_location_id.to_s   \
+                + ", filter_category_id= " + filter_category_id.to_s  \
+                + ", sort_by_str= " + sort_by_arr.to_s       
+     
+ 
+     
+     
      @search = Order.search do
-        fulltext params[:search]  
-        order_by :create_time, :desc
-        paginate :page => params[:page], :per_page => 2
+        fulltext search_keywords 
+        with(:location_id, filter_location_id) unless filter_location_id <= 0 # if 0, remove this scope to hit all records
+        with(:category_id, filter_category_id) unless filter_category_id <= 0
+        
+        order_by sort_by_arr[0], sort_by_arr[1]  # two symbols  #:create_time, :desc 
+               
+        paginate :page => params[:page], :per_page => 10
      end
      @orders = @search.results
      
@@ -47,14 +69,35 @@ class OrdersController < CommonController
      @location_array.sort {|a,b| a[0] <=> b[0] } # sort by name
      @location_array.unshift(["全国", 0]) 
      
-     # all sub category list
-     @category_array = Category.all_child_categories.map { |cat| [cat.name, cat.id] } 
+     # all category list
+     @category_array = Category.all.map { |cat| [cat.name, cat.id] } 
      @category_array.sort {|a,b| a[0] <=> b[0] } # sort by name
      @category_array.unshift(["所有", 0]) 
      
      logger.debug "Search result count: " + @orders.count.to_s
      render "index"  
   end
+  
+  def get_sortby_arr_by_id (id)
+    default_sort = [:create_time,  :desc] # use symbol array
+    case id
+    when 1
+      default_sort
+    when 2
+      [:deadline, :asc] 
+    when 3
+      [:price, :asc]
+    when 4
+      [:price, :desc]
+    when 5
+      [:goods_total_quantity_search_sorting, :asc]
+    when 6
+      [:goods_total_quantity_search_sorting, :desc]
+    else
+      default_sort
+    end
+  end
+  
   
   def new
     @order = Order.new
@@ -136,4 +179,9 @@ class OrdersController < CommonController
     params.require(:order).permit(:deadline, :price, :price_type, 
       order_goods_attributes: [:name, :model, :price, :quantity, :_destroy]) # when remove, need _destroy
   end
+  
+  
+
+  
+  
 end

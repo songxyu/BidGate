@@ -18,12 +18,21 @@ class Order < ActiveRecord::Base
    
    
   # pagination: page size for this model
-  paginates_per 3
+  paginates_per 5
    
   # full-text search 
   searchable do
-    text :order_num, :location_searchable
-    time :create_time
+    text :order_num, :location_searchable # NOTE: only text type attributes can be written together like this!
+    
+    # for sorting search results 
+    time :create_time 
+    time :deadline # must write seperately!
+    integer :category_id # for search filters
+    integer :location_id # for search filters
+    double :price # for sorting    
+    integer :goods_total_quantity_search_sorting # for sorting
+    
+    # integer :status # TODO: whether to show canceled orders in search results?
     
     # the following do not work, as solr needs any data that comes from associations in your database is flattened down into your document.
     #text :order_goods do
@@ -54,10 +63,22 @@ class Order < ActiveRecord::Base
     end
   end
   
-   def buyer_search
+  def buyer_search
     if self.buyer && self.buyer.company
       self.buyer.company.name
     end
+  end
+  
+  def goods_total_quantity_search_sorting
+    count = 0
+    self.order_goods.each do |item|
+      if item
+        count = count + (item.quantity ? item.quantity : 0)
+      end
+      
+    end
+    
+    return count
   end
   
   
