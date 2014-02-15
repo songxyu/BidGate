@@ -7,7 +7,7 @@
 			<% else %>
 			请<%= link_to "登录",  log_in_path %> 或 <%= link_to "免费注册", sign_up_path %>
 			<% end %> </span>
-		<span class="my-profile-link"><%= link_to "我的壹百万",  user_profile_path %> </span>
+		<span class="my-profile-link"><%= link_to "我的壹百万",  user_profile_path, remote: true %> </span>
 		<span class="service-info">服务电话: 400-830-4545 </span>
 	</div>
 

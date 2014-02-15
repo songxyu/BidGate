@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < CommonController
   def new
     @user = User.new
   end
@@ -28,7 +28,9 @@ class UsersController < ApplicationController
   
   def profile
     @user = User.find( session[:user_id] )
-    render "show"
+    params[:action] = "show"
+     common_response
   end
-
+  
+  
 end

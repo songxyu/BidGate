@@ -1,32 +1,32 @@
-class OrderPriceHistoriesController < ApplicationController
-  include ResponseUtil
+class OrderPriceHistoriesController < CommonController
+  #include ResponseUtil
   
   def index
     @order = Order.find(params[:order_id])
     @price_histories = @order.order_price_histories 
     logger.debug("OrderPriceHistoriesController.index called!")
     
-    ResponseUtil.common_response
+    common_response
   end 
   
   def show
     @order = Order.find(params[:order_id])
     @price_history = @order.order_price_histories.find(params[:id])
     
-    ResponseUtil.common_response
+    common_response
   end
 
   def edit
   	@order = Order.find(params[:order_id])
   	@price_history = @order.order_price_histories.find(params[:id])
   	
-  	ResponseUtil.common_response
+  	common_response
   end
 
   def new
   	@price_history = @order.order_price_histories.find(params[:order_id])
   	
-  	ResponseUtil.common_response
+  	common_response
   end
 
 

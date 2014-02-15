@@ -1,4 +1,5 @@
-module ResponseUtil
+
+class CommonController < ApplicationController
   
   def common_response    
     logger.debug "ResponseUtil.common_response called..."

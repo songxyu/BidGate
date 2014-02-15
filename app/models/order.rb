@@ -17,8 +17,8 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :order_price_histories, :allow_destroy => true
    
    
-  # pagination related
-  paginates_per 2
+  # pagination: page size for this model
+  paginates_per 3
    
   # full-text search 
   searchable do

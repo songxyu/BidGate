@@ -7,6 +7,10 @@
 	<p> <strong><%= @filter_category ? "类别: "+ @filter_category.name : "Tag: "+ @filter_tag_name %> </strong> 相关的订单:</p>
 <% end %>
 
+<% if params[:action]=="search" %>
+	<p> 找到包含 <strong><%= params[:search]  %> </strong> 的订单:</p>
+<% end %>
+
 <p>总计订单数: <%= @orders.total_count %></p>
 
 <% @orders.each do |order| %>

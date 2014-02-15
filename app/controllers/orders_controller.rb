@@ -1,5 +1,5 @@
-class OrdersController < ApplicationController
-  include ResponseUtil
+class OrdersController < CommonController
+  #include ResponseUtil
   
   # TODO: fix issue using after_filter: Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action.
   #after_filter :common_response,  :only => [:show, :edit]  #:except => [:create, :update, :delete], 
@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     if param_cate_id
       @orders = Order.where(category_id: param_cate_id, status: visible_order_status).page(params[:page])
     elsif order_id_list
-      @orders = Order.find(order_id_list).page(params[:page])
+      @orders = Kaminari.paginate_array( Order.find(order_id_list) ).page(params[:page])
     else
       @orders = Order.where(status: visible_order_status).page(params[:page])
     end
@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
       #oneOrder.buyer = User.find( oneOrder.buyer_id )
     #end
  
-    logger.debug "index called finished... "     
+    logger.debug "Action: Order.index called finished... "     
   end
   
   
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @category = Category.where(parent_id: 0)
-    ResponseUtil.common_response
+    common_response
   end
   
   def create 
@@ -109,12 +109,12 @@ class OrdersController < ApplicationController
      # no need do this!
     #@order.vendor = User.find( @order.vendor_id )
     #@order.buyer = User.find( @order.buyer_id )
-    ResponseUtil.common_response  
+    common_response  
   end
   
   def edit
     @order = Order.find(params[:id])
-    ResponseUtil.common_response
+    common_response
   end
     
     

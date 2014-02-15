@@ -2,7 +2,7 @@
  <h3>热门tags </h3>
  
 <% Order.hot_tags.each do |hotGoodsName, hotOrderIdArray| %> 	  
-    <span><%= link_to hotGoodsName, orders_path(:order_id_list => hotOrderIdArray, :tag_name => hotGoodsName ) %></span> 
+    <span><%= link_to hotGoodsName, orders_path(:order_id_list => hotOrderIdArray, :tag_name => hotGoodsName ), remote: true %></span> 
    
 <% end %>
  
