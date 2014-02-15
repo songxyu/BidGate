@@ -10,4 +10,8 @@ class Category < ActiveRecord::Base
     Category.where(parent_id: 0)
   end
   
+    def self.all_child_categories
+    Category.where("parent_id > 0")
+  end
+  
 end

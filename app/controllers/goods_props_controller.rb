@@ -14,8 +14,7 @@ class GoodsPropsController < ApplicationController
     category_id = params[:category_id]
     @goods_props = GoodsProp.joins(:goods_prop_values).where('goods_prop_values.category_id' => category_id)
     # TODO: how to return only the match associations?
-    puts '@goods_props: '
-    p  @goods_props
+    logger.debug '@goods_props: ' +  @goods_props.to_s
 
     respond_to do |format|
       format.js { render :layout=> false  }

@@ -33,7 +33,7 @@
 				<%= link_to "首页", orders_path, remote: true %>
 			</li>
 			<li>
-				<%= link_to "发现采购单", orders_path, remote: true %>
+				<%= link_to "发现采购单", orders_search_path(:search => ""), remote: true %>
 			</li>
 			<li>
 				<%= link_to  '我要下单', new_order_path, remote: true  %>

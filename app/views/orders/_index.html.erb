@@ -1,26 +1,62 @@
 <!--<div style="background-color: #68217A;"> -->
 <!-- <div style="background: url('/assets/nav_bg.png') repeat #fff; background: repeat;"> -->
- 
-<h1>Orders </h1>
+
+<%
+  is_searching = params[:action]=="search"
+%>   
+
+<%  if is_searching %>
+<h1> Search Orders: </h1>
+<% else %>
+<h1> Orders </h1>
+<% end %>
+
+
+<% if is_searching 
+    selected_filter_id_array = [ params[:search_location_id] ? params[:search_location_id] : 0,
+      params[:search_category_id] ? params[:search_category_id] : 0,
+      params[:search_sort_by] ? params[:search_sort_by] : 1
+    ]
+%>
+<p>
+	在城市 <%= select_tag( :search_location_id, options_for_select(@location_array, selected_filter_id_array[0]) ) %>
+	查找  <%= select_tag( :search_category_id, options_for_select(@category_array, selected_filter_id_array[1]) ) %> 类别的订单,
+	并以  <%= select_tag( :search_sort_by, options_for_select([['日期', 1], ['价格', 2], ['数量', 3] ], selected_filter_id_array[2]) ) %>  排序
+</p>
+<% end %>
 
 <% if @filter_category || @filter_tag_name %>
-	<p> <strong><%= @filter_category ? "类别: "+ @filter_category.name : "Tag: "+ @filter_tag_name %> </strong> 相关的订单:</p>
+<p>
+	<strong><%= @filter_category ? "类别: "+ @filter_category.name : "Tag: "+ @filter_tag_name %> </strong> 相关的订单:
+</p>
 <% end %>
 
-<% if params[:action]=="search" %>
-	<p> 找到包含 <strong><%= params[:search]  %> </strong> 的订单:</p>
+<% if is_searching && params[:search] != "" then %>
+<p>
+	找到包含 <strong><%= params[:search]  %> </strong> 的订单:
+</p>
 <% end %>
 
-<p>总计订单数: <%= @orders.total_count %></p>
+<p>
+	总计订单数: <%= @orders.total_count %>
+</p>
 
 <% @orders.each do |order| %>
 <div style="border-top: 1px solid #000; padding: 5px 0;">
 	<li>
 		Order ID: <%= order.id %>   <%= link_to '=>details', order, remote: true %>
 		<br>
-		Created: <%= order.create_time %>   <b> <%=order.location ? order.location.full_location_name : '' %></b>
+		订单号: <%= order.order_num %>  
 		<br>
-		Total: <%= order.price %>  <%= link_to '=>Bid it!', edit_order_path(order), remote: true %>
+		类别: <%= order.category ?  order.category.name : "" %>  
+		<br>		
+		创建时间: <%= order.create_time %> 
+		<b> <%= order.location ? order.location.full_location_name : '' %></b>
+			
+		<br>
+		截止时间: <%= order.deadline  %>  
+		<br>
+		起拍价: <%= order.price %>  <%= link_to '=>Bid it!', edit_order_path(order), remote: true %>
 	</li>
 
 	<% if order.order_goods.nil? == false %>

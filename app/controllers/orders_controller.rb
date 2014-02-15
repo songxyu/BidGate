@@ -12,12 +12,13 @@ class OrdersController < CommonController
     @filter_category = param_cate_id ? Category.where(id: param_cate_id)[0] : nil
     
     visible_order_status = [0, 1, 2]
+    default_order_by = "create_time DESC" # NOTE: .order(create_time: :desc) seems not to work in rails 3.2!
     if param_cate_id
-      @orders = Order.where(category_id: param_cate_id, status: visible_order_status).page(params[:page])
+      @orders = Order.where(category_id: param_cate_id, status: visible_order_status).order(default_order_by).page(params[:page])
     elsif order_id_list
-      @orders = Kaminari.paginate_array( Order.find(order_id_list) ).page(params[:page])
+      @orders = Kaminari.paginate_array( Order.find(order_id_list).sort {|x,y| y.create_time <=> x.create_time} ).page(params[:page])
     else
-      @orders = Order.where(status: visible_order_status).page(params[:page])
+      @orders = Order.where(status: visible_order_status).order(default_order_by).page(params[:page])
     end
     
     # no need!
@@ -41,6 +42,16 @@ class OrdersController < CommonController
      end
      @orders = @search.results
      
+     # get location list 
+     @location_array = Location.all.map { |loc| [loc.full_location_name, loc.id] }
+     @location_array.sort {|a,b| a[0] <=> b[0] } # sort by name
+     @location_array.unshift(["全国", 0]) 
+     
+     # all sub category list
+     @category_array = Category.all_child_categories.map { |cat| [cat.name, cat.id] } 
+     @category_array.sort {|a,b| a[0] <=> b[0] } # sort by name
+     @category_array.unshift(["所有", 0]) 
+     
      logger.debug "Search result count: " + @orders.count.to_s
      render "index"  
   end
@@ -48,7 +59,7 @@ class OrdersController < CommonController
   def new
     @order = Order.new
     @category = Category.where(parent_id: 0)
-    common_response
+    #common_response # use new.js.erb instead of common one, due to some special js handle
   end
   
   def create 
@@ -82,7 +93,10 @@ class OrdersController < CommonController
     cateId = cateId ? cateId : params[:parent_category]
     @category = Category.find(cateId)
     
-    @order = Order.new(create_time: DateTime.current, deadline: params[:order][:deadline],
+    # order number use time with millsec
+    str_time_millsec = Time.now.strftime('%Y%m%d%H%M%S%L')
+    
+    @order = Order.new(order_num: str_time_millsec, create_time: DateTime.current, deadline: params[:order][:deadline],
       price: params[:order][:price], buyer_id: session[:user_id], vendor_id: nil, price_type: params[:order][:price_type], 
       status: 1, category_id: @category.id)
     
