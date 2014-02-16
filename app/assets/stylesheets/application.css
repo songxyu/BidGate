@@ -12,6 +12,11 @@
  *= require_tree .
  *
  *= require jquery.ui.all
+ * 
+ * NOTE: bootstrap and other css still loaded after application.css even if it lists here!
+ *= require bootstrap
+ * 
+ *= require bootstrap-responsive
  */
 
 html {
@@ -45,7 +50,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 /**--------------------------------- header --------------------------------------------*/
 .header {
-	min-width: 600px;
+	min-width: 950px;
 	/*background-image: url("./header_bg.png");
 	 line-height: 40px;*/
 }
@@ -111,7 +116,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .header .nav_menu {
 	height: 30px;
-	width: 100%;
+	width: 100%; 
 	display: inline-block;
 	margin-top: 8px;
 	background-color: rgb(0, 160, 200);
@@ -122,20 +127,25 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	min-width: 80px;
 	position: relative;
 	list-style: none;
-	margin-top: -6px;
+	padding-top: 5px;
+}
+ 
+.header .nav_menu  li a{
+	color: #002A80;
 }
 
 .header .nav_menu  li .search-bar {
 	margin-left: 50px;
-	margin-top: -18px;
 	width: 200px;
+	padding-top: 0px;
+	margin-top: -5px;
 }
 
 .header .nav_menu .search-bar input[type="submit"] {
 	float: right;	 
-	top: 0px;
+	top: 2px;
+	right: -70px;
 	position: absolute;
-	margin-top: -3px;
 }
 
 .homepage a {
@@ -156,7 +166,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	display: block;
 	clear: left;
 	float: left;
-	/*padding-left: 200px;*/
+	padding-left: 10px;
 	width: 10%;
 	height: 100%;
 	position: relative;

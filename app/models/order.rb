@@ -54,7 +54,8 @@ class Order < ActiveRecord::Base
   end
   
   def order_goods_search
-    self.order_goods.map{|item| (item.name ? item.name : '') + ',' + (item.model ? item.model : '') + ',' + (item.memo ? item.memo : '') + (item.category ? item.category : '') }.join(',')
+    self.order_goods.map{|item| (item.name ? item.name : '') + ',' + (item.model ? item.model : '') \
+        + ',' + (item.memo ? item.memo : '') + (item.category ? item.category : '') }.join(',')
   end
 
   def vendor_search

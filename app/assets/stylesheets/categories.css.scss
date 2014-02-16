@@ -2,17 +2,78 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tree_container{
+
+.category_area {
+    
+}
+
+.category_navbar{
   display: block;  
- 
-  border-radius: 5px;
-  border: 1px #eee solid;
-  background-color: #eee;
+  min-height: 200px;
   
-  padding: 30px 10px; 
+//  border-radius: 5px;
+//  border: 1px #eee solid;
+//  background-color: #eee;
+  
+  padding: 10px; 
 }
 
 
-.category_area { 
+
+.category_navbar .popover {
+    width: 400px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    overflow: hidden;
+}
+
+.category_navbar .popover-content {
+    text-align: center;
+}
+
+.category_navbar .popover-content img {
+    height: 212px;
+    max-width: 250px;
+}
+
+.category_navbar .dropdown-menu {
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.category_navbar .dropdown-menu > li > a:hover {
+    background-image: none;
+    color: white;
+    background-color: rgb(0, 129, 194);
+    background-color: rgba(0, 129, 194, 0.5);
+}
+
+.category_navbar .dropdown-menu > li > a.maintainHover {
+    color: white;
+    background-color: #0081C2;
+}
+
+
+// reset css from bootstrap.js
+.dropdown-menu {
+  display: block;
+  top: 0px;
+  left: 10px;
+  min-width: 200px;
   
+  min-height: 200px;
+}
+
+
+.submenu-cate-list-area {
+  list-style: none;
+  //padding-left: 2px;  
 }

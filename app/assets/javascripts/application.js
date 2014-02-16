@@ -23,3 +23,9 @@
 //=require orders
 
 //=require orders_new
+
+//=require bootstrap.min
+
+//=require jquery.menu-aim
+
+//=require category_nav_menu

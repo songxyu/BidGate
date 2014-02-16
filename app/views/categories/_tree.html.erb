@@ -1,16 +1,39 @@
-<div class="tree_container">
+<div class="category_navbar">
 
-	<% Category.all_categories_tree.each do |cate| %>
-	<div>
-		<span><%= cate.id %></span> - <span><%= cate.name %>: </span>
-		<% cate.child_categories.each do |child| %>
-		<div style="padding-left: 50px;">
-			<li>
-				<%= child.id %> - <%= link_to child.name, orders_path(:category_id => child.id), remote: true %>
-			</li>
-		</div>
+	<!--
+	jQuery-menu-aim: this <ul> defines the dropdown main menu and its contents.
+	This is just one of many possible examples for defining the menu's HTML.
+	jQuery-menu-aim is agnostic to your HTML structure, it only fires events to
+	be used as you please.
+	-->
+	<ul class="dropdown-menu" role="menu">
+		<% Category.all_categories_tree.each do |cate| %>
+
+		<li data-submenu-id="submenu-<%= cate.id %>">
+			<a href="#"> <%= cate.name %> </a>
+			<!--
+			jQuery-menu-aim: each class="popover" div defines submenu content. There are a million
+			and one ways to do this, places to structure the HTML, etc. This is just one example.
+			jQuery-menu-aim is agnostic to your HTML structure, it only fires events to be used
+			as you please.
+			-->
+			<div id="submenu-<%= cate.id %>" class="popover">
+				<h3 class="popover-title"> <%= link_to cate.name, orders_path(:category_id => cate.id), remote: true %> </h3>
+				<div class="popover-content">					
+						<ul class="submenu-cate-list-area">
+							<% cate.child_categories.each do |child| %>
+							<li>
+								<%= child.id %> - <%= link_to child.name, orders_path(:category_id => child.id), remote: true %>
+							</li>
+							<% end %>
+						</ul>
+					
+					<img src="../img/logo.png">
+				</div>
+			</div>
+		</li>
+
 		<% end %>
-	</div>
-	<% end %>
+	</ul>
 
 </div>
