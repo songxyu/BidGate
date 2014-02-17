@@ -29,3 +29,10 @@
 //=require jquery.menu-aim
 
 //=require category_nav_menu
+
+//=require jquery.touch-punch.min
+
+//=require jquery.shapeshift
+
+
+

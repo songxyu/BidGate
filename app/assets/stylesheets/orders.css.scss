@@ -2,7 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// order list
+.orders_container {
+  position: relative;
+  width: 100%;  
+}
+
+.orders_container .order_item{  
+  width: 250px;
+  position: absolute;
+  min-height: 350px;
+
+  border-radius: 9px;
+  background: rgba(11,25,2,0.06);
+  padding: 5px;
+  margin-bottom: 20px;
+  clear: both;    
+   
+}
+.order_item .item_inner_area{  
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #d0d5cb;
+  position: relative; 
+  min-height: 350px;
+  padding: 5px;
+}
+
+
+.pagination_area{
+  float: left;
+  
+}
+
+// new order page
 .disabled_link{
   color: gray; 
   cursor: default;
 }
+
+

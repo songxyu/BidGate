@@ -44,48 +44,7 @@
 	总计订单数: <%= @orders.total_count %>
 </p>
 
-<% @orders.each do |order| %>
-<div style="border-top: 1px solid #000; padding: 5px 0;">
-	<li>
-		Order ID: <%= order.id %>   <%= link_to '=>details', order, remote: true %>
-		<br>
-		订单号: <%= order.order_num %>  
-		<br>
-		类别: <%= order.category ?  order.category.name : "" %>  
-		<br>		
-		创建时间: <%= order.create_time %> 
-		<b> <%= order.location ? order.location.full_location_name : '' %></b>
-			
-		<br>
-		截止时间: <%= order.deadline  %>  
-		<br>
-		起拍价: <%= order.price %>  <%= link_to '=>Bid it!', edit_order_path(order), remote: true %>
-	</li>
 
-	<% if order.order_goods.nil? == false %>
-	<p>
-		订单货品:
-	</p>
-	<% order.order_goods.each do |goods| %>
-	<div style="padding-left: 50px;">
-		<span>ID: <%= goods.id %>   Name:<%= goods.name %>  价格: <%= goods.price %> 数量: <%= goods.quantity %>
-			型号: <%= goods.model %>   类别:<%= goods.category %></span>
-	</div>
-	<% end %>
-	<% end %>
+<%= render "order_waterfall_list" %>
 
-	<% if order.order_price_histories.size > 0 %>
-	<p>
-		竞价历史:
-	</p>
-	<% order.order_price_histories.each do |histo| %>
-	<div style="padding-left: 50px;">
-		<span>Time: <%= histo.bid_time %>,  Bid Price: <%= histo.price %> </span>
-	</div>
-	<% end %>
-	<% end %>
-</div>
-<% end %>
-
-<%= paginate @orders, :remote => true  %>
 <!-- </div> -->
