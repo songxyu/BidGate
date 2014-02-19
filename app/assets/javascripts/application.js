@@ -18,6 +18,8 @@
 
 //= require jquery_nested_form
 
+//=require common
+
 //=require users
 
 //=require orders

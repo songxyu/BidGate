@@ -2,47 +2,44 @@
 <div class = "orders_container">
 	
 <% @orders.each do |order| %>
-<div class="order_item">
+<div class="order_item" id="order_item_<%= order.id %>">
+	<% 
+		og = order.order_goods[0]
+		item_info_text = og.name + og.model + " " + og.quantity.to_s 
+		
+		i_create_time = order.create_time.to_i
+		past_time = Time.now.to_i - i_create_time
+		total_time =  order.deadline.to_i - i_create_time
+		bid_progres = total_time <= 0 ? 100 : (past_time * 100 / total_time / 100)
+		bid_progres = (bid_progres <= 0 || bid_progres>=100) ?  100 : bid_progres;
+		
+		bid_history_count = order.order_price_histories.count
+	%>
 	<div class="item_inner_area">
-		<li>
-			Order ID: <%= order.id %>   <%= link_to '=>details', order, remote: true %>
-			<br>
-			订单号: <%= order.order_num %>  
-			<br>
-			类别: <%= order.category ?  order.category.name : "" %>  
-			<b> <%= order.location ? order.location.full_location_name : '' %></b>
+		<div>
+			<img class="order_image" src="../img/order_item_sample.png"> <!-- TODO: should use order.image -->
 			
-			<br>		
-			创建时间: <%= order.create_time %> 			
-			<br>
-			截止时间: <%= order.deadline  %>  
+			<div class="order_cate_row" >
+					<div class="div_float_left_border_right">
+						<span><%= order.category ?  order.category.name : "" %> </span> 
+					</div> 	
+					<span><%= order.order_goods[0].name %> </span>			
+			</div>
+			<div class="row_margin"><span>最新订单竞价:  </span><span class="highlight_text"><%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span></div>
+			<div class="row_margin"> <%= bid_history_count %> 个竞拍</div>			
+			<div class="row_margin"> 采购: <%= item_info_text %> 千克  </div>
+			<div class="algin_right row_margin">  <%= link_to '详情>>', order, remote: true %>  </div>
+			<div class="row_margin"> <img src="../img/location.png"> <b> <%= order.location ? order.location.full_location_name : '' %></b>  </div>
+			<div class="bid_progressbar_area">
+				<div class="bid_progressbar row_margin" data-progressval="<%=bid_progres%>"></div>
+				<div class="progress_label" ><img src="../img/ok.png"><span></span></div>
+			</div>
 			
-			<br>
-			起拍价: <%= order.price %>  <%= link_to '=>Bid it!', edit_order_path(order), remote: true %>
-		</li>
-	
-		<% if order.order_goods.nil? == false %>
-		<p>
-			订单货品:
-		</p>
-		<% order.order_goods.each do |goods| %>
-		<div style="padding-left: 20px;">
-			<span>ID: <%= goods.id %>   Name:<%= goods.name %>  价格: <%= goods.price %> 数量: <%= goods.quantity %>
-				型号: <%= goods.model %>   类别:<%= goods.category %></span>
+			<div class="row_margin"> <b> <span class="algin_left"> <%= order.price %> 元 </span> <span class="algin_right"><%= order.deadline.strftime('%Y-%m-%d %H:%M')  %> </b> </span> </div>
+			<div><span class="algin_left">  起拍 </span> <span class="algin_right"> 截止日期 </span> </div>
+				
 		</div>
-		<% end %>
-		<% end %>
-	
-		<% if order.order_price_histories.size > 0 %>
-		<p>
-			竞价历史:
-		</p>
-		<% order.order_price_histories.each do |histo| %>
-		<div style="padding-left: 20px;">
-			<span>Time: <%= histo.bid_time %>,  Bid Price: <%= histo.price %> </span>
-		</div>
-		<% end %>
-		<% end %>
+	  
 	</div>
 </div>
 

@@ -1,8 +1,9 @@
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/index') %>");
 
 
-$('.orders_container').shapeshift();
-
+fnOrderListInit();
+    
+    
 
 var $filter_form = $('#search_filter_form');
 if($filter_form.length > 0){
@@ -14,8 +15,6 @@ if($filter_form.length > 0){
 	$('#search_category_id').change( fnSubmitFilters );
 	$('#search_sort_by').change( fnSubmitFilters );
 }
-
-
 
 
  

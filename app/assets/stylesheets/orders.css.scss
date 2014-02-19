@@ -17,7 +17,7 @@
   border-radius: 9px;
   background: rgba(11,25,2,0.06);
   padding: 5px;
-  margin-bottom: 20px;
+  margin: 10px 20px;
   clear: both;    
    
 }
@@ -33,14 +33,73 @@
 
 
 .pagination_area{
-  float: left;
-  
+  float: left;  
 }
 
-// new order page
+
+.algin_right{
+  float: right;
+  right: 0;
+}
+
+
+.order_item .order_image{
+  height: 230px;
+  width: 100%;
+}
+
+.order_item .div_float_left_border_right{
+  border-width:0px;
+  border-right: 2px solid #fff;
+  margin-right: 5px;
+  padding-right: 5px;
+  float: left; 
+}
+
+
+.order_item .order_cate_row {
+  background-color: rgb(165, 165,165);
+  color: #fff;
+}
+
+.order_item .highlight_text{
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.order_item  .row_margin{
+   margin-top: 10px;
+   padding-left: 2px;
+}
+
+// progress bar
+.order_item .bid_progressbar_area{
+  height: 40px;
+  overflow-y: hidden;
+}
+
+.order_item .bid_progressbar,// default height as placeholder, do not remove it!
+.order_item .ui-progressbar{
+  height: 25px;
+}
+
+.order_item .progress_label{
+  padding: 0 5px;
+  height: 0; // initial height, will change by js
+}
+
+.order_item .progress_label img{
+  margin-right: 5px;
+  display: none; 
+}
+
+.order_item .ui-widget-header { 
+  background: #63AFF5;
+}
+
+
+// for new order page
 .disabled_link{
   color: gray; 
   cursor: default;
 }
-
-
