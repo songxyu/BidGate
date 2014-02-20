@@ -69,7 +69,6 @@
 
 .order_item  .row_margin{
    margin-top: 10px;
-   padding-left: 2px;
 }
 
 // progress bar
@@ -97,6 +96,10 @@
   background: #63AFF5;
 }
 
+// for order detail page
+.order_detail .float_left{
+  float: left; 
+}
 
 // for new order page
 .disabled_link{

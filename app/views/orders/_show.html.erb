@@ -37,6 +37,31 @@
 	   
 <p>	 <%= link_to '<=Back to order list', orders_path, remote: true  %> </p>
 
+
+<%
+
+remaining_day = 0
+remaining_sec =  @order.deadline.to_i - Time.now.to_i
+if remaining_sec > 0
+	remaining_day = remaining_sec/60/60/24
+end
+
+%>
+
+
+<div class="order_detail"> 
+<div>
+	
+	<%= image_tag('../img/order_item_sample.png', class:"order_image") %>
+	<div class="">	
+		<div><%= @order.order_goods[0].order_item_info_str %> </div>
+		<div> <span><%= @order.order_price_histories.count %> 个竞拍 </span> <span>距离竞拍结束还有 <%= remaining_day %> 天</span></div>
+	</div>
+</div>
+</div>
+
+
+
 <br /> 
 <p>debug:</p>
 <%= debug @order %>
