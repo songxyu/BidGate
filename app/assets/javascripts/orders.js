@@ -7,7 +7,7 @@ $(document).ready(function(){
 	// called when whole home page is opend with order list(No ajax)
     
 	fnOrderListInit();
-
+	fnMsgArea();
 });
 
   

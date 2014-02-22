@@ -3,12 +3,17 @@
 	<div class="header-top-row">
 		<span class="welcome-signin">欢迎来到壹百万，
 			<% if current_user %>
-			当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", log_out_path %>
+			当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", logout_path %>			
+			<span class="my-profile-link"><%= link_to "我的壹百万",  user_profile_path, remote: true %> </span>
 			<% else %>
-			请<%= link_to "登录",  log_in_path %> 或 <%= link_to "免费注册", sign_up_path %>
+			请<%= link_to "登录",  login_path, remote: true %> 或 <%= link_to "免费注册", signup_path, remote: true %>
 			<% end %> </span>
-		<span class="my-profile-link"><%= link_to "我的壹百万",  user_profile_path, remote: true %> </span>
 		<span class="service-info">服务电话: 400-830-4545 </span>
+		
+		<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg + '  X', :id => "flash_#{name}", :class => "msg_area" %> 
+		<% end %>
+	
 	</div>
 
 	<div class="header-middle-row">
@@ -58,9 +63,7 @@
 
 	</div>
 
-	<% flash.each do |name, msg| %>
-	<%= content_tag :div, msg, :id => "flash_#{name}" %>
-	<% end %>
+	
 </div>
 
 <% end %>

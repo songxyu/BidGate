@@ -5,18 +5,48 @@
 </p>
 
 <p>
-	邮箱: <%= @user.email %>
+	密码: ****** <%= link_to '更改密码', user_edit_path, remote: true %>
 </p>
-
 
 <p>
 	昵称: <%= @user.nickname %>
 </p>
 
 <p>
+	邮箱: <%= @user.email %>
+</p>
+
+<p>
+	真实姓名: <%= @user.contact %>
+</p>
+
+<p>
+	职责: <%= @user.contact_title %>
+</p>
+
+<p>
+	手机: <%= @user.contact_cellphone %>
+</p>
+<p>
+	联系电话: <%= @user.contact_tel %>
+</p>
+
+
+
+
+
+-------- 公司注册信息 -------------
+<p>
 	公司名称: <%= @user.company.name %>
 </p>
 
-TODO page
+<p>
+	公司注册帐号: <%= @user.company.account_num %>
+</p>
 
+<p>
+	公司法人: <%= @user.company.legal_person %>
+</p>
+
+<%= link_to '修改公司信息', company_edit_path, remote: true %>
  

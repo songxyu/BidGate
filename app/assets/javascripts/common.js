@@ -21,4 +21,12 @@ var fnOrderListInit = function() {
 		});
 	});
 
-}
+};
+
+
+var fnMsgArea = function(){
+	$(".msg_area").click(function(){
+		$(this).remove();
+	});
+
+};

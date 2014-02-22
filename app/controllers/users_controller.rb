@@ -1,6 +1,7 @@
 class UsersController < CommonController
   def new
     @user = User.new
+    common_response
   end
 
   def create
@@ -27,10 +28,14 @@ class UsersController < CommonController
   end
   
   def profile
-    @user = User.find( session[:user_id] )
+    @user = current_user
     params[:action] = "show"
-     common_response
+    common_response
   end
   
   
+  def edit
+    @user = current_user
+    common_response
+  end
 end

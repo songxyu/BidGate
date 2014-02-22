@@ -1,3 +1,128 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hide {
+visibility: hidden !important;
+}
+
+.logon-content {
+//text-align: center;
+width: 100%;
+}
+
+.logon-content .shake-area {
+position: relative;
+}
+
+.logon-content .shake-area, .code-enter-item {
+//margin-bottom: 16px;
+}
+
+
+.logon-content .enter-area {
+position: relative;
+}
+
+
+.logon-content .error-tip {
+display: none;
+width: 300px;
+background: #fff;
+height: 18px;
+line-height: 16px;
+}
+
+.logon-content .placeholder {
+left: 12px;
+font-style: normal;
+color: #c2c2c2;
+font-size: 14px;
+line-height: 20px;
+display: inline-block;
+zoom: 1;
+}
+
+
+.logon-content .placeholder, .error-tip {
+position: relative;
+top: -44px; 
+}
+
+
+.logon-content .error-ico {
+display: inline-block;
+zoom: 1;
+width: 14px;
+height: 14px;
+vertical-align: middle;
+margin-right: 6px;
+background: -60px -38px no-repeat;
+}
+
+.logon-content .error-msg {
+color: #ff7448;
+vertical-align: middle;
+font-size: 18px;
+}
+
+.logon-content input[type="text"],
+.logon-content input[type="password"],
+.logon-content .enter-item {
+background: #fff;
+width: 298px;
+display: block;
+height: 20px;
+line-height: 20px;
+padding: 12px 10px;
+border: 1px solid #e6e6e6;
+border-radius: 6px;
+color: #333;
+font-size: 14px;
+font-weight: bold;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+
+.logon-content .first-enter-item {
+border-radius: 6px 6px 0 0;
+}
+
+.logon-content .last-enter-item {
+border-radius: 0 0 6px 6px;
+margin-top: -11px; 
+}
+
+
+.logon-content .button {
+margin: 16px 0 0 0;
+ 
+cursor: pointer;
+background: #fff;
+border: 1px solid #e5e5e5;
+border-radius: 6px;
+color: #7c7c7c;
+display: block;
+font-size: 16px;
+//height: 44px;
+line-height: 44px;
+text-align: center;
+width: 320px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+
+}
+
+.logon-content .orange {
+background: none;
+border: 0 none;
+background: #ff7a4d;
+color: #fff;
+border: 1px solid #ff7549;
+}
+
+.logon-content input[type="submit"].btn_submit{
+  width: 320px;
+}

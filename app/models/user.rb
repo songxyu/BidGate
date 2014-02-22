@@ -23,8 +23,12 @@ class User < ActiveRecord::Base
   
   has_secure_password
   
-  def self.authenticate(email, password)
-    user = find_by_email(email.downcase)
+  def self.authenticate(email_username, password)
+    user = find_by_email(email_username.downcase)
+    if user.nil?
+      user = find_by_username(email_username.downcase)
+    end
+    
     #if user && user.password == BCrypt::Engine.hash_secret(password, user.password_salt)
     if user && user.authenticate(password)
       user

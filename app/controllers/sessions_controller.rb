@@ -1,9 +1,12 @@
 class SessionsController < ApplicationController
   def new
+    respond_to do |format|        
+       format.js
+    end
   end
 
   def create
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:email_username], params[:password])
     if user
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Logged in!"
