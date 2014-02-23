@@ -1,37 +1,121 @@
-<h1>Sign Up</h1>
+<div class="reg-page">
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  
-   <p>
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname %>
-  </p>
-  
-   <p>
-    company info:
-  </p>
-  
-  <p class="button"><%= f.submit %></p>
-<% end %>
+	<div class="reg-area">
+		<h4 class="reg-area-title">注册壹百万用户</h4>
+
+		<p class="reg-tip">
+			壹百万账户可以创建自己的采购单, 对其他供应商的订单进行竞价! 如果您已拥有壹百万帐户，则可<%= link_to "在此登录",  login_path, class:"cor_yellow", remote: true %>
+		</p>
+
+		<div id="reg-selection-area" class="reg-selection">
+			<input type="radio" name="registerMethod" class="radio-margin" id="unreg" value="unreg" checked="checked">
+			<label for="unreg" hidefocus="true">我所在公司还未注册</label>
+			<input type="radio" name="registerMethod" class="radio-margin  marg-left50" id="reged" value="reged" >
+			<label for="reged" hidefocus="true">我所在公司已经注册，并拥有注册账号</label>
+
+			<a href="/help" class="cor_yellow" target="_blank">了解更多(link to help)</a>
+		</div>
+
+		<% user_form = nil %>
+		<%= form_for @user do |f| %>
+
+		<% user_form = f %>
+
+		<% if @user.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is invalid</h2>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+				<li>
+					<%= message %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+
+		<div id="company-info-area">
+			<%= render :partial => 'companies/basic_info', :locals => {:company => @user.company } %>
+		</div>
+
+		<dl>
+			<dt class="f_label">
+				<%= f.label :username, "*用户名:" %>
+			</dt>
+			<dd class="f_input">
+				<%= f.text_field :username  %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :nickname, "昵称:" %>
+			</dt>
+			<dd class="f_input">
+				<%= f.text_field :nickname   %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :password, "*密码:"  %>
+			</dt>
+			<dd class="f_input">
+				<%= f.password_field :password  %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :password_confirmation, "*确认密码:"   %>
+			</dt>
+			<dd class="f_input">
+				<%= f.password_field :password_confirmation  %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :contact, "*真实姓名:" %>
+			</dt>
+			<dd class="f_input">
+				<%= f.text_field :contact  %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :email, "*邮箱:" %>
+			</dt>
+			<dd class="f_input">
+				<%= f.text_field :email  %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :contact_cellphone, "手机:" %>
+			</dt>
+			<dd class="f_input">
+				<%= f.text_field :contact_cellphone  %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :contact_tel, "工作电话:" %>
+			</dt>
+			<dd class="f_input">
+				<%= f.text_field :contact_tel  %>
+			</dd>
+
+			<dt class="f_label">
+				<%= f.label :contact_title, "职责:" %>
+			</dt>
+			<dd class="f_input">
+				<input type="radio" name="contact_title" class="radio-margin" value="1" checked="checked">
+				<label for="1" hidefocus="true">采购</label>
+
+				<input type="radio" name="contact_title" class="radio-margin marg-left30" value="2">
+				<label for="2" hidefocus="true">销售</label>
+
+				<input type="radio" name="contact_title" class="radio-margin marg-left30" value="0" >
+				<label for="0" hidefocus="true">待定</label>
+			</dd>
+
+			<dt class="f_label" ></dt>
+			<dd class="f_input">
+				<%= f.submit "立即注册", :class => "button orange reg-button", :id => "btn_submit_reg", :remote => true %>
+			</dd>
+		</dl>
+		
+		<% end %>
+	</div>
+
+</div>

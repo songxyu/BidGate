@@ -1,48 +1,43 @@
-
 <div class="logon-content ">
 
-<h1>欢迎登录壹百万</h1>
+	<h1>欢迎登录壹百万</h1>
 
-<p class="nl-login-intro">
-      <%= link_to "无线低价, 尽在壹百万!", orders_path  %>
-</p>
-    
-<%= form_tag sessions_path do %>
-      <div class="shake-area" id="shake_area">
-        <div class="enter-area">
-          <input type="text" class="enter-item first-enter-item" id="email_username" name="email_username" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,6}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,}$)" autocomplete="on">
-          <i class="placeholder" id="message_INPUT_IDENTITY">邮箱/用户名</i>
-          <span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
-        </div>
-        <div class="enter-area">
-          <input type="password" class="enter-item last-enter-item" id="password" name="password" autocomplete="off" data-rule="">
-          <i class="placeholder" id="message_INPUT_PASSWORD">密码</i>
-          <span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
-        </div>
-      </div>
-      
-      
-      <div class="enter-area img-code-area" id="img_code_area" style="display:none;">
-        <img src="" class="code-img" id="code_img">
-        <input type="text" class="enter-item code-enter-item" id="miniLogin_captCode" autocomplete="off" maxlength="12">
-        <i class="placeholder" id="message_INPUT_CONFIRM">验证码</i>
-        <span class="error-tip"><em class="error-ico"></em><span class="error-msg" id="code_error_tips"></span></span>
-      </div>
- 	  
-   
-    <div class="ng-cookie-area" id="cookie_area">
-      <input type="checkbox" id="auto_login_two_weeks" > <span id="message_AUTOLOGIN_TWOWEEKS">两周内自动登录</span>
-    </div>
-       
- 		
- 	  <%= submit_tag "立即登录", class:"button orange btn_submit" %>  
+	<p class="nl-login-intro">
+		<%= link_to "无线低价, 尽在壹百万!", orders_path  %>
+	</p>
 
-      
-      <%= link_to "免费注册壹百万帐号!", signup_path, class:"button", remote: true %>
-      
-      <a style="display:none" id="redirectLink" href="" target="_top"></a>
-      <a style="display:none" id="redirectTwoPhraseLoginLink" href=""></a>
-<% end %>
+	<%= form_tag sessions_path do %>
+	<div class="shake-area" id="shake_area">
+		<div class="enter-area">
+			<input type="text" class="enter-item first-enter-item" id="email_username" name="email_username" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,6}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,}$)" autocomplete="on">
+			<i class="placeholder" id="message_INPUT_IDENTITY">邮箱/用户名</i>
+			<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
+		</div>
+		<div class="enter-area">
+			<input type="password" class="enter-item last-enter-item" id="password" name="password" autocomplete="off" data-rule="">
+			<i class="placeholder" id="message_INPUT_PASSWORD">密码</i>
+			<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
+		</div>
+	</div>
 
+	<div class="enter-area img-code-area" id="img_code_area" style="display:none;">
+		<img src="" class="code-img" id="code_img">
+		<input type="text" class="enter-item code-enter-item" id="miniLogin_captCode" autocomplete="off" maxlength="12">
+		<i class="placeholder" id="message_INPUT_CONFIRM">验证码</i>
+		<span class="error-tip"><em class="error-ico"></em><span class="error-msg" id="code_error_tips"></span></span>
+	</div>
+
+	<div class="ng-cookie-area" id="cookie_area">
+		<input type="checkbox" id="auto_login_two_weeks" >
+		<span id="message_AUTOLOGIN_TWOWEEKS">两周内自动登录</span>
+	</div>
+
+	<%= submit_tag "立即登录", class:"button orange btn_submit" %>
+
+	<%= link_to "免费注册壹百万帐号!", signup_path, class:"button", remote: true %>
+
+	<a style="display:none" id="redirectLink" href="" target="_top"></a>
+	<a style="display:none" id="redirectTwoPhraseLoginLink" href=""></a>
+	<% end %>
 
 </div>

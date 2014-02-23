@@ -1,0 +1,16 @@
+// $(".left_wrapper").hide(); // TODO:  not work 
+
+$(".content_area").html("<%= escape_javascript render(:partial => 'users/new') %>");
+
+$('input[type=radio][name=registerMethod]').change(function() {
+	
+	if (this.value == 'unreg') {
+		$("#company-info-area").html("<%= j render(:partial => 'companies/basic_info', \
+		 :locals => {:company => @user.company }) %>");
+	}
+	else if (this.value == 'reged') {
+		$("#company-info-area").html("<%= j render(:partial => 'companies/reged_info', \
+		:locals => {:company => @user.company }) %>");
+	}
+	
+});

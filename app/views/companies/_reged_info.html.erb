@@ -1,0 +1,22 @@
+<dl>
+	<%= fields_for :company, company do | fm | %>
+	<dt class="f_label">
+		<%= fm.label :account_num, "公司注册帐号:"  %>
+	</dt>
+	<dd class="f_input">
+		<%= fm.text_field :account_num  %>
+	</dd>
+
+	<dt class="f_label">
+		<%= fm.label :legal_person, "法人代表:"  %>
+	</dt>
+	<dd class="f_input">
+		<%= fm.text_field :legal_person  %>
+	</dd>
+	
+	
+	<dt class="f_label" > 	</dt>
+	<dd class="f_input"><%= fm.submit "验证", :class => "button orange  verify-button", :id => "btn_verify_company", :remote => true%>	</dd>
+				
+	<% end %>
+</dl>

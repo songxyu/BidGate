@@ -5,7 +5,14 @@
   	logger.debug "*** controller_name= " + ctrl_name +", action_name= " + action_name 
   	action_path = ctrl_name + '/' + action_name 
   	logger.debug "*** action_path: " + action_path
+%>  	
+  	
+<% 	# show left area if not logon/logout related
+  	if not ["users", "sessions"].include?(ctrl_name)
 %>
+$(".left_wrapper").show();
 
+<% end %>
+ 
 $(".content_area").html("<%= escape_javascript render(:partial => action_path ) %>");
  

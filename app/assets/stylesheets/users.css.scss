@@ -3,126 +3,206 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .hide {
-visibility: hidden !important;
+	visibility: hidden !important;
 }
 
-.logon-content {
-//text-align: center;
-width: 100%;
+.button {
+	margin: 16px 0 0 0;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 6px;
+	color: #7c7c7c;
+	display: block;
+	font-size: 16px;//
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	width: 320px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.orange {
+	background: none;
+	border: 0 none;
+	background: #ff7a4d;
+	color: #fff;
+	border: 1px solid #ff7549;
+}
+
+.logon-content {//
+	text-align: center;
+	width: 100%;
 }
 
 .logon-content .shake-area {
-position: relative;
+	position: relative;
 }
 
-.logon-content .shake-area, .code-enter-item {
-//margin-bottom: 16px;
+.logon-content .shake-area, .code-enter-item {//
+	margin-bottom: 16px;
 }
-
 
 .logon-content .enter-area {
-position: relative;
+	position: relative;
 }
 
-
 .logon-content .error-tip {
-display: none;
-width: 300px;
-background: #fff;
-height: 18px;
-line-height: 16px;
+	display: none;
+	width: 300px;
+	background: #fff;
+	height: 18px;
+	line-height: 16px;
 }
 
 .logon-content .placeholder {
-left: 12px;
-font-style: normal;
-color: #c2c2c2;
-font-size: 14px;
-line-height: 20px;
-display: inline-block;
-zoom: 1;
+	left: 12px;
+	font-style: normal;
+	color: #c2c2c2;
+	font-size: 14px;
+	line-height: 20px;
+	display: inline-block;
+	zoom: 1;
 }
-
 
 .logon-content .placeholder, .error-tip {
-position: relative;
-top: -44px; 
+	position: relative;
+	top: -44px;
 }
 
-
 .logon-content .error-ico {
-display: inline-block;
-zoom: 1;
-width: 14px;
-height: 14px;
-vertical-align: middle;
-margin-right: 6px;
-background: -60px -38px no-repeat;
+	display: inline-block;
+	zoom: 1;
+	width: 14px;
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 6px;
+	background: -60px -38px no-repeat;
 }
 
 .logon-content .error-msg {
-color: #ff7448;
-vertical-align: middle;
-font-size: 18px;
+	color: #ff7448;
+	vertical-align: middle;
+	font-size: 18px;
 }
 
-.logon-content input[type="text"],
-.logon-content input[type="password"],
-.logon-content .enter-item {
-background: #fff;
-width: 298px;
-display: block;
-height: 20px;
-line-height: 20px;
-padding: 12px 10px;
-border: 1px solid #e6e6e6;
-border-radius: 6px;
-color: #333;
-font-size: 14px;
-font-weight: bold;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
+.logon-content input[type="text"], .logon-content input[type="password"], .logon-content .enter-item {
+	background: #fff;
+	width: 298px;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding: 12px 10px;
+	border: 1px solid #e6e6e6;
+	border-radius: 6px;
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 .logon-content .first-enter-item {
-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
 }
 
 .logon-content .last-enter-item {
-border-radius: 0 0 6px 6px;
-margin-top: -11px; 
+	border-radius: 0 0 6px 6px;
+	margin-top: -11px;
 }
 
-
-.logon-content .button {
-margin: 16px 0 0 0;
- 
-cursor: pointer;
-background: #fff;
-border: 1px solid #e5e5e5;
-border-radius: 6px;
-color: #7c7c7c;
-display: block;
-font-size: 16px;
-//height: 44px;
-line-height: 44px;
-text-align: center;
-width: 320px;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-
+.logon-content input[type="submit"].btn_submit {
+	width: 320px;
 }
 
-.logon-content .orange {
-background: none;
-border: 0 none;
-background: #ff7a4d;
-color: #fff;
-border: 1px solid #ff7549;
+//
+------------------- user reg page-------------------------------------------
+.reg-page {
+	width: 903px;
+	margin: 0 auto;
 }
 
-.logon-content input[type="submit"].btn_submit{
-  width: 320px;
+.reg-page .reg-area {
+	background: #f9f9f9;
+	height: auto;
+	min-height: 900px;
+	border: 1px solid #dadada;
 }
+
+.reg-page .reg-area-title {
+	margin: 0 0 10px 30px;
+	padding-top: 20px;
+	font-size: 22px;
+	font-weight: bold;
+	color: #ff9630;
+}
+
+.reg-page .reg-tip {
+	padding: 0 0 20px 30px;
+	border-bottom: 1px dashed #e3e3e3;
+	color: #999;
+}
+
+.reg-page .cor-yellow {
+	color: #ff7e00;
+}
+
+.reg-page .reg-selection {
+	margin: 30px 0 20px 180px;
+	font-size: 14px;
+}
+
+.reg-page .radio-margin {
+	margin-right: 6px;
+	margin-top: -2px;
+}
+
+.reg-page .marg-left50 {
+	margin-left: 50px;
+}
+
+.reg-page .marg-left30 {
+	margin-left: 30px;
+}
+
+.reg-page .f_label, .reg-page .f_input {
+	height: 25px;
+	margin-bottom: 12px;
+	vertical-align: middle;
+	display: block;
+}
+
+.reg-page .f_label {
+	width: 170px;
+	padding-top: 5px;
+	padding-right: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 25px;
+	text-align: right;
+}
+
+.reg-page .f_input {
+	float: left;
+	margin-left: 175px;
+	margin-top: -38px;
+}
+
+.reg-page .dd_r {
+	width: 680px;
+}
+
+.reg-page .reg-button {
+	width: 206px;
+}
+
+.reg-page .verify-button {
+	margin: 0;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 50px;
+}
+
