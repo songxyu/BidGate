@@ -2,15 +2,49 @@
 
 $(".content_area").html("<%= escape_javascript render(:partial => 'users/new') %>");
 
+
+
+var fnBindVerifyButtonClick = function(){
+	// company verify 
+	$('#btn_verify_company').bind('click', function() {
+		
+		var acc_num = $("#company_account_num").val();
+		if (acc_num && acc_num!= ""){
+			var lgl_person =  $("#company_legal_person").val();
+						
+			$.ajax({
+				url : '/company/verify', 
+				type : 'GET',
+				data : {
+					'account_num' : acc_num,
+					'legal_person' : lgl_person
+				}
+			}).done(function(data) {
+				//alert(JSON.stringify(data)); 
+			}).fail(function(jqXHR, textStatus) {
+				//alert("Request failed: " + textStatus);
+			});
+		}	
+	});
+};
+
+
 $('input[type=radio][name=registerMethod]').change(function() {
 	
 	if (this.value == 'unreg') {
 		$("#company-info-area").html("<%= j render(:partial => 'companies/basic_info', \
 		 :locals => {:company => @user.company }) %>");
+		 
+		 fnBindVerifyButtonClick();
 	}
 	else if (this.value == 'reged') {
 		$("#company-info-area").html("<%= j render(:partial => 'companies/reged_info', \
 		:locals => {:company => @user.company }) %>");
+		
+		fnBindVerifyButtonClick();
 	}
 	
 });
+
+
+

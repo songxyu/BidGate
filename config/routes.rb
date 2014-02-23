@@ -40,10 +40,9 @@ BidGate::Application.routes.draw do
   
   get "user_profile" => "users#profile", :as => "user_profile"
   get "user_edit" => "users#edit", :as => "user_edit"
-  get "company_edit" => "companies#edit", :as => "company_edit"
-   
+  get "company/edit" => "companies#edit", :as => "company_edit"
+  get "company/verify" => "companies#verify", :as => "company_verify"
  
-  
   
   #root :to => "users#new"
   resources :users

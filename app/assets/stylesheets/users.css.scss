@@ -32,8 +32,8 @@
 	border: 1px solid #ff7549;
 }
 
-.logon-content {//
-	text-align: center;
+.logon-content {
+	/*text-align: center;*/
 	width: 100%;
 }
 
@@ -41,8 +41,8 @@
 	position: relative;
 }
 
-.logon-content .shake-area, .code-enter-item {//
-	margin-bottom: 16px;
+.logon-content .shake-area, .code-enter-item {
+	/*margin-bottom: 16px;*/
 }
 
 .logon-content .enter-area {
@@ -118,8 +118,7 @@
 	width: 320px;
 }
 
-//
-------------------- user reg page-------------------------------------------
+//================ user reg page========================================
 .reg-page {
 	width: 903px;
 	margin: 0 auto;
@@ -204,5 +203,12 @@
 	height: 25px;
 	line-height: 25px;
 	padding: 0 50px;
+	width: 50px;
 }
 
+.reg-page #vefiry_msg_area{
+	color:red;
+	position: relative;
+	margin-left: 180px;
+	top: -25px;
+}

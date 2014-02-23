@@ -9,16 +9,20 @@ class UsersController < CommonController
     # handle company reg cases
     company_acc_num = params[:company][:account_num] # no [:user][:company] !
     company_legal_person = params[:company][:legal_person]
-    if company_acc_num
+    if company_acc_num 
+      # reg via existing company
       logger.debug "*** reged company account num= "+ company_acc_num
-      reged_comp = Company.where(account_num: company_acc_num).first # DO NOT miss .first , otherwise, reged_comp.id will error!
-      if reged_comp && reged_comp.legal_person == company_legal_person then
+      reged_comp = Company.check_existing( company_acc_num, company_legal_person)  # DO NOT miss .first , otherwise, reged_comp.id will error!
+      if reged_comp
         createdUserInfo['company_id'] = reged_comp.id
       else
+        logger.debug "Invalid Company account!! redirect to reg page..."
         flash.now.alert = "Invalid Company account!"
-        render "new"
+        @user = User.new
+        render "new" and return         
       end
-    else
+    else 
+      # reg with new company
       new_company_params = params[:company] # no [:user][:company] !
       new_company_params["account_num"] = SecureRandom.uuid
 
@@ -27,10 +31,14 @@ class UsersController < CommonController
       if new_company.save
         createdUserInfo['company_id'] = new_company.id
       else
+        logger.debug "Fail to create company! redirect to reg page..."
         flash.now.alert = "Fail to create company!"
-        render "new"
+        @user = User.new
+        render "new" and return
       end
     end
+    
+    # TODO: check username / email duplicate?
 
     # fill more user info
     createdUserInfo['status'] = 0
@@ -50,7 +58,10 @@ class UsersController < CommonController
       session[:user_id] = @user.id
       redirect_to root_url, :notice => "注册成功!"
     else
-      render "new"
+      logger.debug "Fail to create new user! redirect to reg page..."
+      flash.now.alert = "Fail to create user!"
+      @user = User.new
+      render "new" and return     
     end
   end
 

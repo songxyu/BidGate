@@ -1,0 +1,9 @@
+
+// TODO: error msg display by @result : true/false
+
+var $msgArea = $("#vefiry_msg_area");
+<%  if @result %>
+$msgArea.html(" Ok! Passed!");
+<% else %>
+$msgArea.html(" bad company!");
+<% end %>

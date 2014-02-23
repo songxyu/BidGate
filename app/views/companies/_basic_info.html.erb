@@ -28,11 +28,7 @@
 		<%= fm.text_field :license_image   %>
 	</dd>
 
-
-	<dt class="f_label" ></dt>
-	<dd class="f_input">
-		<%= fm.submit "验证", :class => "button orange verify-button", :id => "btn_verify_company", :remote => true %>
-	</dd>
+	<%= render "companies/button_verify" %>
 
 	<% end %>
 </dl>
