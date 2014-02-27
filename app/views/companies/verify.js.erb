@@ -4,6 +4,7 @@
 var $msgArea = $("#vefiry_msg_area");
 <%  if @result %>
 $msgArea.html(" Ok! Passed!");
+fnRemoveMaskDiv("#reg-user-info-area");
 <% else %>
 $msgArea.html(" bad company!");
 <% end %>
