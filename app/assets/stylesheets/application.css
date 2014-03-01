@@ -48,6 +48,38 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	padding-left: 100px;
 }
 
+
+
+.hide {
+	visibility: hidden !important;
+}
+
+.button {
+	margin: 16px 0 0 0;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 6px;
+	color: #7c7c7c;
+	display: block;
+	font-size: 16px;//
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	width: 320px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.orange {
+	background: none;
+	border: 0 none;
+	background: #ff7a4d;
+	color: #fff;
+	border: 1px solid #ff7549;
+}
+
 /**--------------------------------- header --------------------------------------------*/
 .header {
 	min-width: 950px;
@@ -114,7 +146,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background: url("../img/feature-list.png") no-repeat center center;
 }
 
-.header .nav_menu {
+.home_nav_menu {
 	height: 30px;
 	width: 100%; 
 	display: inline-block;
@@ -122,7 +154,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background-color: rgb(0, 160, 200);
 }
 
-.header .nav_menu li {
+.home_nav_menu li {
 	float: left;
 	min-width: 80px;
 	position: relative;
@@ -130,18 +162,18 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	padding-top: 5px;
 }
  
-.header .nav_menu  li a{
+.home_nav_menu  li a{
 	color: #002A80;
 }
 
-.header .nav_menu  li .search-bar {
+.home_nav_menu  li .search-bar {
 	margin-left: 50px;
 	width: 200px;
 	padding-top: 0px;
 	margin-top: -5px;
 }
 
-.header .nav_menu .search-bar input[type="submit"] {
+.home_nav_menu .search-bar input[type="submit"] {
 	float: right;	 
 	top: 2px;
 	right: -70px;
@@ -204,6 +236,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .footer {
 	clear: both;
 	width: 100%;
+	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 	border-top: solid 1px #999;

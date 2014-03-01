@@ -1,11 +1,23 @@
 require "date"
 
 class SessionsController < ApplicationController
-  def new
-    respond_to do |format|        
-       format.js
+   def new
+      if current_user
+        redirect_to root_url
+      else
+        if request.xhr?
+          # respond to Ajax request
+          respond_to do |format|
+            format.js
+          end
+        else
+          # respond to normal request        
+          render  layout: false, template: "users/user.html.erb"
+        end
+        
+      end
+  
     end
-  end
 
   def create
     user = User.authenticate(params[:email_username], params[:password])

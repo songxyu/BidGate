@@ -1,19 +1,5 @@
 $(".content_area").html("<%= escape_javascript render(:partial => 'sessions/new') %>");
 
-var $enterItem = $('.enter-item');
-var $placeholderItem = $('.placeholder');
-
-
-$enterItem.focus(function(){
-	$(this).next(".placeholder").addClass('hide');
-});
-
-$enterItem.blur( function(){
-	var val = $(this).val();	 
-	if (!val || val == "") {
-		$(this).next(".placeholder").removeClass('hide');
-	}
-});
-
+fn_users_bindLogonEvents();
 
 

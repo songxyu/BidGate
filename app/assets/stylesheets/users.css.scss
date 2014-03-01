@@ -2,39 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.hide {
-	visibility: hidden !important;
+
+.user_page_area{
+	border-top: 1px solid #d9d9d9;
+	padding: 50px 0;	
+	text-align: center;	
 }
 
-.button {
-	margin: 16px 0 0 0;
-	cursor: pointer;
-	background: #fff;
-	border: 1px solid #e5e5e5;
-	border-radius: 6px;
-	color: #7c7c7c;
-	display: block;
-	font-size: 16px;//
-	height: 44px;
-	line-height: 44px;
-	text-align: center;
-	width: 320px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
 
-.orange {
-	background: none;
-	border: 0 none;
-	background: #ff7a4d;
-	color: #fff;
-	border: 1px solid #ff7549;
-}
-
+//==================== user logon  =============
 .logon-content {
-	/*text-align: center;*/
-	width: 100%;
+	text-align: left;
+	width: 500px;
+	position: relative;
+	left: 40%;
+}
+
+.logon-content .logon-form-area{
+	text-align: left;
 }
 
 .logon-content .shake-area {
@@ -119,6 +104,7 @@
 }
 
 //================ user reg page========================================
+
 .reg-page {
 	width: 903px;
 	margin: 0 auto;
@@ -213,4 +199,12 @@
 	top: -25px;
 }
 
+//============== reg success page ========
+.reg-page .reg-success-area{
+	min-height: 500px;	
+	width: 800px;
+}
 
+.reg-page .reg-success-info-area{
+	font-weight: bold;
+}

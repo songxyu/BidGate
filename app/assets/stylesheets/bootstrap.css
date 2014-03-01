@@ -1062,7 +1062,7 @@ button,
 select,
 textarea {
   font-size: 14px;
-  font-weight: normal;
+  /*font-weight: normal;*/
   line-height: 20px;
 }
 

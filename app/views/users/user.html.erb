@@ -1,1 +1,28 @@
-<%= render "new" %>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>新用户注册 - 壹百万</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>			
+		<%= javascript_include_tag "application" %>			
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<%= render "layouts/header" %> 
+ 		<%= yield :header %>  
+ 		
+		<div class="user_page_area">
+			<% request_name = request.path %>
+			<% if 	request_name == "/signup" %>
+				<%= render "new" %>
+			<% elsif  request_name == "/signup_success" %>
+				<%= render "reg_success" %>
+			<% else %>
+				<%= render "sessions/new" %>
+			<% end %>
+		</div>
+		 
+		 <%= render "layouts/footer" %> 
+		 <%= yield :footer %>
+	</body>
+</html>

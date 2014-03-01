@@ -1,0 +1,70 @@
+<div class="reg-page">
+
+	<div class=" reg-area reg-success-area">
+		<h4 class="reg-area-title">注册成功!</h4>
+ 
+		<%= form_for @user, url: { controller: "orders"}, method: "get" do |f| %>
+ 		<div id="reg-success-info-area">
+			<dl>
+				
+				<dt class="f_label">
+					<%= f.label :username, "公司名称: " %>
+				</dt>
+				<dd class="f_input">
+					<%= @user.company.name  %>
+				</dd>
+				
+				
+				<dt class="f_label">
+					<%= f.label :username, "用户名:" %>
+				</dt>
+				<dd class="f_input">
+					<%= @user.username %>
+				</dd>
+	
+				<dt class="f_label">
+					<%= f.label :nickname, "昵称:" %>
+				</dt>
+				<dd class="f_input">
+					<%= @user.nickname   %>
+				</dd>		 
+	
+				<dt class="f_label">
+					<%= f.label :contact, "真实姓名:" %>
+				</dt>
+				<dd class="f_input">
+					<%= @user.contact  %>
+				</dd>
+	
+				<dt class="f_label">
+					<%= f.label :email, "*邮箱:" %>
+				</dt>
+				<dd class="f_input">
+					<%= @user.email  %>
+				</dd>
+	
+				<dt class="f_label">
+					<%= f.label :contact_cellphone, "手机:" %>
+				</dt>
+				<dd class="f_input">
+					<%= @user.contact_cellphone  %>
+				</dd>
+	
+				<dt class="f_label">
+					<%= f.label :contact_tel, "工作电话:" %>
+				</dt>
+				<dd class="f_input">
+					<%= @user.contact_tel  %>
+				</dd>
+ 
+ 				<dt class="f_label" ></dt>
+				<dd class="f_input">
+					<%= f.submit "我的个人中心", :class => "button orange reg-button", :id => "btn_submit_reg", :remote => true %>
+				</dd>
+				
+			</dl>
+		</div>
+		<% end %>
+	</div>
+
+</div>

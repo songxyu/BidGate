@@ -1,0 +1,11 @@
+ 
+ 
+<% if params[:reg_method] == 'unreg'  %>
+ 
+$("#company-info-area").html("<%= j render(:partial => 'companies/basic_info', 	:locals => {:company => @user.company }) %>");
+			 
+<% else %>			 
+			 		 
+$("#company-info-area").html("<%= j render(:partial => 'companies/reged_info', :locals => {:company => @user.company }) %>");
+
+<% end %>

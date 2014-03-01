@@ -37,12 +37,14 @@ BidGate::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+  get "signup_success" => "users#signup_success", :as => "signup_success"
+  
   
   get "user_profile" => "users#profile", :as => "user_profile"
   get "user_edit" => "users#edit", :as => "user_edit"
   get "company/edit" => "companies#edit", :as => "company_edit"
   get "company/verify" => "companies#verify", :as => "company_verify"
- 
+  get  "user_new_partial"  => "users#reg_ajax_partial_company_form", :as => "user_new_partial"
   
   #root :to => "users#new"
   resources :users
