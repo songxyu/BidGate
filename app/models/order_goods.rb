@@ -7,6 +7,6 @@ class OrderGoods < ActiveRecord::Base
   attr_accessible :category, :model, :name, :price, :quantity, :order_id, :image, :memo
   
   def order_item_info_str
-    return name + model + " " + quantity.to_s + " 千克" # TODO: unit
+    return name ? name : '' + model ? model : "" + " " + quantity.to_s + " 千克" # TODO: unit
   end
 end

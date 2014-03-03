@@ -47,7 +47,7 @@
 				<div class="progress_label" ><img src="../img/ok.png"><span></span></div>
 			</div>
 			
-			<div class="row_margin"> <b> <span class="algin_left"> <%= order.price %> 元 </span> <span class="algin_right"><%= order.deadline.strftime('%Y-%m-%d %H:%M')  %> </b> </span> </div>
+			<div class="row_margin"> <b> <span class="algin_left"> <%= order.price %> 元 </span> <span class="algin_right"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%> </b> </span> </div>
 			<div><span class="algin_left">  起拍 </span> <span class="algin_right"> 截止日期 </span> </div>
 				
 		</div>

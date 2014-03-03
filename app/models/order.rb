@@ -45,7 +45,7 @@ class Order < ActiveRecord::Base
     text :order_goods_search
     
     text :category do
-      category.name
+      category ? category.name : ""
     end
     
     text :vendor_search    

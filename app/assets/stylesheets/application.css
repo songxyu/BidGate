@@ -12,10 +12,10 @@
  *= require_tree .
  *
  *= require jquery.ui.all
- * 
+ *
  * NOTE: bootstrap and other css still loaded after application.css even if it lists here!
  *= require bootstrap
- * 
+ *
  *= require bootstrap-responsive
  */
 
@@ -46,38 +46,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .padding-left-100 {
 	padding-left: 100px;
-}
-
-
-
-.hide {
-	visibility: hidden !important;
-}
-
-.button {
-	margin: 16px 0 0 0;
-	cursor: pointer;
-	background: #fff;
-	border: 1px solid #e5e5e5;
-	border-radius: 6px;
-	color: #7c7c7c;
-	display: block;
-	font-size: 16px;//
-	height: 44px;
-	line-height: 44px;
-	text-align: center;
-	width: 320px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-.orange {
-	background: none;
-	border: 0 none;
-	background: #ff7a4d;
-	color: #fff;
-	border: 1px solid #ff7549;
 }
 
 /**--------------------------------- header --------------------------------------------*/
@@ -146,35 +114,42 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background: url("../img/feature-list.png") no-repeat center center;
 }
 
-.home_nav_menu {
-	height: 30px;
-	width: 100%; 
+.header .nav_menu {
+	height: 36px;
+	width: 100%;
 	display: inline-block;
-	margin-top: 8px;
+	/*margin-top: 8px;*/
 	background-color: rgb(0, 160, 200);
 }
 
-.home_nav_menu li {
+.header .nav-menu .home-menu-category{
+	padding-left: 10px;
+}
+.header .nav_menu > li {
+	color: white;
+	font-size: 15px;
+	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 	float: left;
 	min-width: 80px;
 	position: relative;
 	list-style: none;
-	padding-top: 5px;
-}
- 
-.home_nav_menu  li a{
-	color: #002A80;
+	line-height: 36px;
 }
 
-.home_nav_menu  li .search-bar {
+.header .nav_menu  li a {
+	color: white;
+	font-size: 15px;
+	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+}
+
+.header .nav_menu  li .search-bar {
 	margin-left: 50px;
 	width: 200px;
-	padding-top: 0px;
-	margin-top: -5px;
+	padding-top: 2px;
 }
 
-.home_nav_menu .search-bar input[type="submit"] {
-	float: right;	 
+.header .nav_menu .search-bar input[type="submit"] {
+	float: right;
 	top: 2px;
 	right: -70px;
 	position: absolute;
@@ -236,14 +211,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .footer {
 	clear: both;
 	width: 100%;
-	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 	border-top: solid 1px #999;
 }
 
-
-.error{
+.error {
 	color: red;
 	background-color: yellow;
 }

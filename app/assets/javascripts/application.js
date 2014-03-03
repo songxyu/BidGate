@@ -36,5 +36,10 @@
 
 //=require jquery.shapeshift
 
+//=require jMenu.jquery
+
+//=require home_menu
+
+
 
 

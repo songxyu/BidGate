@@ -1,19 +1,11 @@
 class UsersController < CommonController
   def new
+    logger.debug " =============================== users.new == "
     @user = User.new
-    render  layout: false, template: "users/user.html.erb"
-  end
-  
-  def reg_ajax_partial_company_form
-    @user = User.new
+    #common_response
+    logger.debug "@user=" + @user.to_s
   end
 
-  def signup_success
-    @user = User.find( session[:user_id])
-    render  layout: false, template: "users/user.html.erb"
-  end
-  
-  
   def create
     createdUserInfo = params[:user]
 
@@ -67,7 +59,7 @@ class UsersController < CommonController
       logger.debug @user.to_s
 
       session[:user_id] = @user.id
-      redirect_to signup_success_url  #, :notice => "注册成功!"
+      redirect_to root_url, :notice => "注册成功!"
     else
       logger.debug "Fail to create new user! redirect to reg page..."
       flash.now.alert = "Fail to create user!"
