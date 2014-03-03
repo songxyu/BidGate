@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 	var $home_menu = $(".home-nav-menu");
-	
-	$home_menu.jMenu({
+	if($home_menu.length>0){
+			$home_menu.jMenu({
 		openClick: false,
 		ulWidth: 'auto',
 		TimeBeforeOpening: 100,
@@ -19,7 +19,6 @@ $(document).ready(function() {
 		}
 		
 	});
-	
-
+	}
 
 }); 
