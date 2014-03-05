@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140114150159) do
+ActiveRecord::Schema.define(:version => 20140305171712) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(:version => 20140114150159) do
     t.datetime "updated_at", :null => false
     t.string   "image_path"
   end
+
+  create_table "category_prop_value_lists", :force => true do |t|
+    t.integer  "goods_prop_value_id"
+    t.string   "prop_value"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "category_prop_value_lists", ["goods_prop_value_id"], :name => "index_category_prop_value_lists_on_goods_prop_value_id"
+
+  create_table "category_units", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "unit_name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "category_units", ["category_id"], :name => "index_category_units_on_category_id"
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -129,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20140114150159) do
     t.integer  "currency"
     t.string   "vendor_list"
     t.string   "location_searchable"
+    t.string   "order_memo"
   end
 
   create_table "users", :force => true do |t|

@@ -61,5 +61,12 @@ echo add the location column in order table for search
 call rails generate migration AddLocationSearchableToOrders location_searchable:string
 
 
+echo add two new tables
+call rails generate model CategoryUnit  category:references  unit_name:string
+call rails generate model CategoryPropValueList goods_prop_value:references prop_value:string
+
+echo add memo column on table orders
+call rails generate migration AddOrderMemoToOrders order_memo:string
+
 echo  ----- finished changes ----
 pause

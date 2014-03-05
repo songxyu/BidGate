@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  goods_prop_value: 
+  prop_value: MyString
+
+two:
+  goods_prop_value: 
+  prop_value: MyString
