@@ -6,23 +6,11 @@
 	<% 
 		og = order.order_goods[0]
 		item_info_text = og.order_item_info_str 
-		
-		bid_progres = 0
-		i_create_time = order.create_time.to_i
-		past_time = Time.now.to_i - i_create_time
-		total_time =  order.deadline.to_i - i_create_time
-		remaining_time =  order.deadline.to_i - Time.now.to_i
-		logger.debug "i_create_time="+ i_create_time.to_s + ", past_time=" + past_time.to_s \
-				+ ", total_time=" + total_time.to_s + ", remaining_time=" + remaining_time.to_s
-				
-		if remaining_time <= 0
-			bid_progres = 100	
-		else		
-			bid_progres = total_time <= 0 ? 100 : (past_time * 100.0 / total_time )
-			bid_progres = (bid_progres <= 0 || bid_progres>=100) ?  100 : bid_progres;
-		end
-		
-		logger.debug "bid_progres="+ bid_progres.to_s
+			
+		bid_progres = get_bid_progress(order.create_time, order.deadline)
+		bid_status = get_bid_status(bid_progres, order.status)
+		bid_status_text = get_bid_status_text(bid_status)
+		logger.debug "bid_progres="+ bid_progres.to_s + ", bid_status="+bid_status.to_s		
 		
 		bid_history_count = order.order_price_histories.count
 	%>
@@ -43,8 +31,8 @@
 			<div class="algin_right row_margin">  <%= link_to '详情>>', order, remote: true %>  </div>
 			<div class="row_margin"> <img src="../img/location.png"> <b> <%= order.location ? order.location.full_location_name : '' %></b>  </div>
 			<div class="bid_progressbar_area">
-				<div class="bid_progressbar row_margin" data-progressval="<%=bid_progres%>"></div>
-				<div class="progress_label" ><img src="../img/ok.png"><span></span></div>
+				<div class="bid_progressbar row_margin" data-status="<%=bid_status%>" data-progressval="<%=bid_progres%>"></div>
+				<div class="progress_label" ><img src="../img/bid_<%=bid_status%>.png"><span><%=bid_status_text%></span></div>
 			</div>
 			
 			<div class="row_margin"> <b> <span class="algin_left"> <%= order.price %> 元 </span> <span class="algin_right"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%> </b> </span> </div>
@@ -64,3 +52,5 @@
 <%= paginate @orders, :remote => true  %>
 </div>
 
+<div id="dialog_area">
+</div>

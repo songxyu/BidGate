@@ -1,5 +1,6 @@
 class OrdersController < CommonController
-  #include ResponseUtil
+  include OrdersHelper
+  
   before_filter  :authorize, :only => [:new, :edit, :create]
   
   # TODO: fix issue using after_filter: Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action.
@@ -12,7 +13,7 @@ class OrdersController < CommonController
     @filter_tag_name = params[:tag_name]
     @filter_category = param_cate_id ? Category.where(id: param_cate_id)[0] : nil
     
-    visible_order_status = [0, 1, 2]
+    visible_order_status = [0, 1, 2, 3, -1, -2] # TODO: should remove 3, -1, -2, currently show them only for debug 
     default_order_by = "create_time DESC" # NOTE: .order(create_time: :desc) seems not to work in rails 3.2!
     if param_cate_id
       @orders = Order.where(category_id: param_cate_id, status: visible_order_status).order(default_order_by).page(params[:page])
@@ -181,8 +182,6 @@ class OrdersController < CommonController
       order_goods_attributes: [:name, :model, :price, :quantity, :_destroy]) # when remove, need _destroy
   end
   
-  
-
-  
+ 
   
 end

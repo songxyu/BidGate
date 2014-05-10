@@ -5,15 +5,19 @@ var fnOrderListInit = function() {
 	var $arr_bid_progressbar = $(".bid_progressbar");
 	$.each($arr_bid_progressbar, function(index, elem) {
 		var prog_val = parseInt($(elem).data("progressval"));
+		var bid_status = parseInt($(elem).data("status"));
 			
-		if (prog_val<100){
+		if (bid_status == 1 || bid_status == 0){
 			$(elem).css("height", "10px");
 			$(elem).find(".ui-widget-header").css("height", "10px");
 		}else{			
 			var $label = $(elem).next(".progress_label");			
-			$label.find("span").text("成功竞拍!");
-			$label.find("img").css("display","inline");
+			$label.find("img").css("display","inline").css("height","23px");
 			$label.css("height", "25px").css("position", "relative").css("top", "-25px");
+			
+			if(bid_status == 2 || bid_status==3){
+				prog_val = 100;
+			}
 		}
 		
 		$(elem).progressbar({

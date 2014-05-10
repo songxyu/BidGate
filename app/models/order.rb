@@ -1,4 +1,6 @@
 class Order < ActiveRecord::Base
+  #include OrdersHelper
+  
   attr_accessible :buyer_id, :create_time, :deadline, :deal_date, :deal_price, :price, :price_type, 
           :vendor_id, :status, :category_id, :order_num, :location_id, :payment_method, :currency, :vendor_list,
           :location_searchable
@@ -111,4 +113,8 @@ class Order < ActiveRecord::Base
     return hashList
   end
   
+  
+  # def self.get_bid_progress(create_time, deadline)
+    # OrdersHelper.get_bid_progress(create_time, deadline)
+  # end
 end

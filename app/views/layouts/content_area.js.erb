@@ -14,5 +14,9 @@ $(".left_wrapper").show();
 
 <% end %>
  
-$(".content_area").html("<%= escape_javascript render(:partial => action_path ) %>");
- 
+ <% if action_name == 'show' %>
+ 	$("#dialog_area").html("<%= escape_javascript render(:partial => action_path ) %>");
+ 	$("#dialog_area").dialog();
+ <% else %>
+	$(".content_area").html("<%= escape_javascript render(:partial => action_path ) %>");
+ <% end %>
