@@ -9,8 +9,9 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
+// jquery.tools.min includes JQuery 1.7.2
 //
-//= require jquery
+//= require jquery.tools.min
 //= require jquery_ujs
 //= require_tree
 
@@ -39,7 +40,5 @@
 //=require jMenu.jquery
 
 //=require home_menu
-
-
 
 

@@ -8,6 +8,21 @@ $(document).ready(function(){
     
 	fnOrderListInit();
 	fnMsgArea();
+	
+  	$('#testbtn').click(function(){
+  		
+  		$("#dialog_area").overlay({
+		 top: 260,
+		mask: {
+         color: '#ebecff',
+         loadSpeed: 200,
+         opacity: 0.9
+      	}, 
+      	closeOnClick: true,
+      	load: true
+	});
+  	});
+  	
 });
 
   

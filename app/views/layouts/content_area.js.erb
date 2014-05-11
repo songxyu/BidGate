@@ -15,8 +15,21 @@ $(".left_wrapper").show();
 <% end %>
  
  <% if action_name == 'show' %>
+   
  	$("#dialog_area").html("<%= escape_javascript render(:partial => action_path ) %>");
- 	$("#dialog_area").dialog();
+	//$("#dialog_area").dialog();
+	
+	$("#dialog_area").overlay({
+		 top: 260,
+		mask: {
+         color: '#ebecff',
+         loadSpeed: 200,
+         opacity: 0.9
+      	}, 
+      	closeOnClick: true,
+      	load: true
+	});
+  
  <% else %>
 	$(".content_area").html("<%= escape_javascript render(:partial => action_path ) %>");
  <% end %>
