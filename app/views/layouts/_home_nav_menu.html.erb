@@ -3,9 +3,6 @@
 	<ul class="menu_bar" role="menu">
 		<li>
 			<ul class="home-nav-menu">
-				<li class="home-menu-category">
-					分类筛选
-				</li>
 				<li>
 					<%= link_to "首页", orders_path, remote: true %>
 				</li>
@@ -19,22 +16,19 @@
 					<%= link_to "发现供应商" %>
 					
 				</li>
-				<li>
-					<%= link_to "什么是壹百万" %>
-				</li>
 
 			</ul>
 		</li>
 
+		
 		<li>
-			<div class="search-bar">
-				<%= form_tag orders_search_path, :method => :get, :remote => true do %>
-				<p>
-					<%= text_field_tag :search, params[:search] %>
-					<%= submit_tag "搜索", :name => nil %>
-				</p>
-				<% end %>
-			</div>
+			<span class="welcome-signin">
+			<% if current_user %>
+			当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", logout_path %>			
+			<span class="my-profile-link"><%= link_to "我的壹百万",  user_profile_path, remote: true %> </span>
+			<% else %>
+			<%= link_to "登录",  login_path %> <%= link_to "免费注册", signup_path %>
+			<% end %> </span>
 		</li>
 	</ul>
 

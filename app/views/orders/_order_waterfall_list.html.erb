@@ -1,60 +1,82 @@
-
 <div class = "orders_container">
-	
-<% @orders.each do |order| %>
-<div class="order_item" id="order_item_<%= order.id %>">
-	<% 
-		og = order.order_goods[0]
-		item_info_text = og.order_item_info_str 
-			
-		bid_progres = get_bid_progress(order.create_time, order.deadline)
-		bid_status = get_bid_status(bid_progres, order.status)
-		bid_status_text = get_bid_status_text(bid_status)
-		logger.debug "bid_progres="+ bid_progres.to_s + ", bid_status="+bid_status.to_s		
-		
-		bid_history_count = order.order_price_histories.count
-	%>
-	<div class="item_inner_area">
-		<div>
-			<!-- TODO: should use order.image, by category id? -->
-			<%= link_to image_tag('../img/order_item_sample.png', class:"order_image"), order, remote: true %>
-						
-			<div class="order_cate_row" >
-					<div class="div_float_left_border_right">
-						<span><%= order.category ?  order.category.name : "" %> </span> 
-					</div> 	
-					<span><%= order.order_goods[0].name %> </span>			
+
+	<% @orders.each do |order| %>
+	<div class="order_item" id="order_item_<%= order.id %>">
+		<%
+ og = order.order_goods[0]
+      item_info_text = og.order_item_info_str
+
+      bid_progres = get_bid_progress(order.create_time, order.deadline)
+      bid_status = get_bid_status(bid_progres, order.status)
+      bid_status_text = get_bid_status_text(bid_status)
+      logger.debug "bid_progres="+ bid_progres.to_s + ", bid_status="+bid_status.to_s
+
+      bid_history_count = order.order_price_histories.count
+%>
+		<div class="item_inner_area">
+			<div>
+
+				<!-- image display -->
+				<div id="item_image" class="item_image">
+					<!-- TODO: should use order.image, by category id? -->
+					<%= link_to image_tag('../img/order_item_sample.png', class:"order_image"), order, remote: true %>
+
+					<div class="order_cate_row" >
+						<div class="div_float_left_border_right">
+							<span><%= order.category ?  order.category.name : "" %> </span>
+						</div>
+						<span><%= order.order_goods[0].name %> </span>
+					</div>
+				</div>
+
+				<!-- quick view -->
+				<div id="quick_view" class="quick_view">
+					<span class="quick_view_text">快速浏览</span>
+				</div>
+
+				<div class="row_margin">
+					<span>最新订单竞价: </span><span class="highlight_text"><%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
+				</div>
+				<div class="row_margin">
+					<%= bid_history_count %> 个竞拍
+				</div>
+				<div class="row_margin">
+					采购: <%= item_info_text %>
+				</div>
+				<div class="algin_right row_margin">
+					<%= link_to '详情>>', order, remote: true %>
+				</div>
+				<div class="row_margin">
+					<img src="../img/location.png"><b> <%= order.location ? order.location.full_location_name : '' %></b>
+				</div>
+				<div class="bid_progressbar_area">
+					<div class="bid_progressbar row_margin" data-status="<%= bid_status%>" data-progressval="<%= bid_progres%>"></div>
+					<div class="progress_label" ><img src="../img/bid_<%= bid_status%>.png"><span><%= bid_status_text%></span>
+					</div>
+				</div>
+
+				<div class="row_margin">
+					<b> <span class="algin_left"> <%= order.price %> 元 </span> <span class="algin_right"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%> </b> </span>
+				</div>
+				<div>
+					<span class="algin_left"> 起拍 </span><span class="algin_right"> 截止日期 </span>
+				</div>
+
 			</div>
-			<div class="row_margin"><span>最新订单竞价:  </span><span class="highlight_text"><%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span></div>
-			<div class="row_margin"> <%= bid_history_count %> 个竞拍</div>			
-			<div class="row_margin"> 采购: <%= item_info_text %>  </div>
-			<div class="algin_right row_margin">  <%= link_to '详情>>', order, remote: true %>  </div>
-			<div class="row_margin"> <img src="../img/location.png"> <b> <%= order.location ? order.location.full_location_name : '' %></b>  </div>
-			<div class="bid_progressbar_area">
-				<div class="bid_progressbar row_margin" data-status="<%=bid_status%>" data-progressval="<%=bid_progres%>"></div>
-				<div class="progress_label" ><img src="../img/bid_<%=bid_status%>.png"><span><%=bid_status_text%></span></div>
-			</div>
-			
-			<div class="row_margin"> <b> <span class="algin_left"> <%= order.price %> 元 </span> <span class="algin_right"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%> </b> </span> </div>
-			<div><span class="algin_left">  起拍 </span> <span class="algin_right"> 截止日期 </span> </div>
-				
+
 		</div>
-	  
 	</div>
+
+	<% end %>
+
 </div>
-
-<% end %>
-
-</div>
-
 
 <div class="pagination_area">
-<%= paginate @orders, :remote => true  %>
+	<%= paginate @orders, :remote => true  %>
 </div>
 
+<div id="dialog_area"></div>
 
-
-<div id="dialog_area">
-</div>
-
-<button id="testbtn">TEST UI tools</button>
+<button id="testbtn">
+	TEST UI tools
+</button>

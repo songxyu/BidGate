@@ -31,6 +31,17 @@
   padding: 5px;
 }
 
+.order_item .item_image:hover + .quick_view{
+  opacity: 1;
+}
+
+.order_item .quick_view {
+  opacity: 0;
+}
+
+.order_item .quick_view .quick_view_text {
+  color: red;
+}
 
 .pagination_area{
   float: left;  
@@ -46,6 +57,11 @@
 .order_item .order_image{
   height: 230px;
   width: 100%;
+}
+
+.order_item .order_image:hover{
+  background-color: #333;
+  opacity: 0.5;
 }
 
 .order_item .div_float_left_border_right{
@@ -93,7 +109,8 @@
 }
 
 .order_item .ui-widget-header { 
-  background: #63AFF5;
+//  background: #63AFF5;
+  background: #0088cc;
 }
 
 // for order detail page

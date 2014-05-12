@@ -1,9 +1,12 @@
 <div class="logon-content ">
 
-	<h1>欢迎登录壹百万</h1>
+	<div class="logon_header">
+		<h3 class="logon_header_text">登录</h3>
+		<img src="../img/close_btn.png" class="logon_close_btn">
+	</div>
 
 	<p class="nl-login-intro">
-		<%= link_to "无线低价, 尽在壹百万!", orders_path  %>
+		<%= link_to "无限低价, 尽在壹百万!", orders_path  %>
 	</p>
 
 	<%= render "layouts/flash_msg" %>
@@ -32,12 +35,12 @@
 
 		<div class="ng-cookie-area" id="cookie_area">
 			<input type="checkbox" id="auto_login_two_weeks" >
-			<span id="message_AUTOLOGIN_TWOWEEKS">两周内自动登录</span>
+			<span id="message_AUTOLOGIN_TWOWEEKS" class="auto_login_text">自动登录</span>
 		</div>
 
 		<%= submit_tag "立即登录", class:"button orange btn_submit" %>
 
-		<%= link_to "免费注册壹百万帐号!", signup_path, class:"button" %>
+		<%= link_to "免费注册", signup_path, class:"button" %>
 
 		<a style="display:none" id="redirectLink" href="" target="_top"></a>
 		<a style="display:none" id="redirectTwoPhraseLoginLink" href=""></a>

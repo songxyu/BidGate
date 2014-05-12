@@ -2,31 +2,33 @@
 <!-- <div style="background: url('/assets/nav_bg.png') repeat #fff; background: repeat;"> -->
 
 <%
-  is_searching = params[:action]=="search"
-%>   
+ is_searching = params[:action]=="search"
+%>
 
 <%  if is_searching %>
-<h1> Search Orders: </h1>
-<% else %>
-<h1> Orders </h1>
+<%= render "layouts/filter_bar" %>
+<%= yield :filter_bar %>
 <% end %>
-
-
-<% if is_searching 
-    selected_filter_id_array = [ params[:search_location_id] ? params[:search_location_id] : 0,
-      params[:search_category_id] ? params[:search_category_id] : 0,
-      params[:search_sort_by] ? params[:search_sort_by] : 1
-    ]
-%>
-	<%= form_tag orders_search_path, :id => "search_filter_form",  :method => :get, remote: true   do |f| %>	 
+<div class="home_filter_bar_area">
+	<div class="filter_bar">
+		<% if is_searching
+		selected_filter_id_array = [ params[:search_location_id] ? params[:search_location_id] : 0,
+		params[:search_category_id] ? params[:search_category_id] : 0,
+		params[:search_sort_by] ? params[:search_sort_by] : 1
+		]
+		%>
+		<%= form_tag orders_search_path, :id => "search_filter_form",  :method => :get, remote: true   do |f| %>
 		在城市 <%= select_tag( :search_location_id, options_for_select(@location_array, selected_filter_id_array[0]) ) %>
 		查找  <%= select_tag( :search_category_id, options_for_select(@category_array, selected_filter_id_array[1]) ) %> 类别的订单,
 		并以  <%= select_tag( :search_sort_by, options_for_select(
-				[['订单日期', 1], ['截止日期', 2], ['价格(小->大)', 3], ['价格(大->小)', 4], 
-				['数量(少->多)', 5], ['数量(多->少)', 6] ], selected_filter_id_array[2]) ) %>  排序
-		<%= hidden_field_tag( :search, params[:search] ) %>	 
-	<% end %>
-<% end %>
+		[['订单日期', 1], ['截止日期', 2], ['价格(小->大)', 3], ['价格(大->小)', 4],
+		['数量(少->多)', 5], ['数量(多->少)', 6] ], selected_filter_id_array[2]) ) %>  排序
+		<%= hidden_field_tag( :search, params[:search] ) %>
+		<% end %>
+		<% end %>
+
+	</div>
+</div>
 
 <% if @filter_category || @filter_tag_name %>
 <p>
@@ -43,7 +45,6 @@
 <p>
 	总计订单数: <%= @orders.total_count %>
 </p>
-
 
 <%= render "order_waterfall_list" %>
 

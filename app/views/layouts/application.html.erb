@@ -3,39 +3,30 @@
 	<head>
 		<title>BidGate</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
-			
+
 		<%= javascript_include_tag "application" %>
-			
+
 		<%= csrf_meta_tags %>
 
 	</head>
 	<body>
 		<%= render "layouts/header" %>
-		<%= yield :header %>  <!-- THIS NOT WORK!? -->
-		
-		<%= render "layouts/home_nav_menu" %>
+		<%= yield :header %> <!-- THIS NOT WORK!? -->
 
-		<div class="left_wrapper">
-			<div class="category_area">
-				<%= render "categories/tree", :object => Category.all_categories_tree %>
-			</div>
-
-
-			<div class="hot_tags_area">
-				<%= render "orders/hot_tags" %>
-			</div>
-		</div>
-
+		<div>
 		<div class="content_area">
 			<%= yield %>
 		</div>
+		</div>
 
 		<div class="right_wrapper">
-			
+
 		</div>
 
 		<%= render "layouts/footer" %>
 		<%= yield :footer %> <!-- THIS NOT WORK!? -->
+
+		<div id="dialog_logon" class="dialog_logon"></div>
 
 	</body>
 </html>

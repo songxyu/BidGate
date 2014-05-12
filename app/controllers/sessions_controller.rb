@@ -37,9 +37,11 @@ class SessionsController < ApplicationController
       redirect_to root_url, :notice => "Logged in!"
     else
       logger.debug "Invalid email or password, redirect to logon page..."
-      flash.now.alert = "Invalid email or password"
+      
       # redirect_to new_session_url  
-      render "new" and return
+      # render "new" and return
+      redirect_to login_url
+      flash.now.alert = "Invalid email or password"
     end
   end
 

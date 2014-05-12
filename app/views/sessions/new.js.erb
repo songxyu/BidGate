@@ -1,5 +1,11 @@
-$(".content_area").html("<%= escape_javascript render(:partial => 'sessions/new') %>");
+$("#dialog_logon").html("<%= escape_javascript render(:partial => 'sessions/new')%>");
 
-fn_users_bindLogonEvents();
+$("#dialog_logon").overlay().load();
 
+$('.logon_close_btn').click(function(){
+	$("#dialog_logon").overlay().close();
+});
+
+
+//fn_users_bindLogonEvents();
 

@@ -92,13 +92,24 @@ var fn_users_bindLogonEvents = function() {
 	}
 };
 
-
-
 // run when reg page renders
 $(document).ready(function() {
 	fn_users_bindRegMethodsEvents();
 	fn_users_BindVerifyButtonClick();
 	fnMaskDiv("#reg-user-info-area");
-	
+
 	fn_users_bindLogonEvents();
+
+	// logon dialog overlay configuration
+	$("#dialog_logon").overlay({
+		top : 100,
+		mask : {
+			color : '#393c3d',
+			loadSpeed : 200,
+			opacity : 0.8
+		},
+		closeOnClick : true,
+		load : false
+
+	});
 });

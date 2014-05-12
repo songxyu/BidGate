@@ -12,10 +12,9 @@
 
 //==================== user logon  =============
 .logon-content {
-	text-align: left;
-	width: 500px;
-	position: relative;
-	left: 40%;
+	width: 360px;
+	float: left;
+	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
 
 .logon-content .logon-form-area{
@@ -32,6 +31,7 @@
 
 .logon-content .enter-area {
 	position: relative;
+	top: 20px;
 }
 
 .logon-content .error-tip {
@@ -43,7 +43,7 @@
 }
 
 .logon-content .placeholder {
-	left: 12px;
+	left: 55px;
 	font-style: normal;
 	color: #c2c2c2;
 	font-size: 14px;
@@ -75,13 +75,15 @@
 
 .logon-content input[type="text"], .logon-content input[type="password"], .logon-content .enter-item {
 	background: #fff;
-	width: 298px;
+	width: 260px;
 	display: block;
-	height: 20px;
+	position: relative;
+	left: 35px;
+	height: 16px;
 	line-height: 20px;
 	padding: 12px 10px;
-	border: 1px solid #e6e6e6;
-	border-radius: 6px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
 	color: #333;
 	font-size: 14px;
 	font-weight: bold;
@@ -99,8 +101,31 @@
 	margin-top: -11px;
 }
 
+.logon-content .ng-cookie-area {
+  position: relative;
+  left: 30px;
+  top: 20px;
+}
+
 .logon-content input[type="submit"].btn_submit {
-	width: 320px;
+	width: 280px;
+	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  position: relative;
+  left: 40px;
+  top: 30px;
+}
+
+.logon-content .button {
+  width: 280px;
+  position: relative;
+  left: 40px;
+  top: 35px;
+}
+
+.logon-content .button a:hover {
+  color: #005580;
+  text-decoration: none;
+  background-color: #eee;
 }
 
 //================ user reg page========================================
