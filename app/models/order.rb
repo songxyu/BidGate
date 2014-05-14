@@ -31,7 +31,8 @@ class Order < ActiveRecord::Base
     time :deadline # must write seperately!
     integer :category_id # for search filters
     integer :location_id # for search filters
-    double :price # for sorting    
+    integer :status # for search filters
+    double :price # for sorting
     integer :goods_total_quantity_search_sorting # for sorting
     
     # integer :status # TODO: whether to show canceled orders in search results?
