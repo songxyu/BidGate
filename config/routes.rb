@@ -46,6 +46,9 @@ BidGate::Application.routes.draw do
   get "company/verify" => "companies#verify", :as => "company_verify"
   get  "user_new_partial"  => "users#reg_ajax_partial_company_form", :as => "user_new_partial"
   
+  #add by Song
+  get "order_new" => "orders#new", :as => "orders_new"
+  #end add
   #root :to => "users#new"
   resources :users
   resources :sessions

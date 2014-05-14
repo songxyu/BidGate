@@ -1,7 +1,7 @@
 class OrdersController < CommonController
   include OrdersHelper
   
-  before_filter  :authorize, :only => [:new, :edit, :create]
+ # before_filter  :authorize, :only => [:new, :edit, :create]
   
   # TODO: fix issue using after_filter: Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action.
   #after_filter :common_response,  :only => [:show, :edit]  #:except => [:create, :update, :delete], 

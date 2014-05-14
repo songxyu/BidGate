@@ -3,8 +3,7 @@
 
 	<div class="masthead">
 
-		<div class="logo_wrap">
-		</div>
+		<div class="logo_wrap"></div>
 
 		<div class="menu_bar" role="menu">
 			<ul class="home-nav-menu">
@@ -40,7 +39,7 @@
 			</ul>
 
 			<div class="create_purchase_order_btn">
-				<span class="create_po_text">发布您的采购单</span>
+				<span class="create_po_text"><%= link_to "发布您的采购单", orders_new_path, remote: true %></span>
 			</div>
 
 		</div>
