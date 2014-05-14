@@ -1,4 +1,7 @@
 module OrdersHelper
+  extend self
+  
+  
   def get_bid_progress(create_time, deadline)
     bid_progres = 0
     i_create_time = create_time.to_i
@@ -39,5 +42,9 @@ module OrdersHelper
     when -1 then "已取消"
     when -2 then "已过期"
     end
+  end
+  
+  def get_all_status
+    return [["新建", 0], ["竞价中", 1], ["已成交", 2], ["已完成", 3], ["已取消", -1], ["已过期 ", -2] ] 
   end
 end

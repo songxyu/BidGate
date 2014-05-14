@@ -1,4 +1,5 @@
 module CategoriesHelper
+  extend self
   
   def get_dyn_props_by_category(category_id)
     @goods_props = GoodsProp.joins(:goods_prop_values).where('goods_prop_values.category_id' => category_id)

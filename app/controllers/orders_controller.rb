@@ -41,16 +41,20 @@ class OrdersController < CommonController
      # NOTE: params[] var is string!  
      filter_location_id = params[:search_location_id] 
      filter_category_id = params[:search_category_id] 
+     filter_status = params[:search_status] 
      sort_by_id =  params[:search_sort_by]
      
      filter_location_id = filter_location_id ? filter_location_id.to_i : 0
      filter_category_id = filter_category_id ? filter_category_id.to_i : 0
+     filter_status = filter_status ? filter_status.to_i : -99
+     
      sort_by_id = sort_by_id ? sort_by_id.to_i : 0
      sort_by_arr = get_sortby_arr_by_id(sort_by_id)
           
      logger.debug "Search keywords param=" + search_keywords \
                 + ", filter_location_id= " + filter_location_id.to_s   \
                 + ", filter_category_id= " + filter_category_id.to_s  \
+                + ", filter_status= " + filter_status.to_s  \
                 + ", sort_by_str= " + sort_by_arr.to_s       
      
  
@@ -60,6 +64,7 @@ class OrdersController < CommonController
         fulltext search_keywords 
         with(:location_id, filter_location_id) unless filter_location_id <= 0 # if 0, remove this scope to hit all records
         with(:category_id, filter_category_id) unless filter_category_id <= 0
+        with(:status, filter_status) unless filter_status <= -3
         
         order_by sort_by_arr[0], sort_by_arr[1]  # two symbols  #:create_time, :desc 
                
@@ -76,6 +81,10 @@ class OrdersController < CommonController
      @category_array = Category.all.map { |cat| [cat.name, cat.id] } 
      @category_array.sort {|a,b| a[0] <=> b[0] } # sort by name
      @category_array.unshift(["所有", 0]) 
+     
+     #all status list
+     @status_array = OrdersHelper.get_all_status()
+     @status_array.unshift(["所有", -99]) 
      
      logger.debug "Search result count: " + @orders.count.to_s
      render "index"  
