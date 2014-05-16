@@ -104,9 +104,9 @@ $(document).ready(function() {
 	$("#dialog_logon").overlay({
 		top : 100,
 		mask : {
-			color : '#393c3d',
+			color : '#aaa',
 			loadSpeed : 200,
-			opacity : 0.8
+			opacity : 0.4
 		},
 		closeOnClick : true,
 		load : false
