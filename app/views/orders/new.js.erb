@@ -1,7 +1,67 @@
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/new_2') %>");
 
+// ***** usage sample for editable Slickgrid ***** 
+ function requiredFieldValidator(value) {
+    if (value == null || value == undefined || !value.length) {
+      return {valid: false, msg: "This is a required field"};
+    } else {
+      return {valid: true, msg: null};
+    }
+  }
+
+  var grid;
+  var data = [];
+  var columns = [
+    {id: "title", name: "货物", field: "title", width: 120, cssClass: "cell-title", resizable: true, 
+    	editor: Slick.Editors.Text, validator: requiredFieldValidator},
+    {id: "desc", name: "描述", field: "description", width: 100, editor: Slick.Editors.LongText, resizable: true},
+    {id: "duration", name: "Duration", field: "duration", editor: Slick.Editors.Text, resizable: true},
+    {id: "%", name: "% Complete", field: "percentComplete", width: 150, resizable: true, 
+    	formatter: Slick.Formatters.PercentCompleteBar, editor: Slick.Editors.PercentComplete},
+    {id: "start", name: "Start", field: "start", minWidth: 60, editor: Slick.Editors.Date, resizable: true },
+    {id: "finish", name: "Finish", field: "finish", minWidth: 60, editor: Slick.Editors.Date, resizable: true },
+    {id: "effort-driven", name: "Effort Driven", minWidth: 20,  cssClass: "cell-effort-driven", //maxWidth: 80,
+    	field: "effortDriven", formatter: Slick.Formatters.Checkmark, editor: Slick.Editors.Checkbox, resizable: true }
+  ];
+  
+  var options = {
+    editable: true,
+    enableAddRow: true,
+    enableCellNavigation: true,
+    asyncEditorLoading: false,
+    autoEdit: false
+  };
+
+  $(function () {
+    for (var i = 0; i < 5; i++) {
+      var d = (data[i] = {});
+
+      d["title"] = "Task " + i;
+      d["description"] = "This is a sample task description.\n  It can be multiline";
+      d["duration"] = "5 days";
+      d["percentComplete"] = Math.round(Math.random() * 100);
+      d["start"] = "01/01/2009";
+      d["finish"] = "01/05/2009";
+      d["effortDriven"] = (i % 5 == 0);
+    }
+    
+    
+    grid = new Slick.Grid(".order-items-grid-area", data, columns, options);
+
+    grid.setSelectionModel(new Slick.CellSelectionModel());
+
+    grid.onAddNewRow.subscribe(function (e, args) {
+      var item = args.item;
+      grid.invalidateRow(data.length);
+      data.push(item);
+      grid.updateRowCount();
+      grid.render();
+    });
+  });
 
 
+
+/*
   // use jquery datepicker for some date fields
   $('#order_deadline').datepicker();
   $('#order_deadline').datepicker('option', 'dateFormat', 'yy-m-dd');
@@ -31,3 +91,6 @@ $('.addExtProp').bind('click', function(event) {
 		//alert("Request failed: " + textStatus);
 	});
 });
+
+
+*/

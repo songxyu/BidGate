@@ -1,0 +1,38 @@
+.create_order_step2{
+	margin: 50px 0;
+	position: relative;
+	height: 600px;
+	
+	.left-area{
+		height: 500px;
+		width: 69%;
+		position: absolute;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		background-color: #D3D3D3;
+		
+		text-align: center;
+		
+		.order-items-grid-area{
+			height: 200px;
+			width: 90%;
+			left: 25px;
+		}
+	}
+	
+	
+	
+	.right-area{
+		height: 500px;
+		width: 30%;
+		margin-left: 5px;
+		
+		position: absolute;
+		right: 0;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+	}
+	
+	
+	
+}
