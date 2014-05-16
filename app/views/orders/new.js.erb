@@ -1,5 +1,13 @@
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/new_2') %>");
 
+// **** select button actions
+$(".select_btn").click(function(){
+		$(this).addClass("selected");
+	});
+$(".other_select_dropdown").click(function(){
+	$(this).addClass("dropdown_show");
+})
+
 // ***** usage sample for editable Slickgrid ***** 
  function requiredFieldValidator(value) {
     if (value == null || value == undefined || !value.length) {
