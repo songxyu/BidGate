@@ -8,8 +8,8 @@
 		width: 69%;
 		position: absolute;
 		border: 1px solid #ccc;
-		border-radius: 3px;
-		background-color: #D3D3D3;
+		border-radius: 5px;
+		background-color: #EAEAEA;
 		
 		text-align: center;
 		
@@ -18,6 +18,14 @@
 			width: 90%;
 			left: 25px;
 		}
+		
+		.add-items{
+			background: url(../img/add.png) no-repeat center center;
+			padding-left: 100px;
+			background-size: contain;
+			line-height: 30px;
+			cursor: pointer; 
+		}
 	}
 	
 	
@@ -25,12 +33,20 @@
 	.right-area{
 		height: 500px;
 		width: 30%;
-		margin-left: 5px;
+		margin-left: 0px;
 		
 		position: absolute;
 		right: 0;
 		border: 1px solid #ccc;
 		border-radius: 3px;
+		
+		.preview-btn{
+			float: right;
+		}
+		
+		.empty-info{
+			text-align: center;
+		}
 	}
 	
 	
