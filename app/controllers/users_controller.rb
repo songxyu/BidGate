@@ -1,9 +1,16 @@
 class UsersController < CommonController
-    def new
+  def new
     @user = User.new
-    render  layout: false, template: "users/user.html.erb"
+    if request.xhr?
+      # respond to Ajax request
+      respond_to do |format|
+        format.js
+      end
+    else
+      render  layout: false, template: "users/user.html.erb"
+    end
   end
-  
+
   def reg_ajax_partial_company_form
     @user = User.new
   end
@@ -13,14 +20,13 @@ class UsersController < CommonController
     render  layout: false, template: "users/user.html.erb"
   end
 
-  
   def create
     createdUserInfo = params[:user]
 
     # handle company reg cases
     company_acc_num = params[:company][:account_num] # no [:user][:company] !
     company_legal_person = params[:company][:legal_person]
-    if company_acc_num 
+    if company_acc_num
       # reg via existing company
       logger.debug "*** reged company account num= "+ company_acc_num
       reged_comp = Company.check_existing( company_acc_num, company_legal_person)  # DO NOT miss .first , otherwise, reged_comp.id will error!
@@ -30,10 +36,10 @@ class UsersController < CommonController
         logger.debug "Invalid Company account!! redirect to reg page..."
         flash.now.alert = "Invalid Company account!"
         @user = User.new
-        render "new" and return         
+        render "new" and return
       end
-    else 
-      # reg with new company
+    else
+    # reg with new company
       new_company_params = params[:company] # no [:user][:company] !
       new_company_params["account_num"] = SecureRandom.uuid
 
@@ -48,7 +54,7 @@ class UsersController < CommonController
         render "new" and return
       end
     end
-    
+
     # TODO: check username / email duplicate?
 
     # fill more user info
@@ -72,7 +78,7 @@ class UsersController < CommonController
       logger.debug "Fail to create new user! redirect to reg page..."
       flash.now.alert = "Fail to create user!"
       @user = User.new
-      render "new" and return     
+      render "new" and return
     end
   end
 
