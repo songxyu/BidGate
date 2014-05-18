@@ -33,15 +33,19 @@
 					<div class="btn_group">
 						<ul>
 							<li class="select_btn" data-name="steel" data-type-id="1">
-								<span>钢材 / 不锈钢</span>
+								<span>钢材/不锈钢</span>
 							</li>
 
 							<li class="select_btn" data-name="chemistry" data-type-id="2">
-								<span>化工化学原料</span>
+								<span>化工化学</span>
 							</li>
 
 							<li class="select_btn" data-name="plastics" data-type-id="3">
 								<span>塑料</span>
+							</li>
+
+							<li class="select_btn" data-name="rubber" data-type-id="3">
+								<span>橡胶</span>
 							</li>
 
 							<li class="select_btn" data-name="wood" data-type-id="4">
@@ -49,43 +53,65 @@
 							</li>
 
 							<li class="select_btn" data-name="alloy" data-type-id="5">
-								<span>铜 / 锡 / 镍 / 合金</span>
+								<span> 镍 /锡/合金</span>
 							</li>
 
 							<li class="select_btn" data-name="others" data-type-id="0">
-								<span>其他</span>
-								<ul class="other_select_dropdown">
-									<li>1</li>
-									<li>2</li>
-									<li>3</li>
-								</ul>
+								<div class="dropdown_container">
+									<span class="dropdown_btn_text">其他</span>
+									<div class="icon_dropdown"></div>
+								</div>
 							</li>
 						</ul>
+						<div>
+							<ul class="dropdown_list">
+								<li class="item" data-name="11">
+									铝/铜
+								</li>
+								<li class="item" data-name="12">
+									陶瓷
+								</li>
+								<li class="item" data-name="13">
+									毡制品
+								</li>
+								<li class="item" data-name="14">
+									玻璃纤维
+								</li>
+								<li class="item" data-name="15">
+									泡沫
+								</li>
+								<li class="item" data-name="16">
+									毡制品
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 				<div class="bid_select">
 					<div class="btn_group">
 						<ul>
 							<li class="select_btn" data-name="global_bid" data-type-id="1">
+								<div class="icon_global"></div>
 								<span>所有供应商</span>
 							</li>
 
 							<li class="select_btn" data-name="local_bid" data-type-id="2">
+								<div class="icon_local"></div>
 								<span>指定供应商</span>
 							</li>
-							</ul>
-						</div>
+						</ul>
+					</div>
 				</div>
 				<div class="city_select">
 					<div class="bg">
-						<i class="icon_location"></i>
+						<div class="icon_location"></div>
 						<input class="city_input" />
 					</div>
 				</div>
 			</div>
 
 		</div>
-		<button type="submit" class="next_btn" disabled="disabled">
+		<button type="submit" class="next_btn disabled" disabled="disabled">
 			<span class="next_txt">保存，下一步</span>
 		</button>
 

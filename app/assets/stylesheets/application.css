@@ -156,7 +156,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	color: #bbb;
 }
 
-
 .header .masthead .header_right .welcome-signin .logon {
 	float: left;
 	width: 80px;
@@ -192,10 +191,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	color: #333;
 }
 
-
 .header .masthead .header_right .create_purchase_order_btn:hover {
 	background-color: #fce359;
-	
 }
 
 .header .masthead .header_right .create_purchase_order_btn .create_po_text {
@@ -451,7 +448,7 @@ create new order
 }
 
 .select_row .category_select {
-	width: 720px;
+	width: 750px;
 	height: 70px;
 	position: relative;
 }
@@ -464,13 +461,79 @@ create new order
 	margin: 0 0 25px;
 }
 
+/** ---- category selection dropdown list --- **/
+
+.category_select .dropdown_container {
+	position: relative;
+	width: 100%;
+}
+
+.category_select .dropdown_container .dropdown_btn_text {
+	float: left;
+}
+
+.category_select .icon_dropdown {
+	background: url("../img/icon_arrow_down.png") no-repeat center center;
+	background-size: contain;
+	position: relative;
+	top: 15px;
+	margin: auto 0;
+	left: 10px;
+	width: 20px;
+	height: 20px;
+	float: left;
+}
+
+.category_select .dropdown_list {
+	width: 100px;
+	height: 250px;
+	position: absolute;
+	top: 60px;
+	right: 18px;
+	z-index: 2000;
+	min-width: 130px;
+	padding: 0;
+	list-style: none;
+	color: #333;
+	background-color: #fff;
+	border: 1px solid #eee;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+}
+
+.category_select .dropdown_list.hidden {
+	display: none;
+}
+
+.category_select .dropdown_list .item {
+	border-bottom: 1px solid #ddd;
+	width: 100%;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 35px;
+	float: left;
+	list-style: none;
+	height: 35px;
+	cursor: pointer;
+	position: relative;
+	top: 0px;
+}
+
+.category_select .dropdown_list .item:hover {
+	background-color: #99025a;
+	color: white;
+}
+
+/** --- end dropdown --- **/
+
 .order_onboarding .select_btn {
 	padding: 16px 12px;
 	height: 60px;
 	text-shadow: 0 1px rgba(255,255,255,0.6);
 	float: left;
 	font-weight: bold;
-	display: inline-block;
+	display: block;
 	padding: 0.4em 1.2em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -506,22 +569,32 @@ create new order
 	text-shadow: 1px 1px #333;
 }
 
-.order_onboarding .select_btn .other_select_dropdown {
-	width: 100px;
-	heigth: 200px;
-	background:#fff;
-	border: 1px solid #eee;
-	display: none;
-}
-
-.order_onboarding .select_btn .other_select_dropdown.dropdown_show {
-	display: block;
-}
-
 .select_row .bid_select {
 	width: 600px;
 	height: 100px;
 	position: relative;
+}
+
+.bid_select .icon_global {
+	background: url("../img/multi.ico") no-repeat center center;
+	background-size: contain;
+	position: relative;
+	width: 25px;
+	height: 25px;
+	float: left;
+	top: 10px;
+	margin-right: 5px;
+}
+
+.bid_select .icon_local {
+	background: url("../img/single.ico") no-repeat center center;
+	background-size: contain;
+	position: relative;
+	width: 25px;
+	height: 25px;
+	top: 10px;
+	float: left;
+	margin-right: 5px;
 }
 
 .bid_select .select_btn:last-child {
@@ -542,16 +615,17 @@ create new order
 }
 
 .select_row .city_select .icon_location {
-	background: url("../img/location_2.png") no-repeat center center;
-	background-size: 40px 80px;
+	background: url("../img/icon_location.png") no-repeat center center;
+	background-size: contain;
 	position: relative;
-	top: 10px;
-	left: 10px;
-	z-index: -1;
+	width: 30px;
+	height: 30px;
+	top: 15px;
+	left: 20px;
 }
 
 .select_row .city_select .bg .city_input {
-	width: 200px;
+	width: 220px;
 	height: 30px;
 	position: absolute;
 	top: 12px;
@@ -575,6 +649,16 @@ create new order
 
 .panel_background_blue_radial .next_btn:hover {
 	background-color: #cb0378;
+}
+
+.next_btn.disabled {
+	cursor: default;
+	opacity: 0.4;
+	color: #afe2ff;
+}
+
+.next_btn.disabled:hover {
+	background-color: #99025a;
 }
 
 .next_btn .next_txt {

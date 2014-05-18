@@ -1,12 +1,143 @@
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/new_2') %>");
 
 // **** select button actions
-$(".select_btn").click(function(){
+
+
+// select collection
+var selection = {
+	category:"",
+	bid:"",
+	location:""
+};
+
+var isCate = false;
+var isBid = false;
+var isLocation = false;
+
+var $cate_buttons = $(".category_select .select_btn");
+
+$cate_buttons.click(function(){
+	var isSelected = $(this).hasClass("selected");
+	$cate_buttons.removeClass("selected");
+	if(!isSelected){
 		$(this).addClass("selected");
-	});
-$(".other_select_dropdown").click(function(){
-	$(this).addClass("dropdown_show");
+		isCate = true;
+		selection.category = $(this).attr("data-name");
+		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+	} else {
+		isCate = false;
+		selection.category = "";
+		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+	}
+});
+
+
+var $bid_buttons = $(".bid_select .select_btn");
+
+$bid_buttons.click(function(){
+	var isSelected = $(this).hasClass("selected");
+	$bid_buttons.removeClass("selected");
+	if(!isSelected){
+		$(this).addClass("selected");
+		isBid = true;
+		selection.bid = $(this).attr("data-name");
+		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+	} else {
+		isBid = false;
+		selection.bid = "";
+		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+	}
+});
+
+// other dropdown actions
+var $dropdownContainer = $(".category_select .dropdown_container");
+var $dropdownList = $(".category_select .dropdown_list");
+var $item = $(".category_select .item");
+$dropdownList.addClass("hidden");
+
+$dropdownContainer.click(function(){
+	var isHidden = $dropdownList.hasClass("hidden");
+	if(isHidden){
+		$dropdownList.removeClass("hidden");
+	}else {
+		$dropdownList.addClass("hidden");
+	}
+});
+
+$dropdownContainer.blur(function(){
+	$dropdownList.addClass("hidden");
 })
+
+$item.click(function(){
+	$dropdownList.addClass("hidden");
+});
+
+// end dropdown
+
+
+
+var $city = $(".city_input");
+
+$city.blur(function(){
+	var cityInput = $(this).val();
+	if(cityInput != ""){
+		isLocation = true;
+		selection.location = cityInput;
+		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+	} else {
+		isLocation = false;
+		selection.location = "";
+		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+	}
+});
+
+$city.keydown(function(){
+	var cityInput = $(this).val();
+	if(cityInput != ""){
+		isLocation = true;
+	} else {
+		isLocation = false;
+	}
+});
+
+
+
+/**
+var select_btn_click = function($btn){
+	$btn.click(function(){
+		var isSelected = $(this).hasClass("selected");
+		$btn.removeClass("selected");
+		if(!isSelected){
+			$(this).addClass("selected");
+		}
+});
+
+}
+*/
+
+var $otherSelections = $(".other_select_dropdown");
+$otherSelections.click(function(){
+	$(this).addClass("dropdown_show");
+});
+
+// next continue button
+
+var $nextBtn = $(".next_btn");
+if(isCate && isBid && isLocation){
+	$nextBtn.attr("disabled", "false");
+	$nextBtn.removeClass("disabled");
+} else {
+	$nextBtn.attr("disabled", "disabled");
+	$nextBtn.addClass("disabled");
+}
+$nextBtn.click(function(){
+	alert("I'm active");
+});
+
+
+
+//*** end of actions
+
 
 // ***** usage sample for editable Slickgrid ***** 
  function requiredFieldValidator(value) {
