@@ -23,12 +23,12 @@ $cate_buttons.click(function(){
 		$(this).addClass("selected");
 		isCate = true;
 		selection.category = $(this).attr("data-name");
-		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+//		alert(selection.category + ", " + selection.bid + ", " + selection.location);
 	} else {
 		isCate = false;
 		selection.category = "";
-		alert(selection.category + ", " + selection.bid + ", " + selection.location);
 	}
+	checkSelectStatus();
 });
 
 
@@ -41,12 +41,11 @@ $bid_buttons.click(function(){
 		$(this).addClass("selected");
 		isBid = true;
 		selection.bid = $(this).attr("data-name");
-		alert(selection.category + ", " + selection.bid + ", " + selection.location);
 	} else {
 		isBid = false;
 		selection.bid = "";
-		alert(selection.category + ", " + selection.bid + ", " + selection.location);
 	}
+	checkSelectStatus();
 });
 
 // other dropdown actions
@@ -78,6 +77,7 @@ $item.click(function(){
 
 var $city = $(".city_input");
 
+/**
 $city.blur(function(){
 	var cityInput = $(this).val();
 	if(cityInput != ""){
@@ -89,15 +89,20 @@ $city.blur(function(){
 		selection.location = "";
 		alert(selection.category + ", " + selection.bid + ", " + selection.location);
 	}
+	checkSelectStatus();
 });
+**/
 
-$city.keydown(function(){
+$city.keyup(function(){
 	var cityInput = $(this).val();
 	if(cityInput != ""){
 		isLocation = true;
+		selection.location = cityInput;
 	} else {
 		isLocation = false;
+		selection.location = "";
 	}
+	checkSelectStatus();
 });
 
 
@@ -123,13 +128,16 @@ $otherSelections.click(function(){
 // next continue button
 
 var $nextBtn = $(".next_btn");
-if(isCate && isBid && isLocation){
-	$nextBtn.attr("disabled", "false");
-	$nextBtn.removeClass("disabled");
-} else {
-	$nextBtn.attr("disabled", "disabled");
-	$nextBtn.addClass("disabled");
+var checkSelectStatus = function(){
+	if(isCate && isBid && isLocation){
+		$nextBtn.attr("disabled", "false");
+		$nextBtn.removeClass("disabled");
+	} else {
+		$nextBtn.attr("disabled", "disabled");
+		$nextBtn.addClass("disabled");
+	}
 }
+
 $nextBtn.click(function(){
 	alert("I'm active");
 });

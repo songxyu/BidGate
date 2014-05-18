@@ -520,6 +520,10 @@ create new order
 	top: 0px;
 }
 
+.category_select .dropdown_list .item >span {
+	padding-left: 10px;
+}
+
 .category_select .dropdown_list .item:hover {
 	background-color: #99025a;
 	color: white;
