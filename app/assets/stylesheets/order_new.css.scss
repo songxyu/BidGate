@@ -20,11 +20,57 @@
 		}
 		
 		.add-items{
-			background: url(../img/add.png) no-repeat center center;
-			padding-left: 100px;
-			background-size: contain;
-			line-height: 30px;
+			background: url(../img/add.png) no-repeat left center;			
+			background-size: contain;			
 			cursor: pointer; 
+			width: 150px;
+			height: 40px;
+			background-color: #f7d394;
+			border: 1px solid #f7d394;			
+			border-radius: 3px;
+			
+			span{
+				color: rgb(34, 164, 214);
+				padding-left: 50px;
+				line-height: 30px;
+			}
+		}
+		
+		.order-price-area{
+			margin: 50px; 
+			
+			.label-column{
+				position: relative;				
+				left: 250px;
+				float: left;
+				
+				.label{
+					display: block;
+					line-height: 30px;
+					text-align: right;
+					background-color: transparent;
+					color: #000;
+				}
+			}
+			
+			.input-column{
+				position: relative;
+				left: 280px;
+				float: left;
+				
+				.values{					
+					line-height: 30px;
+					margin: 2px 0;
+					position: relative;
+					text-align: left;
+					
+					input{
+						width: 100px;
+					}
+				}
+			}
+			
+			
 		}
 	}
 	
@@ -40,12 +86,39 @@
 		border: 1px solid #ccc;
 		border-radius: 3px;
 		
+		.right-header{
+			height: 50px;
+		}
+		
+		
 		.preview-btn{
-			float: right;
+			float: right;			 
+			width: 100px;
+			height: 40px;
+			background-color: rgb(247, 211, 148);
+			border: none;
+			margin: 5px;
+			border-radius: 3px;
 		}
 		
 		.empty-info{
 			text-align: center;
+			height: 100%;
+			padding: 50px 50px;
+			
+			div{
+				position: absolute;
+				background: url(../img/lightball.png) no-repeat center center;
+				line-height: 50px;
+				height: 50px;
+				width: 40px;
+			}
+			
+			p{	
+				padding-left: 50px;				
+				position: relative;
+				top: 10px;
+			}
 		}
 	}
 	
