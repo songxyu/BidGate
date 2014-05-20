@@ -69,6 +69,7 @@ $dropdownContainer.blur(function(){
 
 $item.click(function(){
 	$dropdownList.addClass("hidden");
+	$(".dropdown_container .dropdown_btn_text").html($(this).attr("data-item"));
 });
 
 // end dropdown

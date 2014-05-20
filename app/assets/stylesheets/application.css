@@ -17,6 +17,8 @@
  *= require bootstrap
  *
  *= require bootstrap-responsive
+ * 
+ *= require responsiveslides
  */
 
 html {
@@ -345,7 +347,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	padding-left: 15px;
 }
 
-.dialog_logon .logon_close_btn {
+.logon_close_btn {
 	position: absolute;
 	top: 8px;
 	right: 10px;
@@ -486,7 +488,7 @@ create new order
 
 .category_select .dropdown_list {
 	width: 100px;
-	height: 250px;
+	height: auto;
 	position: absolute;
 	top: 60px;
 	right: 18px;
@@ -520,7 +522,7 @@ create new order
 	top: 0px;
 }
 
-.category_select .dropdown_list .item >span {
+.category_select .dropdown_list .item > span {
 	padding-left: 10px;
 }
 
@@ -557,7 +559,7 @@ create new order
 }
 
 .order_onboarding .category_select .select_btn:last-child {
-	width: 100px;
+	width: auto;
 	border-radius: 0 5px 5px 0;
 }
 
@@ -670,4 +672,16 @@ create new order
 	font-size: 16px;
 	font-weight: bold;
 	color: white;
+}
+
+.quickview_dialog {
+	background-color: #fff;
+	display: none;
+	width: 620px;
+	height: 460px;
+	padding: 15px;
+	text-align: left;
+	border: 2px solid #333;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
 }

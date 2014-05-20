@@ -2,8 +2,10 @@ $(".content_area").html("<%= escape_javascript render(:partial => 'orders/index'
 
 
 fnOrderListInit();
-    
-    
+
+$(".quickViewButton").click(function() {
+		$("#quickview_dialog").overlay().load();
+	});
 
 var $filter_form = $('#search_filter_form');
 if($filter_form.length > 0){

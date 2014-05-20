@@ -39,6 +39,10 @@
 
 //=require jMenu.jquery
 
+//=require jquery.slides.min
+
+//=require responsiveslides.min
+
 //=require home_menu
 
 

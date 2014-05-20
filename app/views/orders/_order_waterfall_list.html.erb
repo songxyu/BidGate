@@ -16,22 +16,27 @@
 		<div class="item_inner_area">
 			<div>
 
-				<!-- image display -->
-				<div id="item_image" class="item_image">
-					<!-- TODO: should use order.image, by category id? -->
-					<%= link_to image_tag('../img/order_item_sample.png', class:"order_image"), order, remote: true %>
+				<div class="item_image_container">
+					<!-- image display -->
+					<div id="item_image" class="item_image">
+						<!-- TODO: should use order.image, by category id? -->
+						<%= link_to image_tag('../img/order_item_sample.png', class:"order_image"), order, remote: true %>
 
-					<div class="order_cate_row" >
-						<div class="div_float_left_border_right">
-							<span><%= order.category ?  order.category.name : "" %> </span>
+						<div class="order_cate_row" >
+							<div class="div_float_left_border_right">
+								<span><%= order.category ?  order.category.name : "" %> </span>
+							</div>
+							<span><%= order.order_goods[0].name %> </span>
 						</div>
-						<span><%= order.order_goods[0].name %> </span>
-					</div>
-				</div>
 
-				<!-- quick view -->
-				<div id="quick_view" class="quick_view">
-					<span class="quick_view_text">快速浏览</span>
+					</div>
+					<!-- quick view -->
+					<div class="order_quickview">
+						<div class="quickViewButton" data-order-id="1">
+							<span></span>
+							<%= link_to "快速查看",  order_quickview_show_path(:order_id => order.id), remote: true %>
+							</div>
+					</div>
 				</div>
 
 				<div class="row_margin">
@@ -74,6 +79,8 @@
 <div class="pagination_area">
 	<%= paginate @orders, :remote => true  %>
 </div>
+
+
 
 <div id="dialog_area"></div>
 

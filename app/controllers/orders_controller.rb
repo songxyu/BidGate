@@ -178,7 +178,16 @@ class OrdersController < CommonController
      # no need do this!
     #@order.vendor = User.find( @order.vendor_id )
     #@order.buyer = User.find( @order.buyer_id )
-    common_response  
+      respond_to do |format|
+            format.js
+          end
+  end
+  
+  def quickview_show
+    @order = Order.find(params[:order_id])
+    respond_to do |format|
+            format.js
+    end
   end
   
   def edit
