@@ -57,7 +57,8 @@ var fn_users_bindRegMethodsEvents = function() {
 			}
 		}).done(function(data) {
 			fn_users_BindVerifyButtonClick();
-			fnMaskDiv("#reg-user-info-area");
+			fnDisableDiv("#reg-user-info-area");
+			
 		}).fail(function(jqXHR, textStatus) {
 			//alert("Request failed: " + textStatus);
 		});
@@ -96,7 +97,7 @@ var fn_users_bindLogonEvents = function() {
 $(document).ready(function() {
 	fn_users_bindRegMethodsEvents();
 	fn_users_BindVerifyButtonClick();
-	fnMaskDiv("#reg-user-info-area");
+	fnDisableDiv("#reg-user-info-area");
 
 	fn_users_bindLogonEvents();
 

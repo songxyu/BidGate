@@ -34,6 +34,13 @@ var fnMsgArea = function(){
 	});
 };
 
+var fnDisableDiv = function(selector){
+	$(selector).addClass("disabled");
+};
+
+var fnEnableDiv = function(selector){
+	$(selector).removeClass("disabled");
+};
 
 var fnRemoveMaskDiv = function(selector){
 	$(selector).find(".mask-layer").remove(); 

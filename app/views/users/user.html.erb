@@ -8,9 +8,7 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<%= render "layouts/header" %> 
- 		<%= yield :header %>  
- 		
+		
 		<div class="user_page_area">
 			<% request_name = request.path %>
 			<% if 	request_name == "/signup" %>

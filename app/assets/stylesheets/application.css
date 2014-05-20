@@ -17,7 +17,7 @@
  *= require bootstrap
  *
  *= require bootstrap-responsive
- * 
+ *
  *= require responsiveslides
  */
 
@@ -320,7 +320,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	margin: 0 auto;
 	min-height: 500px;
 	min-width: 960px;
-	max-width: 1200px
+	max-width: 1200px;
 }
 
 .dialog_logon {
@@ -349,12 +349,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .logon_close_btn {
 	position: absolute;
-	top: 8px;
-	right: 10px;
+	top: 6px;
+	right: 8px;
 	cursor: pointer;
 	display: block;
-	height: 16px;
-	width: 16px;
+	height: 18px;
+	width: 18px;
 	background-position: 0px -142px;
 	background-repeat: no-repeat no-repeat;
 }

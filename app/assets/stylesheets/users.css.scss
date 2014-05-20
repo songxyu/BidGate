@@ -4,9 +4,8 @@
 
 
 .user_page_area{
-	border-top: 1px solid #d9d9d9;
-	padding: 50px 0;	
-	text-align: center;	
+	background: #f2f2f2;
+	margin-bottom: -20px;
 }
 
 
@@ -131,22 +130,29 @@
 //================ user reg page========================================
 
 .reg-page {
-	width: 100%;
 	margin: 0 auto;
+  min-height: 500px;
+  min-width: 960px;
+  max-width: 1200px;
+  background: #fff;
 }
 
 .reg-page .reg-area {
-	background: #fff;
+  font-size: 17px;
+	width: 65%;
 	height: auto;
 	min-height: 900px;
-	border: 1px solid #dadada;
 }
 
-.reg-page .reg-area-title {
-	margin: 0 0 10px 30px;
-	padding-top: 20px;
+.reg-page input, label, button {
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.reg-area-title {
+	line-height: 80px;
+	margin: 0 0 10px 200px;
 	font-size: 22px;
-	font-weight: bold;
 	color: #ff9630;
 }
 
@@ -161,8 +167,8 @@
 }
 
 .reg-page .reg-selection {
-	margin: 30px 0 20px 180px;
-	font-size: 14px;
+	font-size: 17px;
+	padding: 30px;
 }
 
 .reg-page .radio-margin {
@@ -179,7 +185,7 @@
 }
 
 .reg-page .f_label, .reg-page .f_input {
-	height: 25px;
+	height: 30px;
 	margin-bottom: 12px;
 	vertical-align: middle;
 	display: block;
@@ -189,9 +195,7 @@
 	width: 170px;
 	padding-top: 5px;
 	padding-right: 10px;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 25px;
+	line-height: 30px;
 	text-align: right;
 }
 
@@ -222,6 +226,24 @@
 	position: relative;
 	margin-left: 180px;
 	top: -25px;
+}
+
+.reg-page .reg-user-info-area {
+  color: green;
+}
+
+.reg-page .reg-user-info-area.disabled {
+     display: none;
+}
+
+
+// right area
+.reg-page .reg_right_scroll {
+  width: 400px;
+  height: auto;
+  position: absolute;
+  right: 200px;
+  top: 100px;
 }
 
 //============== reg success page ========
