@@ -3,8 +3,9 @@
 
 var $msgArea = $("#vefiry_msg_area");
 <%  if @result %>
-$msgArea.html(" Ok! Passed!");
+$msgArea.html(" 恭喜您，验证成功！");
 fnEnableDiv("#reg-user-info-area");
 <% else %>
-$msgArea.html(" bad company!");
+$msgArea.html(" 您的验证没有通过");
+$msgArea.addClass("failed");
 <% end %>

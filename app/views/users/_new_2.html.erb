@@ -1,0 +1,93 @@
+<div class="reg_page">
+	<div class="reg_top">
+		<div class="reg_top_main">
+			<div class="pull_left">
+				<span class="reg_header_text">欢迎注册</span>
+			</div>
+			<div class="pull_right">
+				<%= link_to "首页",  orders_path, remote: true  %>
+				<%= link_to "帮助" %>
+				<%= link_to "登录",  login_path %>
+			</div>
+		</div>
+	</div>
+	<div class="reg_container">
+		<div class="reg_main">
+			<div id="reg_timeline_bar" class="reg_timeline_bar">
+				<div>
+					<ul class="reg_timeline_tabs">
+						<li class="step">
+							<div class="hr active"></div>
+							<img src="../img/reg/register_step_1.png">
+							<br>
+							<span>账号信息</span>
+						</li>
+
+						<li class="step">
+							<div class="hr"></div>
+							<img src="../img/reg/register_step_2.png">
+							<br>
+							<span>完善资料</span>
+						</li>
+
+						<li class="step">
+							<div class="hr"></div>
+							<img src="../img/reg/register_step_3.png">
+							<br>
+							<span>激活账号</span>
+						</li>
+
+						<li class="step">
+							<div class="hr"></div>
+							<img src="../img/reg/register_step_4.png">
+							<br>
+							<span>完成</span>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+
+			<% user_form = nil %>
+			<%= form_for @user do |f| %>
+
+			<% user_form = f %>
+
+			<div class="reg_main_body">
+				<div>
+					<span class="verify_header_text">您需要填写公司支付宝账户</span>
+
+					<div class="company_verify">
+						<div id="paymeans_verify_area" class="paymeans_verify_area">
+							<dl>
+								<dt class="f_label">
+									<!-- TODO :username -> :paymeans_username -->
+									<%= f.label :username, "支付宝账号：*"%> 
+								</dt>
+								<dd class="f_input">
+									<%= f.text_field :username  %>
+								</dd>
+							</dl>
+
+							<dl>
+								<dt class="f_label">
+									<!-- TODO :nickname -> :company_name -->
+									<%= f.label :nickname, "公司全称：*"%>
+								</dt>
+								<dd class="f_input">
+									<%= f.text_field :nickname  %>
+								</dd>
+							</dl>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			
+			<% end %>
+		</div>
+
+	</div>
+
+</div>

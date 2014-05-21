@@ -113,4 +113,7 @@ $(document).ready(function() {
 		load : false
 
 	});
+
+//	$("ul.reg_timeline_tabs").tabs("div.reg_main_body > div");
+	
 });

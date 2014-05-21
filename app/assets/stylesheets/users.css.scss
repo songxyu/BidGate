@@ -4,8 +4,7 @@
 
 
 .user_page_area{
-	background: #f2f2f2;
-	margin-bottom: -20px;
+
 }
 
 
@@ -158,7 +157,6 @@
 
 .reg-page .reg-tip {
 	padding: 0 0 20px 30px;
-	border-bottom: 1px dashed #e3e3e3;
 	color: #999;
 }
 
@@ -168,7 +166,7 @@
 
 .reg-page .reg-selection {
 	font-size: 17px;
-	padding: 30px;
+	padding: 50px 30px 30px;
 }
 
 .reg-page .radio-margin {
@@ -192,7 +190,7 @@
 }
 
 .reg-page .f_label {
-	width: 170px;
+	width: 220px;
 	padding-top: 5px;
 	padding-right: 10px;
 	line-height: 30px;
@@ -201,7 +199,7 @@
 
 .reg-page .f_input {
 	float: left;
-	margin-left: 175px;
+	margin-left: 225px;
 	margin-top: -38px;
 }
 
@@ -215,17 +213,32 @@
 
 .reg-page .verify-button {
 	margin: 0;
-	height: 25px;
-	line-height: 25px;
-	padding: 0 50px;
-	width: 50px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 50px;
+  width: 80px;
+  border: 1px solid #ff541a;
+}
+
+.reg-page .verify-button:hover {
+  background: #ffa080;
+}
+
+.reg-page .verify-button span {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .reg-page #vefiry_msg_area{
-	color:red;
+	color:green;
+	font-size: 16px;
 	position: relative;
-	margin-left: 180px;
+	margin-left: 200px;
 	top: -25px;
+}
+
+.reg-page #vefiry_msg_area.failed{
+  color:red;
 }
 
 .reg-page .reg-user-info-area {
@@ -233,7 +246,18 @@
 }
 
 .reg-page .reg-user-info-area.disabled {
-     display: none;
+  display: none;
+}
+
+// seperate line
+
+.reg-page .reg_seperate_line {
+  width: 10px;
+  height: 100%;
+  border-left: 1px dashed #bbb;
+  position: absolute;
+  top: 150px;
+  right: 650px;
 }
 
 
@@ -241,10 +265,155 @@
 .reg-page .reg_right_scroll {
   width: 400px;
   height: auto;
+  font-size: 17px;
   position: absolute;
-  right: 200px;
-  top: 100px;
+  right: 240px;
+  top: 200px;
 }
+
+
+//============== new_2 page ========
+
+.reg_page {
+  background: url("../img/reg/register_body_bg.jpg") repeat;
+}
+
+.reg_top {
+  height: 71px;
+  line-height: 71px;
+  background: url("../img/reg/register_top_bg.jpg") repeat-x;
+}
+
+.reg_top .reg_top_main {
+  width: 950px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reg_top .pull_left {
+  float: left;
+}
+
+.reg_top .pull_left .reg_header_text {
+  font-size: 21px;
+}
+
+.reg_top .pull_right {
+  float: right;
+  list-style: none;
+}
+
+.reg_top .pull_right a {
+  margin: 0 15px;
+  letter-spacing: 2px;
+  color: #999999;
+  text-decoration: none;
+}
+
+.reg_top .pull_right a:hover {
+  color: #428bca;
+}
+
+.reg_container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.reg_container input, label, button {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.reg_container .reg_main {
+  width: 950px;
+  height: 625px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reg_container .reg_timeline_bar {
+  height: 70px;
+  margin: 0 auto;
+  width: 850px;
+}
+
+.reg_container .reg_timeline_tabs {
+  margin: 20px auto;
+  border: 0;
+  padding-left: 0;
+  height: 74px;
+  list-style: none;
+}
+
+.reg_container .reg_timeline_tabs li span {
+  margin-top: 10px;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.reg_container .reg_timeline_tabs .step {
+  float: left;
+  width: 210px;
+  text-align: center;
+  position: relative;
+}
+
+.reg_container .reg_timeline_tabs .hr {
+  width: 100%;
+  border: 1px solid #b4b5b8;
+  border-radius: 1px;
+  position: absolute;
+  top: 31%;
+}
+
+.reg_container .reg_timeline_tabs .hr.active {
+  border: 1px solid #359ade;
+}
+
+.reg_container .reg_main_body {
+  height: 450px;
+  margin-top: 20px;
+  padding: 35px 0 15px 0;
+  border: 1px solid #d7d7d7;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  background: #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.reg_container .company_verify {
+  position: relative;
+  
+}
+
+.reg_container .verify_header_text {
+  font-size: 18px;
+  position: relative;
+  left: 100px;
+}
+
+.reg_container .paymeans_verify_area {
+  position: relative;
+  left: 100px;
+}
+
+.reg_container .f_label, .reg_container .f_input {
+  height: 40px;
+  margin-bottom: 12px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+
+
 
 //============== reg success page ========
 .reg-page .reg-success-area{
