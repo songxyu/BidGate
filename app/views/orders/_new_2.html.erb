@@ -133,7 +133,7 @@
 		</p>
 		<div class="order-items-grid-area"></div>
 		
-		<button class="add-items"><span>添加货物</span></button>
+		<button class="add-items-btn"><span>添加货物</span></button>
 		
 		<div class="order-price-area">
 			<div class="label-column">				
@@ -146,29 +146,72 @@
 			</div>
 			<div class="input-column">
 				<div class="values">	
-					<input class="total-price" />
+					<input class="price" />
 					<span>万元</span>				 
 				</div>	
 				<div class="values">	
 					<select class="payment" >
-					<option>押金</option>
+					<option value="1">押金</option>
+					<option value="2">押金 + 尾期款</option>
+					<option value="3">担保支付</option>
 					</select>				 
 				</div>				 
 			</div>
 		</div>
 		
+		<div class="order-vendor-area">
+			<button class="add-vendor-btn">添加供应商</button>
+			<div class="order-vendor-list">
+				
+			</div>
+			
+		</div>
+		
 		<div class="order-other-info-area">
 			<div class="label-column">
-				 
+				<div class="label ">
+					<span>竞价截至日期</span>
+				</div>
+				<div class="label">
+					<span>交货日期</span>
+				</div>
+				<div class="label">
+					<span>收货地址</span>
+				</div>
+				<div class="label">
+					<span>备注</span>
+				</div>
 			</div>
 			<div class="input-column">
+				<div class="values">	
+					<input class="date-input" />									 
+				</div>	
+				<div class="values">	
+					<input class="date-input" />									 
+				</div>	
+				<div class="values">	
+					<input class=" " />									 
+				</div>	
+				<div class="values">	
+					<input class=" " />									 
+				</div>
+				
 			</div>
 		</div>
+		
+		<div class="submit-area">
+			<button class="order-submit-btn" >提交订单</button>
+			
+		</div>
+		
 	</div>
 
 	<div class="right-area">
 		<div class="right-header">
 			<button class="preview-btn">预览</button>
+		</div>
+		<div class="dynamic-select-area">
+			
 		</div>
 		<div class="empty-info"><div></div><p>轻松添加采购物料，合理设定价格，能帮助您更快的找到最低价格</p></div>
 	</div>
@@ -186,3 +229,4 @@
 <script src="javascripts/SlickGrid/slick.formatters.js"></script>
 <script src="javascripts/SlickGrid/slick.editors.js"></script>
 <script src="javascripts/SlickGrid/slick.grid.js"></script>
+<script src="javascripts/SlickGrid/slick.dataview.js"></script>

@@ -1,5 +1,12 @@
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/new_2') %>");
 
+
+  // use jquery datepicker for some date fields
+  var dateCtrolsSel = "#order_deadline, .date-input";
+  $(dateCtrolsSel).datepicker();
+  $(dateCtrolsSel).datepicker('option', 'dateFormat', 'yy-m-dd');
+  
+
 // **** select button actions
 
 
@@ -158,7 +165,6 @@ $nextBtn.click(function(){
   }
 
   var grid;
-  var data = [];
   var columns = [
     {id: "title", name: "货物", field: "title", width: 120, cssClass: "cell-title", resizable: true, 
     	editor: Slick.Editors.Text, validator: requiredFieldValidator},
@@ -180,10 +186,11 @@ $nextBtn.click(function(){
     autoEdit: false
   };
 
-  $(function () {
+  
+    var data = [];
     for (var i = 0; i < 5; i++) {
       var d = (data[i] = {});
-
+      d["id"] = "id_" + i;
       d["title"] = "Task " + i;
       d["description"] = "This is a sample task description.\n  It can be multiline";
       d["duration"] = "5 days";
@@ -191,13 +198,13 @@ $nextBtn.click(function(){
       d["start"] = "01/01/2009";
       d["finish"] = "01/05/2009";
       d["effortDriven"] = (i % 5 == 0);
-    }
+    }    
     
-    
-    grid = new Slick.Grid(".order-items-grid-area", data, columns, options);
+    var dataView = new Slick.Data.DataView({  }); 
+    grid = new Slick.Grid(".order-items-grid-area", dataView, columns, options);
 
-    grid.setSelectionModel(new Slick.CellSelectionModel());
-
+    /*
+	grid.setSelectionModel(new Slick.CellSelectionModel());
     grid.onAddNewRow.subscribe(function (e, args) {
       var item = args.item;
       grid.invalidateRow(data.length);
@@ -205,17 +212,78 @@ $nextBtn.click(function(){
       grid.updateRowCount();
       grid.render();
     });
-  });
+   */
+  
+  	// wire up model events to drive the grid
+    dataView.onRowCountChanged.subscribe(function (e, args) {
+      grid.updateRowCount();
+      grid.render();
+    });
+
+    dataView.onRowsChanged.subscribe(function (e, args) {
+      grid.invalidateRows(args.rows);
+      grid.render();
+    });
+    
+    $('.add-items-btn').click(function(){
+    	
+    	dataView.beginUpdate();
+    	dataView.setItems(data);
+    	dataView.endUpdate();
+    	
+    	// show right data
+    	$('.dynamic-select-area').text(" test test ...........");
+    });
+    
+
+	
+  var vendorColumns = [
+    {id: "name", name: "货物", field: "name", width: 300, cssClass: "cell-title", resizable: true, 
+    	editor: Slick.Editors.Text, validator: requiredFieldValidator},
+    {id: "location", name: "地区", field: "location", width: 100, editor: Slick.Editors.Text, resizable: true},
+    {id: "desc", name: "主营业务", field: "description", width: 400, editor: Slick.Editors.LongText, resizable: true}
+    ];
+  
+  var vendorOptions = {
+    editable: false,
+    enableAddRow: true,
+    enableCellNavigation: true,
+    asyncEditorLoading: false,
+    autoEdit: false
+  };
+  
+  var vendorData = [{
+  	id: "id_0",
+  	name: "上海宝钢",
+  	location: "上海",
+  	description: "炼钢 卖钢"
+  }];
+  
+	var vendorDataView = new Slick.Data.DataView({  }); 
+	var vendorGrid = new Slick.Grid(".order-vendor-list", vendorDataView, vendorColumns, vendorOptions);
+	//vendorGrid.setSelectionModel(new Slick.CellSelectionModel());
+ 	
+	vendorDataView.onRowCountChanged.subscribe(function (e, args) {
+	  vendorGrid.updateRowCount();
+	  vendorGrid.render();
+	});
+	
+	vendorDataView.onRowsChanged.subscribe(function (e, args) {
+	  vendorGrid.invalidateRows(args.rows);
+	  vendorGrid.render();
+	});
+	
+	$('.add-vendor-btn').click(function(){
+		
+		vendorDataView.beginUpdate();
+		vendorDataView.setItems(vendorData);
+		vendorDataView.endUpdate();
+	});
+
 
 
 
 /*
-  // use jquery datepicker for some date fields
-  $('#order_deadline').datepicker();
-  $('#order_deadline').datepicker('option', 'dateFormat', 'yy-m-dd');
-
-
-
 $('.addExtProp').bind('click', function(event) {
 	
 	// get current selected category

@@ -1,10 +1,10 @@
 .create_order_step2{
 	margin: 50px 0;
 	position: relative;
-	height: 600px;
+	min-height: 700px;
 	
 	.left-area{
-		height: 500px;
+		height: 100%;
 		width: 69%;
 		position: absolute;
 		border: 1px solid #ccc;
@@ -14,12 +14,12 @@
 		text-align: center;
 		
 		.order-items-grid-area{
-			height: 200px;
+			height: 150px;
 			width: 90%;
 			left: 25px;
 		}
 		
-		.add-items{
+		.add-items-btn{
 			background: url(../img/add.png) no-repeat left center;			
 			background-size: contain;			
 			cursor: pointer; 
@@ -36,13 +36,16 @@
 			}
 		}
 		
-		.order-price-area{
-			margin: 50px; 
+		.order-price-area, 
+		.order-other-info-area{			 
+			clear: left;
+			padding:20px;
 			
 			.label-column{
 				position: relative;				
-				left: 250px;
+				left: 170px;
 				float: left;
+				width: 150px;
 				
 				.label{
 					display: block;
@@ -50,34 +53,71 @@
 					text-align: right;
 					background-color: transparent;
 					color: #000;
+					font-size: 14px;
 				}
 			}
 			
 			.input-column{
 				position: relative;
-				left: 280px;
+				left: 180px;
 				float: left;
 				
 				.values{					
 					line-height: 30px;
-					margin: 2px 0;
+					padding: 2px 0;
 					position: relative;
 					text-align: left;
 					
 					input{
-						width: 100px;
+						width: 150px;
+					}
+					
+					select{
+						min-width: 150px;
 					}
 				}
+			}			
+		}
+		
+		.order-other-info-area{
+			border-top: 1px solid #ccc;
+			padding: 10px 0;
+		}
+		
+		.order-vendor-area{
+			/*display:none;*/
+			padding: 30px;
+			clear: left;
+			
+			.add-vendor-btn{				 		 
+				width: 150px;
+				height: 40px;
+				background-color: rgb(247, 211, 148);
+				border: none;
+				margin: 5px;
+				border-radius: 3px;
 			}
-			
-			
+		}
+		
+		.submit-area{
+			clear: left;
+			padding-top: 10px;
+ 
+			.order-submit-btn{
+				width: 150px;
+				height: 40px;
+				background-color: rgb(247, 211, 148);
+				border: none;
+				margin: 5px;
+				border-radius: 3px;
+			}
 		}
 	}
 	
 	
 	
 	.right-area{
-		height: 500px;
+		height: 100%;
 		width: 30%;
 		margin-left: 0px;
 		
@@ -100,6 +140,11 @@
 			margin: 5px;
 			border-radius: 3px;
 		}
+		
+		.dynamic-select-area{
+			min-height: 20px;
+		}
+		
 		
 		.empty-info{
 			text-align: center;
