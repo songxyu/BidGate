@@ -14,7 +14,7 @@
 		text-align: center;
 		
 		.order-items-grid-area{
-			height: 150px;
+			min-height: 100px;
 			width: 90%;
 			left: 25px;
 		}
@@ -96,6 +96,10 @@
 				border: none;
 				margin: 5px;
 				border-radius: 3px;
+			}
+			
+			.order-vendor-list{
+				min-height: 100px;
 			}
 		}
 		

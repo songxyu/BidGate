@@ -155,8 +155,11 @@ $nextBtn.click(function(){
 //*** end of actions
 
 
+
+
 // ***** usage sample for editable Slickgrid ***** 
- function requiredFieldValidator(value) {
+
+function requiredFieldValidator(value) {
     if (value == null || value == undefined || !value.length) {
       return {valid: false, msg: "This is a required field"};
     } else {
@@ -164,7 +167,9 @@ $nextBtn.click(function(){
     }
   }
 
-  var grid;
+
+var addOrderItems = function(){
+	var grid;
   var columns = [
     {id: "title", name: "货物", field: "title", width: 120, cssClass: "cell-title", resizable: true, 
     	editor: Slick.Editors.Text, validator: requiredFieldValidator},
@@ -188,7 +193,7 @@ $nextBtn.click(function(){
 
   
     var data = [];
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 3; i++) {
       var d = (data[i] = {});
       d["id"] = "id_" + i;
       d["title"] = "Task " + i;
@@ -226,7 +231,8 @@ $nextBtn.click(function(){
     });
     
     $('.add-items-btn').click(function(){
-    	
+    	console.log(JSON.stringify( dataView ));
+    	console.log(JSON.stringify( data ));
     	dataView.beginUpdate();
     	dataView.setItems(data);
     	dataView.endUpdate();
@@ -235,13 +241,16 @@ $nextBtn.click(function(){
     	$('.dynamic-select-area').text(" test test ...........");
     });
     
+};
 
-	
-  var vendorColumns = [
-    {id: "name", name: "货物", field: "name", width: 300, cssClass: "cell-title", resizable: true, 
+  
+
+var addVendors = function(){
+	var vendorColumns = [
+    {id: "name", name: "供应商", field: "name", width: 300, cssClass: "cell-title", resizable: true, 
     	editor: Slick.Editors.Text, validator: requiredFieldValidator},
     {id: "location", name: "地区", field: "location", width: 100, editor: Slick.Editors.Text, resizable: true},
-    {id: "desc", name: "主营业务", field: "description", width: 400, editor: Slick.Editors.LongText, resizable: true}
+    {id: "desc", name: "主营业务", field: "description", width: 300, editor: Slick.Editors.Text, resizable: true}
     ];
   
   var vendorOptions = {
@@ -261,7 +270,7 @@ $nextBtn.click(function(){
   
 	var vendorDataView = new Slick.Data.DataView({  }); 
 	var vendorGrid = new Slick.Grid(".order-vendor-list", vendorDataView, vendorColumns, vendorOptions);
-	//vendorGrid.setSelectionModel(new Slick.CellSelectionModel());
+	/*vendorGrid.setSelectionModel(new Slick.CellSelectionModel());*/
  	
 	vendorDataView.onRowCountChanged.subscribe(function (e, args) {
 	  vendorGrid.updateRowCount();
@@ -274,12 +283,18 @@ $nextBtn.click(function(){
 	});
 	
 	$('.add-vendor-btn').click(function(){
-		
+		console.log(JSON.stringify( vendorDataView ));
+		console.log(JSON.stringify( vendorData ));
 		vendorDataView.beginUpdate();
 		vendorDataView.setItems(vendorData);
 		vendorDataView.endUpdate();
 	});
+};
+  
 
+
+addOrderItems()
+addVendors();
 
 
 
