@@ -171,16 +171,16 @@ function requiredFieldValidator(value) {
 var addOrderItems = function(){
 	var grid;
   var columns = [
-    {id: "title", name: "货物", field: "title", width: 120, cssClass: "cell-title", resizable: true, 
+    {id: "name", name: "货物", field: "name", width: 150, cssClass: "cell-title", resizable: true, 
     	editor: Slick.Editors.Text, validator: requiredFieldValidator},
-    {id: "desc", name: "描述", field: "description", width: 100, editor: Slick.Editors.LongText, resizable: true},
-    {id: "duration", name: "Duration", field: "duration", editor: Slick.Editors.Text, resizable: true},
-    {id: "%", name: "% Complete", field: "percentComplete", width: 150, resizable: true, 
+    {id: "model", name: "型号", field: "model", width: 120, editor: Slick.Editors.LongText, resizable: true},
+    {id: "texture", name: "材质", field: "texture", editor: Slick.Editors.Text, resizable: true},
+    {id: "spec", name: "规格", field: "spec", width: 100, resizable: true, 
     	formatter: Slick.Formatters.PercentCompleteBar, editor: Slick.Editors.PercentComplete},
-    {id: "start", name: "Start", field: "start", minWidth: 60, editor: Slick.Editors.Date, resizable: true },
-    {id: "finish", name: "Finish", field: "finish", minWidth: 60, editor: Slick.Editors.Date, resizable: true },
-    {id: "effort-driven", name: "Effort Driven", minWidth: 20,  cssClass: "cell-effort-driven", //maxWidth: 80,
-    	field: "effortDriven", formatter: Slick.Formatters.Checkmark, editor: Slick.Editors.Checkbox, resizable: true }
+    {id: "location", name: "产地", field: "location", minWidth: 100, editor: Slick.Editors.Text, resizable: true },
+    {id: "amount", name: "数量", field: "amount", minWidth: 100, editor: Slick.Editors.Text, resizable: true },
+    {id: "operation", name: "操作", minWidth: 100,  cssClass: "cell-effort-driven", //maxWidth: 80,
+    	field: "operation", formatter: Slick.Formatters.Checkmark, editor: Slick.Editors.Checkbox, resizable: true }
   ];
   
   var options = {
@@ -196,13 +196,13 @@ var addOrderItems = function(){
     for (var i = 0; i < 3; i++) {
       var d = (data[i] = {});
       d["id"] = "id_" + i;
-      d["title"] = "Task " + i;
-      d["description"] = "This is a sample task description.\n  It can be multiline";
-      d["duration"] = "5 days";
-      d["percentComplete"] = Math.round(Math.random() * 100);
-      d["start"] = "01/01/2009";
-      d["finish"] = "01/05/2009";
-      d["effortDriven"] = (i % 5 == 0);
+      d["name"] = "Task " + i;
+      d["model"] = "This is a sample task description.\n  It can be multiline";
+      d["texture"] = "5 days";
+      d["spec"] = Math.round(Math.random() * 100);
+      d["location"] = "01/01/2009";
+      d["amount"] = "01/05/2009";
+      d["operation"] = (i % 5 == 0);
     }    
     
     var dataView = new Slick.Data.DataView({  }); 
@@ -233,12 +233,22 @@ var addOrderItems = function(){
     $('.add-items-btn').click(function(){
     	console.log(JSON.stringify( dataView ));
     	console.log(JSON.stringify( data ));
+    	
+    	var itemCount = dataView.getLength();
     	dataView.beginUpdate();
-    	dataView.setItems(data);
+    	
+    	var newData = {id: 'id_'+itemCount,  name: "钢材", model:'yuan港', 'texture': '304', 
+    			spec: 88, location: '南京', amount: "10", operation: (i % 5 == 0)};
+    	if(itemCount<=0){
+    		dataView.setItems(data);
+    	}else{
+    		dataView.addItem(newData);
+    	}
+    	    	
     	dataView.endUpdate();
     	
     	// show right data
-    	$('.dynamic-select-area').text(" test test ...........");
+    	$('.dynamic-select-area').text(JSON.stringify(newData));
     });
     
 };
@@ -249,7 +259,7 @@ var addVendors = function(){
 	var vendorColumns = [
     {id: "name", name: "供应商", field: "name", width: 300, cssClass: "cell-title", resizable: true, 
     	editor: Slick.Editors.Text, validator: requiredFieldValidator},
-    {id: "location", name: "地区", field: "location", width: 100, editor: Slick.Editors.Text, resizable: true},
+    {id: "location", name: "地区", field: "location", width: 170, editor: Slick.Editors.Text, resizable: true},
     {id: "desc", name: "主营业务", field: "description", width: 300, editor: Slick.Editors.Text, resizable: true}
     ];
   
@@ -285,8 +295,9 @@ var addVendors = function(){
 	$('.add-vendor-btn').click(function(){
 		console.log(JSON.stringify( vendorDataView ));
 		console.log(JSON.stringify( vendorData ));
+		
 		vendorDataView.beginUpdate();
-		vendorDataView.setItems(vendorData);
+		vendorDataView.addItem(vendorData[0]);
 		vendorDataView.endUpdate();
 	});
 };
