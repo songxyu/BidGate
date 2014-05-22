@@ -37,6 +37,7 @@ BidGate::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+  get "register_details" => "users#new", :as => "register_details"
   get "signup_success" => "users#signup_success", :as => "signup_success"
   
   

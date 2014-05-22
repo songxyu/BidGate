@@ -1,26 +1,30 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>新用户注册 - 壹百万</title>
-		<%= stylesheet_link_tag    "application", :media => "all" %>			
-		<%= javascript_include_tag "application" %>			
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		
+
 		<div class="user_page_area">
-			<% request_name = request.path %>
-			<% if 	request_name == "/signup" %>
+			<div class="reg_page">
+				<%= render "reg_header" %>
+				<% request_name = request.path %>
+				<% if 	request_name == "/signup" %>
+				<%= render "new_1" %>
+				<% elsif  request_name == "/register_details" %>
 				<%= render "new_2" %>
-			<% elsif  request_name == "/signup_success" %>
+				<% elsif  request_name == "/signup_success" %>
 				<%= render "reg_success" %>
-			<% else %>
+				<% else %>
 				<%= render "sessions/new" %>
-			<% end %>
+				<% end %>
+			</div>
 		</div>
-		 
-		 <%= render "layouts/footer" %> 
-		 <%= yield :footer %>
+
+		<%= render "layouts/footer" %>
+		<%= yield :footer %>
 	</body>
 </html>

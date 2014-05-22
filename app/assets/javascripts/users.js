@@ -114,6 +114,15 @@ $(document).ready(function() {
 
 	});
 
+	var $role_selected = $("#user_reg_details .role_selection");
+	$role_selected.click(function(){
+		var isSelected = $(this).hasClass("selected");
+		$role_selected.removeClass("selected");
+		if(!isSelected){
+			$(this).addClass("selected");
+		}
+	});
+
 //	$("ul.reg_timeline_tabs").tabs("div.reg_main_body > div");
 	
 });

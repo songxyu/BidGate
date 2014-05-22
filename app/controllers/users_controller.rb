@@ -16,7 +16,8 @@ class UsersController < CommonController
   end
 
   def signup_success
-    @user = User.find( session[:user_id])
+    #    @user = User.find( session[:user_id])
+    #    render  layout: false, template: "users/user.html.erb"
     render  layout: false, template: "users/user.html.erb"
   end
 

@@ -356,17 +356,18 @@
 
 .reg_container .reg_timeline_tabs .step {
   float: left;
-  width: 210px;
+  width: 280px;
   text-align: center;
   position: relative;
+  top: 20px;
 }
 
 .reg_container .reg_timeline_tabs .hr {
   width: 100%;
   border: 1px solid #b4b5b8;
   border-radius: 1px;
-  position: absolute;
-  top: 31%;
+  margin-bottom: -22px;
+  z-index: -1;
 }
 
 .reg_container .reg_timeline_tabs .hr.active {
@@ -374,9 +375,9 @@
 }
 
 .reg_container .reg_main_body {
-  height: 450px;
+  height: 500px;
   margin-top: 20px;
-  padding: 35px 0 15px 0;
+  padding: 20px 0 15px 0;
   border: 1px solid #d7d7d7;
   border-radius: 2px;
   margin-bottom: 30px;
@@ -388,12 +389,27 @@
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
+.reg_container table {
+  margin-left: 100px;
+  margin-top: 30px;
+  width: 500px;
+  color: #737373;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+
+
 .reg_container .company_verify {
   position: relative;
   
 }
 
-.reg_container .verify_header_text {
+.reg_container .icons {
+  margin-top: -8px;
+}
+
+.reg_container .reg_main_header_text {
   font-size: 18px;
   position: relative;
   left: 100px;
@@ -404,15 +420,130 @@
   left: 100px;
 }
 
-.reg_container .f_label, .reg_container .f_input {
-  height: 40px;
-  margin-bottom: 12px;
+.reg_container .f_label {
+  text-align: right;
+  margin: 0;
+  padding-left: 2px;
+  color: #737373;
+  font-weight: bold;
+  width: 120px;
+}
+
+.reg_container .f_input {
+  height: 31px;
+}
+
+.reg_container .asterisk {
+  color: #d40000;
+  padding-left: 5px;
+  padding-right: 17px;
+  line-height: 31px;
   vertical-align: middle;
-  display: inline-block;
+}
+
+#company_verify .verify_btn {
+  text-align: center;
+}
+
+#company_verify .verify_btn button{
+  width: 100px;
+  height: 30px;
+}
+
+#user_reg_details .complete_btn {
+  text-align: center;
+}
+
+#user_reg_details .complete_btn button{
+  width: 150px;
+  height: 45px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  background: #359ade;
+}
+
+#user_reg_details .role_selection {
+  width: 100px;
+  height: 35px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 2px solid #999;
+  text-align: center;
+  padding: middle;
+  font-weight: bold;
+  float: left;
+  cursor: pointer;
+  line-height: 35px;
+}
+
+#user_reg_details .role_selection:hover {
+  border: 2px solid #666;
+}
+
+#user_reg_details .role_selection.selected {
+  border: 2px solid #359ade;
+  background: #e5f2fb;
 }
 
 
+#user_info_area {
+  margin-top: 15px;
+}
 
+#user_info_area .submit_btn {
+  text-align: center;
+}
+
+#user_info_area .submit_btn button{
+  width: 200px;
+  height: 40px;
+  background: #359ade;
+  color: white;
+  font-weight: bold;
+}
+
+#user_info_area.disabled {
+  color: #eee;
+}
+
+// seperate line
+.reg_container .seperate_line {
+  width: 10px;
+  height: 350px;
+  border-left: 1px dashed #bbb;
+  position: absolute;
+  top: 50px;
+  right: 430px;
+  }
+
+// register tips
+.reg_container .right_tips_area {
+  width: 400px;
+  height: auto;
+  position: absolute;
+  right: 240px;
+  top: 200px;
+}
+
+.reg_container .right_tips_area .tips {
+  font-size: 15px;
+  width: 300px;
+  padding-top: 50px;
+}
+
+.reg_container .success_text {
+  font-size: 30px;
+  position: relative;
+  top: 50px;
+  left: 400px;
+}
+
+.reg_container .icon_success {
+  position: relative;
+  left: 420px;
+  top: 20px;
+}
 
 
 //============== reg success page ========
