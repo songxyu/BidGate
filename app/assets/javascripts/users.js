@@ -122,6 +122,26 @@ $(document).ready(function() {
 			$(this).addClass("selected");
 		}
 	});
+	
+	// check company verify is passed
+	var $verify_passed = false;
+	var $user_basic_info_text = $("#user_basic_info_area .f_label");
+	var $user_basic_info_input = $("#user_basic_info_area .f_input");
+	var $user_basic_info_submit_btn = $("#user_basic_info_area #submit_btn");
+	var $user_info_icons = $("#user_basic_info_area .icons");
+	var $asterisk = $("#user_basic_info_area .asterisk");
+	if($verify_passed) {
+		$user_basic_info_text.removeClass("disabled");
+		$user_basic_info_submit_btn.removeAttr("disabled");
+		$user_basic_info_submit_btn.removeClass("disabled");
+	} else {
+		$user_basic_info_text.addClass("disabled");
+		$user_basic_info_input.attr("disabled", "disabled");
+		$user_basic_info_submit_btn.addClass("disabled");
+		$user_basic_info_submit_btn.attr("disabled", "disabled");
+		$user_info_icons.hide();
+		$asterisk.addClass("disabled");
+	}
 
 //	$("ul.reg_timeline_tabs").tabs("div.reg_main_body > div");
 	

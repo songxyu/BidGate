@@ -68,32 +68,32 @@
 				</tbody>
 			</table>
 
-			<!-- user info area table -->
-			<table id="user_info_area">
+			<!-- user basic info area table -->
+			<table id="user_basic_info_area">
 				<tbody>
-					<tr class="user_info_area">
+					<tr>
 						<td><img src="../img/reg/portrait.png" class="icons"></td>
 						<td class="f_label"> <%= f.label :username, "请输入邮箱"%><span class="asterisk">*</span></td>
 						<td class="f_input"> <%= f.text_field :username  %> </td>
 					</tr>
-					<tr class="user_info_area">
+					<tr>
 						<td colspan = "2" class="f_label"><%= f.label :password_digest, "设定密码"%><span class="asterisk">*</span></td>
 						<td class="f_input"> <%= f.text_field :password_digest  %> </td>
 					</tr>
-					<tr class="user_info_area">
+					<tr>
 						<td colspan = "2" class="f_label"><%= f.label :password_digest, "确认密码"%><span class="asterisk">*</span></td>
 						<td class="f_input"> <%= f.text_field :password_digest  %> </td>
 					</tr>
 
-					<tr class="user_info_area">
+					<tr>
 						<td><img src="../img/reg/phone.png" class="icons"></td>
 						<td class="f_label"> <%= f.label :contact_cellphone, "手机号码"%><span class="asterisk">*</span></td>
-						<td class="f_input" disabled="disabled"> <%= f.text_field :contact_cellphone  %> </td>
+						<td class="f_input"> <%= f.text_field :contact_cellphone %> </td>
 					</tr>
 
-					<tr id="submit_btn" class="submit_btn">
+					<tr>
 						<td colspan="3">
-						<button>
+						<button id="submit_btn" class="submit_btn">
 							同意注册协议并提交
 						</button></td>
 					</tr>

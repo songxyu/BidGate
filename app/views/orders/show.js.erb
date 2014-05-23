@@ -1,1 +1,7 @@
 $("#quickview_dialog").html("<%= escape_javascript render(:partial => 'orders/quickview_show')%>");
+
+$(".quickViewButton").click(function() {
+		$("#quickview_dialog").overlay().load();
+	});
+	
+$(".content_area").html("<%= escape_javascript render(:partial => 'orders/show_2') %>");

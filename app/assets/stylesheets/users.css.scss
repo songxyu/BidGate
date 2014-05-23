@@ -483,19 +483,19 @@
 
 #user_reg_details .role_selection.selected {
   border: 2px solid #359ade;
-  background: #e5f2fb;
+  background: #359ade;
+  color: #fff;
 }
 
 
-#user_info_area {
+#user_basic_info_area {
   margin-top: 15px;
 }
 
-#user_info_area .submit_btn {
-  text-align: center;
-}
-
-#user_info_area .submit_btn button{
+#user_basic_info_area .submit_btn{
+  position: relative;
+  left: 140px;
+  border-radius: 5px;
   width: 200px;
   height: 40px;
   background: #359ade;
@@ -503,7 +503,17 @@
   font-weight: bold;
 }
 
-#user_info_area.disabled {
+#user_basic_info_area .submit_btn.disabled {
+  cursor: default;
+  opacity: 0.4;
+  background: #eee;
+}
+
+#user_basic_info_area .f_label.disabled {
+  color: #eee;
+}
+
+#user_basic_info_area .asterisk.disabled {
   color: #eee;
 }
 
