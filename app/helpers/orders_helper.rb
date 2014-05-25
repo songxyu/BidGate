@@ -47,4 +47,10 @@ module OrdersHelper
   def get_all_status
     return [["新建", 0], ["竞价中", 1], ["已成交", 2], ["已完成", 3], ["已取消", -1], ["已过期 ", -2] ] 
   end
+  
+  def get_sortby_criteria
+    return [['订单日期', 1], ['截止日期', 2], ['价格(低->高)', 3], ['价格(高->低)', 4], ['数量(少->多)', 5], ['数量(多->少)', 6] ]        
+  end
+  
+  
 end

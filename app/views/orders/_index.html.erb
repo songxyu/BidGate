@@ -33,9 +33,7 @@
 		在城市 <%= select_tag( :search_location_id, options_for_select(@location_array, selected_filter_id_array[0]) ) %>
 		查找  <%= select_tag( :search_category_id, options_for_select(@category_array, selected_filter_id_array[1]) ) %> 类别, 
 		<%= select_tag( :search_status, options_for_select(@status_array, selected_filter_id_array[2]) ) %> 状态的订单,
-		并以  <%= select_tag( :search_sort_by, options_for_select(
-		[['订单日期', 1], ['截止日期', 2], ['价格(小->大)', 3], ['价格(大->小)', 4],
-		['数量(少->多)', 5], ['数量(多->少)', 6] ], selected_filter_id_array[2]) ) %>  排序
+		并以  <%= select_tag( :search_sort_by, options_for_select(@sortby_array, selected_filter_id_array[3]) ) %>  排序
 		<%= hidden_field_tag( :search, params[:search] ) %>
 		<% end %>
 		<% end %>

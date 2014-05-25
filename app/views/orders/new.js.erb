@@ -1,3 +1,5 @@
+
+
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/new_2') %>");
 
 
@@ -7,9 +9,23 @@ $(".content_area").html("<%= escape_javascript render(:partial => 'orders/new_2'
   $(dateCtrolsSel).datepicker('option', 'dateFormat', 'yy-m-dd');
   
 
-// **** select button actions
+var $step1Area = $('.order_onboarding');
+// next button status handle
+var checkSelectStatus = function(){
+	var $nextBtn = $step1Area.find(".next_btn");
+	if(isCate && isBid && isLocation){
+		console.log('all selected, enable next button!');
+		//$nextBtn.attr("disabled", ""); // not work
+		$nextBtn.prop("disabled", false);
+		$nextBtn.removeClass("disabled");
+	} else {
+		$nextBtn.prop("disabled", "disabled");
+		$nextBtn.addClass("disabled");
+	}
+};
 
 
+// ********  select button actions ******** 
 // select collection
 var selection = {
 	category:"",
@@ -21,8 +37,7 @@ var isCate = false;
 var isBid = false;
 var isLocation = false;
 
-var $cate_buttons = $(".category_select .select_btn");
-
+var $cate_buttons = $step1Area.find(".category_select .select_btn");
 $cate_buttons.click(function(){
 	var isSelected = $(this).hasClass("selected");
 	$cate_buttons.removeClass("selected");
@@ -30,7 +45,7 @@ $cate_buttons.click(function(){
 		$(this).addClass("selected");
 		isCate = true;
 		selection.category = $(this).attr("data-name");
-//		alert(selection.category + ", " + selection.bid + ", " + selection.location);
+		console.log(selection.category + ", " + selection.bid + ", " + selection.location);
 	} else {
 		isCate = false;
 		selection.category = "";
@@ -39,8 +54,7 @@ $cate_buttons.click(function(){
 });
 
 
-var $bid_buttons = $(".bid_select .select_btn");
-
+var $bid_buttons = $step1Area.find(".bid_select .select_btn");
 $bid_buttons.click(function(){
 	var isSelected = $(this).hasClass("selected");
 	$bid_buttons.removeClass("selected");
@@ -56,9 +70,9 @@ $bid_buttons.click(function(){
 });
 
 // other dropdown actions
-var $dropdownContainer = $(".category_select .dropdown_container");
-var $dropdownList = $(".category_select .dropdown_list");
-var $item = $(".category_select .item");
+var $dropdownContainer = $step1Area.find(".category_select .dropdown_container");
+var $dropdownList = $step1Area.find(".category_select .dropdown_list");
+var $item = $step1Area.find(".category_select .item");
 $dropdownList.addClass("hidden");
 
 $dropdownContainer.click(function(){
@@ -72,35 +86,18 @@ $dropdownContainer.click(function(){
 
 $dropdownContainer.blur(function(){
 	$dropdownList.addClass("hidden");
-})
+});
 
 $item.click(function(){
 	$dropdownList.addClass("hidden");
-	$(".dropdown_container .dropdown_btn_text").html($(this).attr("data-item"));
+	$step1Area.find(".dropdown_container .dropdown_btn_text").html($(this).attr("data-item"));
 });
 
 // end dropdown
 
 
 
-var $city = $(".city_input");
-
-/**
-$city.blur(function(){
-	var cityInput = $(this).val();
-	if(cityInput != ""){
-		isLocation = true;
-		selection.location = cityInput;
-		alert(selection.category + ", " + selection.bid + ", " + selection.location);
-	} else {
-		isLocation = false;
-		selection.location = "";
-		alert(selection.category + ", " + selection.bid + ", " + selection.location);
-	}
-	checkSelectStatus();
-});
-**/
-
+var $city = $step1Area.find(".city_input");
 $city.keyup(function(){
 	var cityInput = $(this).val();
 	if(cityInput != ""){
@@ -112,52 +109,63 @@ $city.keyup(function(){
 	}
 	checkSelectStatus();
 });
-
-
-
-/**
-var select_btn_click = function($btn){
-	$btn.click(function(){
-		var isSelected = $(this).hasClass("selected");
-		$btn.removeClass("selected");
-		if(!isSelected){
-			$(this).addClass("selected");
-		}
-});
-
-}
-*/
-
-var $otherSelections = $(".other_select_dropdown");
+ 
+var $otherSelections = $step1Area.find(".other_select_dropdown");
 $otherSelections.click(function(){
 	$(this).addClass("dropdown_show");
 });
 
-// next continue button
 
-var $nextBtn = $(".next_btn");
-var checkSelectStatus = function(){
-	if(isCate && isBid && isLocation){
-		$nextBtn.attr("disabled", "false");
-		$nextBtn.removeClass("disabled");
-	} else {
-		$nextBtn.attr("disabled", "disabled");
-		$nextBtn.addClass("disabled");
-	}
-}
+// handle steps displays
+var $step2Area = $('.create_order_step2');
 
-$nextBtn.click(function(){
-	alert("I'm active");
+
+$step1Area.find('.next_btn').click(function(){
+	// use the var selection	 
+	var categoryId = $step1Area.find(".category_select .select_btn.selected").attr('data-type-id');
+	var city = $step1Area.find('.city_select .city_input').val();
+	var bidType = $step1Area.find('.bid_select .selected').attr('data-type-id');   
+	console.log('categoryId='+categoryId+', city='+city+', bidType='+bidType);
+	
+	$.ajax({
+		url : '/props_by_category', // Note the my_controller and action here, i.e. change accordingly
+		type : 'get',
+		data : {
+			'category_id' : categoryId
+		}
+	}).done(function(data) {
+		console.log(JSON.stringify(data));
+		
+	}).fail(function(jqXHR, textStatus) {
+		console.log("Request failed: " + JSON.stringify(textStatus));
+	});
+	
+	$step2Area.find('.selected_values .selected_category').text(categoryId);
+	$step2Area.find('.selected_values .selected_location').text(city);
+	$step2Area.find('.selected_values .selected_bidtype').text(bidType == 1 ? '所有供应商' : '指定供应商');
+	
 });
 
+//****************** end of step1 page actions *******************
 
 
-//*** end of actions
+// ***** usage sample for editable Slickgrid *****
+var gridInfo4OrderItems = {
+	columns: [ // default columns 
+	  	{id: "name", name: "货物"}, {id: "model", name: "型号"}, {id: "location", name: "产地"},
+	  	{id: "quantity", name: "数量"}, {id: "operation", name: "删除"} 
+	  ],
+	options: {
+		editable: true,
+	    enableAddRow: true,
+	    enableCellNavigation: true,
+	    asyncEditorLoading: false,
+	    autoEdit: false
+	},
+	data: [],
+	dataView: null	
+};
 
-
-
-
-// ***** usage sample for editable Slickgrid ***** 
 
 function requiredFieldValidator(value) {
     if (value == null || value == undefined || !value.length) {
@@ -165,49 +173,37 @@ function requiredFieldValidator(value) {
     } else {
       return {valid: true, msg: null};
     }
-  }
+}
 
 
-var addOrderItems = function(){
-	var grid;
-  var columns = [
-    {id: "name", name: "货物", field: "name", width: 150, cssClass: "cell-title", resizable: true, 
-    	editor: Slick.Editors.Text, validator: requiredFieldValidator},
-    {id: "model", name: "型号", field: "model", width: 120, editor: Slick.Editors.LongText, resizable: true},
-    {id: "texture", name: "材质", field: "texture", editor: Slick.Editors.Text, resizable: true},
-    {id: "spec", name: "规格", field: "spec", width: 100, resizable: true, 
-    	formatter: Slick.Formatters.PercentCompleteBar, editor: Slick.Editors.PercentComplete},
-    {id: "location", name: "产地", field: "location", minWidth: 100, editor: Slick.Editors.Text, resizable: true },
-    {id: "amount", name: "数量", field: "amount", minWidth: 100, editor: Slick.Editors.Text, resizable: true },
-    {id: "operation", name: "操作", minWidth: 100,  cssClass: "cell-effort-driven", //maxWidth: 80,
-    	field: "operation", formatter: Slick.Formatters.Checkmark, editor: Slick.Editors.Checkbox, resizable: true }
-  ];
+var itemGridTotalWidth = 770;
+ 
+ 
+var getColumnDefinition = function(columnData, gridTotalWidth ){
+	  var columns =  columnData ? columnData : gridInfo4OrderItems.columns;   
+	  var columnCount = columnData ? columnData.length : gridInfo4OrderItems.columns.length ;
+	  var colWidth = gridTotalWidth/columnCount;
+	  
+	  console.log('columnCount='+columnCount+', colWidth='+colWidth);
+	  
+	  columnDefs = [];
+	  columns.forEach(function(col){
+	  	columnDefs.push({id: 'col-'+col.id, name: col.name, field: col.id, width: colWidth, cssClass: "TODO-col-header-style", 
+	  					resizable: true, editor: Slick.Editors.Text, validator: requiredFieldValidator} );
+	  });
+
+	return columnDefs;
+};
+
+var addOrderItems = function(columnData){
+    var grid;
+    var columnDefs = getColumnDefinition(columnData, itemGridTotalWidth);
   
-  var options = {
-    editable: true,
-    enableAddRow: true,
-    enableCellNavigation: true,
-    asyncEditorLoading: false,
-    autoEdit: false
-  };
-
   
-    var data = [];
-    for (var i = 0; i < 3; i++) {
-      var d = (data[i] = {});
-      d["id"] = "id_" + i;
-      d["name"] = "Task " + i;
-      d["model"] = "This is a sample task description.\n  It can be multiline";
-      d["texture"] = "5 days";
-      d["spec"] = Math.round(Math.random() * 100);
-      d["location"] = "01/01/2009";
-      d["amount"] = "01/05/2009";
-      d["operation"] = (i % 5 == 0);
-    }    
-    
-    var dataView = new Slick.Data.DataView({  }); 
-    grid = new Slick.Grid(".order-items-grid-area", dataView, columns, options);
-
+  	console.log('columns='+JSON.stringify(columnDefs));
+  	var dataView = new Slick.Data.DataView(); 
+    grid = new Slick.Grid(".order-items-grid-area", dataView, columnDefs, gridInfo4OrderItems.options);
+	console.log('gird created.');
     /*
 	grid.setSelectionModel(new Slick.CellSelectionModel());
     grid.onAddNewRow.subscribe(function (e, args) {
@@ -218,8 +214,7 @@ var addOrderItems = function(){
       grid.render();
     });
    */
-  
-  	// wire up model events to drive the grid
+
     dataView.onRowCountChanged.subscribe(function (e, args) {
       grid.updateRowCount();
       grid.render();
@@ -230,30 +225,72 @@ var addOrderItems = function(){
       grid.render();
     });
     
-    $('.add-items-btn').click(function(){
-    	console.log(JSON.stringify( dataView ));
-    	console.log(JSON.stringify( data ));
+    
+    var data = gridInfo4OrderItems.data;
+    for (var i = 0; i < 3; i++) {
+      data.push( {
+      	"id": "col-"+i,
+      	"name": "钢管 " + i,
+      	"model" : "test",
+      	"location" : "日本",
+      	"quantity": "1000",
+      	"operation": ' delete '
+      });      
+    }    
+   	console.log('gridInfo4OrderItems.data='+JSON.stringify(data));
     	
-    	var itemCount = dataView.getLength();
-    	dataView.beginUpdate();
-    	
-    	var newData = {id: 'id_'+itemCount,  name: "钢材", model:'yuan港', 'texture': '304', 
-    			spec: 88, location: '南京', amount: "10", operation: (i % 5 == 0)};
-    	if(itemCount<=0){
-    		dataView.setItems(data);
-    	}else{
-    		dataView.addItem(newData);
-    	}
-    	    	
-    	dataView.endUpdate();
+    dataView.setItems(data);
+    
+    console.log('find add items button='+$step2Area.find('.add-items-btn').length);
+    $step2Area.find('.add-items-btn').click(function(){
+    	console.log(JSON.stringify( gridInfo4OrderItems.data ));    	
+    	// var itemCount = dataView.getLength();
+    	// dataView.beginUpdate();
+    	// var newData = {id: 'id_'+itemCount,  name: "钢材", model:'yuan港', 'texture': '304', 
+    			// spec: 88, location: '南京', amount: "10", operation: (i % 5 == 0)};
+    	// if(itemCount<=0){
+    		// dataView.setItems(newData);
+    	// }else{
+    		// dataView.addItem(newData);
+    	// }     	    	
+    	// dataView.endUpdate();
     	
     	// show right data
-    	$('.dynamic-select-area').text(JSON.stringify(newData));
+    	$step2Area.find('.dynamic-select-area').show();
     });
     
+    gridInfo4OrderItems.dataView = dataView;
+    
+    $step2Area.find('.add-one-item-btn').click(function(){
+		// gather filled data 
+		var $fieldArea = $step2Area.find('.item-field-area');
+		var name = $fieldArea.find('.input.name').val();
+		var model = $fieldArea.find('.input.model').val();
+		var texture = $fieldArea.find('.input.texture').val();
+		var madein = $fieldArea.find('.input.madein').val();
+		var quantity = $fieldArea.find('.input.quantity').val();
+		
+		console.log('name='+name+', model='+model+', madein='+madein+', quantity='+quantity);
+		var newColumn = {id: 'texture', name: '材质'};
+		var newHeaders = [];
+		
+		var cols = newHeaders.concat(gridInfo4OrderItems.columns);
+		cols.splice(3, 0, newColumn);
+		console.log("new cols="+JSON.stringify(cols));
+		
+		var columnDefs = getColumnDefinition(cols, itemGridTotalWidth);
+		  
+		grid.setColumns(columnDefs);
+		dataView.setItems([{'id': 0, 'name': name, 'model':model,  'texture': texture, 'location':madein,'quantity':quantity}]);
+	});
+  
+    return grid;
 };
 
-  
+
+ addOrderItems(); 
+
+
 
 var addVendors = function(){
 	var vendorColumns = [
@@ -304,21 +341,38 @@ var addVendors = function(){
   
 
 
-addOrderItems()
+
 addVendors();
+
+
+var fixedFields = ['category', 'name', 'model', 'quantity', 'madein', "memo"];
+$('#new_order_item_category_id').bind('change', function(){
+	// get dynamic ones for the selected category
+	var categoryId = $(this).val();
+	console.log(categoryId);
+	
+	
+});
+
+
+
+
+
+
+
+
 
 
 
 /*
-$('.addExtProp').bind('click', function(event) {
-	
+$('.addExtProp').bind('click', function(event) {	
 	// get current selected category
 	var cate_id = 3;// $("input[type='radio', name='category']").val();
 	if (!cate_id) {
 	//	cate_id = $("input[type='radio', name='parent_category']").val();
 	}
 
-	//alert('category_id=' +cate_id);
+	console.log('category_id=' +cate_id);
 
 	$.ajax({
 		url : '/props_by_category', //Note the my_controller and action here, i.e. change accordingly
@@ -327,10 +381,11 @@ $('.addExtProp').bind('click', function(event) {
 			'category_id' : cate_id
 		}
 	}).done(function(data) {
-		//alert(JSON.stringify(data));
+		console.log(JSON.stringify(data));
+		
 		$('.addExtProp').unbind('click').addClass('disabled_link');
 	}).fail(function(jqXHR, textStatus) {
-		//alert("Request failed: " + textStatus);
+		console.log("Request failed: " + JSON.stringify(textStatus));
 	});
 });
 

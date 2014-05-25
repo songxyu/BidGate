@@ -148,6 +148,48 @@
 		
 		.dynamic-select-area{
 			min-height: 20px;
+			display: none;
+			
+			.section-label{
+				margin-left: -180px;
+				text-align: left;
+				padding: 0;
+				font-weight:bold;
+			}
+			
+			.field-list{
+				text-align: right;
+				padding-left: 200px;
+				
+				.item-field-area{
+					text-align: left;
+					padding: 8px 0;
+					width: 150px;
+					p{
+						margin:0;
+					}
+					
+					.input{
+						width: 120px;
+					}
+				}
+			}
+			
+			
+			.button-area{
+				text-align: center;
+				line-height: 50px;
+				
+				.add-one-item-btn{
+					width: 120px;
+					height: 30px;
+					background-color: rgb(247, 211, 148);
+					border: none;
+					margin: 5px;
+					border-radius: 3px;
+				}
+			}		
+		
 		}
 		
 		
@@ -173,5 +215,10 @@
 	}
 	
 	
-	
+	.slick-viewport{
+		/* editor box in cell */
+		input.editor-text{
+			width: 100px;
+		}
+	}
 }

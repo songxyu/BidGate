@@ -86,6 +86,9 @@ class OrdersController < CommonController
      @status_array = OrdersHelper.get_all_status()
      @status_array.unshift(["所有", -99]) 
      
+     # sortby list
+     @sortby_array = OrdersHelper.get_sortby_criteria()
+     
      logger.debug "Search result count: " + @orders.count.to_s
      render "index"  
   end
