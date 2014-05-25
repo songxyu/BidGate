@@ -33,10 +33,6 @@ $(document).ready(function() {
 		load : false
 	});
 
-	$(".quickViewButton").on('click', function() {
-		$("#quickview_dialog").overlay().load();
-	});
-
 	/*
 	 $(".home_slides").slidesjs({
 	 width: 1200,

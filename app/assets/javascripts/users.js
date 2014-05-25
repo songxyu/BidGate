@@ -136,7 +136,7 @@ $(document).ready(function() {
 		$user_basic_info_submit_btn.removeClass("disabled");
 	} else {
 		$user_basic_info_text.addClass("disabled");
-		$user_basic_info_input.attr("disabled", "disabled");
+		$user_basic_info_input.attr("disabled", "true");
 		$user_basic_info_submit_btn.addClass("disabled");
 		$user_basic_info_submit_btn.attr("disabled", "disabled");
 		$user_info_icons.hide();

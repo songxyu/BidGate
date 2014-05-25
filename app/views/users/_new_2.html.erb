@@ -52,11 +52,14 @@
 						<!-- user role: :username -> :userroel -->
 						<td class="f_label"><%= f.label :username, "您的职位"%><span class="asterisk">*</span></td>
 						<td class="f_role">
-							<div>
-								<div id="role_purchaser" class="role_selection"><span>采购经理</span></div>
-								<div id="role_vendor" class="role_selection"><span>销售经理</span></div>
-								</div>
-							</td>
+						<div>
+							<div id="role_purchaser" class="role_selection">
+								<span>采购经理</span><i></i>
+							</div>
+							<div id="role_vendor" class="role_selection">
+								<span>销售经理</span><i></i>
+							</div>
+						</div></td>
 					</tr>
 					<tr>
 						<td colspan = "2" class="f_label"><!-- TODO :username -> :prefername --> <%= f.label :username, "您的称呼"%><span class="asterisk">*</span></td>

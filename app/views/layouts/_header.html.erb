@@ -38,9 +38,9 @@
 				<% end %>
 			</ul>
 
-			<div class="create_purchase_order_btn">
-				<span class="create_po_text"><%= link_to "发布您的采购单", orders_new_path, remote: true %></span>
-			</div>
+			<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
+				<span class="create_po_text">发布您的采购单</span>
+			<% end %>
 
 		</div>
 	</div>

@@ -328,7 +328,6 @@
 
 .reg_container .reg_main {
   width: 950px;
-  height: 625px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -464,29 +463,32 @@
 }
 
 #user_reg_details .role_selection {
-  width: 100px;
-  height: 35px;
+  width: 120px;
+  height: 40px;
   margin-right: 10px;
-  border-radius: 5px;
-  border: 2px solid #999;
+  border-radius: 3px;
+  border: 1px solid #359ade;
   text-align: center;
   padding: middle;
-  font-weight: bold;
   float: left;
   cursor: pointer;
-  line-height: 35px;
+  line-height: 40px;
 }
 
 #user_reg_details .role_selection:hover {
-  border: 2px solid #666;
+  border: 1px solid #1c71ab;
 }
 
 #user_reg_details .role_selection.selected {
-  border: 2px solid #359ade;
   background: #359ade;
   color: #fff;
 }
 
+#user_reg_details .role_selection.selected i {
+  width: 12px;
+  height: 13px;
+  background: url("../img/reg/hook.png") no-repeat;
+}
 
 #user_basic_info_area {
   margin-top: 15px;

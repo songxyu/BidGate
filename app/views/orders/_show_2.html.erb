@@ -1,34 +1,133 @@
-<div class="order_detail_page">
-	<div class="detail_header">
-		header
+<div class="orderDetailPage">
+	<!-- header info -->
+	<div class="orderSummary">
+		<div class="row-fluid">
+			<span class="orderId">订单号: <%= @order.id %></span>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span6">
+				<div><img src="../img/order_details/stainlessSquareTube.jpg"/>
+				</div>
+				<ul class="orderTitle">
+					<li>
+						301,302不锈钢
+					</li>
+					<li class="orderOriginPrice">
+						3万
+					</li>
+					<li class="timeCounter">
+						距离竞拍结束还有3天
+					</li>
+				</ul>
+			</div>
+			<div class="keyInfoArea">
+				<div class="orderPrice">
+					<ul class="orderSummaryItems">
+						<li>
+							<span class="title">订单总额</span> 5万
+						</li>
+						<li>
+							<span class="title">浮动利率</span> 20%
+						</li>
+						<li>
+							<span class="title">竞拍期限</span> 2014年6月1日
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<hr class="dashed">
+
 	</div>
+
 	<div>
-		<table class="detail_content">
-			<tbody>
-				<tr>
-					<td class="items_table" colspan="2">items table</td>
-				</tr>
-				<tr>
-					<td class="order_other_info_area">other info</td>
-					<td class="order_tips_area">tips</td>
-				</tr>
-				<tr>
-					<td class="others" colspan="2">others</td>
-				</tr>
+		<!-- content info -->
+		<article class="span11 orderContainer">
+			<div class="orderInfoContainer">
+				<div class="orderInfo" class="wall">
+					<h3>采购清单</h3>
+					<hr class="dashed">
+					<!-- item table TODO hardcode -->
+					<table class="itemTable">
+						<tbody>
+							<tr class="title">
+								<th>物料编码</th>
+								<th>物料名称</th>
+								<th>型号</th>
+								<th>规格</th>
+								<th>长/宽/高（mm）</th>
+								<th>数量（吨）</th>
+							</tr>
+							<tr>
+								<td>1001</td>
+								<td>不锈钢</td>
+								<td>301</td>
+								<td>方管</td>
+								<td>D*200*5600</td>
+								<td>0.8</td>
+							</tr>
+							<tr class="alt">
+								<td>1002</td>
+								<td>不锈钢</td>
+								<td>412</td>
+								<td>方管</td>
+								<td>D*300*5600</td>
+								<td>1.5</td>
+							</tr>
+							<tr>
+								<td>1011</td>
+								<td>螺纹钢</td>
+								<td>D3</td>
+								<td>螺纹钢</td>
+								<td>D*150*8000</td>
+								<td>2.0</td>
+							</tr>
+						</tbody>
+					</table>
 
-			</tbody>
-		</table>
+					<!-- description detail list -->
+					<table class="descrDetail">
+						<tbody>
+							<tr>
+								<td>采购商：</td>
+								<td class="value">深圳金龙***公司</td>
+							</tr>
+							<tr>
+								<td>收货地址：</td>
+								<td class="value">佛山，广东</td>
+							</tr>
+							<tr>
+								<td>收货日期：</td>
+								<td class="value">2014年3月15日</td>
+							</tr>
+							<tr>
+								<td>付款方式：</td>
+								<td class="value">押金+发货付款</td>
+							</tr>
+							<tr>
+								<td>物流运输费用：</td>
+								<td class="value">供应商承担</td>
+							</tr>
+							<tr>
+								<td>是否区域采购：</td>
+								<td class="value">是</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</article>
 
-		<table class="bid_area">
-			<tbody>
-				<tr>
-					<td class="bid_action_area">bid action</td>
-				</tr>
-				<tr>
-					<td class="bid_comm_area">communication</td>
-				</tr>
+		<!-- order bid functions area -->
+		<aside class="span4">
+			<div class="wall" id="bidActionArea">
+				bid actions
+			</div>
+		</aside>
 
-			</tbody>
-		</table>
 	</div>
+
 </div>

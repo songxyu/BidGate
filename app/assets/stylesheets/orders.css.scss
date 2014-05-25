@@ -209,6 +209,7 @@
 .quickview .right_view .full_details_btn {
   width: 150px;
   height: 45px;
+  background: #f2f2f2;
   position: relative;
   top: 20px;
   left: 50px;
@@ -236,52 +237,61 @@
 }
 
 //**** order details page ****/
-.order_detail_page {
+.orderDetailPage {
   width: 100%;
   height: 900px;
-  border: 1px solid #666;
+  margin-top: 20px;
 }
 
-.order_detail_page .detail_header {
+.orderDetailPage .orderSummary {
   width: 100%;
-  height: 150px;
-  border: 1px solid #666;
+  height: 250px;
   float: left;
+  background: #f9f9f9;
+  text-shadow: 0 1px 0 #fff;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #e3e3e3;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
 }
 
-.order_detail_page .detail_content {
+.orderDetailPage .detailContent {
   width: 900px;
   height: auto;
   border: 1px solid #666;
   float: left;
 }
 
-.order_detail_page .items_table {
+.orderDetailPage .itemsTable {
   width: 300px;
   height: 150px;
   border: 1px solid #666;
 }
 
 
-.order_detail_page .order_other_info_area {
+.orderDetailPage .orderOtherInfoArea {
   width: 200px;
   height: 300px;
   border: 1px solid #666;
 }
 
-.order_detail_page .order_tips_area {
+.orderDetailPage .orderTipsArea {
   width: 300px;
   height: 300px;
   border: 1px solid #666;
 }
 
-.order_detail_page .others {
+.orderDetailPage .others {
   width: 500px;
   height: 200px;
   border: 1px solid #666;
 }
 
-.order_detail_page .bid_area {
+.orderDetailPage .bidArea {
   width: 300px;
   height: 500px;
   border: 1px solid #666;
@@ -290,9 +300,171 @@
 
 
 
+.orderSummary .orderId {
+  font-size: 14px;
+  color: #666;
+}
+
+.orderSummary img {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  float: left;
+}
+
+.orderSummary .orderTitle {
+  float: left;
+  text-align: left;
+  list-style: none;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.orderSummary .orderSummaryItems li{
+  font-size: 14px;
+  line-height: 32px;
+  border-bottom: 1px dashed #eee;
+  list-style: none;
+}
+
+.orderSummary .orderSummaryItems li .title {
+  display: inline-block;
+  width: 80px;
+}
+
+.orderSummary .bidCount {
+  position: relative;
+  float: right;
+  right: 30px;
+  top: 60px;
+}
+
+.orderSummary .timeCounter {
+  font-size: 12px;
+  color: #888;
+}
+
+.orderInfoContainer h3 {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.orderInfoContainer .itemTable {
+  border-collapse:collapse;
+  margin: 0 auto;
+}
+
+.orderInfoContainer .itemTable td, .itemTable th {
+  font-size: 15px;
+  border:1px solid #359ade;
+  padding:3px 7px 2px 7px;
+}
+
+.orderInfoContainer .itemTable th {
+  font-size: 17px;
+  font-weight: 500;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  padding: 5px 53px 4px 7px;
+  background-color: #359ade;
+  color: #fff;
+}
+
+.orderInfoContainer .itemTable tr.alt td {
+  background-color: #cfe7f7;
+}
+
+.orderInfoContainer .descrDetail {
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  width: 300px;
+  margin: 20px;
+  line-height: 35px;
+  margin-bottom: 13px;
+  background-color: #f7f7f7;
+}
+
+.orderInfoContainer td {
+  padding: 5px 10px;
+}
+
+.orderInfoContainer tr {
+  border-bottom: 1px solid #eee;
+}
+
+.orderInfoContainer tr:nth-child(odd) {
+  background: #fff;
+}
+
+.orderInfoContainer .descrDetail td.value {
+  border-left: 0;
+  font-weight: bold;
+  text-align: right;
+  word-wrap: break-word;
+}
+
+hr.dashed {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px dashed #e3e3e3;
+  border-bottom: 1px dashed #fff;
+}
+
+.orderSummary .keyInfoArea {
+  width: 500px;
+  height: 200px;
+  margin-top: -20px;
+  margin-left: 90px;
+  float: left;
+  background: #359ade;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.orderSummary .keyInfoArea .orderPrice {
+  width: 270px;
+  display: block;
+}
+
+.orderSummary .keyInfoArea span {
+  font-size: 17px;
+  text-shadow: 1px 1px #333;
+}
+
+.orderContainer {
+  margin-left: 0px;
+}
+
+.orderInfoContainer {
+  position: relative;
+  height: 600px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 20px;
+}
 
 
+.orderInfoContainer .wall {
+  background: none;
+}
 
+.wall {
+  margin-bottom: 30px;
+  border: 1px solid #e3e3e3;
+  background: #f9f9f9;
+  padding: 20px;
+  text-shadow: 0 1px 0 #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
 
-
-
+.orderDetailPage #bidActionArea {
+  height: 600px;
+  width: 320px;
+}
