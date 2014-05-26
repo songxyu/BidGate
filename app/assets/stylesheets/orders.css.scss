@@ -209,12 +209,21 @@
 .quickview .right_view .full_details_btn {
   width: 150px;
   height: 45px;
-  background: #f2f2f2;
+  background-color: #777;
   position: relative;
+  float: left;
+  color: #fff;
+  line-height: 45px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 4px;
   top: 20px;
   left: 50px;
-  font-weight: bold;
   text-align: center;
+}
+
+.quickview .right_view .full_details_btn:hover {
+  background: #888;
 }
 
 .quickview .right_view .quick_bid_btn {
@@ -225,8 +234,16 @@
   left: 50px;
   background: #0096c8;
   color: #fff;
-  font-weight: bold;
+  float: left;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 4px;
+  line-height: 45px;
   text-align: center;
+}
+
+.quickview .right_view .quick_bid_btn:hover {
+  background: #00a9e2;
 }
 
 .quickview .footer_view {
@@ -245,7 +262,7 @@
 
 .orderDetailPage .orderSummary {
   width: 100%;
-  height: 250px;
+  height: 230px;
   float: left;
   background: #f9f9f9;
   text-shadow: 0 1px 0 #fff;
@@ -314,6 +331,7 @@
 
 .orderSummary .orderTitle {
   float: left;
+  font-weight: bold;
   text-align: left;
   list-style: none;
   font-size: 18px;
@@ -376,10 +394,22 @@
 }
 
 .orderInfoContainer .descrDetail {
+  float: left;
+  margin: 20px;
+  width: 300px;
+}
+
+.orderInfoContainer .descrDetailTitle {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+.orderInfoContainer .descrDetailInfo {
   border: 1px solid #dbdbdb;
   border-radius: 5px;
-  width: 300px;
-  margin: 20px;
+  width: 100%;
+  margin-top: 20px;
   line-height: 35px;
   margin-bottom: 13px;
   background-color: #f7f7f7;
@@ -397,11 +427,28 @@
   background: #fff;
 }
 
-.orderInfoContainer .descrDetail td.value {
+.orderInfoContainer .descrDetailInfo td.value {
   border-left: 0;
   font-weight: bold;
   text-align: right;
   word-wrap: break-word;
+}
+
+.orderInfoContainer .vendorDemands {
+  float: left;
+  margin: 20px;
+  width: 430px
+}
+
+.orderInfoContainer .vendorDemandsTitle {
+  font-size: 16px;
+  text-align: center;
+}
+
+.orderInfoContainer .vendorDemandsInfo {
+  height: 322px;
+  border: 1px solid #dbdbdb;
+  margin-top: 20px;
 }
 
 hr.dashed {
@@ -411,25 +458,10 @@ hr.dashed {
   border-bottom: 1px dashed #fff;
 }
 
-.orderSummary .keyInfoArea {
-  width: 500px;
-  height: 200px;
-  margin-top: -20px;
-  margin-left: 90px;
-  float: left;
-  background: #359ade;
-  border-radius: 5px;
-  color: #fff;
-}
 
-.orderSummary .keyInfoArea .orderPrice {
+.orderSummary .orderPrice {
   width: 270px;
   display: block;
-}
-
-.orderSummary .keyInfoArea span {
-  font-size: 17px;
-  text-shadow: 1px 1px #333;
 }
 
 .orderContainer {
@@ -464,7 +496,58 @@ hr.dashed {
   -ms-box-sizing: border-box;
 }
 
-.orderDetailPage #bidActionArea {
-  height: 600px;
+#bidActionArea {
+  height: 300px;
   width: 320px;
+  margin-bottom: 20px;
 }
+
+#communicationArea {
+  background: #fff;
+  width:320px;
+  height: 300px;
+}
+
+#bidActionArea .lastBidPrice {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 5px;
+}
+
+#bidActionArea .lastBidVendor {
+  margin: 10px;
+  text-align: center;
+}
+
+#bidActionArea .myBidPrice {
+  float: left;
+  line-height: 26px;
+}
+
+#bidActionArea .bidField {
+  height: 30px;
+  margin: 20px;
+  text-align: center;
+}
+
+#bidActionArea .bidPriceField input {
+  width: 140px;
+}
+
+#bidActionArea .bidBtn {
+  width: 150px;
+  height: 45px;
+  border: 1px solid #1c71ab;
+  border-radius: 4px;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: normal;
+  font-size: 18px;
+  text-shadow: 0 1px 0 #666;
+  line-height: 45px;
+  background: #359ade;
+  text-align: center;
+  cursor: pointer;
+}
+

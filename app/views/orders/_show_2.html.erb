@@ -21,25 +21,27 @@
 					</li>
 				</ul>
 			</div>
-			<div class="keyInfoArea">
-				<div class="orderPrice">
-					<ul class="orderSummaryItems">
-						<li>
-							<span class="title">订单总额</span> 5万
-						</li>
-						<li>
-							<span class="title">浮动利率</span> 20%
-						</li>
-						<li>
-							<span class="title">竞拍期限</span> 2014年6月1日
-						</li>
-					</ul>
-				</div>
+			<div class="span3">
+				<ul class="orderSummaryItems">
+					<li>
+						<span class="title">订单总额</span> 5万
+					</li>
+					<li>
+						<span class="title">浮动利率</span> 20%
+					</li>
+					<li>
+						<span class="title">竞拍期限</span> 2014年6月1日
+					</li>
+				</ul>
+			</div>
 
+			<div class="span3">
+				other info
 			</div>
 		</div>
 
 		<hr class="dashed">
+		<span>竞拍截止日期：2014年5月31日</span>
 
 	</div>
 
@@ -89,34 +91,50 @@
 					</table>
 
 					<!-- description detail list -->
-					<table class="descrDetail">
-						<tbody>
-							<tr>
-								<td>采购商：</td>
-								<td class="value">深圳金龙***公司</td>
-							</tr>
-							<tr>
-								<td>收货地址：</td>
-								<td class="value">佛山，广东</td>
-							</tr>
-							<tr>
-								<td>收货日期：</td>
-								<td class="value">2014年3月15日</td>
-							</tr>
-							<tr>
-								<td>付款方式：</td>
-								<td class="value">押金+发货付款</td>
-							</tr>
-							<tr>
-								<td>物流运输费用：</td>
-								<td class="value">供应商承担</td>
-							</tr>
-							<tr>
-								<td>是否区域采购：</td>
-								<td class="value">是</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class= "descrDetail">
+						<div class="descrDetailTitle">
+							关键信息
+						</div>
+						<table class="descrDetailInfo">
+							<tbody>
+								<tr>
+									<td>采购商：</td>
+									<td class="value">深圳金龙***公司</td>
+								</tr>
+								<tr>
+									<td>收货地址：</td>
+									<td class="value">佛山，广东</td>
+								</tr>
+								<tr>
+									<td>收货日期：</td>
+									<td class="value">2014年3月15日</td>
+								</tr>
+								<tr>
+									<td>竞拍截止时间：</td>
+									<td class="value">2014年2月20日</td>
+								</tr>
+								<tr>
+									<td>付款方式：</td>
+									<td class="value">押金+发货付款</td>
+								</tr>
+								<tr>
+									<td>物流运输费用：</td>
+									<td class="value">供应商承担</td>
+								</tr>
+								<tr>
+									<td>是否区域采购：</td>
+									<td class="value">是</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="vendorDemands">
+						<div class="vendorDemandsTitle">
+							采购商要求
+						</div>
+						<div class="vendorDemandsInfo"></div>
+					</div>
 				</div>
 			</div>
 		</article>
@@ -124,8 +142,32 @@
 		<!-- order bid functions area -->
 		<aside class="span4">
 			<div class="wall" id="bidActionArea">
-				bid actions
+				<div class="lastBidPrice">
+					最新竞价：4.3万
+				</div>
+				<div class="lastBidVendor">
+					竞价方：赣州***金属材料有限公司
+				</div>
+				<div class="bidField">
+					<div class="myBidPrice">
+						我的报价
+					</div>
+					<!-- TODO -->
+					<div class="bidPriceField">
+						<input />
+						万元
+					</div>
+				</div>
+				<div class="bidBtn">
+					竞价
+				</div>
+
 			</div>
+
+			<div class="wall" id="communicationArea">
+				communication area
+			</div>
+
 		</aside>
 
 	</div>

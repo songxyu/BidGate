@@ -15,8 +15,10 @@
 		<%= link_to @order, :class=>"full_details_btn", remote: true do %>
 				<span>查看详情</span>
 			<% end %>
-		
-		<button class="quick_bid_btn"><span>快速竞拍！</span></button>
+
+		<%= link_to @order, :class=>"quick_bid_btn", remote: true do %>
+				<span>快速竞拍!</span>
+			<% end %>
 	</div>
 
 	<div class="footer_view">
