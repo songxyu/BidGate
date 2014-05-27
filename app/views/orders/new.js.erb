@@ -126,21 +126,21 @@ $step1Area.find('.next_btn').click(function(){
 	var city = $step1Area.find('.city_select .city_input').val();
 	var bidType = $step1Area.find('.bid_select .selected').attr('data-type-id');   
 	console.log('categoryId='+categoryId+', city='+city+', bidType='+bidType);
-	
+		
 	$.ajax({
-		url : '/props_by_category', // Note the my_controller and action here, i.e. change accordingly
+		url : '/category_list',
 		type : 'get',
+		dataType: 'html', // response selection list
 		data : {
 			'category_id' : categoryId
 		}
 	}).done(function(data) {
-		console.log(JSON.stringify(data));
-		
+		console.log(data);
+		$step2Area.find('.item-field-area .category_dropdown_list').html(data);		 
 	}).fail(function(jqXHR, textStatus) {
 		console.log("Request failed: " + JSON.stringify(textStatus));
 	});
 	
-	$step2Area.find('.selected_values .selected_category').text(categoryId);
 	$step2Area.find('.selected_values .selected_location').text(city);
 	$step2Area.find('.selected_values .selected_bidtype').text(bidType == 1 ? '所有供应商' : '指定供应商');
 	

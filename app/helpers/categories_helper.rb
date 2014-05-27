@@ -16,7 +16,7 @@ module CategoriesHelper
       cate_array += append_category_children_recursively(parentCate)     
     end
     
-    logger.debug 'CategoriesHelper@get_categories_array(): ' + cate_array.to_s
+    # logger.debug 'CategoriesHelper@get_categories_array(): ' + cate_array.to_s
     return cate_array
   end
 

@@ -127,6 +127,15 @@
 <link rel="stylesheet" href="javascripts/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
 <div class="create_order_step2">
 	<div class="selected_values">
+		 test: 
+		 <% 
+						cate_id_name_array = []
+						arr_cate = get_all_categories()
+						arr_cate.each do |cate|
+							cate_id_name_array << [cate.name, cate.id]
+						end
+		%>	
+		<%= select_tag( :new_order_item_category_id, options_for_select(cate_id_name_array, 0) ) %>
 		<p class='selected_category'></p>
 		<p class='selected_location'></p>
 		<p class='selected_bidtype'></p>
@@ -222,15 +231,9 @@
 				</div>
 				
 				 <div class="item-field-area">
-				 	<% 
-						cate_id_name_array = []
-						arr_cate = get_all_categories()
-						arr_cate.each do |cate|
-							cate_id_name_array << [cate.name, cate.id]
-						end
-					%>	
-				 	<p>类型:</p>
-					<%= select_tag( :new_order_item_category_id, options_for_select(cate_id_name_array, 0) ) %> 
+								
+				 	<p>子类别:</p>				 	
+					<div class="category_dropdown_list"></div> 
 				 </div>
 				 
 				 <div class="item-field-area">			 	
@@ -243,23 +246,27 @@
 					<input class="input model" />
 				 </div>
 				 
-				  <div class="item-field-area">			 	
-				 	<p>材质:</p>
-					<input class="input texture" />
-				 </div>
-				 
-				 <div class="section-label">
-					产地,数量: 
-				 </div>
 				 <div class="item-field-area">			 	
 				 	<p>产地:</p>
 					<input class="input madein" />
 				 </div>
+				 
 				 <div class="item-field-area">			 	
 				 	<p>数量:</p>
 					<input class="input quantity" />
 				 </div>
-			 	
+				 
+				  <div class="item-field-area">			 	
+				 	<p>描述:</p>
+					<input class="input texture" />
+				 </div>
+				 
+				 <div class="section-label">
+					更多信息: 
+				 </div>
+				 
+			 	 <div class="dynamic_properties">
+			 	 </div>
 			</div>	 
 			
 			<div class="button-area">

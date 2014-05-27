@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  include CategoriesHelper
+  
   def new
   	 @Category = Category.new
   end
@@ -10,5 +12,16 @@ class CategoriesController < ApplicationController
     end
   end
   
+  def category_list
+     category_id = params[:category_id] 
+     @parent_cate = Category.find(category_id)
+     @cate_array = CategoriesHelper.get_categories_array(category_id);
+     
+    logger.debug 'category_list(): category_id='+category_id+', @cate_array='+@cate_array.to_s 
+   
+    respond_to do |format|
+       format.js  #{ render :file => "categories/category_list.js.erb" } 
+    end
+  end
 
 end

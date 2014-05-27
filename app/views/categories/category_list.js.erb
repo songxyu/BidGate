@@ -1,0 +1,9 @@
+<%  
+	# generate the dropdown list for selected categories	
+	cate_name_id_arr = [[@parent_cate.name, @parent_cate.id]]
+	@cate_array.each do |cate|
+		cate_name_id_arr << [cate.name, cate.id]
+	end
+%>
+
+<%= select_tag( :cate_select_category_id, options_for_select(cate_name_id_arr, 0) ) %>

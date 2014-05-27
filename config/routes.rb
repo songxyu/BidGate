@@ -33,6 +33,7 @@ BidGate::Application.routes.draw do
 
 
   get "props_by_category" => "goods_props#props_by_category", :as => "props_by_category"
+  get "category_list" => "categories#category_list", :as => "category_list"
   
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
