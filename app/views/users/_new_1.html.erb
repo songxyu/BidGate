@@ -51,18 +51,23 @@
 					<tr>
 						<td><img src="../img/reg/portrait.png" class="icons"></td>
 						<td class="f_label"><!-- TODO :username -> :paymeans_username --> <%= f.label :username, "支付宝账号"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :username  %> </td>
+						<td class="f_input"> <%= f.text_field :username %> </td>
 					</tr>
 					<tr>
 						<td colspan = "2" class="f_label"><!-- TODO :nickname -> :company_name --> <%= f.label :nickname, "公司全称"%><span class="asterisk">*</span></td>
 						<td class="f_input"> <%= f.text_field :nickname  %> </td>
 					</tr>
 
-					<tr id="verify_btn" class="verify_btn">
+					<tr>
 						<td colspan="3">
-						<button>
-							立即验证
-						</button></td>
+						<div class="verifyBtnInfo">
+							<div id="verify_btn" class="verify_btn">
+								立即验证
+							</div>
+							<div class="passedInfo">
+								恭喜您，验证成功！
+							</div>
+						</div></td>
 					</tr>
 
 				</tbody>
@@ -74,28 +79,28 @@
 					<tr>
 						<td><img src="../img/reg/portrait.png" class="icons"></td>
 						<td class="f_label"> <%= f.label :username, "请输入邮箱"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :username  %> </td>
+						<td class="f_input"> <%= f.text_field :username, :disabled => "false"  %> </td>
 					</tr>
 					<tr>
 						<td colspan = "2" class="f_label"><%= f.label :password_digest, "设定密码"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :password_digest  %> </td>
+						<td class="f_input"> <%= f.text_field :password_digest, :disabled => "false"  %> </td>
 					</tr>
 					<tr>
 						<td colspan = "2" class="f_label"><%= f.label :password_digest, "确认密码"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :password_digest  %> </td>
+						<td class="f_input"> <%= f.text_field :password_digest, :disabled => "false"  %> </td>
 					</tr>
 
 					<tr>
 						<td><img src="../img/reg/phone.png" class="icons"></td>
 						<td class="f_label"> <%= f.label :contact_cellphone, "手机号码"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :contact_cellphone %> </td>
+						<td class="f_input"> <%= f.text_field :contact_cellphone, :disabled => "false" %> </td>
 					</tr>
 
 					<tr>
 						<td colspan="3">
-						<button id="submit_btn" class="submit_btn">
+						<div id="submit_btn" class="submit_btn">
 							同意注册协议并提交
-						</button></td>
+						</div></td>
 					</tr>
 				</tbody>
 			</table>

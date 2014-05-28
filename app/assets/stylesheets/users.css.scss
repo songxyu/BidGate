@@ -442,12 +442,35 @@
 
 #company_verify .verify_btn {
   text-align: center;
+  width: 120px;
+  height: 40px;
+  color: #fff;
+  border-radius: 3px;
+  line-height: 40px;
+  font-size: 16px;
+  background: #888;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
-#company_verify .verify_btn button{
-  width: 100px;
-  height: 30px;
+#company_verify .verifyBtnInfo {
+  height: 50px;
+  width: 150px;
+  margin: 0 auto;
 }
+
+#company_verify .passedInfo {
+  color: green;
+  padding: 5px;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+}
+
+#company_verify .passedInfo.enable {
+  display: block;
+}
+
 
 #user_reg_details .complete_btn {
   text-align: center;
@@ -497,12 +520,15 @@
 #user_basic_info_area .submit_btn{
   position: relative;
   left: 140px;
-  border-radius: 5px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
   width: 200px;
   height: 40px;
   background: #359ade;
-  color: white;
-  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
 }
 
 #user_basic_info_area .submit_btn.disabled {
