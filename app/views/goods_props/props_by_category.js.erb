@@ -1,3 +1,9 @@
 
-$(".extPropArea").html("<%= escape_javascript render(:partial => 'goods_props/goods_prop_by_cate') %>");
 
+<% @goods_props.each do |prop| %>
+   <div class="item-field-area">			 	
+	  <p><%=prop.name%></p>
+	  <input name="<%=prop.id%>" class="input <%=prop.id%>" />
+   </div>
+<% end %>
+ 

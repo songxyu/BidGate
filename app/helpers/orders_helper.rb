@@ -9,7 +9,7 @@ module OrdersHelper
     total_time =  deadline.to_i - i_create_time
     remaining_time =  deadline.to_i - Time.now.to_i
 
-    logger.debug "i_create_time="+ i_create_time.to_s + ", past_time=" + past_time.to_s \
+    Rails.logger.debug "i_create_time="+ i_create_time.to_s + ", past_time=" + past_time.to_s \
     + ", total_time=" + total_time.to_s + ", remaining_time=" + remaining_time.to_s
 
     if remaining_time <= 0
@@ -19,7 +19,7 @@ module OrdersHelper
     bid_progres = (bid_progres <= 0 || bid_progres>=100) ?  100 : bid_progres;
     end
 
-    logger.debug "OrdersHelper::get_bid_process(): bid_progres="+ bid_progres.to_s
+    Rails.logger.debug "OrdersHelper::get_bid_process(): bid_progres="+ bid_progres.to_s
 
     return bid_progres
   end

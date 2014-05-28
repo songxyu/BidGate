@@ -19,10 +19,10 @@ class GoodsPropsController < ApplicationController
    
 
     @goods_props = CategoriesHelper.get_dyn_props_by_category(category_id)
-    logger.debug '@goods_props: ' +  @goods_props.to_s
+    Rails.logger.debug '@goods_props: size=' +  @goods_props.size.to_s
     
     respond_to do |format|
-      format.js { render :layout=> false  }
+      format.js # { render :layout=> false  }
     end
   end
 end

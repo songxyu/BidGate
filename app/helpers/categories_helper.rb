@@ -16,7 +16,7 @@ module CategoriesHelper
       cate_array += append_category_children_recursively(parentCate)     
     end
     
-    # logger.debug 'CategoriesHelper@get_categories_array(): ' + cate_array.to_s
+    Rails.logger.debug 'CategoriesHelper@get_categories_array(): ' + cate_array.to_s
     return cate_array
   end
 
@@ -27,7 +27,7 @@ module CategoriesHelper
     
     # debug
     goods_props.each do |prop| 
-      logger.debug 'CategoriesHelper@get_dyn_props_by_category(): prop= ' +  prop.name
+      Rails.logger.debug 'CategoriesHelper@get_dyn_props_by_category(): prop= ' +  prop.name
     end
     
     return goods_props;
