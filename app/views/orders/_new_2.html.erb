@@ -31,7 +31,18 @@
 			<div class="select_row">
 				<div class="category_select">
 					<div class="btn_group">
-						<ul>
+						<%
+							top_level_categories = get_categories_array(0, false);						
+						%>					
+						
+						<ul> 
+							<% top_level_categories.each do |cate| %>
+								<li class="select_btn" data-name="<%=cate.name%>" data-type-id="<%=cate.id%>">
+									<span><%=cate.name%></span>
+								</li>
+							<% end %> 
+							
+							<!-- 
 							<li class="select_btn" data-name="steel" data-type-id="1">
 								<span>钢材/不锈钢</span>
 							</li>
@@ -55,6 +66,7 @@
 							<li class="select_btn" data-name="alloy" data-type-id="5">
 								<span> 镍 /锡/合金</span>
 							</li>
+							-->
 
 							<li class="select_btn" data-name="others" data-type-id="0">
 								<div class="dropdown_container">
@@ -248,17 +260,17 @@
 				 
 				 <div class="item-field-area">			 	
 				 	<p>产地:</p>
-					<input class="input madein" />
+					<input class="input location" />
 				 </div>
 				 
 				 <div class="item-field-area">			 	
 				 	<p>数量:</p>
-					<input class="input quantity" />
+					<input class="input quantity" /><span class="category-unit"/>
 				 </div>
 				 
 				  <div class="item-field-area">			 	
 				 	<p>描述:</p>
-					<input class="input texture" />
+					<textarea class="input memo" />
 				 </div>
 				 
 				 <div class="section-label">
@@ -276,6 +288,39 @@
 			
 			
 		</div>
+		
+		
+		<div class="vendor-select-area">		
+			<div class="field-list">
+				<div class="section-label">
+					可选供应商: 
+				</div>				
+				 
+				 <div class="item-field-area">			 	
+				 	<p>名称:</p>
+					<input class="input name" />
+					<div class="vendor_dropdown_list"></div> 
+				 </div>
+				 
+				 <div class="item-field-area">			 	
+				 	<p>地区:</p>
+					<input class="input location" />
+				 </div>
+				 
+				 <div class="item-field-area">			 	
+				 	<p>主营业务:</p>
+					<input class="input mainBiz" />
+				 </div>			
+			</div>	 
+			
+			<div class="button-area">
+				<button class="add-one-item-btn"><span>添加</span></button>
+			</div>
+			
+			
+			
+		</div>
+		
 		<div class="empty-info"><div></div><p>轻松添加采购物料，合理设定价格，能帮助您更快的找到最低价格</p></div>
 	</div>
 

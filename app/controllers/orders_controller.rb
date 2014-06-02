@@ -1,6 +1,7 @@
 class OrdersController < CommonController
   include OrdersHelper
   include CategoriesHelper
+  include OrderGoodsHelper
   
  # before_filter  :authorize, :only => [:new, :edit, :create]
   

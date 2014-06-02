@@ -2,8 +2,8 @@
 
 <% @goods_props.each do |prop| %>
    <div class="item-field-area">			 	
-	  <p><%=prop.name%></p>
-	  <input name="<%=prop.id%>" class="input <%=prop.id%>" />
+	  <p class="prop-name"><%=prop.name%></p>
+	  <input name="<%=prop.id%>" class="input category-dynamic-prop  category-dynamic-prop-<%=prop.id%>"  data-categorydynamicprop="<%=prop.id%>" />
    </div>
 <% end %>
  

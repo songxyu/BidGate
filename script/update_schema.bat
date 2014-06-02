@@ -68,5 +68,10 @@ call rails generate model CategoryPropValueList goods_prop_value:references prop
 echo add memo column on table orders
 call rails generate migration AddOrderMemoToOrders order_memo:string
 
+
+echo add new table for vendor
+call rails generate model CompanyVendor  company:references  vendor_id:integer
+ 
+
 echo  ----- finished changes ----
 pause

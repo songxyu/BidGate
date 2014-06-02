@@ -4,7 +4,8 @@
 	min-height: 700px;
 	
 	.left-area{
-		height: 100%;
+		height:auto !important;
+		min-height:100%;
 		width: 69%;
 		position: absolute;
 		border: 1px solid #ccc;
@@ -17,6 +18,12 @@
 			min-height: 100px;
 			width: 770px;
 			left: 25px;
+			
+			.operation-cell-style{
+				cursor: pointer;
+				color: blue;
+				text-decoration: underline;
+			}
 		}
 		
 		.add-items-btn{
@@ -85,7 +92,7 @@
 		}
 		
 		.order-vendor-area{
-			/*display:none;*/
+			display:none;
 			padding: 30px;
 			clear: left;
 			
@@ -122,7 +129,8 @@
 	
 	
 	.right-area{
-		height: 100%;
+		height:auto !important;
+		min-height:100%;
 		width: 30%;
 		margin-left: 0px;
 		
@@ -172,6 +180,10 @@
 					.input{
 						width: 120px;
 					}
+					
+					.category-unit{
+						padding-left: 2px;
+					}
 				}
 			}
 			
@@ -190,6 +202,12 @@
 				}
 			}		
 		
+		}
+		
+		.vendor-select-area{
+			min-height: 20px;
+			display: none;
+			
 		}
 		
 		

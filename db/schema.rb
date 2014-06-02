@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140305171712) do
+ActiveRecord::Schema.define(:version => 20140602070422) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(:version => 20140305171712) do
     t.binary   "license_image"
     t.string   "account_num"
   end
+
+  create_table "company_vendors", :force => true do |t|
+    t.integer  "company_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "company_vendors", ["company_id"], :name => "index_company_vendors_on_company_id"
 
   create_table "follow_relationships", :force => true do |t|
     t.integer  "follower_id"
