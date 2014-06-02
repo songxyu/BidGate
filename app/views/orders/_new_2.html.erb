@@ -138,24 +138,10 @@
 <link rel="stylesheet" href="javascripts/SlickGrid/slick.grid.css" type="text/css"/>
 <link rel="stylesheet" href="javascripts/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
 <div class="create_order_step2">
-	<div class="selected_values">
-		 test: 
-		 <% 
-						cate_id_name_array = []
-						arr_cate = get_all_categories()
-						arr_cate.each do |cate|
-							cate_id_name_array << [cate.name, cate.id]
-						end
-		%>	
-		<%= select_tag( :new_order_item_category_id, options_for_select(cate_id_name_array, 0) ) %>
-		<p class='selected_category'></p>
-		<p class='selected_location'></p>
-		<p class='selected_bidtype'></p>
-		
-	</div>
+
 	<div class="left-area">
 		<p>
-			货物列表 (bug: double click 发布采购单 to show grid!)
+			货物列表  
 		</p>
 		<div class="order-items-grid-area"></div>
 		
@@ -219,7 +205,7 @@
 					<input class=" " />									 
 				</div>	
 				<div class="values">	
-					<input class=" " />									 
+					<textarea class=" " />									 
 				</div>
 				
 			</div>
@@ -282,39 +268,40 @@
 			</div>	 
 			
 			<div class="button-area">
-				<button class="add-one-item-btn"><span>添加</span></button>
+				<button class="add-one-btn add-one-item-btn"><span>添加</span></button>
 			</div>
 			
 			
 			
 		</div>
-		
-		
+				
 		<div class="vendor-select-area">		
 			<div class="field-list">
 				<div class="section-label">
 					可选供应商: 
 				</div>				
 				 
-				 <div class="item-field-area">			 	
-				 	<p>名称:</p>
-					<input class="input name" />
-					<div class="vendor_dropdown_list"></div> 
-				 </div>
-				 
-				 <div class="item-field-area">			 	
-				 	<p>地区:</p>
-					<input class="input location" />
-				 </div>
-				 
-				 <div class="item-field-area">			 	
-				 	<p>主营业务:</p>
-					<input class="input mainBiz" />
-				 </div>			
+			 	<div class="vendor_list">
+					<%
+					vendors = []
+					if current_user
+						company_id = current_user.company.id
+						vendors = CompanyVendor.get_vendor_list(company_id)
+					end					
+					%>
+					
+					<% vendors.each do |v| %>
+					<div class="one-vendor">
+						 <input name="vendor-<%=v.id%>" type="checkbox" value="<%=v.id%>" data-location="<%=v.register_address%>" data-mainbiz="<%=v.main_biz%>"/>
+						 <label for="vendor-<%=v.id%>"> <%=v.name%> </label>
+					</div>
+					<% end %>
+				</div> 
+				  
 			</div>	 
 			
 			<div class="button-area">
-				<button class="add-one-item-btn"><span>添加</span></button>
+				<button class="add-one-btn add-one-vendor-btn"><span>添加</span></button>
 			</div>
 			
 			

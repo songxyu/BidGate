@@ -121,6 +121,12 @@ var $step2Area = $('.create_order_step2');
 var gCategoryChanged = true;
 var categoryDynamicPropPrefix = 'category-dynamic-prop-';
 
+var common_properties = [   // OrderGoodsHelper.get_common_properties
+      {id: "name", name: "货物"}, {id: "model", name: "型号"}, {id: "location", name: "产地"},
+      {id: "quantity", name: "数量"}, {id: "memo", name: "描述"}, {id: "operation", name: "操作"} 
+    ];
+
+var category_dynamic_properties = [];
 
 // can be used to get unit of sub category if needs
 var fnLoadCategoryUnit = function(categoryId){
@@ -148,8 +154,6 @@ $step1Area.find('.next_btn').click(function(){
 	var city = $step1Area.find('.city_select .city_input').val();
 	var bidType = $step1Area.find('.bid_select .selected').attr('data-type-id');   
 	console.log('categoryId='+categoryId+', city='+city+', bidType='+bidType);
-	
-	$step2Area.find('.selected_values .selected_location').text(city);
 		
 	// load sub category list
 	$.ajax({
@@ -197,26 +201,30 @@ $step1Area.find('.next_btn').click(function(){
 	});
 	
 	
-	
 	var $orderVendorListArea = $step2Area.find('.order-vendor-area');
 	if(bidType == 2){
+		addVendorsGrid();
 		$orderVendorListArea.show();
 	}else{
 		$orderVendorListArea.hide();
 	}
 	
 	//fnResetOrderItemGrid();// TODO:	
+	addOrderItems();
+	
+	$step2Area.show();
 });
 
 //****************** end of step1 page actions *******************
 
 
-var common_properties = [   // OrderGoodsHelper.get_common_properties
-      {id: "name", name: "货物"}, {id: "model", name: "型号"}, {id: "location", name: "产地"},
-      {id: "quantity", name: "数量"}, {id: "memo", name: "描述"}, {id: "operation", name: "操作"} 
-    ];
+var fnShowRightArea = function(rightDivClass){
+	$step2Area.find('.dynamic-select-area').hide();
+	$step2Area.find('.vendor-select-area').hide();
+	$step2Area.find('.empty-info').hide();
+	$step2Area.find('.'+rightDivClass).show();
+};
 
-var category_dynamic_properties = [];
 var data4DelBtn = "删除";
 
 // ***** usage sample for editable Slickgrid *****
@@ -264,10 +272,9 @@ var getColumnDefinition = function(columnData, gridTotalWidth ){
 
 var addOrderItems = function(columnData){
     var grid;
-    var columnDefs = getColumnDefinition(columnData, itemGridTotalWidth);
-  
-  
+    var columnDefs = getColumnDefinition(columnData, itemGridTotalWidth);  
   	console.log('columns='+JSON.stringify(columnDefs));
+  	
   	var dataView = new Slick.Data.DataView(); 
     grid = new Slick.Grid(".order-items-grid-area", dataView, columnDefs, gridInfo4OrderItems.options);
 	console.log('gird created.');
@@ -293,8 +300,7 @@ var addOrderItems = function(columnData){
     });
     
     grid.onClick.subscribe(function(e,args){
-	    console.log('e='+e+', args='+JSON.stringify(args));
-	    
+	    console.log('e='+e+', args='+JSON.stringify(args));	    
 	    if(args.cell==9){ // operation col
 	    	var rowIdx = args.row;
 	    	var oItem = dataView.getItem(rowIdx);
@@ -302,26 +308,11 @@ var addOrderItems = function(columnData){
 	    	console.log('removed row for id='+oItem.id);
 	    }
 	});
- 
-    
-    var data = gridInfo4OrderItems.data;
-    // for (var i = 0; i < 3; i++) {
-      // data.push( {
-      	// "id": "col-"+i,
-      	// "name": "钢管 " + i,
-      	// "model" : "test",
-      	// "location" : "日本",
-      	// "quantity": "1000",
-      	// "operation": ' delete '
-      // });      
-    // }    
-   	// console.log('gridInfo4OrderItems.data='+JSON.stringify(data));
-    	
-    dataView.setItems(data);
-    
-    console.log('find add items button='+$step2Area.find('.add-items-btn').length);
+     
+    var data = gridInfo4OrderItems.data;    	
+    dataView.setItems(data);    
+
     $step2Area.find('.add-items-btn').click(function(){
-    	console.log(JSON.stringify( gridInfo4OrderItems.data ));    	
     	// var itemCount = dataView.getLength();
     	// dataView.beginUpdate();
     	// var newData = {id: 'id_'+itemCount,  name: "钢材", model:'yuan港', 'texture': '304', 
@@ -334,7 +325,7 @@ var addOrderItems = function(columnData){
     	// dataView.endUpdate();
     	
     	// show right data
-    	$step2Area.find('.dynamic-select-area').show();
+    	fnShowRightArea('dynamic-select-area');
     });
     
     gridInfo4OrderItems.dataView = dataView;
@@ -358,6 +349,11 @@ var addOrderItems = function(columnData){
 		// gather filled data 
 		var $fieldArea = $step2Area.find('.item-field-area');
 		var itemsValObj = {};
+		// var name = $fieldArea.find('.input.name').val();
+		// var model = $fieldArea.find('.input.model').val();
+		// var texture = $fieldArea.find('.input.texture').val();
+		// var madein = $fieldArea.find('.input.location').val();
+		// var quantity = $fieldArea.find('.input.quantity').val();	
 		common_properties.forEach(function(prop){
 			if(prop.id == 'operation'){
 				itemsValObj[prop.id] = data4DelBtn;
@@ -371,13 +367,8 @@ var addOrderItems = function(columnData){
 			var val = $fieldArea.find('.category-dynamic-prop.'+propIdStr).val();
 			itemsValObj[propIdStr] = val;
 			console.log('propId :'+propIdStr+', val: '+val);
-		});
+		});		
 		
-		// var name = $fieldArea.find('.input.name').val();
-		// var model = $fieldArea.find('.input.model').val();
-		// var texture = $fieldArea.find('.input.texture').val();
-		// var madein = $fieldArea.find('.input.location').val();
-		// var quantity = $fieldArea.find('.input.quantity').val();		
 		console.log("item values: "+JSON.stringify(itemsValObj));
 		
 		if(gCategoryChanged){
@@ -392,41 +383,37 @@ var addOrderItems = function(columnData){
 		gCategoryChanged = false;
 	});
   
-    return {"grid": grid, 'dataview': dataview};
+    return {"grid": grid, 'dataView': dataView};
 };
 
-
-var oGridInfo = addOrderItems();
-
-var fnResetOrderItemGrid = function(){
-	var columnDefs = getColumnDefinition(gridInfo4OrderItems.columns, itemGridTotalWidth);
-	oGridInfo.grid.setColumns(columnDefs);
-	oGridInfo.dataView.setItems([]);
-};
+// 
+// var oGridInfo = addOrderItems();
+// 
+// var fnResetOrderItemGrid = function(){
+	// var columnDefs = getColumnDefinition(gridInfo4OrderItems.columns, itemGridTotalWidth);
+	// oGridInfo.grid.setColumns(columnDefs);
+	// oGridInfo.dataView.setItems([]);
+// };
 
 var addVendorsGrid = function(){
+	var vendorGridTotalWidth = 770;
+	var colWidth = vendorGridTotalWidth/4;
 	var vendorColumns = [
-    {id: "name", name: "供应商", field: "name", width: 300, cssClass: "cell-title", resizable: true, 
+    {id: "name", name: "供应商", field: "name", width: colWidth, cssClass: "cell-title", resizable: true, 
     	editor: Slick.Editors.Text, validator: requiredFieldValidator},
-    {id: "location", name: "地区", field: "location", width: 170, editor: Slick.Editors.Text, resizable: true},
-    {id: "desc", name: "主营业务", field: "description", width: 300, editor: Slick.Editors.Text, resizable: true}
+    {id: "location", name: "地区", field: "location", width: colWidth, editor: Slick.Editors.Text, resizable: true},
+    {id: "mainBiz", name: "主营业务", field: "mainBiz", width: colWidth, editor: Slick.Editors.Text, resizable: true},
+    {id: "operation", name: "操作", field: "operation", width: colWidth, editor: null,  cssClass:'operation-cell-style', resizable: true}
     ];
   
-  var vendorOptions = {
-    editable: false,
-    enableAddRow: true,
-    enableCellNavigation: true,
-    asyncEditorLoading: false,
-    autoEdit: false
-  };
-  
-  var vendorData = [{
-  	id: "id_0",
-  	name: "上海宝钢",
-  	location: "上海",
-  	description: "炼钢 卖钢"
-  }];
-  
+	var vendorOptions = {
+	    editable: false,
+	    enableAddRow: true,
+	    enableCellNavigation: false,
+	    asyncEditorLoading: false,
+	    autoEdit: false
+	};
+	   
 	var vendorDataView = new Slick.Data.DataView({  }); 
 	var vendorGrid = new Slick.Grid(".order-vendor-list", vendorDataView, vendorColumns, vendorOptions);
 	/*vendorGrid.setSelectionModel(new Slick.CellSelectionModel());*/
@@ -441,21 +428,53 @@ var addVendorsGrid = function(){
 	  vendorGrid.render();
 	});
 	
+	vendorGrid.onClick.subscribe(function(e,args){
+	    console.log('e='+e+', args='+JSON.stringify(args));	    
+	    if(args.cell==3){ // operation col
+	    	var rowIdx = args.row;
+	    	var oItem = vendorDataView.getItem(rowIdx);
+	    	vendorDataView.deleteItem(oItem.id);
+	    	console.log('removed row for id='+oItem.id);
+	    }
+	});
+	
 	$('.add-vendor-btn').click(function(){
-		console.log(JSON.stringify( vendorDataView ));
-		console.log(JSON.stringify( vendorData ));
+		fnShowRightArea('vendor-select-area');
+	});
+	
+	$step2Area.find('.add-one-vendor-btn').click(function(){    	 
+		var selectedVendors = [];
+		var $fieldArea = $step2Area.find('.vendor-select-area .vendor_list .one-vendor');		
+		$fieldArea.each(function(idx, oneVendorDom){
+			var $checkbox = $(oneVendorDom).find('input');
+			if($checkbox.attr("checked")){
+				var company_id = $checkbox.val();
+				var name = $(oneVendorDom).find('label').text();
+				var mainBiz = $checkbox.data('mainbiz');
+				var location= $checkbox.data('location');	
+				var itemsValObj = {
+					'id': company_id,
+					'name': name,
+					'location': location,
+					'mainBiz' : mainBiz,
+					'operation': '删除'
+				};		
+				console.log("vendor info: "+JSON.stringify(itemsValObj));
+				selectedVendors.push(itemsValObj);
+			}
+		});
 		
-		// vendorDataView.beginUpdate();
-		// vendorDataView.addItem(vendorData[0]);
-		// vendorDataView.endUpdate();
-		$step2Area.find('.vendor-select-area').show();
+		//vendorDataView.beginUpdate();
+		vendorDataView.setItems(selectedVendors); // clear and set new rows
+		//vendorDataView.endUpdate();
+		
 	});
 };
   
 
 
 
-addVendorsGrid();
+//addVendorsGrid();
 
 
 var fixedFields = ['category', 'name', 'model', 'quantity', 'madein', "memo"];

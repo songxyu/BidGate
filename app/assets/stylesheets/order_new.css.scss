@@ -2,6 +2,7 @@
 	margin: 50px 0;
 	position: relative;
 	min-height: 700px;
+	display: none;
 	
 	.left-area{
 		height:auto !important;
@@ -11,19 +12,18 @@
 		border: 1px solid #ccc;
 		border-radius: 5px;
 		background-color: #EAEAEA;
-		
 		text-align: center;
+		
+		.operation-cell-style{
+			cursor: pointer;
+			color: blue;
+			text-decoration: underline;
+		}
 		
 		.order-items-grid-area{
 			min-height: 100px;
 			width: 770px;
-			left: 25px;
-			
-			.operation-cell-style{
-				cursor: pointer;
-				color: blue;
-				text-decoration: underline;
-			}
+			left: 25px;		
 		}
 		
 		.add-items-btn{
@@ -154,53 +154,59 @@
 			border-radius: 3px;
 		}
 		
+		
+		.section-label{
+			margin-left: -180px;
+			text-align: left;
+			padding: 0;
+			font-weight:bold;
+		}
+		
+		.field-list{
+			text-align: right;
+			padding-left: 200px;
+			
+			.item-field-area{
+				text-align: left;
+				padding: 8px 0;
+				width: 150px;
+				p{
+					margin:0;
+				}
+				
+				.input{
+					width: 120px;
+				}
+				
+				.category-unit{
+					padding-left: 2px;
+				}
+			}
+		}
+		
+		
+		.button-area{
+			text-align: center;
+			line-height: 50px;
+		}	
+		
+		
+		.add-one-btn{
+			width: 120px;
+			height: 30px;
+			background-color: rgb(247, 211, 148);
+			border: none;
+			margin: 5px;
+			border-radius: 3px;
+		}	
+		
 		.dynamic-select-area{
 			min-height: 20px;
 			display: none;
 			
-			.section-label{
-				margin-left: -180px;
-				text-align: left;
-				padding: 0;
-				font-weight:bold;
+			.add-one-item-btn{
+				 
 			}
-			
-			.field-list{
-				text-align: right;
-				padding-left: 200px;
-				
-				.item-field-area{
-					text-align: left;
-					padding: 8px 0;
-					width: 150px;
-					p{
-						margin:0;
-					}
-					
-					.input{
-						width: 120px;
-					}
-					
-					.category-unit{
-						padding-left: 2px;
-					}
-				}
-			}
-			
-			
-			.button-area{
-				text-align: center;
-				line-height: 50px;
-				
-				.add-one-item-btn{
-					width: 120px;
-					height: 30px;
-					background-color: rgb(247, 211, 148);
-					border: none;
-					margin: 5px;
-					border-radius: 3px;
-				}
-			}		
 		
 		}
 		
@@ -208,6 +214,15 @@
 			min-height: 20px;
 			display: none;
 			
+			.vendor_list{
+				margin-left: -150px;
+				text-align: left;
+				padding: 0;
+			}
+			
+			.add-one-vendor-btn{
+				 
+			}
 		}
 		
 		
