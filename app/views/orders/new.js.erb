@@ -146,9 +146,17 @@ var fnLoadCategoryUnit = function(categoryId){
 	});	
 };
 
- 
 
-$step1Area.find('.next_btn').click(function(){
+var fnGetOpCellIndex = function(){
+	var idx = common_properties.length + category_dynamic_properties.length -1 ;
+	console.log('get op cell index = '+idx);
+	return idx; 
+};
+
+var $nextStepBtn = $step1Area.find('.next_btn');
+
+$nextStepBtn.unbind('click');
+$nextStepBtn.click(function(){
 	// use the var selection	 
 	var categoryId = $step1Area.find(".category_select .select_btn.selected").attr('data-type-id');
 	var city = $step1Area.find('.city_select .city_input').val();
@@ -237,7 +245,6 @@ var gridInfo4OrderItems = {
 	    asyncEditorLoading: false,
 	    autoEdit: false
 	},
-	data: [],
 	dataView: null	
 };
 
@@ -250,9 +257,7 @@ function requiredFieldValidator(value) {
     }
 }
 
-
 var itemGridTotalWidth = 770;
- 
  
 var getColumnDefinition = function(columnData, gridTotalWidth ){
 	  var columns =  columnData ? columnData : gridInfo4OrderItems.columns;   
@@ -301,7 +306,7 @@ var addOrderItems = function(columnData){
     
     grid.onClick.subscribe(function(e,args){
 	    console.log('e='+e+', args='+JSON.stringify(args));	    
-	    if(args.cell==9){ // operation col
+	    if(args.cell== fnGetOpCellIndex() ){ // operation col
 	    	var rowIdx = args.row;
 	    	var oItem = dataView.getItem(rowIdx);
 	    	dataView.deleteItem(oItem.id);
@@ -309,10 +314,11 @@ var addOrderItems = function(columnData){
 	    }
 	});
      
-    var data = gridInfo4OrderItems.data;    	
-    dataView.setItems(data);    
+    dataView.setItems([]);    
 
-    $step2Area.find('.add-items-btn').click(function(){
+	var $addItemsBtn = $step2Area.find('.add-items-btn');
+	$addItemsBtn.unbind('click');
+    $addItemsBtn.click(function(){
     	// var itemCount = dataView.getLength();
     	// dataView.beginUpdate();
     	// var newData = {id: 'id_'+itemCount,  name: "钢材", model:'yuan港', 'texture': '304', 
@@ -330,7 +336,10 @@ var addOrderItems = function(columnData){
     
     gridInfo4OrderItems.dataView = dataView;
     
-    $step2Area.find('.add-one-item-btn').click(function(){
+    var $addOneItemBtn = $step2Area.find('.add-one-item-btn');
+    $addOneItemBtn.unbind('click');
+    $addOneItemBtn.click(function(){
+    	
     	// set column headers
     	if(gCategoryChanged){
 			var newColumns = category_dynamic_properties;		 		
@@ -351,9 +360,7 @@ var addOrderItems = function(columnData){
 		var itemsValObj = {};
 		// var name = $fieldArea.find('.input.name').val();
 		// var model = $fieldArea.find('.input.model').val();
-		// var texture = $fieldArea.find('.input.texture').val();
-		// var madein = $fieldArea.find('.input.location').val();
-		// var quantity = $fieldArea.find('.input.quantity').val();	
+		//...
 		common_properties.forEach(function(prop){
 			if(prop.id == 'operation'){
 				itemsValObj[prop.id] = data4DelBtn;
@@ -438,11 +445,15 @@ var addVendorsGrid = function(){
 	    }
 	});
 	
-	$('.add-vendor-btn').click(function(){
+	var $addVendorsBtn = $step2Area.find('.add-vendor-btn');
+	$addVendorsBtn.unbind('click');
+	$addVendorsBtn.click(function(){
 		fnShowRightArea('vendor-select-area');
 	});
 	
-	$step2Area.find('.add-one-vendor-btn').click(function(){    	 
+	var $addOneVendorBtn = $step2Area.find('.add-one-vendor-btn');
+	$addOneVendorBtn.unbind('click');
+	$addOneVendorBtn.click(function(){   	 
 		var selectedVendors = [];
 		var $fieldArea = $step2Area.find('.vendor-select-area .vendor_list .one-vendor');		
 		$fieldArea.each(function(idx, oneVendorDom){
@@ -478,6 +489,7 @@ var addVendorsGrid = function(){
 
 
 var fixedFields = ['category', 'name', 'model', 'quantity', 'madein', "memo"];
+$('#new_order_item_category_id').unbind('change');
 $('#new_order_item_category_id').bind('change', function(){
 	// get dynamic ones for the selected category
 	var categoryId = $(this).val();
