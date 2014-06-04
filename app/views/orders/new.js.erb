@@ -127,6 +127,8 @@ var common_properties = [   // OrderGoodsHelper.get_common_properties
     ];
 
 var category_dynamic_properties = [];
+var orderItemsGridInfo = null;
+var vendorsGridInfo = null;
 
 // can be used to get unit of sub category if needs
 var fnLoadCategoryUnit = function(categoryId){
@@ -211,16 +213,17 @@ $nextStepBtn.click(function(){
 	
 	var $orderVendorListArea = $step2Area.find('.order-vendor-area');
 	if(bidType == 2){
-		addVendorsGrid();
+		vendorsGridInfo = addVendorsGrid();
 		$orderVendorListArea.show();
 	}else{
 		$orderVendorListArea.hide();
 	}
 	
 	//fnResetOrderItemGrid();// TODO:	
-	addOrderItems();
+	orderItemsGridInfo = addOrderItems();
 	
 	$step2Area.show();
+	fnShowRightArea('empty-info');
 });
 
 //****************** end of step1 page actions *******************
@@ -480,10 +483,55 @@ var addVendorsGrid = function(){
 		//vendorDataView.endUpdate();
 		
 	});
+	
+	return {grid: vendorGrid, dataView: vendorDataView};
 };
   
 
 
+var $submitBtn = $step2Area.find('.order-submit-btn');
+$submitBtn.unbind('click');
+$submitBtn.click(function(){
+	var categoryId = $step1Area.find(".category_select .select_btn.selected").attr('data-type-id');
+	var city = $step1Area.find('.city_select .city_input').val();
+	var bidType = $step1Area.find('.bid_select .selected').attr('data-type-id');  
+	
+	var orderItemList = [];
+	var items = orderItemsGridInfo.dataView.getItems();
+	
+	var vendorIdList = [];
+	if(bidType == 2){
+		var verdors = vendorsGridInfo.dataView.getItems();
+		verdors.forEach(function(v){
+			vendorIdList.push(v.id);
+		});
+	}		 
+	
+	var postData = {
+		'category' : categoryId,
+		'location': city,
+		'price_type': bidType,
+		'price': $step2Area.find('.order-price-area .price').val(),
+		'deadline': $step2Area.find('.order-other-info-area .deadline').val(),
+		'delivery_date': $step2Area.find('.order-other-info-area .delivery-date').val(),
+		'payment_method' : $step2Area.find('.order-price-area .payment').val(), 
+		'currency': '',
+		'memo': $step2Area.find('.order-other-info-area .order-memo').val(),
+		'vendor_list': vendorIdList.join(','),
+		'order_items': items		
+	};
+	
+	$.ajax({
+		url : '/orders',  
+		type : 'post',
+		dataType: 'json', 
+		data : JSON.stringify(postData)
+	}).done(function(data) {
+		// contentArea has been set to order detail in ajax response 
+	}).fail(function(jqXHR, textStatus) {
+		console.log("Request failed: " + JSON.stringify(textStatus));
+	});
+});
 
 //addVendorsGrid();
 
