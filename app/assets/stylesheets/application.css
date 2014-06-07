@@ -27,9 +27,14 @@ html {
 	background-color: white;
 }
 
+
 body, input, select, textarea, button {
 	font-size: 13px;
 	line-height: 1.4;
+}
+
+.main {
+	background: url("../img/main-bg.jpg") repeat;
 }
 
 media="screen"
@@ -86,7 +91,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	height: 60px;
 	min-width: 960px;
 	display: block;
-	background-color: #475359;
+	background-color: #3d454d;
 	border-bottom: 1px solid #ddd;
 	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
@@ -678,11 +683,11 @@ create new order
 .quickview_dialog {
 	background-color: #fff;
 	display: none;
-	width: 620px;
-	height: 460px;
-	padding: 15px;
+	width: 650px;
+	height: 440px;
 	text-align: left;
-	border: 2px solid #333;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
+	border: 2px solid #444;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }

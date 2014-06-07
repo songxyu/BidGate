@@ -1,5 +1,7 @@
 $("#quickview_dialog").html("<%= escape_javascript render(:partial => 'orders/quickview_show')%>");
 
+$("#quickview_dialog").overlay().load();
+
 $('.logon_close_btn').click(function(){
 	$("#quickview_dialog").overlay().close();
 });

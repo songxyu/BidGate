@@ -4,7 +4,7 @@
 .jMenu li ul li a:hover{background-color:#514c52;border-top:1px solid #322f32;border-bottom:1px solid #322f32}
 
 .jMenu li{overflow:hidden;}
-.jMenu li a:hover{color: white; background-color:#aaa; border-radius: 5px;}
+.jMenu li a:hover{color: white; background-color:#32383f; border-radius: 3px;}
 .jMenu li a{color: white;text-decoration:none}
 .jMenu{position: relative; line-height: 30px; top: 5px;} //tmp
 

@@ -13,16 +13,15 @@
 		<%= render "layouts/header" %>
 		<%= yield :header %> <!-- THIS NOT WORK!? -->
 
-		<div>
-		<div class="content_area">
-			<%= yield %>
-		</div>
-		</div>
+		<div class="main">
+			<div class="content_area">
+				<%= yield %>
+			</div>
 
-		<div class="right_wrapper">
-
+			<div class="right_wrapper">
+			</div>
 		</div>
-
+		
 		<%= render "layouts/footer" %>
 		<%= yield :footer %> <!-- THIS NOT WORK!? -->
 

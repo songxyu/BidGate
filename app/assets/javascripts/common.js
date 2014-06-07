@@ -1,6 +1,6 @@
 var fnOrderListInit = function() {
 
-	$('.orders_container').shapeshift();
+	$('.orders_container').shapeshift({enableDrag: false});
 
 	var $arr_bid_progressbar = $(".bid_progressbar");
 	$.each($arr_bid_progressbar, function(index, elem) {
@@ -23,11 +23,6 @@ var fnOrderListInit = function() {
 		$(elem).progressbar({
 			value : prog_val
 		});
-	});
-
-	// add by Song: quick view dialog
-	$(".quickViewButton").on('click', function() {
-		$("#quickview_dialog").overlay().load();
 	});
 
 };
