@@ -32,10 +32,11 @@
 					</div>
 					<!-- quick view -->
 					<div class="order_quickview">
-						<div class="quickViewButton" data-order-id="1">
-							<span></span>
-							<%= link_to "快速查看",  order_quickview_show_path(:order_id => order.id), remote: true %>
-							</div>
+						<div>
+							<%= link_to order_quickview_show_path(:order_id => order.id), :class=>"quickViewButton", remote: true do %>
+							<span class="quickviewIcon"></span><span>快速查看</span>
+							<% end %>
+						</div>
 					</div>
 				</div>
 
@@ -79,8 +80,6 @@
 <div class="pagination_area">
 	<%= paginate @orders, :remote => true  %>
 </div>
-
-
 
 <div id="dialog_area"></div>
 

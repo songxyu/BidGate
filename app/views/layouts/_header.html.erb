@@ -1,47 +1,79 @@
 <% content_for :header do %>
 <div class="header">
 
-	<div class="masthead">
-
-		<div class="logo_wrap"></div>
-
-		<div class="menu_bar" role="menu">
-			<ul class="home-nav-menu">
-				<li>
-					<%= link_to "首页", orders_path, remote: true %>
-				</li>
-				<li>
-					<%= link_to "发现采购单", orders_search_path(:search => ""), remote: true %>
-				</li>
-				<li>
-					<%= link_to "关于壹百万" %>
-
-				</li>
-
-			</ul>
+	<div class="headerHelper">
+		<div class="helper">
+			<div class="hpRight">
+				<div class="helperLink">
+					首页
+				</div>
+				<div class="helperLink">
+					我的壹百万
+				</div>
+				<div class="helperLink">
+					常见问题
+				</div>
+			</div>
 		</div>
+	</div>
 
-		<div class="header_right">
-			<ul class="welcome-signin">
-				<% if current_user %>
-				当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", logout_path %>
-				<li class="my-profile-link">
-					<%= link_to "我的壹百万",  user_profile_path, remote: true %>
-				</li>
-				<% else %>
-				<li class="logon">
-					<%= link_to "登录",  login_path, remote: true %>
-				</li>
-				<li class="register">
-					<%= link_to "免费注册", signup_path %>
-				</li>
-				<% end %>
-			</ul>
+	<div class="headMain">
 
-			<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
+		<div class="masthead">
+
+			<div class="logoWrapper"></div>
+
+			<div class="menuBar">
+				<ul class="navMenu">
+					<li>
+						<%= link_to orders_path, :class=>"menuItem", remote: true do %>
+						<span>首页</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to orders_search_path(:search => ""), :class=>"menuItem", remote: true do %>
+						<span>发现采购单</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to orders_path, :class=>"menuItem", remote: true do %>
+						<span>关于壹百万</span>
+						<% end %>
+
+					</li>
+
+				</ul>
+			</div>
+
+			<div class="header_right">
+				<ul class="welcome-signin">
+					<% if current_user %>
+					当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", logout_path %>
+					<li class="my-profile-link">
+						<%= link_to "我的壹百万",  user_profile_path, remote: true %>
+					</li>
+					<% else %>
+					<li class="logon">
+						<%= link_to "登录",  login_path, remote: true %>
+					</li>
+					<li class="register">
+						<%= link_to "注册", signup_path %>
+					</li>
+					<% end %>
+					
+					<li class="help">
+						<span>帮助</span>
+						<span class="arrowDown"></span>
+					</li>
+					
+					
+				</ul>
+
+				<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
 				<span class="create_po_text">发布您的采购单</span>
-			<% end %>
+				<% end %>
 
+			</div>
 		</div>
 	</div>
 
