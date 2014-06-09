@@ -329,12 +329,14 @@
   .leftWrapper {
     margin-top: 40px;
     float: left;
-    width: 860px;
+    width: 680px;
+    margin-right: 10px;
   }
   
   .rightWrapper {
     margin-top: 40px;
     float: left;
+    width: 270px;
   }
 }
 
@@ -347,7 +349,7 @@
   padding: 20px;
   border: 1px solid #e3e3e3;
   box-shadow: 0 0 12px 2px #eee;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -464,8 +466,8 @@ hr.dashed {
 
 .orderInfoContainer {
   position: relative;
-  height: 600px;
   background: #fff;
+  float: left;
   border: 1px solid #e3e3e3;
   box-shadow: 0 0 12px 2px #eee;
   padding: 20px;
@@ -488,6 +490,11 @@ hr.dashed {
   -ms-box-sizing: border-box;
 }
 
+.orderInfoContainer .orderInfo {
+  width: 100%;
+  float: left;
+}
+
 .orderInfoContainer h3 {
   font-size: 18px;
   line-height: 32px;
@@ -501,7 +508,7 @@ hr.dashed {
 .orderInfoContainer .itemTable td, .itemTable th {
   font-size: 15px;
   border:1px solid #359ade;
-  padding:3px 7px 2px 7px;
+  padding: 5px 15px;
 }
 
 .orderInfoContainer .itemTable th {
@@ -510,7 +517,7 @@ hr.dashed {
   text-align: left;
   padding-top: 5px;
   padding-bottom: 4px;
-  padding: 5px 53px 4px 7px;
+  padding: 5px 15px;
   background-color: #359ade;
   color: #fff;
 }
@@ -521,8 +528,8 @@ hr.dashed {
 
 .orderInfoContainer .descrDetail {
   float: left;
-  margin: 20px;
-  width: 300px;
+  margin: 20px 10px;
+  width: 295px;
 }
 
 .orderInfoContainer .descrDetailTitle {
@@ -561,9 +568,9 @@ hr.dashed {
 }
 
 .orderInfoContainer .vendorDemands {
-  float: left;
-  margin: 20px;
-  width: 430px
+  float: right;
+  margin: 20px 10px;
+  width: 295px;
 }
 
 .orderInfoContainer .vendorDemandsTitle {
@@ -577,19 +584,23 @@ hr.dashed {
   margin-top: 20px;
 }
 
+.orderInfoContainer .buyerDetailsInfo {
+  width: 100%;
+  float: left;
+  margin-top: 20px;
+}
+
 
 #bidActionArea {
   height: 350px;
-  width: 320px;
   background: #fff;
   box-shadow: 0 0 12px 2px #eee;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #communicationArea {
   background: #fff;
   box-shadow: 0 0 12px 2px #eee;
-  width:320px;
   height: 300px;
 }
 
@@ -614,7 +625,7 @@ hr.dashed {
 
 #bidActionArea .bidStatusTag {
   position: absolute;
-  right: 180px;
+  right: 300px;
   top: 160px;
   width: 90px;
   height: 30px;
@@ -642,6 +653,19 @@ hr.dashed {
 }
 
 #bidActionArea .lastBidVendor {
+  
+  .companyInfo {
+    padding: 2px 8px;
+    color:#2996cc;
+  }
+  
+  .companyInfo:hover {
+    background: #2996cc;
+    color: #fff;
+    font-weight: normal;
+    border-radius: 6px;
+    cursor: pointer;
+  }
 }
 
 #bidActionArea .myBidPrice {
@@ -655,7 +679,7 @@ hr.dashed {
 }
 
 #bidActionArea .bidPriceField input {
-  width: 210px;
+  width: 185px;
   height: 30px;
 }
 

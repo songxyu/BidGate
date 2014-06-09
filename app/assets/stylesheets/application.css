@@ -103,7 +103,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .header .headerHelper .helper {
-	width: 1200px;
+	width: 960px;
 	margin: 0 auto;
 }
 
@@ -126,7 +126,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .header .masthead {
-	width: 1200px;
+	width: 960px;
 	margin: 0 auto;
 }
 
@@ -161,6 +161,20 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	float: left;
 }
 
+.header .masthead .categorySeleted {
+	padding: 0 10px;
+	height: 20px;
+	font-size: 11px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	background: #e60027;
+	position: absolute;
+	top: 73px;
+	left: 520px;
+	cursor: pointer;
+}
+
 .header .masthead .menuBar a {
 	color: #555;
 	font-size: 18px
@@ -170,6 +184,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	box-sizing:border-box;
 	border-bottom: 3px solid #2996cc;
 	color: #2996cc;
+	border-radius: 3px;
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -179,7 +194,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .header .masthead .header_right {
 	position: relative;
 	float: right;
-	width: 420px;
+	width: 350px;
 	height: 72px;
 }
 
@@ -189,6 +204,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .header .masthead .header_right a:hover {
 	text-decoration: none;
+}
+
+.header .masthead .header_right ul {
+	margin: 0px 5px;
 }
 
 .header .masthead .header_right .welcome-signin {
@@ -247,17 +266,16 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 
 .header .masthead .header_right .create_purchase_order_btn {
-	width: 180px;
+	width: 140px;
 	height: 40px;
 	text-align: center;
 	background-color: #fed231;
 	border: 1px solid #eccb00;
 	border-radius: 5px;
-	position: relative;
-	left: 30px;
+	position: absolute;
+	right: 0px;
 	top: 15px;
 	cursor: pointer;
-	float: left;
 }
 
 .header .masthead .header_right .create_purchase_order_btn:hover {
@@ -387,7 +405,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	margin: 0 auto;
 	min-height: 500px;
 	min-width: 960px;
-	max-width: 1200px;
+	max-width: 960px;
 }
 
 .dialog_logon {
@@ -709,9 +727,8 @@ create new order
 }
 
 .panel_background_blue_radial .next_btn {
-	position: absolute;
-	left: 590px;
-	top: 600px;
+	position: relative;
+	left: 400px;
 	width: 150px;
 	height: 40px;
 	background-color: #99025a;
