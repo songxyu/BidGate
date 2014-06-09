@@ -509,13 +509,13 @@ $submitBtn.click(function(){
 	
 	var postData = {
 		'category' : categoryId,
-		'location': city,
+		'location': city, // location_id? TODO: fuzzy agorithm for location name -> id
 		'price_type': bidType,
 		'price': $step2Area.find('.order-price-area .price').val(),
 		'deadline': $step2Area.find('.order-other-info-area .deadline').val(),
 		'delivery_date': $step2Area.find('.order-other-info-area .delivery-date').val(),
 		'payment_method' : $step2Area.find('.order-price-area .payment').val(), 
-		'currency': '',
+		'currency': 1,
 		'memo': $step2Area.find('.order-other-info-area .order-memo').val(),
 		'vendor_list': vendorIdList.join(','),
 		'order_items': items		
@@ -524,8 +524,8 @@ $submitBtn.click(function(){
 	$.ajax({
 		url : '/orders',  
 		type : 'post',
-		dataType: 'json', 
-		data : JSON.stringify(postData)
+		dataType: 'html', 
+		data : postData
 	}).done(function(data) {
 		// contentArea has been set to order detail in ajax response 
 	}).fail(function(jqXHR, textStatus) {

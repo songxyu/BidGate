@@ -146,32 +146,108 @@ class OrdersController < CommonController
      "deadline"=>"2013-12-20"
      }}
 =end
-
+   # @params = ActiveSupport::JSON.decode( )
+    
+    puts   params
+     
     #@parent_category = Category.find(params[:parent_category])    
     cateId = params[:category]
-    cateId = cateId ? cateId : params[:parent_category]
+    #cateId = cateId ? cateId : params[:parent_category]
     @category = Category.find(cateId)
     
     # order number use time with millsec
     str_time_millsec = Time.now.strftime('%Y%m%d%H%M%S%L')
+    loc_name = params[:location]
+    delivery_date = params[:delivery_date]
     
-    @order = Order.new(order_num: str_time_millsec, create_time: DateTime.current, deadline: params[:order][:deadline],
-      price: params[:order][:price], buyer_id: session[:user_id], vendor_id: nil, price_type: params[:order][:price_type], 
-      status: 1, category_id: @category.id)
+    puts   cateId
+    puts   loc_name
+    puts   delivery_date
     
-    arrOrderGoods = []
-    filledOrderGoods = params[:order][:order_goods_attributes] #params[:order_goods];
+    
+    
+    @order = Order.new(order_num: str_time_millsec, create_time: DateTime.current, deadline: params[:deadline],
+      price: params[:price], buyer_id: session[:user_id], vendor_id: nil, price_type: params[:price_type], 
+      status: 1, category_id: cateId, currency: 1, vendor_list: params[:vendor_list], order_memo: params[:memo],
+      payment_method: params[:payment_method], location_id: 1, location_searchable: loc_name )
+       
+    puts "params[:order_items]: ", params[:order_items] 
+    
+    arrOrderGoods = [] # item props without dynamic ones
+    arrDynamicProps = [] # item dynamic props  
+    filledOrderGoods = params[:order_items] # :order_goods_attributes] #params[:order_goods];
+    order_goods_seq = 0
     filledOrderGoods.each do |key, valueArr|
-      puts valueArr
+      puts 'valueArr: ', valueArr      
       valueArr['category'] = @category.name
-      valueArr.delete("_destroy") # remove the unused field "_destroy", added by nested-form gem
-      arrOrderGoods << valueArr
+      valueArr.delete("id")
+      valueArr.delete("operation")
+      valueArr.delete("location")
+      #valueArr.delete("_destroy") # remove the unused field "_destroy", added by nested-form gem
+      
+      #@one_order_goods = OrderGoods.new({name:valueArr['name'], model: valueArr['model'], price: nil, 
+      #  quantity: valueArr['quantity'], memo: valueArr['memo'], category: valueArr['category']})
+      
+      # handle dynamic props: save to array arrDynamicProps
+      dynamicPropsObj = {} 
+      dynPropPrefix = 'category-dynamic-prop-'
+      valueArr.each do |propKey, propVal|
+        idx = propKey.index(dynPropPrefix)
+        if idx != nil
+          startIdx = idx+dynPropPrefix.length
+          realDynPropKey = propKey[startIdx, propKey.length-startIdx]
+          
+          dynamicPropsObj[realDynPropKey] = propVal
+          valueArr.delete(propKey)
+        else
+         #arrOrderGoods.append( [propKey, propVal] )          
+        end
+      end
+      
+      dynamicPropsObj['order_goods_seq'] = order_goods_seq
+      puts 'dynamicPropsObj:', dynamicPropsObj
+      
+      arrDynamicProps << dynamicPropsObj
+      #@one_order_goods.goods_exts.build(arrDynamicProps) # not work!
+      
+      arrOrderGoods <<  valueArr      
+      
+      order_goods_seq += 1
+    end
+    puts 'arrDynamicProps: ', arrDynamicProps
+    puts 'arrOrderGoods:', arrOrderGoods
+    
+    # usage sample: 
+    # arrOrderGoods = []
+    # filledOrderGoods = params[:order_goods_attributes] #params[:order_goods];
+    # filledOrderGoods.each do |key, valueArr|
+      # puts valueArr
+      # #valueArr['category'] = @category.name
+      # #valueArr.delete("_destroy") # remove the unused field "_destroy", added by nested-form gem
+      # arrOrderGoods << valueArr
+    # end
+    
+    @order.order_goods.build(arrOrderGoods)     
+    @order.save   
+        
+    logger.debug "@order.order_goods: "+ @order.order_goods.to_s
+    @order.order_goods.each_with_index  do |goods_val, goods_index|
+      goods_id = goods_val.id  
+      logger.debug 'goods_id: '+ goods_id.to_s + ', goods_index: '+ goods_index.to_s
+         
+      arrDynamicProps.each do |propGroupVal, propGroupIndex|       
+       if goods_index == propGroupVal['order_goods_seq']
+         logger.debug 'propGroupVal: '+ propGroupVal.to_s
+         propGroupVal.each do |propKey, propVal|
+           if propKey.to_i > 0
+             GoodsExt.addOneExtProp(propKey, goods_id, propVal)
+             logger.debug 'inserted: propKey:'+ propKey + ', goods_id: '+ goods_id.to_s + ', propVal: '+ propVal
+           end 
+         end
+       end
+      end
     end
     
-    #puts arrOrderGoods
-    @order.order_goods.build(arrOrderGoods) 
-        
-    @order.save       
     redirect_to @order
   end
   
