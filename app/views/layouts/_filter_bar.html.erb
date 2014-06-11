@@ -1,3 +1,49 @@
-<% content_for :filter_bar do %>
+<%
+ is_searching = params[:action]=="search"
+%>
+
+<!-- homepage slide
+<ul class="home_slides">
+<li><img src="../img/bg_raw_steel_2.jpg"></li>
+<li><img src="../img/bg_en.jpg"></li>
+<li><img src="../img/bg_wood.jpg"></li>
+<li><img src="../img/bg_silk.jpg"></li>
+<li><img src="../img/bg_raw_steel_3.jpg"></li>
+</ul>
+-->
+<% if is_searching %>
+<div class="home_filter_bar_area">
+	<div class="filter_bar">
+		<%
+ selected_filter_id_array = [ params[:search_location_id] ? params[:search_location_id] : 0,
+        params[:search_category_id] ? params[:search_category_id] : 0,
+        params[:search_status] ? params[:search_status] : -99,
+        params[:search_sort_by] ? params[:search_sort_by] : 1
+      ]
+%>
+		<%= form_tag orders_search_path, :id => "search_filter_form",  :method => :get, remote: true   do |f| %>
+		在城市 <%= select_tag( :search_location_id, options_for_select(@location_array, selected_filter_id_array[0]) ) %>
+		查找  <%= select_tag( :search_category_id, options_for_select(@category_array, selected_filter_id_array[1]) ) %> 类别,
+		<%= select_tag( :search_status, options_for_select(@status_array, selected_filter_id_array[2]) ) %> 状态的订单,
+		并以  <%= select_tag( :search_sort_by, options_for_select(@sortby_array, selected_filter_id_array[3]) ) %>  排序
+		<%= hidden_field_tag( :search, params[:search] ) %>
+		<% end %>
+
+	</div>
+	
+</div>
+
+<% if @filter_category || @filter_tag_name %>
+<p>
+	<strong><%= @filter_category ? "类别: "+ @filter_category.name : "Tag: "+ @filter_tag_name %> </strong> 相关的订单:
+</p>
+<% end %>
+
+<% if is_searching && params[:search] != "" then %>
+<p>
+	找到包含 <strong><%= params[:search]  %> </strong> 的订单:
+</p>
+<% end %>
 
 <% end %>
+

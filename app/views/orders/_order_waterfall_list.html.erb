@@ -1,3 +1,12 @@
+<%
+ is_searching = params[:action]=="search"
+%>
+<% if is_searching %>
+<div class="totalCount">
+	<span> 您找到采购单: <%= @orders.total_count %> 个</span>
+</div>
+<% end %>
+
 <div class = "orders_container">
 
 	<% @orders.each do |order| %>
@@ -80,9 +89,3 @@
 <div class="pagination_area">
 	<%= paginate @orders, :remote => true  %>
 </div>
-
-<div id="dialog_area"></div>
-
-<button id="testbtn">
-	TEST UI tools
-</button>

@@ -1,0 +1,231 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/**--------------------------------- header --------------------------------------------*/
+
+.header {
+	min-width: 960px;
+	display: block;
+	/*border-bottom: 1px solid #ddd;*/
+	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+	-webkit-border-shadow: 0 1px 4px rgba(0,0,0,.2);
+	box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+
+.header .headerHelper {
+	height: 24px;
+	background: #555;
+}
+
+.header .headerHelper .helper {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.header .helper .hpRight {
+	float: right;
+	line-height: 24px;
+	width: 230px;
+	text-align: right;
+	color: #ccc;
+}
+
+.header .helper .hpRight .helperLink {
+	float: left;
+	padding: 0 10px;
+}
+
+.header .headMain {
+	height: 72px;
+	background-color: #fff;
+}
+
+.header .masthead {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.header .masthead .logoWrapper {
+	position: relative;
+		float: left;
+		width: 200px;
+		height: 72px;
+		background-size: contain;
+		background: url("../img/mock_logo.png") no-repeat center center; /* image is put under folder public */
+}
+
+
+/* ==========  home header menu =============*/
+
+.header .masthead .menuBar {
+	width: 400px;
+	float: left;
+	height: 72px;
+	line-height: 72px;
+	position: relative;
+}
+
+.header .masthead .menuBar li {
+	float: left;
+	list-style: none;
+}
+
+.header .masthead .menuBar .menuItem {
+	padding: 0 20px;
+	height: 72px;
+	float: left;
+}
+
+.header .masthead .categorySeleted {
+	padding: 0 10px;
+	height: 20px;
+	font-size: 11px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	background: #e60027;
+	position: absolute;
+	top: 73px;
+	left: 520px;
+	cursor: pointer;
+}
+
+.header .masthead .menuBar a {
+	color: #555;
+	font-size: 18px
+}
+
+.header .masthead .menuBar .menuItem:hover{
+	box-sizing:border-box;
+	border-bottom: 3px solid #2996cc;
+	color: #2996cc;
+	border-radius: 3px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+/* ==========  home header right =============*/
+
+.header .masthead .header_right {
+	position: relative;
+	float: right;
+	width: 330px;
+	height: 72px;
+}
+
+.header .masthead .header_right a {
+	color: #555;
+}
+
+.header .masthead .header_right a:hover {
+	text-decoration: none;
+}
+
+.header .masthead .header_right ul {
+	margin: 0px 5px;
+}
+
+.header .masthead .header_right .welcome-signin {
+	font-size: 18px;
+	height: 72px;
+	position: relative;
+	text-align: center;
+	list-style: none;
+	float: left;
+}
+
+.header .masthead .header_right .welcome-signin li {
+	width: 60px;
+	line-height: 72px;
+	float: left;
+}
+
+.header .masthead .header_right .welcome-signin a:hover,
+.header .masthead .header_right .welcome-signin li:hover{
+	color: #2996cc;
+	cursor: pointer;
+}
+
+.header .masthead .header_right .welcome-signin li.clicked {
+	background: #2996cc;
+	color: #fff;
+}
+
+.header .masthead .header_right .welcome-signin li.clicked + a {
+	color: #fff;
+}
+
+//----- TODO icons -------//
+
+.arrowDown {
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #555;
+}
+
+.header .masthead .header_right .welcome-signin .arrowDown {
+	position: absolute;
+	top: 36px;
+	right: 0px;
+	z-index: 1;
+	
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #555;
+	
+}
+
+
+
+.header .masthead .header_right .create_purchase_order_btn {
+	width: 125px;
+	height: 40px;
+	text-align: center;
+	background-color: #fed231;
+	border: 1px solid #eccb00;
+	border-radius: 5px;
+	position: absolute;
+	right: 0px;
+	top: 15px;
+	cursor: pointer;
+}
+
+.header .masthead .header_right .create_purchase_order_btn:hover {
+	background-color: #fce359;
+}
+
+.header .masthead .header_right .create_purchase_order_btn .create_po_text {
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 40px;
+}
+
+.header .logon_role {
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+.header .reigster_role {
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+.header  .search-bar {
+	margin-left: 50px;
+	width: 200px;
+	padding-top: 3px;
+}
+
+.header .search-bar input[type="submit"] {
+	float: right;
+	top: 5px;
+	right: -70px;
+	position: absolute;
+}

@@ -255,3 +255,299 @@
 		}
 	}
 }
+
+
+//
+create new order
+
+.order_onboarding {
+  display: block;
+}
+
+.order_onboarding .onboarding_header {
+  margin: 22px 0;
+  text-align: center;
+}
+
+.order_onboarding .shift {
+  position: relative;
+  font-size: 26px;
+  top: 15px;
+  background-color: #f2f2f2;
+  padding: 0 10px;
+}
+.order_onboarding hr {
+  margin-top: -2px;
+  border-bottom: 1px solid #ccc;
+}
+
+.order_onboarding .lead {
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 40px;
+  position: relative;
+}
+
+.order_onboarding .panel_background_blue_radial {
+  width: 100%;
+  height: 500px;
+  -webkit-box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
+  background: #0f92cd;
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, color-stop(20%, #30b9f1), color-stop(100%, #0f92cd));
+  background-image: -webkit-radial-gradient(center center, farthest-side circle, #30b9f1 20%, #0f92cd 100%);
+  background-image: -moz-radial-gradient(center center, farthest-side circle, #30b9f1 20%, #0f92cd 100%);
+  background-image: -ms-radial-gradient(center center, farthest-side circle, #30b9f1 20%, #0f92cd 100%);
+  background-image: -o-radial-gradient(center center, farthest-side circle, #30b9f1 20%, #0f92cd 100%);
+  background-image: radial-gradient(farthest-side circle at center center, #30b9f1 20%, #0f92cd 100%);
+  border-radius: 3px;
+}
+
+.order_onboarding .panel_inner_padding {
+  padding: 40px 0;
+  color: white;
+  font-size: 20px;
+}
+
+.order_onboarding .panel_inner_padding .row {
+  position: relative;
+  text-shadow: 1px 1px #333;
+  left: 250px;
+  float: left;
+}
+
+.order_onboarding_form .selectors {
+  line-height: 100px;
+  text-align: right;
+}
+
+.order_onboarding .panel_inner_padding .select_row {
+  position: relative;
+  left: 280px;
+  float: left;
+}
+
+.select_row .category_select {
+  width: 750px;
+  height: 70px;
+  position: relative;
+}
+
+.select_row .btn_group {
+  position: relative;
+}
+
+.select_row .btn_group ul {
+  margin: 0 0 25px;
+}
+
+/** ---- category selection dropdown list --- **/
+
+.category_select .dropdown_container {
+  position: relative;
+  width: 100%;
+}
+
+.category_select .dropdown_container .dropdown_btn_text {
+  float: left;
+}
+
+.category_select .icon_dropdown {
+  background: url("../img/icon_arrow_down.png") no-repeat center center;
+  background-size: contain;
+  position: relative;
+  top: 15px;
+  margin: auto 0;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.category_select .dropdown_list {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: 60px;
+  right: 18px;
+  z-index: 2000;
+  min-width: 130px;
+  padding: 0;
+  list-style: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #eee;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.category_select .dropdown_list.hidden {
+  display: none;
+}
+
+.category_select .dropdown_list .item {
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 35px;
+  float: left;
+  list-style: none;
+  height: 35px;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
+}
+
+.category_select .dropdown_list .item > span {
+  padding-left: 10px;
+}
+
+.category_select .dropdown_list .item:hover {
+  background-color: #99025a;
+  color: white;
+}
+
+/** --- end dropdown --- **/
+
+.order_onboarding .select_btn {
+  padding: 16px 12px;
+  height: 60px;
+  text-shadow: 0 1px rgba(255,255,255,0.6);
+  float: left;
+  font-weight: bold;
+  display: block;
+  padding: 0.4em 1.2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-color: #0195eb #0083c7 #0175b8 #0083c7;
+  font-size: 17px;
+  line-height: 50px;
+  color: #393c3d;
+  text-shadow: 1px 1px #eee;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: #98DAF6;
+  cursor: pointer;
+}
+
+.order_onboarding .select_btn:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.order_onboarding .category_select .select_btn:last-child {
+  width: auto;
+  border-radius: 0 5px 5px 0;
+}
+
+.order_onboarding .select_btn:hover {
+  background: #52c1f0;
+}
+
+.order_onboarding .select_btn.selected {
+  background: #cb0378;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+  color: white;
+  text-shadow: 1px 1px #333;
+}
+
+.select_row .bid_select {
+  width: 600px;
+  height: 100px;
+  position: relative;
+}
+
+.bid_select .icon_global {
+  background: url("../img/multi.ico") no-repeat center center;
+  background-size: contain;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  float: left;
+  top: 10px;
+  margin-right: 5px;
+}
+
+.bid_select .icon_local {
+  background: url("../img/single.ico") no-repeat center center;
+  background-size: contain;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  top: 10px;
+  float: left;
+  margin-right: 5px;
+}
+
+.bid_select .select_btn:last-child {
+  width: auto;
+  border-radius: 0 5px 5px 0;
+}
+
+.select_row .city_select {
+  width: 300px;
+  height: 100px;
+  position: relative;
+}
+
+.select_row .city_select .bg {
+  height: 60px;
+  background-color: #98DAF6;
+  border-radius: 5px;
+}
+
+.select_row .city_select .icon_location {
+  background: url("../img/icon_location.png") no-repeat center center;
+  background-size: contain;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  left: 20px;
+}
+
+.select_row .city_select .bg .city_input {
+  width: 220px;
+  height: 30px;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.panel_background_blue_radial .next_btn {
+  position: relative;
+  left: 400px;
+  width: 150px;
+  height: 40px;
+  background-color: #99025a;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.panel_background_blue_radial .next_btn:hover {
+  background-color: #cb0378;
+}
+
+.next_btn.disabled {
+  cursor: default;
+  opacity: 0.4;
+  color: #afe2ff;
+}
+
+.next_btn.disabled:hover {
+  background-color: #99025a;
+}
+
+.next_btn .next_txt {
+  font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+

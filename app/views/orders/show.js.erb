@@ -1,3 +1,6 @@
 $("#quickview_dialog").overlay().close();
 
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/show_2') %>");
+
+var $filterArea = $(".home_filter_bar_area");
+$filterArea.hide();

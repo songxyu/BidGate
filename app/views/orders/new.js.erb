@@ -2,6 +2,8 @@
 
 $(".content_area").html("<%= escape_javascript render(:partial => 'orders/new_2') %>");
 
+var $filterBar = $('.home_filter_bar_area');
+$filterBar.hide();
 
   // use jquery datepicker for some date fields
   var dateCtrolsSel = "#order_deadline, .date-input";

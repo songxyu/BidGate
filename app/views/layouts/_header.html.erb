@@ -21,15 +21,13 @@
 
 		<div class="masthead">
 
-			<div class="logoWrapper"></div>
+			<div>
+				<%= link_to orders_path, :class=>"logoWrapper", remote: true do %>
+				<% end %>
+			</div>
 
 			<div class="menuBar">
 				<ul class="navMenu">
-					<li>
-						<%= link_to orders_path, :class=>"menuItem", remote: true do %>
-						<span>首页</span>
-						<% end %>
-					</li>
 					<li>
 						<%= link_to orders_search_path(:search => ""), :class=>"menuItem", remote: true do %>
 						<span>发现采购单</span>
@@ -37,7 +35,12 @@
 					</li>
 					<li>
 						<%= link_to orders_path, :class=>"menuItem", remote: true do %>
-						<span>关于壹百万</span>
+						<span>新手指引</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to orders_path, :class=>"menuItem", remote: true do %>
+						<span>关于我们</span>
 						<% end %>
 
 					</li>
@@ -60,13 +63,12 @@
 						<%= link_to "注册", signup_path %>
 					</li>
 					<% end %>
-					
+
 					<li class="help">
 						<span>帮助</span>
 						<span class="arrowDown"></span>
 					</li>
-					
-					
+
 				</ul>
 
 				<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
@@ -74,10 +76,9 @@
 				<% end %>
 
 			</div>
-			
-			
+
 			<!-- <div class="categorySeleted">化学化工</div> -->
-			
+
 		</div>
 	</div>
 
