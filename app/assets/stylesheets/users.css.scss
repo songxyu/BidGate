@@ -275,13 +275,20 @@
 //============== new_2 page ========
 
 .reg_page {
-  background: url("../img/reg/register_body_bg.jpg") repeat;
+  background: #F2F2F2;
 }
 
 .reg_top {
   height: 71px;
   line-height: 71px;
-  background: url("../img/reg/register_top_bg.jpg") repeat-x;
+  background: #fff;
+  min-width: 960px;
+  display: block;
+  /* border-bottom: 1px solid #ddd; */
+  font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -webkit-border-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .reg_top .reg_top_main {
@@ -331,6 +338,13 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
+  padding: 20px 0 15px 0;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 30px;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .reg_container .reg_timeline_bar {
@@ -375,17 +389,12 @@
 
 .reg_container .reg_main_body {
   height: 500px;
-  margin-top: 20px;
-  padding: 20px 0 15px 0;
-  border: 1px solid #d7d7d7;
-  border-radius: 2px;
-  margin-bottom: 30px;
-  background: #fff;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+margin-top: 20px;
+padding: 20px 0 15px 0;
+border-radius: 2px;
+margin-bottom: 30px;
+display: block;
+-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .reg_container table {

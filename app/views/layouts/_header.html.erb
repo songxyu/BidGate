@@ -38,12 +38,6 @@
 						<span>新手指引</span>
 						<% end %>
 					</li>
-					<li>
-						<%= link_to orders_path, :class=>"menuItem", remote: true do %>
-						<span>关于我们</span>
-						<% end %>
-
-					</li>
 
 				</ul>
 			</div>
@@ -67,12 +61,27 @@
 					<li class="help">
 						<span>帮助</span>
 						<span class="arrowDown"></span>
+
 					</li>
 
 				</ul>
 
+				<!-- <div class="helpDropdownlist">
+					<ul class="dropdown_list">
+						<li class="item" data-name="11" data-item="test1">
+							<span>test1</span>
+						</li>
+						<li class="item" data-name="12" data-item="test2">
+							<span>test2</span>
+						</li>
+						<li class="item" data-name="13" data-item="test3">
+							<span>test3</span>
+						</li>
+					</ul>
+				</div> -->
+
 				<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
-				<span class="create_po_text">发布您的采购单</span>
+				<span class="create_po_text">免费发布采购单</span>
 				<% end %>
 
 			</div>

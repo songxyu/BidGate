@@ -4,6 +4,17 @@ $(".content_area").html("<%= escape_javascript render(:partial => 'orders/index'
 
 fnOrderListInit();
 
+// scroll to show mini filter bar
+$(window).scroll(function(){
+	var scroll = $(this).scrollTop();
+	var filterBarHeight = 226;
+	if(scroll > filterBarHeight){
+		$(".home_filter_bar_area").addClass("fixed");
+	} else {
+		$(".home_filter_bar_area").removeClass("fixed");
+	}
+});
+
 
 
 var $filter_form = $('#search_filter_form');

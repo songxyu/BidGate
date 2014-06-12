@@ -10,8 +10,7 @@
 		width: 69%;
 		position: absolute;
 		border: 1px solid #ccc;
-		border-radius: 5px;
-		background-color: #EAEAEA;
+		background: #fff;
 		text-align: center;
 		
 		.operation-cell-style{
@@ -133,11 +132,10 @@
 		min-height:100%;
 		width: 30%;
 		margin-left: 0px;
-		
 		position: absolute;
 		right: 0;
 		border: 1px solid #ccc;
-		border-radius: 3px;
+		background: #fff;
 		
 		.right-header{
 			height: 50px;
@@ -372,36 +370,10 @@ create new order
   right: 18px;
   z-index: 2000;
   min-width: 130px;
-  padding: 0;
-  list-style: none;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #eee;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
 }
-
-.category_select .dropdown_list.hidden {
-  display: none;
-}
-
 .category_select .dropdown_list .item {
-  border-bottom: 1px solid #ddd;
-  width: 100%;
-  font-size: 15px;
-  font-weight: bold;
   line-height: 35px;
-  float: left;
-  list-style: none;
   height: 35px;
-  cursor: pointer;
-  position: relative;
-  top: 0px;
-}
-
-.category_select .dropdown_list .item > span {
-  padding-left: 10px;
 }
 
 .category_select .dropdown_list .item:hover {
@@ -521,11 +493,11 @@ create new order
 .panel_background_blue_radial .next_btn {
   position: relative;
   left: 400px;
-  width: 150px;
   height: 40px;
   background-color: #99025a;
   border-radius: 5px;
   border: 0px;
+  padding: 0 15px;
   cursor: pointer;
   text-align: center;
 }

@@ -1,0 +1,43 @@
+/*** dropdown list ***/
+
+.dropdown_list {
+  width: 100px;
+  height: auto;
+  padding: 0;
+  list-style: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #eee;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.dropdown_list.hidden {
+  display: none;
+}
+
+.dropdown_list .item {
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 35px;
+  float: left;
+  list-style: none;
+  height: 35px;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
+}
+
+.dropdown_list .item > span {
+  padding-left: 10px;
+}
+
+.dropdown_list .item:hover {
+  background-color: #99025a;
+  color: white;
+}
+
+/** --- end dropdown --- **/

@@ -96,6 +96,18 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	margin-top: 1px;
 }
 
+.home_filter_bar_area.fixed {
+	position: fixed;
+	top: 0px;
+	height: 60px;
+	z-index: 1;
+	margin-top: 0px;
+}
+
+.home_filter_bar_area.fixed .filter_bar {
+	top: 5px;
+}
+
 .home_filter_bar_area .filter_bar {
 	width: 900px;
 	margin: 0 auto;

@@ -161,6 +161,11 @@ var $nextStepBtn = $step1Area.find('.next_btn');
 
 $nextStepBtn.unbind('click');
 $nextStepBtn.click(function(){
+	// change the button text
+	//$(".next_txt").html("正在创建您的采购单...");
+	//$(".order_onboarding").hide();
+	$(".selectionQuickview").show();
+	
 	// use the var selection	 
 	var categoryId = $step1Area.find(".category_select .select_btn.selected").attr('data-type-id');
 	var city = $step1Area.find('.city_select .city_input').val();
