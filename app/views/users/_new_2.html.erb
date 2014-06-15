@@ -1,92 +1,71 @@
-<div class="reg_container">
-	<div class="reg_main">
-		<div id="reg_timeline_bar" class="reg_timeline_bar">
-			<div>
-				<ul class="reg_timeline_tabs">
-					<li class="step">
-						<div class="hr active"></div>
-						<img src="../img/reg/register_step_1.png">
-						<br>
-						<span>账号信息</span>
-					</li>
-
-					<li class="step">
-						<div class="hr active"></div>
-						<img src="../img/reg/register_step_2_active.png">
-						<br>
-						<span>完善资料</span>
-					</li>
-
-					<!-- TODO
-					<li class="step">
-					<div class="hr"></div>
-					<img src="../img/reg/register_step_3.png">
+<div class="regContainer">
+	<div class="regMain">
+		<div id="regTimelineBar" class="regTimelineBar">
+			<ul>
+				<li class="step">
+					<img src="../img/reg/step-bg-light.png">
+					<span class="step_number light">1</span>
+					<div class="hr active"></div>
 					<br>
-					<span>激活账号</span>
-					</li>
-					-->
+					<span class="light">填写账号信息</span>
+				</li>
 
-					<li class="step">
-						<div class="hr"></div>
-						<img src="../img/reg/register_step_4.png">
-						<br>
-						<span>注册成功</span>
-					</li>
+				<li class="step">
+					<img src="../img/reg/step-bg-light.png">
+					<span class="step_number light">2</span>
+					<div class="hr active"></div>
+					<br>
+					<span class="light">手机信息验证</span>
+					
+				</li>
 
-				</ul>
-			</div>
+				<li class="step">
+					<img src="../img/reg/step-bg-dark.png">
+					<span class="step_number">3</span>
+					<div class="hr last"></div>
+					<br>
+					<span>注册成功</span>
+				</li>
+
+			</ul>
 		</div>
 
-		<div class="reg_main_body">
+		<div class="userBasicInfoContainer">
 			<% user_form = nil %>
 			<%= form_for @user do |f| %>
 
+			<!-- user basic info area table -->
 			<% user_form = f %>
-			<span class="reg_main_header_text">请完善您的资料</span>
+			<div class="popTip">
+				<div class="popTipContainer">短信已发送至您手机，请输入短信中的验证码，确保您的手机号真实有效。</div>
+				<div class="popTipArrow"></div>
+			</div>
+			<ul class="userBasicInfo">
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :contact_cellphone, "手机号确认"%><span class="asterisk">*</span>
+					</div>
+					<div class="userMobileverify">
+						<%= f.label :contact_cellphone, "1378677329" %>
+					</div>
+				</li>
 
-			<!-- user register details table -->
-			<table id="user_reg_details">
-				<tbody>
-					<tr>
-						<td><img src="../img/reg/edit.png" class="icons"></td>
-						<!-- user role: :username -> :userroel -->
-						<td class="f_label"><%= f.label :username, "您的职位"%><span class="asterisk">*</span></td>
-						<td class="f_role">
-						<div>
-							<div id="role_purchaser" class="role_selection">
-								<span>采购经理</span><i></i>
-							</div>
-							<div id="role_vendor" class="role_selection">
-								<span>销售经理</span><i></i>
-							</div>
-						</div></td>
-					</tr>
-					<tr>
-						<td colspan = "2" class="f_label"><!-- TODO :username -> :prefername --> <%= f.label :username, "您的称呼"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :username  %> </td>
-					</tr>
-					<tr>
-						<td colspan = "2" class="f_label"><!-- TODO :username -> :categoryname --> <%= f.label :username, "所在行业"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :username  %> </td>
-					</tr>
-					<tr>
-						<td colspan = "2" class="f_label"><!-- TODO :username -> :companylocation --> <%= f.label :username, "公司地址"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :username  %> </td>
-					</tr>
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :contact_cellphone, "短信验证码"%><span class="asterisk">*</span>
+					</div>
+					<div class="fieldInput">
+						<%= f.text_field :contact_cellphone %>
+					</div>
+				</li>
+				
+				<li>
+					<div id="verifyBtn" class="button"><span>验证</span></div>
+				</li>
 
-					<tr id="complete_btn" class="complete_btn">
-						<td colspan="3">
-						<button>
-							完成
-						</button></td>
-					</tr>
-
-				</tbody>
-			</table>
+			</ul>
 			<% end %>
 
-			<!-- right register tips -->
-			<%= render "reg_right_tips" %>
 		</div>
 
 	</div>

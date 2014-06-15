@@ -623,7 +623,7 @@ hr.dashed {
   .price {
     font-size: 40px;
     line-height: 60px;
-    color: #000;
+    color: #222;
     
     .RMB {
       font-size: 20px;
@@ -683,24 +683,74 @@ hr.dashed {
 
 #bidActionArea .bidField {
   height: 30px;
-  margin-top: 20px;
+  margin-top: 30px;
+}
+
+#bidActionArea .inputUnit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #c2c2c2;
+}
+
+#bidActionArea .bidPriceField {
+  position: relative;
 }
 
 #bidActionArea .bidPriceField input {
-  width: 185px;
-  height: 30px;
+  width: 220px;
+  height: 35px;
+  font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
 
 #bidActionArea .bidBtn {
-  width: 150px;
+  width: 224px;
   height: 45px;
-  border-radius: 4px;
-  margin: 20px auto;
-  color: #fff;
-  font-size: 18px;
-  line-height: 45px;
+  border-radius: 2px;
+  margin: 40px auto;
   background: #2996cc;
-  text-align: center;
   cursor: pointer;
+  text-align: center;
 }
 
+#bidActionArea .bidBtn .bidBtnText {
+  font-size: 18px;
+  letter-spacing: 10px;
+  line-height: 45px;
+  color: #fff;
+}
+
+#communicationArea .avatarInfoContainer {
+  height: 150px;
+  text-align: center;
+  color: #666;
+  font-size: 15px;
+  
+  .avatarTitle {
+    padding-top: 10px;
+    .role {
+      font-size: 13px;
+      color: #bbb;
+    }
+  }
+  .avatarImg {
+    background: url("../img/avatar_man.png") no-repeat center center;
+    width: 95px;
+    height: 95px;
+    border: 1px solid #eee;
+    margin: 10px auto;
+  }
+  .commLink {
+    color: #2996cc;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+    padding: 5px;
+  }
+  
+  .commLink:hover {
+      background: #f2f2f2;
+      border-radius: 2px;
+    }
+  
+}

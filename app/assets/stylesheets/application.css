@@ -96,12 +96,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	margin-top: 1px;
 }
 
+.triangleUp {
+    height: 0;
+	line-height: 0;
+	font-size: 0;
+	border: 1px solid #f2f2f2;
+	vertical-align: middle;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid #fff;
+	position: absolute;
+	top: 100px;
+	left: 585px;
+  }
+
 .home_filter_bar_area.fixed {
 	position: fixed;
 	top: 0px;
 	height: 60px;
 	z-index: 1;
 	margin-top: 0px;
+	display: block;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	-webkit-border-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .home_filter_bar_area.fixed .filter_bar {

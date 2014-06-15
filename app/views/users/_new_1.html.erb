@@ -1,109 +1,105 @@
-<div class="reg_container">
-	<div class="reg_main">
-		<div id="reg_timeline_bar" class="reg_timeline_bar">
-			<div>
-				<ul class="reg_timeline_tabs">
-					<li class="step">
-						<div class="hr active"></div>
-						<img src="../img/reg/register_step_1.png">
-						<br>
-						<span>账号信息</span>
-					</li>
-
-					<li class="step">
-						<div class="hr"></div>
-						<img src="../img/reg/register_step_2.png">
-						<br>
-						<span>完善资料</span>
-					</li>
-
-					<!-- TODO
-					<li class="step">
-					<div class="hr"></div>
-					<img src="../img/reg/register_step_3.png">
+<div class="regContainer">
+	<div class="regMain">
+		<div id="regTimelineBar" class="regTimelineBar">
+			<ul>
+				<li class="step">
+					<img src="../img/reg/step-bg-light.png">
+					<span class="step_number light">1</span>
+					<div class="hr active"></div>
 					<br>
-					<span>激活账号</span>
-					</li>
-					-->
+					<span class="light">填写账号信息</span>
+				</li>
 
-					<li class="step">
-						<div class="hr"></div>
-						<img src="../img/reg/register_step_4.png">
-						<br>
-						<span>注册成功</span>
-					</li>
+				<li class="step">
+					<img src="../img/reg/step-bg-dark.png">
+					<span class="step_number">2</span>
+					<div class="hr"></div>
+					<br>
+					<span>手机信息验证</span>
+					
+				</li>
 
-				</ul>
-			</div>
+				<li class="step">
+					<img src="../img/reg/step-bg-dark.png">
+					<span class="step_number">3</span>
+					<div class="hr last"></div>
+					<br>
+					<span>注册成功</span>
+				</li>
+
+			</ul>
 		</div>
 
-		<div class="reg_main_body">
+		<div class="userBasicInfoContainer">
 			<% user_form = nil %>
 			<%= form_for @user do |f| %>
 
-			<% user_form = f %>
-			<span class="reg_main_header_text">您需要填写公司支付宝账户</span>
-
-			<!-- company verify table -->
-			<table id="company_verify">
-				<tbody>
-
-					<tr>
-						<td><img src="../img/reg/portrait.png" class="icons"></td>
-						<td class="f_label"><!-- TODO :username -> :paymeans_username --> <%= f.label :username, "支付宝账号"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :username %> </td>
-					</tr>
-					<tr>
-						<td colspan = "2" class="f_label"><!-- TODO :nickname -> :company_name --> <%= f.label :nickname, "公司全称"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :nickname  %> </td>
-					</tr>
-
-					<tr>
-						<td colspan="3">
-						<div class="verifyBtnInfo">
-							<div id="verify_btn" class="verify_btn">
-								立即验证
-							</div>
-							<div class="passedInfo">
-								恭喜您，验证成功！
-							</div>
-						</div></td>
-					</tr>
-
-				</tbody>
-			</table>
-
 			<!-- user basic info area table -->
-			<table id="user_basic_info_area">
-				<tbody>
-					<tr>
-						<td><img src="../img/reg/portrait.png" class="icons"></td>
-						<td class="f_label"> <%= f.label :username, "请输入邮箱"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :username, :disabled => "false"  %> </td>
-					</tr>
-					<tr>
-						<td colspan = "2" class="f_label"><%= f.label :password_digest, "设定密码"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :password_digest, :disabled => "false"  %> </td>
-					</tr>
-					<tr>
-						<td colspan = "2" class="f_label"><%= f.label :password_digest, "确认密码"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :password_digest, :disabled => "false"  %> </td>
-					</tr>
+			<% user_form = f %>
+			<ul class="userBasicInfo">
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :username, "称呼"%><span class="asterisk">*</span>
+					</div>
+					<div class="fieldInput">
+						<%= f.text_field :username, :placeholder => "输入您的姓氏" %>
+					</div>
+				</li>
 
-					<tr>
-						<td><img src="../img/reg/phone.png" class="icons"></td>
-						<td class="f_label"> <%= f.label :contact_cellphone, "手机号码"%><span class="asterisk">*</span></td>
-						<td class="f_input"> <%= f.text_field :contact_cellphone, :disabled => "false" %> </td>
-					</tr>
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :contact_cellphone, "手机号码"%><span class="asterisk">*</span>
+					</div>
+					<div class="fieldInput">
+						<%= f.text_field :contact_cellphone, :placeholder => "输入手机号码" %>
+					</div>
+				</li>
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :password_digest, "登录密码"%><span class="asterisk">*</span>
+					</div>
+					<div class="fieldInput">
+						<%= f.text_field :password_digest, :placeholder => "输入密码" %>
+					</div>
+				</li>
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :password_digest, "重复密码"%><span class="asterisk">*</span>
+					</div>
+					<div class="fieldInput">
+						<%= f.text_field :password_digest, :placeholder => "再次输入密码" %>
+					</div>
+				</li>
 
-					<tr>
-						<td colspan="3">
-						<div id="submit_btn" class="submit_btn">
-							同意注册协议并提交
-						</div></td>
-					</tr>
-				</tbody>
-			</table>
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :username, "职位"%><span class="asterisk">*</span>
+					</div>
+					<div class="fieldRole">
+						<div>
+							<div id="role_purchaser" class="role_selection">
+								<span>采购经理</span><i></i>
+							</div>
+							<div id="role_vendor" class="role_selection">
+								<span>销售经理</span><i></i>
+							</div>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<div class="agreementArea">
+						<span class="agreeSelect">
+							<input id='agree' name='agree' type='checkbox'>
+						</span>
+						<span> 我已阅读并同意</span><a href="" target="_blank">《壹百万网站服务协议》</a>
+					</div>
+				</li>
+				<li>
+					<div id="submitBtn" class="button"><span>立即注册</span></div>
+				</li>
+
+			</ul>
 			<% end %>
 
 			<!-- right register tips -->

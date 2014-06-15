@@ -95,9 +95,9 @@ var fn_users_bindLogonEvents = function() {
 
 // run when reg page renders
 $(document).ready(function() {
-	fn_users_bindRegMethodsEvents();
-	fn_users_BindVerifyButtonClick();
-	fnDisableDiv("#reg-user-info-area");
+	// fn_users_bindRegMethodsEvents();
+	// fn_users_BindVerifyButtonClick();
+	// fnDisableDiv("#reg-user-info-area");
 
 	fn_users_bindLogonEvents();
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
 	});
 
-	var $role_selected = $("#user_reg_details .role_selection");
+	var $role_selected = $(".userBasicInfo .role_selection");
 	$role_selected.click(function() {
 		var isSelected = $(this).hasClass("selected");
 		$role_selected.removeClass("selected");
@@ -122,44 +122,5 @@ $(document).ready(function() {
 			$(this).addClass("selected");
 		}
 	});
-
-	// check company verify is passed
-	var $verify_passed = false;
-	var $verifyBtn = $("#company_verify .verify_btn");
-	var $passedInfo = $("#company_verify .passedInfo");
-	var $user_basic_info_text = $("#user_basic_info_area .f_label");
-	var $user_basic_info_input = $("#user_basic_info_area .f_input");
-	var $user_basic_info_submit_btn = $("#user_basic_info_area #submit_btn");
-	var $user_info_icons = $("#user_basic_info_area .icons");
-	var $asterisk = $("#user_basic_info_area .asterisk");
-	
-	var checkVerified = function() {
-		if ($verify_passed) {
-			$user_basic_info_text.removeClass("disabled");
-			$user_basic_info_submit_btn.removeAttr("disabled");
-			$user_basic_info_input.prop("disabled", false);
-			$user_basic_info_submit_btn.removeClass("disabled");
-			$asterisk.removeClass("disabled");
-			$passedInfo.addClass("enable");
-		} else {
-			$user_basic_info_text.addClass("disabled");
-			$user_basic_info_input.prop("disabled", true);
-			$user_basic_info_submit_btn.addClass("disabled");
-			$user_basic_info_submit_btn.attr("disabled", "disabled");
-			$user_info_icons.hide();
-			$asterisk.addClass("disabled");
-			$passedInfo.removeClass("enable");
-		}
-	};
-
-	checkVerified();
-	$verifyBtn.click(function() {
-		$verify_passed = true;
-		checkVerified();
-	});
-
-	
-
-	//	$("ul.reg_timeline_tabs").tabs("div.reg_main_body > div");
 
 });

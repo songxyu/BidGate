@@ -127,218 +127,69 @@
 }
 
 //================ user reg page========================================
-
-.reg-page {
-	margin: 0 auto;
-  min-height: 500px;
-  min-width: 960px;
-  max-width: 1200px;
-  background: #fff;
-}
-
-.reg-page .reg-area {
-  font-size: 17px;
-	width: 65%;
-	height: auto;
-	min-height: 900px;
-}
-
-.reg-page input, label, button {
-  font-size: 17px;
-  font-weight: normal;
-}
-
-.reg-area-title {
-	line-height: 80px;
-	margin: 0 0 10px 200px;
-	font-size: 22px;
-	color: #ff9630;
-}
-
-.reg-page .reg-tip {
-	padding: 0 0 20px 30px;
-	color: #999;
-}
-
-.reg-page .cor-yellow {
-	color: #ff7e00;
-}
-
-.reg-page .reg-selection {
-	font-size: 17px;
-	padding: 50px 30px 30px;
-}
-
-.reg-page .radio-margin {
-	margin-right: 6px;
-	margin-top: -2px;
-}
-
-.reg-page .marg-left50 {
-	margin-left: 50px;
-}
-
-.reg-page .marg-left30 {
-	margin-left: 30px;
-}
-
-.reg-page .f_label, .reg-page .f_input {
-	height: 30px;
-	margin-bottom: 12px;
-	vertical-align: middle;
-	display: block;
-}
-
-.reg-page .f_label {
-	width: 220px;
-	padding-top: 5px;
-	padding-right: 10px;
-	line-height: 30px;
-	text-align: right;
-}
-
-.reg-page .f_input {
-	float: left;
-	margin-left: 225px;
-	margin-top: -38px;
-}
-
-.reg-page .dd_r {
-	width: 680px;
-}
-
-.reg-page .reg-button {
-	width: 206px;
-}
-
-.reg-page .verify-button {
-	margin: 0;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 50px;
-  width: 80px;
-  border: 1px solid #ff541a;
-}
-
-.reg-page .verify-button:hover {
-  background: #ffa080;
-}
-
-.reg-page .verify-button span {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.reg-page #vefiry_msg_area{
-	color:green;
-	font-size: 16px;
-	position: relative;
-	margin-left: 200px;
-	top: -25px;
-}
-
-.reg-page #vefiry_msg_area.failed{
-  color:red;
-}
-
-.reg-page .reg-user-info-area {
-  color: green;
-}
-
-.reg-page .reg-user-info-area.disabled {
-  display: none;
-}
-
-// seperate line
-
-.reg-page .reg_seperate_line {
-  width: 10px;
-  height: 100%;
-  border-left: 1px dashed #bbb;
-  position: absolute;
-  top: 150px;
-  right: 650px;
-}
-
-
-// right area
-.reg-page .reg_right_scroll {
-  width: 400px;
-  height: auto;
-  font-size: 17px;
-  position: absolute;
-  right: 240px;
-  top: 200px;
-}
-
-
-//============== new_2 page ========
-
 .reg_page {
   background: #F2F2F2;
 }
 
-.reg_top {
+//--- header ----
+.regHeader {
   height: 71px;
   line-height: 71px;
   background: #fff;
   min-width: 960px;
   display: block;
-  /* border-bottom: 1px solid #ddd; */
   font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   -webkit-border-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.reg_top .reg_top_main {
+.regHeader .regHeaderMain {
   width: 950px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.reg_top .pull_left {
+.regHeader .pullLeft {
   float: left;
 }
 
-.reg_top .pull_left .reg_header_text {
-  font-size: 21px;
+.regHeader .pullLeft .pullLeftText {
+  font-size: 25px;
+  color: #aaa;
 }
 
-.reg_top .pull_right {
+.regHeader .pullRight {
   float: right;
   list-style: none;
 }
 
-.reg_top .pull_right a {
+.regHeader .pullRight a {
   margin: 0 15px;
   letter-spacing: 2px;
   color: #999999;
   text-decoration: none;
 }
 
-.reg_top .pull_right a:hover {
+.regHeader .pullRight a:hover {
   color: #428bca;
 }
+//--- end header ----
 
-.reg_container {
+
+//--- step 1 page ---
+.regContainer {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.reg_container input, label, button {
-  font-size: 16px;
-  font-weight: normal;
-}
-
-.reg_container .reg_main {
+.regContainer .regMain {
   width: 950px;
+  height: 700px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
+  margin: 30px auto;
   padding: 20px 0 15px 0;
   border: 1px solid #d7d7d7;
   margin-bottom: 30px;
@@ -347,154 +198,159 @@
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.reg_container .reg_timeline_bar {
-  height: 70px;
-  margin: 0 auto;
+.regContainer ul {
+  list-style: none;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.regContainer li {
+  margin-top: 20px
+}
+
+.regContainer .userBasicInfoContainer {
+  width: 550px;
+  padding: 20px;
+}
+
+// time line
+.regContainer .regTimelineBar {
+  margin-bottom: -20px;
+  height: 130px;
+  margin: 0px auto;
+  margin-top: -20px;
   width: 850px;
 }
 
-.reg_container .reg_timeline_tabs {
-  margin: 20px auto;
-  border: 0;
-  padding-left: 0;
-  height: 74px;
-  list-style: none;
+.regContainer .regTimelineBar ul {
+  margin: 0;
 }
 
-.reg_container .reg_timeline_tabs li span {
+.regContainer .regTimelineBar li span {
   margin-top: 10px;
   font-size: 15px;
   display: inline-block;
 }
 
-.reg_container .reg_timeline_tabs .step {
+.regContainer .regTimelineBar .step {
   float: left;
   width: 280px;
   text-align: center;
   position: relative;
   top: 20px;
+  
+  img {
+    margin-bottom: -33px;
+  }
+  
+  span {
+    color: #e3e7e6;
+    font-family: tahoma;
+  }
+  span.light {
+    color: #61A76B;
+  }
+  .step_number {
+    font-size: 30px;
+    font-weight: 800;
+    position: absolute;
+    line-height: 15px;
+    padding: 0 18px;
+    color: #afb4bc;
+    z-index: 1;
+    left: 113px;
+    top: 10px;
+  }
+  .step_number.light {
+    color: #fff;
+  }
+  
+  .hr {
+    width: 100%;
+    border: 7px solid #b4b5b8;
+    border-radius: 1px;
+    z-index: -1;
+    margin-left: 140px;
+  }
+  .hr.active {
+    border: 7px solid #3dba45;
+  }
+  .hr.last {
+    width:1%;
+  }
 }
 
-.reg_container .reg_timeline_tabs .hr {
-  width: 100%;
-  border: 1px solid #b4b5b8;
-  border-radius: 1px;
-  margin-bottom: -22px;
-  z-index: -1;
+
+// end time line
+
+.regContainer input{
+  font-size: 15px;
+  padding-left: 10px;
+  font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  font-weight: normal;
+  height: 30px;
+  width: 235px;
 }
 
-.reg_container .reg_timeline_tabs .hr.active {
-  border: 1px solid #359ade;
-}
-
-.reg_container .reg_main_body {
-  height: 500px;
-margin-top: 20px;
-padding: 20px 0 15px 0;
-border-radius: 2px;
-margin-bottom: 30px;
-display: block;
--webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.reg_container table {
-  margin-left: 100px;
-  margin-top: 30px;
-  width: 500px;
-  color: #737373;
-  border-collapse: separate;
-  border-spacing: 0 10px;
-}
-
-
-
-.reg_container .company_verify {
-  position: relative;
+.regContainer {
+  .fieldLabel {
+    float: left;
+    width: 100px;
+    color: #666;
+    text-align: right;
+    height: 40px;
+    line-height: 40px;
+  }
+  .fieldValue {
+    float: left;
+  }
+  .fieldRole {
+    height: 50px;
+  }
+  
+  .fieldInput {
+    
+  }
+  .agreementArea {
+    margin-left: 100px;
+    
+    input {
+      width: 30px;
+      height: 25px;
+      margin-bottom: 5px;
+    }
+   
+  }
   
 }
 
-.reg_container .icons {
-  margin-top: -8px;
+// right area
+.regContainer .rightTipsArea {
+  width: 200px;
+  height: auto;
+  font-size: 17px;
+  position: absolute;
+  right: 400px;
+  top: 300px;
 }
 
-.reg_container .reg_main_header_text {
-  font-size: 18px;
-  position: relative;
-  left: 100px;
+.regContainer .regSeperateLine {
+  width: 10px;
+  height: 500px;
+  border-left: 1px dashed #bbb;
+  position: absolute;
+  right: 280px;
 }
 
-.reg_container .paymeans_verify_area {
-  position: relative;
-  left: 100px;
-}
-
-.reg_container .f_label {
-  text-align: right;
-  margin: 0;
-  padding-left: 2px;
-  color: #737373;
-  font-weight: bold;
-  width: 120px;
-}
-
-.reg_container .f_input {
-  height: 31px;
-}
-
-.reg_container .asterisk {
+.regContainer .asterisk {
   color: #d40000;
   padding-left: 5px;
-  padding-right: 17px;
+  padding-right: 8px;
   line-height: 31px;
   vertical-align: middle;
 }
 
-#company_verify .verify_btn {
-  text-align: center;
-  width: 120px;
-  height: 40px;
-  color: #fff;
-  border-radius: 3px;
-  line-height: 40px;
-  font-size: 16px;
-  background: #888;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-#company_verify .verifyBtnInfo {
-  height: 50px;
-  width: 150px;
-  margin: 0 auto;
-}
-
-#company_verify .passedInfo {
-  color: green;
-  padding: 5px;
-  font-size: 14px;
-  text-align: center;
-  display: none;
-}
-
-#company_verify .passedInfo.enable {
-  display: block;
-}
-
-
-#user_reg_details .complete_btn {
-  text-align: center;
-}
-
-#user_reg_details .complete_btn button{
-  width: 150px;
-  height: 45px;
-  font-size: 18px;
-  color: #fff;
-  font-weight: bold;
-  background: #359ade;
-}
-
-#user_reg_details .role_selection {
+.userBasicInfo .role_selection {
   width: 120px;
   height: 40px;
   margin-right: 10px;
@@ -507,98 +363,95 @@ display: block;
   line-height: 40px;
 }
 
-#user_reg_details .role_selection:hover {
+.userBasicInfo .role_selection:hover {
   border: 1px solid #1c71ab;
 }
 
-#user_reg_details .role_selection.selected {
+.userBasicInfo .role_selection.selected {
   background: #359ade;
   color: #fff;
 }
 
-#user_reg_details .role_selection.selected i {
+.userBasicInfo .role_selection.selected i {
   width: 12px;
   height: 13px;
   background: url("../img/reg/hook.png") no-repeat;
 }
 
-#user_basic_info_area {
-  margin-top: 15px;
-}
-
-#user_basic_info_area .submit_btn{
-  position: relative;
-  left: 140px;
+.regContainer .button {
   border-radius: 3px;
   text-align: center;
-  line-height: 40px;
-  font-size: 16px;
-  width: 200px;
-  height: 40px;
+  width: 180px;
+  height: 45px;
   background: #359ade;
-  color: #fff;
   cursor: pointer;
-}
-
-#user_basic_info_area .submit_btn.disabled {
-  cursor: default;
-  opacity: 0.4;
-  background: #eee;
-}
-
-#user_basic_info_area .f_label.disabled {
-  color: #eee;
-}
-
-#user_basic_info_area .asterisk.disabled {
-  color: #eee;
-}
-
-// seperate line
-.reg_container .seperate_line {
-  width: 10px;
-  height: 350px;
-  border-left: 1px dashed #bbb;
-  position: absolute;
-  top: 50px;
-  right: 430px;
+  margin-left: 100px;
+  span {
+    font-size: 18px;
+    line-height: 45px;
+    color: #fff;
   }
-
-// register tips
-.reg_container .right_tips_area {
-  width: 400px;
-  height: auto;
-  position: absolute;
-  right: 240px;
-  top: 200px;
 }
 
-.reg_container .right_tips_area .tips {
-  font-size: 15px;
-  width: 300px;
-  padding-top: 50px;
+//--- step 1 page ---
+
+.regContainer .popTip {
+  position: relative;
+  top: 20px;
+  left: 100px;
+  width: 420px;
+  .popTipContainer {
+    background: #cee1e8;
+    border: 1px solid #cee1e8;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .popTipArrow {
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    vertical-align: middle;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #cee1e8;
+    border-bottom: 0px solid transparent;
+    position: absolute;
+    left: 20px;
+    
+  }
 }
 
-.reg_container .success_text {
+.regContainer .userMobileverify {
+  color: #c82e25;
+  position: relative;
+  top: 10px;
+}
+
+//--- success page ----
+
+.regContainer .success_text {
   font-size: 30px;
   position: relative;
   top: 50px;
   left: 400px;
 }
 
-.reg_container .icon_success {
+.regContainer .icon_success {
   position: relative;
   left: 420px;
   top: 20px;
 }
 
 
-//============== reg success page ========
-.reg-page .reg-success-area{
+//============== step 3 reg success page ========
+.regContainer .regSuccessArea{
 	min-height: 500px;	
-	width: 800px;
-}
-
-.reg-page .reg-success-info-area{
-	font-weight: bold;
+	padding: 20px;
+	.successTip {
+	  font-size: 30px;
+    color: #3dba45;
+    margin-top: 40px;
+    text-align: center;
+	}
 }
