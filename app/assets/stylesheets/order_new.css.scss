@@ -5,13 +5,37 @@
 	display: none;
 	
 	.left-area{
-		height:auto !important;
-		min-height:100%;
-		width: 69%;
+		height: auto !important;
+		min-height: 700px;
+		width: 630px;
 		position: absolute;
 		border: 1px solid #ccc;
 		background: #fff;
+		padding: 20px;
 		text-align: center;
+		
+		.left-header{
+      height: 40px;
+      background: #888;
+      margin-top: -20px;
+      margin-left: -20px;
+      margin-right: -20px;
+      .headerTitle {
+        color: #fff;
+        line-height: 40px;
+        font-size: 16px;
+        text-shadow: 0 1px 0 #333;
+      }
+    }
+		
+		.tableTitle {
+		  font-size: 16px;
+		  font-weight: bold;
+		  color: #666;
+		  margin-top: 20px;
+		  float: left;
+		  margin-left: 20px;
+		}
 		
 		.operation-cell-style{
 			cursor: pointer;
@@ -20,36 +44,37 @@
 		}
 		
 		.order-items-grid-area{
-			min-height: 100px;
-			width: 770px;
-			left: 25px;		
+			min-height: 80px;
+			width: 600px;
+			margin: 0 auto;
 		}
 		
 		.add-items-btn{
-			background: url(../img/add.png) no-repeat left center;			
-			background-size: contain;			
-			cursor: pointer; 
-			width: 150px;
-			height: 40px;
-			background-color: #f7d394;
-			border: 1px solid #f7d394;			
-			border-radius: 3px;
-			
-			span{
-				color: rgb(34, 164, 214);
-				padding-left: 50px;
-				line-height: 30px;
-			}
+			cursor: pointer;
+      background: #2996cc;
+      font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+      width: 115px;
+      color: #fff;
+      height: 35px;
+      line-height: 35px;
+      margin: 0 auto;
+      font-size: 16px;
+      border-radius: 20px;
+      border: 1px solid #fff;
+		}
+		
+		.add-items-btn:hover {
+		  background: #2077a2;
 		}
 		
 		.order-price-area, 
 		.order-other-info-area{			 
 			clear: left;
-			padding:20px;
+			margin-top: 30px;
 			
 			.label-column{
 				position: relative;				
-				left: 170px;
+				left: 100px;
 				float: left;
 				width: 150px;
 				
@@ -58,24 +83,28 @@
 					line-height: 30px;
 					text-align: right;
 					background-color: transparent;
-					color: #000;
-					font-size: 14px;
+					color: #555;
+					font-size: 16px;
+					padding: 10px 0;
 				}
 			}
 			
 			.input-column{
 				position: relative;
-				left: 180px;
+				left: 120px;
 				float: left;
 				
 				.values{					
-					line-height: 30px;
-					padding: 2px 0;
+					line-height: 40px;
+					padding: 5px 0;
 					position: relative;
 					text-align: left;
 					
 					input{
-						width: 150px;
+						width: 200px;
+            height: 30px;
+            border: 1px solid #bbb;
+            border-radius: 3px;
 					}
 					
 					select{
@@ -86,27 +115,40 @@
 		}
 		
 		.order-other-info-area{
-			border-top: 1px solid #ccc;
 			padding: 10px 0;
 		}
 		
 		.order-vendor-area{
 			display:none;
-			padding: 30px;
 			clear: left;
+			padding-top: 20px;
 			
 			.add-vendor-btn{				 		 
-				width: 150px;
-				height: 40px;
-				background-color: rgb(247, 211, 148);
-				border: none;
-				margin: 5px;
-				border-radius: 3px;
+				width: 115px;
+        height: 35px;
+        line-height: 35px;
+        font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+        background: #8ab46e;
+        border: none;
+        margin: 0 auto;
+        border-radius: 20px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+			}
+			
+			.add-vendor-btn:hover {
+			  background: green;
 			}
 			
 			.order-vendor-list{
-				width: 770px;
-				min-height: 100px;
+				width: 600px;
+				min-height: 80px;
+				margin: 0 auto;
+				.vendorTableTitle {
+				  font-size: 17px;
+				  line-height: 30px;
+				}
 			}
 		}
 		
@@ -114,14 +156,25 @@
 			clear: left;
 			padding-top: 10px;
  
-			.order-submit-btn{
-				width: 150px;
-				height: 40px;
-				background-color: rgb(247, 211, 148);
-				border: none;
-				margin: 5px;
-				border-radius: 3px;
+			.orderSubmitBtn{
+        background: #bbb;
+        font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+        width: 140px;
+        color: #fff;
+        height: 40px;
+        line-height: 40px;
+        margin: 0 auto;
+        font-size: 16px;
+        border-radius: 6px;
 			}
+			
+			.orderSubmitBtn.active {
+			  background: #2996cc;
+			  cursor: pointer;
+			}
+			.orderSubmitBtn.active:hover {
+        background: #2077a2;
+      }
 		}
 	}
 	
@@ -129,40 +182,49 @@
 	
 	.right-area{
 		height:auto !important;
-		min-height:100%;
-		width: 30%;
+		min-height: 700px;
+		width: 287px;
 		margin-left: 0px;
 		position: absolute;
 		right: 0;
 		border: 1px solid #ccc;
-		background: #fff;
+		background: #f9f9f9;
 		
 		.right-header{
-			height: 50px;
+			height: 40px;
+			background: #888;
 		}
 		
 		
 		.preview-btn{
-			float: right;			 
-			width: 100px;
-			height: 40px;
-			background-color: rgb(247, 211, 148);
-			border: none;
-			margin: 5px;
-			border-radius: 3px;
+			  cursor: pointer;
+        background: #666;
+        font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+        width: 75px;
+        color: #fff;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        vertical-align: middle;
+        float: right;
+        right: 10px;
+        font-size: 16px;
+        text-shadow: 0 1px 0 #333;
+		}
+		.preview-btn:hover {
+		    background: #555;
 		}
 		
 		
 		.section-label{
-			margin-left: -180px;
 			text-align: left;
-			padding: 0;
 			font-weight:bold;
+			margin-bottom: 20px;
 		}
 		
 		.field-list{
 			text-align: right;
-			padding-left: 200px;
+			padding-left: 50px;
 			
 			.item-field-area{
 				text-align: left;
@@ -201,6 +263,7 @@
 		.dynamic-select-area{
 			min-height: 20px;
 			display: none;
+			padding: 20px;
 			
 			.add-one-item-btn{
 				 

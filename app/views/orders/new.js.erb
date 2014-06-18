@@ -267,7 +267,7 @@ function requiredFieldValidator(value) {
     }
 }
 
-var itemGridTotalWidth = 770;
+var itemGridTotalWidth = 600;
  
 var getColumnDefinition = function(columnData, gridTotalWidth ){
 	  var columns =  columnData ? columnData : gridInfo4OrderItems.columns;   
@@ -413,7 +413,7 @@ var addOrderItems = function(columnData){
 // };
 
 var addVendorsGrid = function(){
-	var vendorGridTotalWidth = 770;
+	var vendorGridTotalWidth = 600;
 	var colWidth = vendorGridTotalWidth/4;
 	var vendorColumns = [
     {id: "name", name: "供应商", field: "name", width: colWidth, cssClass: "cell-title", resizable: true, 

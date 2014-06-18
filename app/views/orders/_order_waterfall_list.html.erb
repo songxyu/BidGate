@@ -3,7 +3,7 @@
 %>
 <% if is_searching %>
 <div class="totalCount">
-	<span> 您找到采购单: <%= @orders.total_count %> 个</span>
+	<span> 您找到采购单: </span><span class="totalCountNumber"><%= @orders.total_count %>个</span>
 </div>
 <% end %>
 

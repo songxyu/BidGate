@@ -18,11 +18,11 @@
 
 					</div>
 					<div class="selectors">
-						<span>竞价范围</span>
+						<span>采购范围</span>
 
 					</div>
 					<div class="selectors">
-						<span>收货城市</span>
+						<span>交货城市</span>
 
 					</div>
 				</div>
@@ -107,12 +107,12 @@
 						<ul>
 							<li class="select_btn" data-name="global_bid" data-type-id="1">
 								<div class="icon_global"></div>
-								<span>所有供应商</span>
+								<span>公开采购</span>
 							</li>
 
 							<li class="select_btn" data-name="local_bid" data-type-id="2">
 								<div class="icon_local"></div>
-								<span>指定供应商</span>
+								<span>指定采购</span>
 							</li>
 						</ul>
 					</div>
@@ -134,6 +134,7 @@
 </div>
 
 
+
 		
 <link rel="stylesheet" href="javascripts/SlickGrid/slick.grid.css" type="text/css"/>
 <link rel="stylesheet" href="javascripts/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
@@ -142,47 +143,35 @@
 	<div class="selectionQuickview"></div>
 
 	<div class="left-area">
-		<p>
-			货物列表  
+		<div class="left-header">
+			<div class="headerTitle">编辑我的采购单</div>
+		</div>
+		<p class="tableTitle">
+			采购物料
 		</p>
 		<div class="order-items-grid-area"></div>
 		
-		<button class="add-items-btn"><span>添加货物</span></button>
-		
-		<div class="order-price-area">
-			<div class="label-column">				
-				<div class="label">
-					<span>竞拍总价格</span>
-				</div>
-				<div class="label">
-					<span>付款方式</span>
-				</div>					
-			</div>
-			<div class="input-column">
-				<div class="values">	
-					<input class="price" />
-					<span>万元</span>				 
-				</div>	
-				<div class="values">	
-					<select class="payment" >
-					<option value="1">押金</option>
-					<option value="2">押金 + 尾期款</option>
-					<option value="3">担保支付</option>
-					</select>				 
-				</div>				 
-			</div>
-		</div>
+		<div class="add-items-btn"><span> + 添加物料</span></div>
 		
 		<div class="order-vendor-area">
-			<button class="add-vendor-btn">添加供应商</button>
+			<p class="tableTitle">
+			竞拍供应商列表
+		</p>
 			<div class="order-vendor-list">
 				
 			</div>
+			<div class="add-vendor-btn"><span> + 添加供应商</span></div>
 			
 		</div>
 		
 		<div class="order-other-info-area">
 			<div class="label-column">
+				<div class="label">
+					<span>竞拍总价格</span>
+				</div>
+				<div class="label">
+					<span>付款方式</span>
+				</div>
 				<div class="label ">
 					<span>竞价截至日期</span>
 				</div>
@@ -198,13 +187,24 @@
 			</div>
 			<div class="input-column">
 				<div class="values">	
+					<input class="price" placeholder="  输入总价格"/>
+					<span>万元</span>				 
+				</div>	
+				<div class="values">	
+					<select class="payment" >
+					<option value="1">押金</option>
+					<option value="2">押金 + 尾期款</option>
+					<option value="3">担保支付</option>
+					</select>				 
+				</div>
+				<div class="values">	
 					<input class="date-input deadline" />									 
 				</div>	
 				<div class="values">	
 					<input class="date-input delivery-date" />									 
 				</div>	
 				<div class="values">	
-					<input class="shipping-addr" />									 
+					<input class="shipping-addr" placeholder="  输入交货地址"/>									 
 				</div>	
 				<div class="values">	
 					<textarea class="order-memo" />									 
@@ -214,7 +214,7 @@
 		</div>
 		
 		<div class="submit-area">
-			<button class="order-submit-btn" >提交订单</button>
+			<div class="orderSubmitBtn" >提交订单</div>
 			
 		</div>
 		
@@ -222,7 +222,7 @@
 
 	<div class="right-area">
 		<div class="right-header">
-			<button class="preview-btn">预览</button>
+			<div class="preview-btn">预览</div>
 		</div>
 		<div class="dynamic-select-area">		
 			<div class="field-list">
