@@ -282,5 +282,34 @@ class OrdersController < CommonController
   end
   
  
+  # orders I participate 
+  def my_biddings
+    default_order_by = "create_time DESC"
+    user_id = session[:user_id]
+    @orders = Order.joins(:order_price_histories).where(':order_price_histories.vendor_id' => user_id)
+  end
+  
+  
+    
+  # orders I place
+  def my_purchases
+    default_order_by = "create_time DESC"
+    user_id = session[:user_id]
+    
+    statusVal = params[:status]
+    if !statusVal || statusVal < 0
+      @orders = Order.where(buyer_id: user_id).order(default_order_by).page(params[:page])
+    else
+      @orders = Order.where(buyer_id: user_id, status: statusVal).order(default_order_by).page(params[:page])
+    end
+  end
+   
+  
+  def all_my_orders
+    @bidding_orders = self.my_biddings
+    @all_orders = self.my_purchases 
+    
+    return 
+  end
   
 end

@@ -93,4 +93,20 @@ class UsersController < CommonController
     @user = current_user
     common_response
   end
+  
+  
+  def dashboard
+    @user = current_user
+    render "dashboard" and return
+  end
+  
+  def dashboard_orders
+    @user = current_user
+    render "dashboard_orders" and return
+  end
+  
+  def dashboard_msg
+    @user = current_user
+    render "dashboard_msg" and return
+  end
 end

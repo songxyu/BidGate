@@ -1,0 +1,30 @@
+<div class="my-orders-page">
+	<div class="tab-headers">
+		<ul class="tab-items">
+			<li class="tab-item  tab-item-active" >
+				<%= link_to "所有订单",  my_all_orders_path, remote: true %>
+				<a href="" class=" " data-remote="true"> <span>所有订单</span> </a>
+			</li>
+			<li class="tab-item " >
+				<%= link_to "竞价中",  my_biddings_path, remote: true %>
+				<a href="" data-remote="true"> <span>竞价中</span> </a>
+			</li>
+			<li class="tab-item  " >
+				<%= link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true %>
+				<a href="" class=" " data-remote="true"> <span>待付款</span> </a>
+			</li>
+			<li class="tab-item  " >
+				<%= link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true %>
+				<a href="" class=" " data-remote="true"> <span>已完成</span> </a>
+			</li>
+			
+		</ul>
+	</div>
+
+	<div class="tab-content">
+		 
+			 
+ 
+	</div>
+
+</div>

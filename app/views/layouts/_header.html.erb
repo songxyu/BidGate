@@ -47,7 +47,7 @@
 					<% if current_user %>
 					当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", logout_path %>
 					<li class="my-profile-link">
-						<%= link_to "我的壹百万",  user_profile_path, remote: true %>
+						<%= link_to "我的壹百万",  dashboard_path, remote: true %>
 					</li>
 					<% else %>
 					<li class="logon">

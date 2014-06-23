@@ -1,0 +1,35 @@
+<div class="dashboard-page">
+	<div class="left-list grid_layout_area">
+
+		<div class="ui-side ui-side-withicon" id="sidebar">
+			<ul class="ui-side-list">
+				
+				<li class="ui-side-item ">
+					<%= link_to "订单管理",  dashboard_orders_path, remote: true %>
+					<a class="ui-side-item-link"><i class="fn-left  icon ui-icon-order"></i></a>
+				</li>
+				
+				<li class="ui-side-item active">
+					<%= link_to "我的壹百万",  dashboard_path, remote: true %>
+					<a class="ui-side-item-link" href=""><i class="fn-left icon ui-icon-home"></i></a>
+				</li>
+				
+				<li class="ui-side-item ">
+					<%= link_to "消息管理",  dashboard_msg_path, remote: true %>
+					<a class="ui-side-item-link"><i class="fn-left icon ui-icon-msgs"></i></a>
+				</li>
+
+			</ul>
+			 
+		</div>
+
+	</div>
+	
+	<div class="right-area grid_layout_area">
+		
+		<%= render "users/my_profile" %>
+		
+		
+	</div>
+
+</div>

@@ -1,0 +1,9 @@
+
+$('.filter_area').hide();
+$(".content_area").show().html("<%= escape_javascript render(:partial => 'users/dashboard_main') %>");
+
+var $leftMenu = $(".content_area .dashboard-page .left-list .ui-side-item");
+$leftMenu.unbind('click').bind('click', function(){
+	$leftMenu.removeClass('active');
+	$(this).addClass('active');
+})

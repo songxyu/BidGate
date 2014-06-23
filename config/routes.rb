@@ -15,6 +15,14 @@ BidGate::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
+  get "dashboard/dashboard" => "users#dashboard", :as => "dashboard"
+  get "dashboard/dashboard_orders" => "users#dashboard_orders", :as => "dashboard_orders"
+  get "dashboard/dashboard_msg" => "users#dashboard_msg", :as => "dashboard_msg"
+  get "dashboard/my_all_orders" => "orders#all_my_orders", :as => "my_all_orders"
+  get "dashboard/my_all_orders" => "orders#my_purchases", :as => "my_purchases"
+  get "dashboard/my_finished" => "orders#my_finished", :as => "my_finished"
+  get "dashboard/my_biddings" => "orders#my_biddings", :as => "my_biddings"
+  
   get "orders/search" => "orders#search"
   # not use the following to avoid duplicate collection paths
   # resources :orders do
