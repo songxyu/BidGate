@@ -3,44 +3,57 @@
 		<!-- header info -->
 		<article class="orderSummaryContainer">
 			<div class="orderSummary">
-				<div class="row-fluid">
-					<span class="orderId">订单号: <%= @order.id %></span>
+				<div class="sumHeader">
+					<div class="order-must-title">
+						采购：<span>301、302不锈钢，钢管，0.4吨</span>
+					</div>
+					<div class="order-id">
+						订单编号: <%= @order.id %>
+					</div>
 				</div>
 
-				<div class="row-fluid">
-					<div class="span6">
-						<div><img src="../img/order_details/stainlessSquareTube.jpg"/>
-						</div>
-						<ul class="orderTitle">
-							<li>
-								301,302不锈钢
-							</li>
-							<li class="orderOriginPrice">
-								3万
-							</li>
-							<li class="timeCounter">
-								距离竞拍结束还有3天
-							</li>
-						</ul>
+				<div class="sumContent">
+					<div class="order-img">
+						<img src= "../img/sample_item_img.jpg" />
 					</div>
-					<div class="span4">
-						<ul class="orderSummaryItems">
-							<li>
-								<span class="title">订单总额</span> 5万
-							</li>
-							<li>
-								<span class="title">浮动利率</span> 20%
-							</li>
-							<li>
-								<span class="title">竞拍期限</span> 2014年6月1日
-							</li>
-						</ul>
+					<div class="order-sum-area">
+						<div class="order-sum-keywords">
+							<ul>
+								<li>
+									<p class="title">
+										采购公司
+									</p>
+									<span class="value">温州***材料有限公司</span>
+								</li>
+								<li>
+									<p class="title">
+										收货城市
+									</p>
+									<span class="value">浙江，台州</span>
+								</li>
+
+								<li>
+									<div class="order-timecounter"></div>
+									<span>截止日期：2014.6.30</span>
+								</li>
+							</ul>
+						</div>
+						<div class="order-sum-other-info">
+							<div class="sum-info">
+								<div class="purchaser-company-name">
+									采购商：温州***材料有限公司
+								</div>
+								<div class="split-line"></div>
+								<div class="other">
+									other
+								</div>
+							</div>
+						</div>
 					</div>
 
 				</div>
 
 				<hr class="dashed">
-				<span>竞拍截止日期：2014年5月31日</span>
 			</div>
 		</article>
 
@@ -163,6 +176,9 @@
 			<div class="bidStatusTag">
 				竞价中 <span class="triangle"></span>
 			</div>
+			<div class="bidCount">
+				12个竞拍
+			</div>
 
 			<div class="lastBidVendor">
 				竞价方：<span class="companyInfo">赣州***金属材料有限公司</span>
@@ -172,10 +188,12 @@
 				<!-- TODO -->
 				<div class="bidPriceField">
 					<input name="myBidPrice" placeholder="  我的竞价">
-					<p class="inputUnit">万元</p>
+					<p class="inputUnit">
+						万元
+					</p>
 				</div>
 			</div>
-			
+
 			<div class="bidBtn">
 				<span class="bidBtnText">竞价</span>
 			</div>
@@ -185,13 +203,27 @@
 		<div class="wall" id="communicationArea">
 			<div class="avatarInfoContainer">
 				<!-- TODO link to user info page -->
-				<div class="avatarTitle"><p>赵经理</p><p class="role">（采购经理）</p></div>
+				<div class="avatarTitle">
+					<p>
+						赵经理
+					</p>
+					<p class="role">
+						（采购经理）
+					</p>
+				</div>
 				<div class="avatarImg"></div>
-				<p class="registerTime">注册时间 2013-3-23</p>
-				<p class="commLink">发送私信</p>
-				
+				<p class="registerTime">
+					注册时间 2013-3-23
+				</p>
+				<p class="commLink">
+					发送私信
+				</p>
+
 			</div>
+
 		</div>
+
+		<div class="wall" id="avatar-verification-area">Personal & Company Verification Info</div>
 	</div>
 
 </div>

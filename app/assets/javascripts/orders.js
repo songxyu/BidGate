@@ -18,6 +18,19 @@ $(document).ready(function() {
 		closeOnClick : true,
 		load : false
 	});
+	
+	$("#order-comm-dialog").overlay({
+		top : 100,
+		mask : {
+			color : '#333',
+			loadSpeed : 200,
+			opacity : 0.6
+		},
+		closeOnClick : true,
+		load : false
+	});
+	
+	
 
 	/*
 	 $(".home_slides").slidesjs({
