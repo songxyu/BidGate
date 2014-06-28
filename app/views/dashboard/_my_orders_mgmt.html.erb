@@ -3,19 +3,15 @@
 		<ul class="tab-items">
 			<li class="tab-item  tab-item-active" >
 				<%= link_to "所有订单",  my_all_orders_path, remote: true %>
-				<a href="" class=" " data-remote="true"> <span>所有订单</span> </a>
 			</li>
 			<li class="tab-item " >
 				<%= link_to "竞价中",  my_biddings_path, remote: true %>
-				<a href="" data-remote="true"> <span>竞价中</span> </a>
 			</li>
 			<li class="tab-item  " >
 				<%= link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true %>
-				<a href="" class=" " data-remote="true"> <span>待付款</span> </a>
 			</li>
 			<li class="tab-item  " >
 				<%= link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true %>
-				<a href="" class=" " data-remote="true"> <span>已完成</span> </a>
 			</li>
 			
 		</ul>
@@ -23,8 +19,28 @@
 
 	<div class="tab-content">
 		 
-			 
+			 <!-- Nav tabs -->
+	<ul class="nav nav-tabs orders_tabs" role="tablist">
+	  <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+	  <li><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+	  <li><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
+	  <li><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+	</ul>
+	
+	<!-- Tab panes -->
+	<div class="tab-content">
+	  <div class="tab-pane active" id="home">...</div>
+	  <div class="tab-pane" id="profile">...</div>
+	  <div class="tab-pane" id="messages">...</div>
+	  <div class="tab-pane" id="settings">...</div>
+	</div>
+
  
 	</div>
+	
+	
+	
+	
+
 
 </div>

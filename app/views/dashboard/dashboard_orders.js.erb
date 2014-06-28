@@ -1,11 +1,16 @@
 
 
 var $dashboard_rightarea =  $(".content_area .dashboard-page .right-area");
-$dashboard_rightarea.html("<%= escape_javascript render(:partial => 'users/my_orders_mgmt') %>");
+$dashboard_rightarea.html("<%= escape_javascript render(:partial => 'dashboard/my_orders_mgmt') %>");
 
 var $tabHeader = $dashboard_rightarea.find(".tab-headers");
 var $tabItems = $tabHeader.find('.tab-item');
 $tabHeader.on('click', '.tab-item', function(){
 	$tabItems.removeClass('tab-item-active');
 	$(this).addClass('tab-item-active');
+}) 
+
+$('.orders_tabs a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
 })

@@ -17,6 +17,8 @@
 
 //= require jquery.ui.all
 
+//=require bootstrap.min
+
 //= require jquery_nested_form
 
 //=require common
@@ -26,8 +28,6 @@
 //=require orders
 
 //=require orders_new
-
-//=require bootstrap.min
 
 //=require jquery.menu-aim
 

@@ -97,16 +97,17 @@ class UsersController < CommonController
   
   def dashboard
     @user = current_user
-    render "dashboard" and return
+    render "dashboard/dashboard" and return
   end
   
   def dashboard_orders
     @user = current_user
-    render "dashboard_orders" and return
+    render "dashboard/dashboard_orders" and return
   end
+  
   
   def dashboard_msg
     @user = current_user
-    render "dashboard_msg" and return
+    render "dashboard/dashboard_msg" and return
   end
 end
