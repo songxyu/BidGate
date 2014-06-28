@@ -19,7 +19,7 @@ $(document).ready(function() {
 		load : false
 	});
 	
-	$("#order-comm-dialog").overlay({
+	$("#communication_dialog").overlay({
 		top : 100,
 		mask : {
 			color : '#333',

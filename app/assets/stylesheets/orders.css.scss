@@ -817,16 +817,20 @@ hr.dashed {
     border: 1px solid #eee;
     margin: 10px auto;
   }
-  .commLink {
-    color: #2996cc;
-    cursor: pointer;
-    width: 100px;
-    margin: 0 auto;
-    padding: 5px;
+  .comm-dialog-show {
+      color: #2996cc;
+      cursor: pointer;
+      margin: 0 auto;
+      padding: 10px 30px;
+      font-size: 15px;
+      border: 1px solid #bbb;
+      font-weight: bold;
+      background: #f2f2f2;
+      text-decoration: none;
   }
   
-  .commLink:hover {
-      background: #f2f2f2;
+  .comm-dialog-show:hover {
+      background: #ebebeb;
       border-radius: 2px;
     }
   
@@ -837,3 +841,4 @@ hr.dashed {
   box-shadow: 0 0 12px 2px #eee;
   height: 300px;
 }
+

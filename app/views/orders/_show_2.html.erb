@@ -215,15 +215,22 @@
 				<p class="registerTime">
 					注册时间 2013-3-23
 				</p>
-				<p class="commLink">
-					发送私信
-				</p>
+				<!-- TODO (:buyer_id => order.buyer_id) -->
+				<%= link_to comm_dialog_show_path, :class=>"comm-dialog-show", remote: true do %>
+				<span>发送私信</span>
+				<% end %>
 
 			</div>
 
 		</div>
 
-		<div class="wall" id="avatar-verification-area">Personal & Company Verification Info</div>
+		<div class="wall" id="avatar-verification-area">
+			Personal & Company Verification Info
+		</div>
+
+		
 	</div>
+
+
 
 </div>
