@@ -32,27 +32,20 @@
 	<div class="tab-content">
 
 		<div class="tab-pane active" id="bidding-orders">
-	
-		 
-		 竞价单:
-		 <% @bidding_orders.each do |order| %>    
-	
-			<div><%=order.order_num %>  - <%=order.order_memo %></div>
-		<% end %>
+		  
+			<%= render "dashboard/my_biddings" %>
 		  
 		</div>
 		<div class="tab-pane" id="dealed-orders">
-			...
+			<%= render "dashboard/my_forpaid_orders" %>
 		</div>
 		<div class="tab-pane" id="complete-orders">
-			...
+			<%= render "dashboard/my_complete_orders" %>
 		</div>
 		<div class="tab-pane" id="all-orders">
-			采购单:
-		<% @orders.each do |order| %>    
-	
-			<div><%=order.order_num %>  - <%=order.order_memo %></div>
-		<% end %>
+			
+			<%= render "dashboard/my_all_orders" %>
+			
 		</div>
 
 	</div>
