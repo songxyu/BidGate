@@ -1,46 +1,60 @@
 <div class="my-orders-page">
 	<div class="tab-headers">
-		<ul class="tab-items">
-			<li class="tab-item  tab-item-active" >
-				<%= link_to "所有订单",  my_all_orders_path, remote: true %>
+		<ul class="nav nav-tabs  tab-items">
+			<li class="active" >
+				<a href="#bidding-orders" class="tab-item" role="tab" data-toggle="tab">
+					<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+					竞价中</a>
+				<!--   link_to "竞价中",  my_biddings_path, remote: true  -->
 			</li>
-			<li class="tab-item " >
-				<%= link_to "竞价中",  my_biddings_path, remote: true %>
+			<li>
+				<a href="#dealed-orders" class="tab-item" role="tab" data-toggle="tab">
+					<i class="glyphicon glyphicon-usd"></i>
+					待付款</a>
+				<!--  link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
 			</li>
-			<li class="tab-item  " >
-				<%= link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true %>
+			<li>
+				<a href="#complete-orders" class="tab-item" role="tab" data-toggle="tab">
+					<i class="glyphicon glyphicon-ok"></i>
+					已完成</a>
+				<!--   link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true   -->
 			</li>
-			<li class="tab-item  " >
-				<%= link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true %>
+			<li>
+				<a href="#all-orders" class="tab-item" role="tab" data-toggle="tab">
+					<i class="glyphicon glyphicon-list"></i>
+					所有订单</a>
+				<!--   link_to "所有订单",  my_all_orders_path, remote: true  -->
 			</li>
-			
+
 		</ul>
 	</div>
 
 	<div class="tab-content">
+
+		<div class="tab-pane active" id="bidding-orders">
+	
 		 
-			 <!-- Nav tabs -->
-	<ul class="nav nav-tabs orders_tabs" role="tablist">
-	  <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
-	  <li><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
-	  <li><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
-	  <li><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
-	</ul>
+		 竞价单:
+		 <% @bidding_orders.each do |order| %>    
 	
-	<!-- Tab panes -->
-	<div class="tab-content">
-	  <div class="tab-pane active" id="home">...</div>
-	  <div class="tab-pane" id="profile">...</div>
-	  <div class="tab-pane" id="messages">...</div>
-	  <div class="tab-pane" id="settings">...</div>
-	</div>
+			<div><%=order.order_num %>  - <%=order.order_memo %></div>
+		<% end %>
+		  
+		</div>
+		<div class="tab-pane" id="dealed-orders">
+			...
+		</div>
+		<div class="tab-pane" id="complete-orders">
+			...
+		</div>
+		<div class="tab-pane" id="all-orders">
+			采购单:
+		<% @orders.each do |order| %>    
+	
+			<div><%=order.order_num %>  - <%=order.order_memo %></div>
+		<% end %>
+		</div>
 
- 
 	</div>
-	
-	
-	
-	
-
 
 </div>

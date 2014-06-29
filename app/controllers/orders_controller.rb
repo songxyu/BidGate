@@ -316,7 +316,6 @@ class OrdersController < CommonController
     @bidding_orders = self.my_biddings
     @all_orders = self.my_purchases 
     
-    return 
   end
   
 end

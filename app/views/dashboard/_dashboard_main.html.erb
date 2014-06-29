@@ -2,23 +2,34 @@
 	<div class="left-list grid_layout_area">
 
 		<div class="ui-side ui-side-withicon" id="sidebar">
-			<ul class="ui-side-list">
-				
-				<li class="ui-side-item ">
-					<%= link_to dashboard_orders_path, :class=>"menuItem", remote: true  do %>
-					<a class="ui-side-item-link">订单管理<i class="fn-left  icon ui-icon-order"></i></a>
-					<% end %>
-				</li>
+			<ul class="ui-side-list nav nav-pills nav-stacked">
 				
 				<li class="ui-side-item active">
-					<%= link_to dashboard_path, :class=>"menuItem", remote: true  do %>
-					<a class="ui-side-item-link" href="">我的壹百万<i class="fn-left icon ui-icon-home"></i></a>
+					<%= link_to dashboard_path, :class=>" ", remote: true  do %>
+					<i class="glyphicon  glyphicon-home span-icon"></i>
+					<span class=" span-text" href="">我的壹百万</span> 
 					<% end %>
 				</li>
 				
 				<li class="ui-side-item ">
-					<%= link_to dashboard_msg_path, :class=>"menuItem", remote: true do %>
-					<a class="ui-side-item-link">消息管理<i class="fn-left icon ui-icon-msgs"></i></a>
+					<%= link_to dashboard_orders_path, :class=>" ", remote: true  do %>
+					<i class="glyphicon glyphicon-list span-icon"></i> 
+					<span class="span-text">订单管理</span>
+					<% end %>
+				</li>			
+				
+				
+				<li class="ui-side-item ">
+					<%= link_to dashboard_msg_path, :class=>" ", remote: true do %>
+					<i class="glyphicon  glyphicon-envelope span-icon"></i>
+					<span class="span-text">消息管理</span>
+					<% end %>
+				</li>
+				
+				<li class="ui-side-item ">
+					<%= link_to dashboard_settings_path, :class=>" ", remote: true do %>
+					<i class="glyphicon  glyphicon-cog span-icon"></i>
+					<span class="span-text">设置</span>
 					<% end %>
 				</li>
 
@@ -32,7 +43,7 @@
 		
 		<%= render "dashboard/my_profile" %>
 		
-		
+		 
 	</div>
 
 </div>

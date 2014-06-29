@@ -27,17 +27,24 @@
 		}
 		
 		.ui-side-item{
-			line-height: 50px;
 			cursor: pointer;
-			padding: 0 10px; 
 			background: #ececec;
-			border-bottom: 1px solid #f2f2f2;
+			font-size: 14px;
+			.span-text{
+				padding-right: 5px;
+			}
+			
+			.span-icon{ /* NOTE: can only use font icon files under folder public */  
+				font-size: 16px;
+				vertical-align: middle;
+			}
 		}
 		
 		.ui-side-item.active{
 			cursor: default;
 			color: #fff;
 			background: #00a8e8;
+			font-weight: bold;
 			
 			a{
 				color: #fff;
@@ -57,6 +64,11 @@
 			margin: 0;
 			padding: 0;
 			
+			.tab-item i{
+				padding: 0 5px;
+			}
+			
+			/*
 			.tab-headers{
 				line-height: 50px;
 			
@@ -76,7 +88,7 @@
 						cursor: pointer;
 					}
 					
-					.tab-item-active{
+					.active{
 						background: #fff;
 						border: 1px solid #e0e0e0;
 						border-top: 4px solid #00a8e8;
@@ -95,23 +107,28 @@
 					
 				}
 			}
+			*/
+			
 			
 			.tab-content{
 				padding: 10px;
 				border: 1px solid #e0e0e0;
-				
+				border-top: none; 
 				background: #fff;
 				display: block;
-				min-height: 240px;
 				
+				min-height: 500px;
+				
+				/*
 				float: left;
 				position: absolute;
 				top: 50px;
 				width: 100%;
-				border-top: none; 
-				
+				*/				
 				
 			}
+			
+			
 		}
 		
 	}

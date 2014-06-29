@@ -53,4 +53,22 @@ module OrdersHelper
   end
   
 
+    # orders I participate 
+  def my_biddings( user_id, page_info )
+    default_order_by = "create_time DESC"
+    @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id).page(page_info)
+  end
+  
+  
+   # orders I place
+  def my_purchases( user_id , status, page_info )
+    default_order_by = "create_time DESC"   
+    
+    if !status || status == '' || status < 0
+      @orders = Order.where(buyer_id: user_id).order(default_order_by).page(page_info)
+    else
+      @orders = Order.where(buyer_id: user_id, status: status.to_i).order(default_order_by).page(page_info)
+    end
+  end
+  
 end

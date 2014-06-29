@@ -7,3 +7,9 @@ $leftMenu.unbind('click').bind('click', function(){
 	$leftMenu.removeClass('active');
 	$(this).addClass('active');
 })
+
+
+$('.right-area .tab-items a').on('click', function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
