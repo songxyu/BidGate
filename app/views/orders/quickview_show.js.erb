@@ -2,6 +2,6 @@ $("#quickview_dialog").html("<%= escape_javascript render(:partial => 'orders/qu
 
 $("#quickview_dialog").overlay().load();
 
-$('.logon_close_btn').click(function(){
+$('.close_btn').click(function(){
 	$("#quickview_dialog").overlay().close();
 });

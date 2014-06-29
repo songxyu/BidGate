@@ -9,122 +9,6 @@
 
 
 //==================== user logon  =============
-.logon-content {
-	width: 360px;
-	float: left;
-	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
-}
-
-.logon-content .logon-form-area{
-	text-align: left;
-}
-
-.logon-content .shake-area {
-	position: relative;
-}
-
-.logon-content .shake-area, .code-enter-item {
-	/*margin-bottom: 16px;*/
-}
-
-.logon-content .enter-area {
-	position: relative;
-	top: 20px;
-}
-
-.logon-content .error-tip {
-	display: none;
-	width: 300px;
-	background: #fff;
-	height: 18px;
-	line-height: 16px;
-}
-
-.logon-content .placeholder {
-	left: 55px;
-	font-style: normal;
-	color: #c2c2c2;
-	font-size: 14px;
-	line-height: 20px;
-	display: inline-block;
-	zoom: 1;
-}
-
-.logon-content .placeholder, .error-tip {
-	position: relative;
-	top: -44px;
-}
-
-.logon-content .error-ico {
-	display: inline-block;
-	zoom: 1;
-	width: 14px;
-	height: 14px;
-	vertical-align: middle;
-	margin-right: 6px;
-	background: -60px -38px no-repeat;
-}
-
-.logon-content .error-msg {
-	color: #ff7448;
-	vertical-align: middle;
-	font-size: 18px;
-}
-
-.logon-content input[type="text"], .logon-content input[type="password"], .logon-content .enter-item {
-	background: #fff;
-	width: 260px;
-	display: block;
-	position: relative;
-	left: 35px;
-	height: 16px;
-	line-height: 20px;
-	padding: 12px 10px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	color: #333;
-	font-size: 14px;
-	font-weight: bold;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-.logon-content .first-enter-item {
-	border-radius: 6px 6px 0 0;
-}
-
-.logon-content .last-enter-item {
-	border-radius: 0 0 6px 6px;
-	margin-top: -11px;
-}
-
-.logon-content .ng-cookie-area {
-  position: relative;
-  left: 30px;
-  top: 20px;
-}
-
-.logon-content input[type="submit"].btn_submit {
-	width: 280px;
-	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
-  position: relative;
-  left: 40px;
-  top: 30px;
-}
-
-.logon-content .button {
-  width: 280px;
-  position: relative;
-  left: 40px;
-  top: 35px;
-}
-
-.logon-content .button a:hover {
-  color: #005580;
-  text-decoration: none;
-  background-color: #eee;
-}
 
 //================ user reg page========================================
 .reg_page {
@@ -224,6 +108,7 @@
 
 .regContainer .regTimelineBar ul {
   margin: 0;
+  padding-left: 0px;
 }
 
 .regContainer .regTimelineBar li span {

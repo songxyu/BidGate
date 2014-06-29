@@ -2,7 +2,7 @@ $("#dialog_logon").html("<%= escape_javascript render(:partial => 'sessions/new'
 
 $("#dialog_logon").overlay().load();
 
-$('.logon_close_btn').click(function(){
+$('.close_btn').click(function(){
 	$("#dialog_logon").overlay().close();
 });
 

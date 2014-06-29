@@ -33,8 +33,17 @@
 								</li>
 
 								<li>
-									<div class="order-timecounter"></div>
-									<span>截止日期：2014.6.30</span>
+									<p class="title">
+										竞拍进度
+									</p>
+									<div class="order-timecounter">
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+												<span class="sr-only">60% Complete</span>
+											</div>
+										</div>
+									</div>
+									<span class="deadline">截止日期：2014.6.30</span>
 								</li>
 							</ul>
 						</div>
@@ -61,7 +70,7 @@
 		<article class="orderContainer">
 			<div class="orderInfoContainer">
 				<div class="orderInfo">
-					<h3>采购明细</h3>
+					<h4>采购明细</h4>
 					<hr class="dashed">
 					<!-- item table TODO hardcode -->
 					<table class="itemTable">
@@ -194,9 +203,12 @@
 				</div>
 			</div>
 
-			<div class="bidBtn">
+			<!-- <div class="">
+			<span class="bidBtnText">竞价</span>
+			</div> -->
+			<button class="btn btn-primary bidBtn">
 				<span class="bidBtnText">竞价</span>
-			</div>
+			</button>
 
 		</div>
 
@@ -228,9 +240,6 @@
 			Personal & Company Verification Info
 		</div>
 
-		
 	</div>
-
-
 
 </div>

@@ -1,25 +1,123 @@
-  #dialog_area {
-    background-color:#fff;
-    display:none;
-    width:350px;
-    padding:15px;
-    text-align:left;
-    border:2px solid #333;
+#dialog_area {
+  background-color:#fff;
+  display:none;
+  width:350px;
+  padding:15px;
+  text-align:left;
+  border:2px solid #333;
  
-    opacity:0.8;
-    -moz-border-radius:6px;
-    -webkit-border-radius:6px;
-    -moz-box-shadow: 0 0 50px #ccc;
-    -webkit-box-shadow: 0 0 50px #ccc;
+  opacity:0.8;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  -moz-box-shadow: 0 0 50px #ccc;
+  -webkit-box-shadow: 0 0 50px #ccc;
   }
  
-  #dialog_area h3 {
-    background:url(/media/img/global/info.png) 0 50% no-repeat;
-    margin:0px;
-    padding:10px 0 10px 45px;
-    border-bottom:1px solid #333;
-    font-size:20px;
+#dialog_area h3 {
+  background:url(/media/img/global/info.png) 0 50% no-repeat;
+  margin:0px;
+  padding:10px 0 10px 45px;
+  border-bottom:1px solid #333;
+  font-size:20px;
   }
+
+//==================== user logon dialog =====================
+  
+.dialog_logon {
+  width: 550px;
+  height: 400px;
+  background-color: #fefefe;
+  border: 1px solid #666;
+  border-radius: 4px;
+  box-shadow: 0 0 25px 2px #666;
+  display: none;
+}
+
+.dialog_logon .logon-content {
+  width: 100%;
+  float: left;
+  font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  
+  .left-area {
+    width: 200px;
+    float: left;
+    height: 300px;
+    .nl-login-intro {
+      text-align: center;
+      position: relative;
+      top: 50px;
+    }
+  }
+  
+  .sep-line {
+    width: 1px;
+    height: 300px;
+    border: 1px dashed #bbb;
+    position: absolute;
+    top: 50px;
+    left: 200px;
+  }
+  
+  .logon-form-area{
+    float: left;
+    width: 345px;
+    padding: 20px;
+    
+    .shake-area {
+      position: relative;
+      .enter-area {
+        width: 100%;
+        height: 45px;
+        margin-bottom: 20px;
+        .enter-item {
+          height: 45px;
+        }
+      }
+    }
+  }
+  
+  
+}
+
+
+.dialog_logon .logon_header {
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  background-color: #eee;
+  border-radius: 4px 4px 0 0;
+}
+
+.dialog_logon .logon_header_text {
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 15px;
+  line-height: 40px;
+}
+
+.close_btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-position: 0px -142px;
+  background-repeat: no-repeat no-repeat;
+}
+
+.close_btn .close-btn {
+  font-size: 16px;
+}
+
+.close_btn:hover {
+  background: #8dcae8;
+}
+
+//==================== quickview dialog =====================
   
 .quickview_dialog {
   background-color: #fff;
@@ -33,6 +131,158 @@
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
 }
+
+// quick view dialog
+
+.quickview {
+  width: 100%;
+  height: 100%;
+}
+
+.quickview div {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box; /* Firefox */
+  -webkit-box-sizing:border-box; /* Safari */
+}
+
+.quickview .left_view {
+  width: 60%;
+  height: 300px;
+  float: left;
+}
+
+.quickview .left_view .header_master {
+  width: 100%;
+  height: 80%;
+  border-bottom: 1px solid #bbb;
+  padding: 20px;
+  
+  .orderHeader {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .lastBidPrice {
+    font-size: 18px;
+    width: 200px;
+    float: right;
+    text-align: right;
+  }
+  
+  .itemTableTitle {
+    position: relative;
+    left: 0px;
+    width: 80px;
+    top: 30px;
+  }
+}
+
+.quickview .left_view .itemTable {
+  width: 350px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 45px;
+  border: 1px solid;
+  
+  .title {
+    font-size: 12px;
+  }
+  
+  .alt {
+    background: #eee;
+  }
+  
+}
+
+
+.quickview .left_view .middle_stat {
+  width: 100%;
+  height: 30%;
+  float: left;
+  padding: 20px;
+}
+
+.quickview .right_view {
+  width: 40%;
+  height: 100%;
+  background: #eee;
+  float: left;
+  border-left: 1px solid #bbb;
+}
+
+.quickview .right_view .full_details_btn {
+  width: 150px;
+  height: 45px;
+  background-color: #777;
+  position: relative;
+  float: left;
+  color: #fff;
+  border-bottom: 2px solid #666;
+  text-shadow: 0 1px 0 #555;
+  line-height: 45px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 3px;
+  top: 20px;
+  left: 50px;
+  text-align: center;
+}
+
+.quickview .right_view .quickBidField {
+  position: relative;
+  top: 50px;
+  left: 50px;
+}
+
+.quickview .right_view .quickBidField input {
+  width: 145px;
+  height: 30px;
+  text-align: center;
+}
+
+.quickview .right_view .full_details_btn:hover {
+  background: #888;
+}
+
+.quickview .right_view .quick_bid_btn {
+  width: 150px;
+  height: 45px;
+  position: relative;
+  top: 60px;
+  left: 50px;
+  background: #2996cc;
+  color: #fff;
+  float: left;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 2px solid #1c71ab;
+  text-shadow: 0 1px 0 #555;
+  border-radius: 3px;
+  line-height: 45px;
+  text-align: center;
+}
+
+.quickview .right_view .buyerInfo {
+  font-size: 18px;
+  position: absolute;
+  top: 220px;
+  right: 150px;
+}
+
+.quickview .right_view .quick_bid_btn:hover {
+  background: #00a9e2;
+}
+
+.quickview .footer_view {
+  width: 100%;
+  height: 160px;
+  float: right;
+  border-top: 1px solid #666;
+}
+
+
+//==================== communication dialog =====================
 
 #communication_dialog {
   background-color: #fff;
@@ -57,10 +307,12 @@
       font-size: 15px;
       font-weight: bold;
       padding-left: 15px;
-      
-      .role-name {
-        color: red;
-      }
+      line-height: 40px;
+  }
+  
+  .role-name {
+      color: red;
+      font-size: 15px;
   }
   
   .comm-order-descr {

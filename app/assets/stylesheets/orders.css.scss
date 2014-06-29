@@ -185,154 +185,7 @@
   cursor: default;
 }
 
-// quick view dialog
 
-.quickview {
-  width: 100%;
-  height: 100%;
-}
-
-.quickview div {
-  box-sizing:border-box;
-  -moz-box-sizing:border-box; /* Firefox */
-  -webkit-box-sizing:border-box; /* Safari */
-}
-
-.quickview .left_view {
-  width: 60%;
-  height: 300px;
-  float: left;
-}
-
-.quickview .left_view .header_master {
-  width: 100%;
-  height: 80%;
-  border-bottom: 1px solid #bbb;
-  padding: 20px;
-  
-  .orderHeader {
-    float: left;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .lastBidPrice {
-    font-size: 18px;
-    width: 200px;
-    float: right;
-    text-align: right;
-  }
-  
-  .itemTableTitle {
-    position: relative;
-    left: 0px;
-    width: 80px;
-    top: 30px;
-  }
-}
-
-.quickview .left_view .itemTable {
-  width: 350px;
-  height: 100px;
-  margin: 0 auto;
-  margin-top: 45px;
-  border: 1px solid;
-  
-  .title {
-    font-size: 12px;
-  }
-  
-  .alt {
-    background: #eee;
-  }
-  
-}
-
-
-.quickview .left_view .middle_stat {
-  width: 100%;
-  height: 30%;
-  float: left;
-  padding: 20px;
-}
-
-.quickview .right_view {
-  width: 40%;
-  height: 100%;
-  background: #eee;
-  float: left;
-  border-left: 1px solid #bbb;
-}
-
-.quickview .right_view .full_details_btn {
-  width: 150px;
-  height: 45px;
-  background-color: #777;
-  position: relative;
-  float: left;
-  color: #fff;
-  border-bottom: 2px solid #666;
-  text-shadow: 0 1px 0 #555;
-  line-height: 45px;
-  text-decoration: none;
-  font-size: 17px;
-  border-radius: 3px;
-  top: 20px;
-  left: 50px;
-  text-align: center;
-}
-
-.quickview .right_view .quickBidField {
-  position: relative;
-  top: 50px;
-  left: 50px;
-}
-
-.quickview .right_view .quickBidField input {
-  width: 145px;
-  height: 30px;
-  text-align: center;
-}
-
-.quickview .right_view .full_details_btn:hover {
-  background: #888;
-}
-
-.quickview .right_view .quick_bid_btn {
-  width: 150px;
-  height: 45px;
-  position: relative;
-  top: 60px;
-  left: 50px;
-  background: #2996cc;
-  color: #fff;
-  float: left;
-  text-decoration: none;
-  font-size: 17px;
-  border-bottom: 2px solid #1c71ab;
-  text-shadow: 0 1px 0 #555;
-  border-radius: 3px;
-  line-height: 45px;
-  text-align: center;
-}
-
-.quickview .right_view .buyerInfo {
-  font-size: 18px;
-  position: absolute;
-  top: 220px;
-  right: 150px;
-}
-
-.quickview .right_view .quick_bid_btn:hover {
-  background: #00a9e2;
-}
-
-.quickview .footer_view {
-  width: 100%;
-  height: 160px;
-  float: right;
-  border-top: 1px solid #666;
-}
 
 //**** order details page ****/
 .orderDetailPage {
@@ -418,9 +271,9 @@
   color: #555;
   line-height: 20px;
   .order-must-title {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
-    width: 300px;
+    width: 400px;
     float: left;
   }
   .order-id {
@@ -456,6 +309,7 @@
       ul {
         list-style: none;
         margin: 0px;
+        padding-left: 0px;
       }
       li {
         float: left;
@@ -480,8 +334,12 @@
         p {
           margin-top: 20px;
         }
-        .order-counter {
-          margin-top: 20px;
+        .order-timecounter {
+          width: 80%;
+          margin: 0 auto;
+        }
+        .deadline {
+          font-size: 12px;
         }
       }
       li:last-child {
@@ -784,17 +642,13 @@ hr.dashed {
 #bidActionArea .bidBtn {
   width: 224px;
   height: 45px;
-  border-radius: 2px;
   margin: 40px auto;
   background: #2996cc;
-  cursor: pointer;
-  text-align: center;
 }
 
 #bidActionArea .bidBtn .bidBtnText {
   font-size: 18px;
   letter-spacing: 10px;
-  line-height: 45px;
   color: #fff;
 }
 
