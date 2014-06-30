@@ -114,49 +114,49 @@
 	float: right;
 	width: 330px;
 	height: 72px;
-}
-
-.header .masthead .header_right a {
-	color: #555;
-}
-
-.header .masthead .header_right a:hover {
-	text-decoration: none;
-}
-
-.header .masthead .header_right ul {
-	margin: 0px 5px;
-	padding-left: 10px;
-}
-
-.header .masthead .header_right .welcome-signin {
-	font-size: 18px;
-	height: 72px;
-	position: relative;
-	text-align: center;
-	list-style: none;
-	float: left;
-}
-
-.header .masthead .header_right .welcome-signin li {
-	width: 60px;
-	line-height: 72px;
-	float: left;
-}
-
-.header .masthead .header_right .welcome-signin a:hover,
-.header .masthead .header_right .welcome-signin li:hover{
-	color: #2996cc;
-	cursor: pointer;
-}
-
-.header .masthead .header_right .welcome-signin li.clicked {
-	background: #2996cc;
-	color: #fff;
-}
-
-.header .masthead .header_right .welcome-signin li.clicked + a {
-	color: #fff;
+	
+	a {
+	  color: #555;
+	}
+	a:hover {
+	  text-decoration: none;
+	}
+	ul {
+	  margin: 0px 5px;
+    padding-left: 10px;
+	}
+	
+	.welcome-signin {
+    font-size: 18px;
+    height: 72px;
+    position: relative;
+    text-align: center;
+    list-style: none;
+    float: left;
+    
+    li {
+      width: 60px;
+      line-height: 72px;
+      float: left;
+    }
+    
+    .my-profile-link {
+      width: 180px;
+    }
+    a:hover, li:hover{
+      color: #2996cc;
+      cursor: pointer;
+    }
+    li.clicked {
+      background: #2996cc;
+      color: #fff;
+    }
+    
+    li.clicked + a {
+      color: #fff;
+    }
+    
+  }
 }
 
 //----- TODO icons -------//

@@ -16,7 +16,7 @@
 					<div class="hr"></div>
 					<br>
 					<span>手机信息验证</span>
-					
+
 				</li>
 
 				<li class="step">
@@ -39,10 +39,21 @@
 			<ul class="userBasicInfo">
 				<li>
 					<div class="fieldLabel">
-						<%= f.label :username, "称呼"%><span class="asterisk">*</span>
+						<%= f.label :username, "用户名"%><span class="asterisk">*</span>
 					</div>
-					<div class="fieldInput">
-						<%= f.text_field :username, :placeholder => "输入您的姓氏" %>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+						<%= f.text_field :username, :class => "form-control reg-input", :placeholder => "输入您的用户名" %>
+					</div>
+				</li>
+				
+				<li>
+					<div class="fieldLabel">
+						<%= f.label :email, "邮箱"%><span class="asterisk">*</span>
+					</div>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+						<%= f.text_field :email, :class => "form-control reg-input", :placeholder => "输入您的邮箱" %>
 					</div>
 				</li>
 
@@ -50,24 +61,27 @@
 					<div class="fieldLabel">
 						<%= f.label :contact_cellphone, "手机号码"%><span class="asterisk">*</span>
 					</div>
-					<div class="fieldInput">
-						<%= f.text_field :contact_cellphone, :placeholder => "输入手机号码" %>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+						<%= f.text_field :contact_cellphone, :class => "form-control reg-input", :placeholder => "输入手机号码" %>
 					</div>
 				</li>
 				<li>
 					<div class="fieldLabel">
-						<%= f.label :password_digest, "登录密码"%><span class="asterisk">*</span>
+						<%= f.label :password, "登录密码"%><span class="asterisk">*</span>
 					</div>
-					<div class="fieldInput">
-						<%= f.text_field :password_digest, :placeholder => "输入密码" %>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+						<%= f.password_field :password, :class => "form-control reg-input", :placeholder => "输入密码" %>
 					</div>
 				</li>
 				<li>
 					<div class="fieldLabel">
-						<%= f.label :password_digest, "重复密码"%><span class="asterisk">*</span>
+						<%= f.label :password_confirmation, "重复密码"%><span class="asterisk">*</span>
 					</div>
-					<div class="fieldInput">
-						<%= f.text_field :password_digest, :placeholder => "再次输入密码" %>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+						<%= f.password_field :password_confirmation, :class => "form-control reg-input", :placeholder => "再次输入密码" %>
 					</div>
 				</li>
 
@@ -86,17 +100,16 @@
 						</div>
 					</div>
 				</li>
-				
+
 				<li>
-					<div class="agreementArea">
-						<span class="agreeSelect">
-							<input id='agree' name='agree' type='checkbox'>
-						</span>
-						<span> 我已阅读并同意</span><a href="" target="_blank">《壹百万网站服务协议》</a>
+					<div class="checkbox agreementArea">
+						<label>
+							<input type="checkbox">
+							<span class="agree-text">我已阅读并同意<a href="" target="_blank">《壹百万网站服务协议》</a></span></label>
 					</div>
 				</li>
 				<li>
-					<div id="submitBtn" class="button"><span>立即注册</span></div>
+					<%= f.submit "立即注册", :class => "button submitBtn", :id => "btn_submit_reg", :remote => true %>
 				</li>
 
 			</ul>

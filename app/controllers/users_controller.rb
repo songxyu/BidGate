@@ -23,7 +23,43 @@ class UsersController < CommonController
     render  layout: false, template: "users/user.html.erb"
   end
 
-  def create
+
+def create
+  
+    createdUserInfo = params[:user]
+
+    # TODO
+    createdUserInfo['company_id'] = -1
+    createdUserInfo['nickname'] = createdUserInfo['username']
+    
+    
+    createdUserInfo['status'] = 0
+    createdUserInfo['signup_time'] = DateTime.current
+    createdUserInfo['last_signin_time'] = DateTime.current
+    createdUserInfo['last_signin_ip'] = request.remote_ip # retrieve user client ip
+
+    # create the new user
+    @user = User.new(createdUserInfo)
+    logger.debug '=========== before encypted password user info: '
+    logger.debug @user.to_s
+
+    if @user.save
+      logger.debug '=========== after saved, encypted password user info: '
+      logger.debug @user.to_s
+
+      session[:user_id] = @user.id
+      redirect_to signup_success_url #, :notice => "注册成功!"
+    else
+      logger.debug "Fail to create new user! redirect to reg page..."
+      flash.now.alert = "Fail to create user!"
+      @user = User.new
+      render "new" and return
+    end
+  end
+  
+  
+  
+  def createOld
     createdUserInfo = params[:user]
 
     # handle company reg cases

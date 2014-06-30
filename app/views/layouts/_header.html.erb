@@ -44,10 +44,15 @@
 
 			<div class="header_right">
 				<ul class="welcome-signin">
+					<!-- <%= link_to "登出", logout_path %> -->
 					<% if current_user %>
-					当前登录为: <b><%= current_user.nickname %> </b> <%= link_to "登出", logout_path %>
+					<!-- 您好， <b><%= current_user.nickname %> </b>  -->
 					<li class="my-profile-link">
-						<%= link_to "我的壹百万",  dashboard_path, remote: true %>
+						<%= link_to dashboard_path, :class=>"", remote: true do %>
+						<span>您好，<b><%= current_user.nickname %> </b> </span>
+						<span class="caret"></span>
+						<%= link_to "出", logout_path %>
+						<% end %>
 					</li>
 					<% else %>
 					<li class="logon">
@@ -58,26 +63,26 @@
 					</li>
 					<% end %>
 
-					<li class="help">
+					<!-- <li class="help">
 						<span>帮助</span>
 						<span class="arrowDown"></span>
 
-					</li>
+					</li> -->
 
 				</ul>
 
 				<!-- <div class="helpDropdownlist">
-					<ul class="dropdown_list">
-						<li class="item" data-name="11" data-item="test1">
-							<span>test1</span>
-						</li>
-						<li class="item" data-name="12" data-item="test2">
-							<span>test2</span>
-						</li>
-						<li class="item" data-name="13" data-item="test3">
-							<span>test3</span>
-						</li>
-					</ul>
+				<ul class="dropdown_list">
+				<li class="item" data-name="11" data-item="test1">
+				<span>test1</span>
+				</li>
+				<li class="item" data-name="12" data-item="test2">
+				<span>test2</span>
+				</li>
+				<li class="item" data-name="13" data-item="test3">
+				<span>test3</span>
+				</li>
+				</ul>
 				</div> -->
 
 				<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
