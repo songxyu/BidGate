@@ -4,12 +4,12 @@
 	<div class="headerHelper">
 		<div class="helper">
 			<div class="hpRight">
-				<div class="helperLink">
-					首页
-				</div>
-				<div class="helperLink">
-					我的壹百万
-				</div>
+				
+				<%= link_to "首页", './', class:"helperLink" %>
+
+				<%= link_to dashboard_path, :class=>"helperLink", remote: true do %>
+				<span>我的壹百万</span>
+				<% end %>
 				<div class="helperLink">
 					常见问题
 				</div>
@@ -64,8 +64,8 @@
 					<% end %>
 
 					<!-- <li class="help">
-						<span>帮助</span>
-						<span class="arrowDown"></span>
+					<span>帮助</span>
+					<span class="arrowDown"></span>
 
 					</li> -->
 

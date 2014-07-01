@@ -42,17 +42,17 @@
 						<%= f.label :username, "用户名"%><span class="asterisk">*</span>
 					</div>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-user reg-icon"></span></span>
 						<%= f.text_field :username, :class => "form-control reg-input", :placeholder => "输入您的用户名" %>
 					</div>
 				</li>
-				
+
 				<li>
 					<div class="fieldLabel">
 						<%= f.label :email, "邮箱"%><span class="asterisk">*</span>
 					</div>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-envelope reg-icon"></span></span>
 						<%= f.text_field :email, :class => "form-control reg-input", :placeholder => "输入您的邮箱" %>
 					</div>
 				</li>
@@ -62,7 +62,7 @@
 						<%= f.label :contact_cellphone, "手机号码"%><span class="asterisk">*</span>
 					</div>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-phone reg-icon"></span></span>
 						<%= f.text_field :contact_cellphone, :class => "form-control reg-input", :placeholder => "输入手机号码" %>
 					</div>
 				</li>
@@ -71,7 +71,7 @@
 						<%= f.label :password, "登录密码"%><span class="asterisk">*</span>
 					</div>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-lock reg-icon"></span></span>
 						<%= f.password_field :password, :class => "form-control reg-input", :placeholder => "输入密码" %>
 					</div>
 				</li>
@@ -80,7 +80,7 @@
 						<%= f.label :password_confirmation, "重复密码"%><span class="asterisk">*</span>
 					</div>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-lock reg-icon"></span></span>
 						<%= f.password_field :password_confirmation, :class => "form-control reg-input", :placeholder => "再次输入密码" %>
 					</div>
 				</li>
@@ -92,12 +92,25 @@
 					<div class="fieldRole">
 						<div>
 							<div id="role_purchaser" class="role_selection">
-								<span>采购经理</span><i></i>
+								<span>采购经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
 							</div>
 							<div id="role_vendor" class="role_selection">
-								<span>销售经理</span><i></i>
+								<span>销售经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
 							</div>
 						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="fieldLabel">
+						<label>验证码</label>
+						<span class="asterisk">*</span>
+					</div>
+					<!-- <div class="fieldVerifyCode">
+					<input type="text" class="form-control reg-verify-code">
+					</div> -->
+					<div class="fieldInput">
+						<input type="text" class="form-control reg-verify-code">
 					</div>
 				</li>
 

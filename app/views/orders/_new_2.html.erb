@@ -32,39 +32,39 @@
 				<div class="category_select">
 					<div class="btn_group">
 						<%
-							top_level_categories = get_categories_array(0, false);						
-						%>					
-						
-						<ul> 
+ top_level_categories = get_categories_array(0, false);
+%>
+
+						<ul>
 							<% top_level_categories.each do |cate| %>
-								<li class="select_btn" data-name="<%=cate.name%>" data-type-id="<%=cate.id%>">
-									<span><%=cate.name%></span>
-								</li>
-							<% end %> 
-							
-							<!-- 
+							<li class="select_btn" data-name="<%= cate.name%>" data-type-id="<%= cate.id%>">
+								<span><%= cate.name%></span>
+							</li>
+							<% end %>
+
+							<!--
 							<li class="select_btn" data-name="steel" data-type-id="1">
-								<span>钢材/不锈钢</span>
+							<span>钢材/不锈钢</span>
 							</li>
 
 							<li class="select_btn" data-name="chemistry" data-type-id="2">
-								<span>化工化学</span>
+							<span>化工化学</span>
 							</li>
 
 							<li class="select_btn" data-name="plastics" data-type-id="3">
-								<span>塑料</span>
+							<span>塑料</span>
 							</li>
 
 							<li class="select_btn" data-name="rubber" data-type-id="3">
-								<span>橡胶</span>
+							<span>橡胶</span>
 							</li>
 
 							<li class="select_btn" data-name="wood" data-type-id="4">
-								<span>木材</span>
+							<span>木材</span>
 							</li>
 
 							<li class="select_btn" data-name="alloy" data-type-id="5">
-								<span> 镍 /锡/合金</span>
+							<span> 镍 /锡/合金</span>
 							</li>
 							-->
 
@@ -120,7 +120,7 @@
 				<div class="city_select">
 					<div class="bg">
 						<div class="icon_location"></div>
-						<input class="city_input" />
+						<input type="text" class="form-control city_input" placeholder="请输入交货城市" />
 					</div>
 				</div>
 			</div>
@@ -133,37 +133,42 @@
 	</div>
 </div>
 
+<!---=========== Order Details Edit ============== -->
 
-
-		
 <link rel="stylesheet" href="javascripts/SlickGrid/slick.grid.css" type="text/css"/>
 <link rel="stylesheet" href="javascripts/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
 <div class="create_order_step2">
-	
+
 	<div class="selectionQuickview"></div>
 
-	<div class="left-area">
+	<div class="left-area col-md-8">
 		<div class="left-header">
-			<div class="headerTitle">编辑我的采购单</div>
+			<div class="headerTitle">
+				编辑我的采购单
+			</div>
 		</div>
 		<p class="tableTitle">
-			采购物料
+			<span class="glyphicon glyphicon-pencil item-icon"></span><span> 采购物料</span>
 		</p>
 		<div class="order-items-grid-area"></div>
-		
-		<div class="add-items-btn"><span> + 添加物料</span></div>
-		
+
+		<div class="add-items-btn">
+			<span> + 添加物料</span>
+		</div>
+
 		<div class="order-vendor-area">
 			<p class="tableTitle">
-			竞拍供应商列表
-		</p>
+				<span class="glyphicon glyphicon-pencil item-icon"></span><span> 竞拍供应商列表</span>
+			</p>
 			<div class="order-vendor-list">
-				
+
 			</div>
-			<div class="add-vendor-btn"><span> + 添加供应商</span></div>
-			
+			<div class="add-vendor-btn">
+				<span> + 添加供应商</span>
+			</div>
+
 		</div>
-		
+
 		<div class="order-other-info-area">
 			<div class="label-column">
 				<div class="label">
@@ -186,131 +191,162 @@
 				</div>
 			</div>
 			<div class="input-column">
-				<div class="values">	
-					<input class="price" placeholder="  输入总价格"/>
-					<span>万元</span>				 
-				</div>	
-				<div class="values">	
+				<div class="values">
+					<input type="text" class="form-control price" placeholder="  输入总价格"/>
+				</div>
+				<div class="values">
 					<select class="payment" >
-					<option value="1">押金</option>
-					<option value="2">押金 + 尾期款</option>
-					<option value="3">担保支付</option>
-					</select>				 
+						<option value="1">押金</option>
+						<option value="2">押金 + 尾期款</option>
+						<option value="3">担保支付</option>
+					</select>
 				</div>
-				<div class="values">	
-					<input class="date-input deadline" />									 
-				</div>	
-				<div class="values">	
-					<input class="date-input delivery-date" />									 
-				</div>	
-				<div class="values">	
-					<input class="shipping-addr" placeholder="  输入交货地址"/>									 
-				</div>	
-				<div class="values">	
-					<textarea class="order-memo" />									 
+
+				<!-- <div class="btn-group">
+				<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">
+				Stainless Steel <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+				<li>10% 押金</li>
+				<li>10% 押金 + 尾期款</li>
+				<li>担保支付</li>
+				</ul>
+				</div> -->
+
+				<div class="values">
+					<input class="date-input deadline" />
 				</div>
-				
+				<div class="values">
+					<input class="date-input delivery-date" />
+				</div>
+				<div class="values">
+					<input class="shipping-addr" placeholder="  输入交货地址"/>
+				</div>
+				<div class="values">
+					<textarea class="order-memo" />
+				</div>
+
 			</div>
 		</div>
-		
+
 		<div class="submit-area">
-			<div class="orderSubmitBtn" >提交订单</div>
-			
+			<button type="button" class="btn btn-default order-submit-btn">
+				提交订单
+			</button>
+
 		</div>
-		
+
 	</div>
 
 	<div class="right-area">
 		<div class="right-header">
-			<div class="preview-btn">预览</div>
+			<div class="preview-btn">
+				预览
+			</div>
 		</div>
-		<div class="dynamic-select-area">		
+		<div class="dynamic-select-area">
 			<div class="field-list">
 				<div class="section-label">
 					基本信息: xxx
 				</div>
-				
-				 <div class="item-field-area">
-								
-				 	<p>子类别:</p>				 	
-					<div class="category_dropdown_list"></div> 
-				 </div>
-				 
-				 <div class="item-field-area">			 	
-				 	<p>名称:</p>
+
+				<div class="item-field-area">
+
+					<p>
+						子类别:
+					</p>
+					<div class="category_dropdown_list"></div>
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						名称:
+					</p>
 					<input class="input name" />
-				 </div>
-				 
-				 <div class="item-field-area">			 	
-				 	<p>型号:</p>
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						型号:
+					</p>
 					<input class="input model" />
-				 </div>
-				 
-				 <div class="item-field-area">			 	
-				 	<p>产地:</p>
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						产地:
+					</p>
 					<input class="input location" />
-				 </div>
-				 
-				 <div class="item-field-area">			 	
-				 	<p>数量:</p>
-					<input class="input quantity" /><span class="category-unit"/>
-				 </div>
-				 
-				  <div class="item-field-area">			 	
-				 	<p>描述:</p>
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						数量:
+					</p>
+					<input class="input quantity" />
+					<span class="category-unit"/>
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						描述:
+					</p>
 					<textarea class="input memo" />
-				 </div>
-				 
-				 <div class="section-label">
-					更多信息: 
-				 </div>
-				 
-			 	 <div class="dynamic_properties">
-			 	 </div>
-			</div>	 
-			
-			<div class="button-area">
-				<button class="add-one-btn add-one-item-btn"><span>添加</span></button>
+				</div>
+
+				<div class="section-label">
+					更多信息:
+				</div>
+
+				<div class="dynamic_properties"></div>
 			</div>
-			
-			
-			
+
+			<div class="button-area">
+				<button class="btn btn-success add-one-item-btn">
+					添加
+				</button>
+			</div>
+
 		</div>
-				
-		<div class="vendor-select-area">		
+
+		<div class="vendor-select-area">
 			<div class="field-list">
 				<div class="section-label">
-					可选供应商: 
-				</div>				
-				 
-			 	<div class="vendor_list">
-					<%
-					vendors = []
-					if current_user
-						company_id = current_user.company.id
-						vendors = CompanyVendor.get_vendor_list(company_id)
-					end					
-					%>
-					
+					可选供应商:
+				</div>
+
+				<div class="vendor_list">
+					<% vendors = []
+            if current_user
+              company_id = current_user.company.id
+              vendors = CompanyVendor.get_vendor_list(company_id)
+            end
+%>
+
 					<% vendors.each do |v| %>
 					<div class="one-vendor">
-						 <input name="vendor-<%=v.id%>" type="checkbox" value="<%=v.id%>" data-location="<%=v.register_address%>" data-mainbiz="<%=v.main_biz%>"/>
-						 <label for="vendor-<%=v.id%>"> <%=v.name%> </label>
+						<input name="vendor-<%= v.id%>" type="checkbox" value="<%= v.id%>" data-location="<%= v.register_address%>" data-mainbiz="<%= v.main_biz%>"/>
+						<label for="vendor-<%= v.id%>"> <%= v.name%> </label>
 					</div>
 					<% end %>
-				</div> 
-				  
-			</div>	 
-			
-			<div class="button-area">
-				<button class="add-one-btn add-one-vendor-btn"><span>添加</span></button>
+				</div>
+
 			</div>
-			
-			
-			
+
+			<div class="button-area">
+				<button class="add-one-btn add-one-vendor-btn">
+					<span>添加</span>
+				</button>
+			</div>
+
 		</div>
-		
-		<div class="empty-info"><div></div><p>轻松添加采购物料，合理设定价格，能帮助您更快的找到最低价格</p></div>
+
+		<div class="empty-info">
+			<div></div>
+			<p>
+				轻松添加采购物料，合理设定价格，能帮助您更快的找到最低价格
+			</p>
+		</div>
 	</div>
 
 </div>

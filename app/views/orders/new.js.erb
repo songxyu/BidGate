@@ -240,6 +240,8 @@ var fnShowRightArea = function(rightDivClass){
 	$step2Area.find('.dynamic-select-area').hide();
 	$step2Area.find('.vendor-select-area').hide();
 	$step2Area.find('.empty-info').hide();
+	
+	resetFieldArea();
 	$step2Area.find('.'+rightDivClass).show();
 };
 
@@ -398,6 +400,9 @@ var addOrderItems = function(columnData){
 		}		
 		
 		gCategoryChanged = false;
+		
+		resetFieldArea();
+		
 	});
   
     return {"grid": grid, 'dataView': dataView};
@@ -411,6 +416,10 @@ var addOrderItems = function(columnData){
 	// oGridInfo.grid.setColumns(columnDefs);
 	// oGridInfo.dataView.setItems([]);
 // };
+
+var resetFieldArea = function(){
+	$step2Area.find('.dynamic-select-area .field-list .input').val('');
+}
 
 var addVendorsGrid = function(){
 	var vendorGridTotalWidth = 600;
@@ -485,6 +494,8 @@ var addVendorsGrid = function(){
 			}
 		});
 		
+		
+		
 		//vendorDataView.beginUpdate();
 		vendorDataView.setItems(selectedVendors); // clear and set new rows
 		//vendorDataView.endUpdate();
@@ -493,6 +504,18 @@ var addVendorsGrid = function(){
 	
 	return {grid: vendorGrid, dataView: vendorDataView};
 };
+
+var $payment = $('div.btn-group ul.dropdown-menu li a');
+
+$payment.click(function(e){
+			var $div = $(this).parent().parent().parent();
+			var $btn = $div.find('button');
+			$btn.html($(this).text() + ' <span class="caret"></span>');
+			$div.removeClass('open');
+			e.preventDefault();
+			return false;
+			
+		});
   
 
 
