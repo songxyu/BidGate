@@ -16,7 +16,9 @@ BidGate::Application.routes.draw do
   #   resources :products
   
   get "dashboard/dashboard" => "users#dashboard", :as => "dashboard" # account info
-  get "dashboard/dashboard_orders" => "users#dashboard_orders", :as => "dashboard_orders"
+  get "dashboard/dashboard_orders" => "orders#dashboard_orders", :as => "dashboard_orders"
+  get "dashboard/dashboard_purchases" => "orders#dashboard_purchase_orders_all", :as => "dashboard_purchases"
+  get "dashboard/dashboard_biddings" => "orders#dashboard_vending_orders_all", :as => "dashboard_biddings"
   get "dashboard/dashboard_msg" => "users#dashboard_msg", :as => "dashboard_msg"
   get "dashboard/dashboard_settings" => "users#dashboard_settings", :as => "dashboard_settings"
   

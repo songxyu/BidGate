@@ -1,2 +1,38 @@
-修改公司信息!
+<!-- 公司注册信息 --> 
+
+<h3>公司信息 </h3> 
+<% if @company %>
+<p>
+	公司名称: <%= @company.name %>
+</p>
+
+<p>
+	公司注册帐号: <%= @company.account_num %>
+</p>
+
+<p>
+	公司法人: <%= @company.legal_person %>
+</p>
+
+<p>
+	主营业务: <%= @company.main_biz %>
+</p>
+
+<p>
+	公司注册地址: <%= @company.register_address %>
+</p>
+
+<p>
+	公司注册资金: <%= @company.register_capital %>
+</p>
+
+<div>
+	<%= link_to '修改', company_edit_path, remote: true %>	
+</div>
+
+<% end %>
+
+
+debug公司信息:
 <%= debug @company %>
+ 

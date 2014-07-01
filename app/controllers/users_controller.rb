@@ -1,5 +1,7 @@
 class UsersController < CommonController
-  include OrdersHelper
+  
+  before_filter  :authorize, :only => [:signup_success, :profile, :edit, 
+          :dashboard, :dashboard_settings, :dashboard_msg]
   
   def new
     @user = User.new
@@ -132,22 +134,10 @@ def create
     common_response
   end
   
-  
+  # ===================== dashboard related =============== 
   def dashboard
     @user = current_user
     render "dashboard/dashboard" and return
-  end
-  
-  def dashboard_orders
-    @user = current_user
-    user_id = @user.id
-    status = params[:status]
-    page_info = params[:page]
-    
-    @orders = OrdersHelper.my_purchases(user_id, status, page_info)
-    
-    @bidding_orders = OrdersHelper.my_biddings(user_id, page_info)
-    render "dashboard/dashboard_orders" and return
   end
   
   
@@ -156,7 +146,7 @@ def create
     render "dashboard/dashboard_msg" and return
   end
   
-  
+  # TODO: 
   def dashboard_settings
     @user = current_user
     render "dashboard/dashboard_settings" and return

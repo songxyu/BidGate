@@ -3,7 +3,7 @@ class OrdersController < CommonController
   include CategoriesHelper
   include OrderGoodsHelper
   
- # before_filter  :authorize, :only => [:new, :edit, :create]
+  before_filter  :authorize, :only => [:new, :edit, :create, :dashboard_orders]
   
   # TODO: fix issue using after_filter: Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action.
   #after_filter :common_response,  :only => [:show, :edit]  #:except => [:create, :update, :delete], 
@@ -291,24 +291,29 @@ class OrdersController < CommonController
  
   # orders I participate 
   def my_biddings
-    default_order_by = "create_time DESC"
-    user_id = session[:user_id]
-    @orders = Order.joins(:order_price_histories).where(':order_price_histories.vendor_id' => user_id)
+    @user = current_user
+    user_id = @user.id
+    page_info = params[:page]
+    @bidding_orders = OrdersHelper.my_biddings(user_id, page_info)
   end
-  
   
     
   # orders I place
   def my_purchases
-    default_order_by = "create_time DESC"
-    user_id = session[:user_id]
+    @user = current_user.id
+    status = params[:status]
+    page_info = params[:page]
     
-    statusVal = params[:status]
-    if !statusVal || statusVal < 0
-      @orders = Order.where(buyer_id: user_id).order(default_order_by).page(params[:page])
-    else
-      @orders = Order.where(buyer_id: user_id, status: statusVal).order(default_order_by).page(params[:page])
-    end
+    @orders = OrdersHelper.my_purchases(user_id, status, page_info)
+  end
+  
+  
+  def my_vendings
+    @user = current_user.id
+    status = params[:status]
+    page_info = params[:page]
+    
+    @orders = OrdersHelper.my_vendings(user_id, status, page_info)
   end
    
   
@@ -317,5 +322,63 @@ class OrdersController < CommonController
     @all_orders = self.my_purchases 
     
   end
+  
+  
+  def dashboard_orders
+    @user = current_user.id
+    status = params[:status]
+    page_info = params[:page]
+    
+    @orders = OrdersHelper.my_purchases(user_id, status, page_info)
+    
+    @bidding_orders = OrdersHelper.my_biddings(user_id, 0, page_info)
+    render "dashboard/dashboard_orders" and return
+  end
+  
+  def dashboard_purchase_orders_all
+    user_id = current_user.id
+    status = params[:status]
+    page_info = params[:page]
+    
+    @orders = OrdersHelper.my_purchases(user_id, status, page_info)
+    render "dashboard/dashboard_purchases" and return
+  end
+  
+  def dashboard_purchase_orders_forpaid
+    
+  end
+  
+  def dashboard_purchase_orders_complete
+    
+  end
+  
+  def dashboard_purchase_orders_bidding
+    
+  end
+  
+  def dashboard_vending_orders_all
+    user_id = current_user.id
+    status = params[:status]
+    page_info = params[:page]
+    
+    @bidding_orders = OrdersHelper.my_biddings(user_id, status, page_info)
+    @orders = OrdersHelper.my_vendings(user_id, status, page_info)
+    
+    render "dashboard/dashboard_vendings" and return
+  end
+  
+  def dashboard_vending_orders_forpaid
+    
+  end
+  
+  def dashboard_vending_orders_complete
+    
+  end
+  
+  def dashboard_vending_orders_bidding
+    
+  end
+  
+  
   
 end

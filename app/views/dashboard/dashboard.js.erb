@@ -13,3 +13,9 @@ $('.right-area .tab-items a').on('click', function (e) {
   e.preventDefault();
   $(this).tab('show');
 });
+
+
+$('#account-profile ').on('click', '.link-to-change-pw', function(){
+	$('.my-profile-page .tab-items a[href="#password-edit"]').tab('show');
+});
+

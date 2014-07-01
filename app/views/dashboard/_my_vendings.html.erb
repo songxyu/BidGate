@@ -1,6 +1,6 @@
-
 <!-- purchased orders  -->
-<div class="my-orders-page">
+
+<div class="my-vending-orders-page">
 	<div class="tab-headers">
 		<ul class="nav nav-tabs  tab-items">
 			<li class="active" >
@@ -12,8 +12,8 @@
 			<li>
 				<a href="#dealed-orders" class="tab-item" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-usd"></i>
-					待付款</a>
-				<!--  link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
+					已成交</a>
+				<!--  link_to "已成交", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
 			</li>
 			<li>
 				<a href="#complete-orders" class="tab-item" role="tab" data-toggle="tab">
@@ -35,18 +35,18 @@
 
 		<div class="tab-pane active" id="bidding-orders">
 		  
-			<%= render "dashboard/my_purchase_bidding_orders" %>
+			<%= render "dashboard/my_vending_bidding_orders" %>
 		  
 		</div>
 		<div class="tab-pane" id="dealed-orders">
-			<%= render "dashboard/my_purchase_forpaid_orders" %>
+			<%= render "dashboard/my_vending_dealed_orders" %>
 		</div>
 		<div class="tab-pane" id="complete-orders">
-			<%= render "dashboard/my_purchase_complete_orders" %>
+			<%= render "dashboard/my_vending_complete_orders" %>
 		</div>
 		<div class="tab-pane" id="all-orders">
 			
-			<%= render "dashboard/my_purchase_all_orders" %>
+			<%= render "dashboard/my_vending_all_orders" %>
 			
 		</div>
 

@@ -53,22 +53,41 @@ module OrdersHelper
   end
   
 
-    # orders I participate 
-  def my_biddings( user_id, page_info )
-    default_order_by = "create_time DESC"
-    @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id).page(page_info)
-  end
+
   
-  
-   # orders I place
+   # orders I placed for purchase
   def my_purchases( user_id , status, page_info )
     default_order_by = "create_time DESC"   
-    
     if !status || status == '' || status < 0
       @orders = Order.where(buyer_id: user_id).order(default_order_by).page(page_info)
     else
       @orders = Order.where(buyer_id: user_id, status: status.to_i).order(default_order_by).page(page_info)
     end
   end
+  
+  
+  # orders I am its vendor
+  def my_vendings( user_id, status, page_info )
+    default_order_by = "create_time DESC"  
+    if !status || status == '' || status < 0
+      @orders = Order.where(vendor_id: user_id).order(default_order_by).page(page_info)
+    else
+      @orders = Order.where(vendor_id: user_id, status: status.to_i).order(default_order_by).page(page_info)
+    end
+    
+  end
+  
+    
+  # all orders I participated bidding
+  def my_biddings( user_id, status, page_info )
+    #self.my_vendings(user_id, nil, page_info)
+    default_order_by = "create_time DESC"
+    if !status || status == '' || status < 0
+      @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id).page(page_info)
+    else
+      @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id, 
+              "orders.status" =>  status.to_i ).page(page_info)
+    end
+  end  
   
 end
