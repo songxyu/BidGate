@@ -1,6 +1,7 @@
 module OrdersHelper
   extend self
   
+  Default_Order_By = "create_time DESC"  
   
   def get_bid_progress(create_time, deadline)
     bid_progres = 0
@@ -57,37 +58,41 @@ module OrdersHelper
   
    # orders I placed for purchase
   def my_purchases( user_id , status, page_info )
-    default_order_by = "create_time DESC"   
     if !status || status == '' || status < 0
-      @orders = Order.where(buyer_id: user_id).order(default_order_by).page(page_info)
+      @orders = Order.where(buyer_id: user_id).order(OrdersHelper::Default_Order_By).page(page_info)
     else
-      @orders = Order.where(buyer_id: user_id, status: status.to_i).order(default_order_by).page(page_info)
+      @orders = Order.where(buyer_id: user_id, status: status.to_i).order(OrdersHelper::Default_Order_By).page(page_info)
     end
   end
   
   
   # orders I am its vendor
   def my_vendings( user_id, status, page_info )
-    default_order_by = "create_time DESC"  
     if !status || status == '' || status < 0
-      @orders = Order.where(vendor_id: user_id).order(default_order_by).page(page_info)
+      @orders = Order.where(vendor_id: user_id).order(OrdersHelper::Default_Order_By).page(page_info)
     else
-      @orders = Order.where(vendor_id: user_id, status: status.to_i).order(default_order_by).page(page_info)
+      @orders = Order.where(vendor_id: user_id, status: status.to_i).order(OrdersHelper::Default_Order_By).page(page_info)
     end
     
   end
   
     
-  # all orders I participated bidding
+  # all orders I participated bidding, status: 1  bidding in process
   def my_biddings( user_id, status, page_info )
     #self.my_vendings(user_id, nil, page_info)
-    default_order_by = "create_time DESC"
     if !status || status == '' || status < 0
-      @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id).page(page_info)
+      @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id)
+          .order(OrdersHelper::Default_Order_By).page(page_info)
     else
       @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id, 
-              "orders.status" =>  status.to_i ).page(page_info)
+              "orders.status" =>  status.to_i ).order(OrdersHelper::Default_Order_By).page(page_info)
     end
+  end  
+  
+   def my_biddings_failed( user_id, page_info )
+      @orders = Order.joins(:order_price_histories).where(
+        "order_price_histories.vendor_id = :userId and orders.status > 1 and orders.vendor_id <> :userId",
+        {userId: user_id} ).order(OrdersHelper::Default_Order_By).page(page_info)
   end  
   
 end

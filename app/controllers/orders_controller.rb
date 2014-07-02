@@ -289,96 +289,105 @@ class OrdersController < CommonController
   end
   
  
-  # orders I participate 
-  def my_biddings
-    @user = current_user
-    user_id = @user.id
-    page_info = params[:page]
-    @bidding_orders = OrdersHelper.my_biddings(user_id, page_info)
-  end
-  
-    
-  # orders I place
-  def my_purchases
-    @user = current_user.id
-    status = params[:status]
+  # default, load all tabs' data
+  def dashboard_purchase_orders
+    user_id = current_user.id
+    #status = params[:status]
     page_info = params[:page]
     
-    @orders = OrdersHelper.my_purchases(user_id, status, page_info)
-  end
-  
-  
-  def my_vendings
-    @user = current_user.id
-    status = params[:status]
-    page_info = params[:page]
-    
-    @orders = OrdersHelper.my_vendings(user_id, status, page_info)
-  end
-   
-  
-  def all_my_orders
-    @bidding_orders = self.my_biddings
-    @all_orders = self.my_purchases 
-    
-  end
-  
-  
-  def dashboard_orders
-    @user = current_user.id
-    status = params[:status]
-    page_info = params[:page]
-    
-    @orders = OrdersHelper.my_purchases(user_id, status, page_info)
-    
-    @bidding_orders = OrdersHelper.my_biddings(user_id, 0, page_info)
-    render "dashboard/dashboard_orders" and return
+    @bidding_orders = OrdersHelper.my_purchases(user_id, 1, page_info)
+    @forpaid_orders = OrdersHelper.my_purchases(user_id, 2, page_info)
+    @complete_orders = OrdersHelper.my_purchases(user_id, 3, page_info)
+    @all_orders = OrdersHelper.my_purchases(user_id, nil, page_info)
+    render "dashboard/dashboard_purchases" and return
   end
   
   def dashboard_purchase_orders_all
     user_id = current_user.id
-    status = params[:status]
     page_info = params[:page]
     
-    @orders = OrdersHelper.my_purchases(user_id, status, page_info)
+    @all_orders = OrdersHelper.my_purchases(user_id, nil, page_info)
     render "dashboard/dashboard_purchases" and return
   end
   
   def dashboard_purchase_orders_forpaid
+    user_id = current_user.id
+    page_info = params[:page]
     
+    @forpaid_orders = OrdersHelper.my_purchases(user_id, 2, page_info)
+    render "dashboard/dashboard_purchases" and return
   end
   
   def dashboard_purchase_orders_complete
-    
-  end
-  
-  def dashboard_purchase_orders_bidding
-    
-  end
-  
-  def dashboard_vending_orders_all
     user_id = current_user.id
-    status = params[:status]
     page_info = params[:page]
     
-    @bidding_orders = OrdersHelper.my_biddings(user_id, status, page_info)
-    @orders = OrdersHelper.my_vendings(user_id, status, page_info)
+    @complete_orders = OrdersHelper.my_purchases(user_id, 3, page_info)
+    render "dashboard/dashboard_purchases" and return
+  end
+  
+  # orders in bidding process, my purchased orders!
+  def dashboard_purchase_orders_bidding
+    user_id = current_user.id
+    page_info = params[:page]
+    
+    @bidding_orders = OrdersHelper.my_purchases(user_id, 1, page_info)
+    render "dashboard/dashboard_purchases" and return
+  end
+  
+  # default, load all tabs' data
+  def dashboard_vending_orders
+    user_id = current_user.id
+    #status = params[:status]
+    page_info = params[:page]
+    
+    @bidding_orders = OrdersHelper.my_biddings(user_id, 1, page_info)
+    @fail_bidding_orders = OrdersHelper.my_biddings_failed(user_id, page_info)
+    @dealed_orders = OrdersHelper.my_vendings(user_id, 2, page_info)
+    @complete_orders = OrdersHelper.my_vendings(user_id, 3, page_info)
+    @all_orders = OrdersHelper.my_vendings(user_id, nil, page_info)
     
     render "dashboard/dashboard_vendings" and return
   end
   
-  def dashboard_vending_orders_forpaid
+  def dashboard_vending_orders_all
+    user_id = current_user.id
+    page_info = params[:page]
     
+    @all_orders = OrdersHelper.my_vendings(user_id, nil, page_info)
+    render "dashboard/dashboard_vendings" and return
+  end
+  
+  def dashboard_vending_orders_dealed
+    user_id = current_user.id
+    page_info = params[:page]
+    
+    @dealed_orders = OrdersHelper.my_vendings(user_id, 2, page_info)
+    render "dashboard/dashboard_vendings" and return
   end
   
   def dashboard_vending_orders_complete
+    user_id = current_user.id 
+    page_info = params[:page]
     
+    @complete_orders = OrdersHelper.my_vendings(user_id, 3, page_info)
+    render "dashboard/dashboard_vendings" and return
   end
   
   def dashboard_vending_orders_bidding
+    user_id = current_user.id
+    page_info = params[:page]
     
+    @bidding_orders = OrdersHelper.my_vendings(user_id, 1, page_info)
+    render "dashboard/dashboard_vendings" and return
   end
   
-  
+  def dashboard_vending_orders_fail_bidding
+    user_id = current_user.id
+    page_info = params[:page]
+    
+    @fail_bidding_orders = OrdersHelper.my_biddings_failed(user_id, page_info)    
+    render "dashboard/dashboard_vendings" and return
+  end
   
 end

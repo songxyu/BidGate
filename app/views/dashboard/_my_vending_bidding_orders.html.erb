@@ -1,5 +1,5 @@
 <div class="my-bidding-orders-page">
-	<h3>竞价进行中的订单</h3>
+	<h3>竞拍进行中的订单</h3>
 	
 	<% @bidding_orders.each do |order| %>
 
@@ -44,4 +44,7 @@
 
 	<% end %>
 
+	<div class="pagination_area">
+		<%= paginate @bidding_orders, :remote => true  %>
+	</div>
 </div>

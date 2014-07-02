@@ -1,7 +1,36 @@
 
+<%
+	logger.debug "======= responded with rendered dashboard_purchases.js.erb ======"
+	relative_path_arr = request.fullpath.split('/')
+	ctrl_name = relative_path_arr[1] # params[:path]
+ 	action_name = relative_path_arr[2].split('?')[0]  # params[:action] 
+	logger.debug "*** path controller_name= " + ctrl_name +", path action_name= " + action_name 
+  	
+  	default_partial_templ = 'my_purchases'
+  	partial_template_path = default_partial_templ
+  	if ctrl_name == 'dashboard'
+  		partial_template_path = 
+  		case action_name
+  		when 'dashboard_purchases_all' then 'my_purchase_all_orders'
+  		when 'dashboard_purchases_forpaid' then 'my_purchase_forpaid_orders'
+  		when 'dashboard_purchases_complete' then 'my_purchase_complete_orders'
+  		when 'dashboard_purchases_bidding' then 'my_purchase_bidding_orders'
+  		else default_partial_templ
+  	  	end
+  	  	
+  	  	logger.debug "*** partial_template_path: " + partial_template_path
+  	end
+  	
+%>
 
 var $dashboard_rightarea =  $(".content_area .dashboard-page .right-area");
-$dashboard_rightarea.html("<%= escape_javascript render(:partial => 'dashboard/my_purchases') %>");
+
+<% if partial_template_path == default_partial_templ %>
+$dashboard_rightarea.html("<%= escape_javascript render(:partial => 'dashboard/'+ partial_template_path ) %>");
+<% else %>
+$dashboard_rightarea.find('#'+partial_template_path).html("<%= escape_javascript render(:partial => 'dashboard/'+ partial_template_path ) %>");
+<% end %>
+
 
 // var $tabHeader = $dashboard_rightarea.find(".tab-headers");
 //var $tabItems = $tabHeader.find('.tab-item');

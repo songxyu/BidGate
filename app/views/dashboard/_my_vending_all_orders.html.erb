@@ -1,7 +1,7 @@
 <div class="all-orders-page">
-	<h3>我的所有采购单</h3>
+	<h3>我的所有成功的竞拍单</h3>
 
-	<% @orders.each do |order| %>
+	<% @all_orders.each do |order| %>
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -43,6 +43,6 @@
 	<% end %>
 
 	<div class="pagination_area">
-		<%= paginate @orders, :remote => true  %>
+		<%= paginate @all_orders, :remote => true  %>
 	</div>
 </div>

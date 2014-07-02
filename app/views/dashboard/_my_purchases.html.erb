@@ -4,25 +4,25 @@
 	<div class="tab-headers">
 		<ul class="nav nav-tabs  tab-items">
 			<li class="active" >
-				<a href="#bidding-orders" class="tab-item" role="tab" data-toggle="tab">
+				<a href="#my_purchase_bidding_orders" class="tab-item" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
 					竞价中</a>
 				<!--   link_to "竞价中",  my_biddings_path, remote: true  -->
 			</li>
 			<li>
-				<a href="#dealed-orders" class="tab-item" role="tab" data-toggle="tab">
+				<a href="#my_purchase_forpaid_orders" class="tab-item" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-usd"></i>
 					待付款</a>
 				<!--  link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
 			</li>
 			<li>
-				<a href="#complete-orders" class="tab-item" role="tab" data-toggle="tab">
+				<a href="#my_purchase_complete_orders" class="tab-item" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-ok"></i>
 					已完成</a>
 				<!--   link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true   -->
 			</li>
 			<li>
-				<a href="#all-orders" class="tab-item" role="tab" data-toggle="tab">
+				<a href="#my_purchase_all_orders" class="tab-item" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-list"></i>
 					所有订单</a>
 				<!--   link_to "所有订单",  my_all_orders_path, remote: true  -->
@@ -33,19 +33,21 @@
 
 	<div class="tab-content">
 
-		<div class="tab-pane active" id="bidding-orders">
-		  
+		<div class="tab-pane active" id="my_purchase_bidding_orders">
+		    <%= link_to  "刷新竞价中的订单",  dashboard_purchases_bidding_path, remote: true  %>
 			<%= render "dashboard/my_purchase_bidding_orders" %>
 		  
 		</div>
-		<div class="tab-pane" id="dealed-orders">
+		<div class="tab-pane" id="my_purchase_forpaid_orders">
+			<%= link_to  "刷新待付款的订单",  dashboard_purchases_forpaid_path, remote: true  %>
 			<%= render "dashboard/my_purchase_forpaid_orders" %>
 		</div>
-		<div class="tab-pane" id="complete-orders">
+		<div class="tab-pane" id="my_purchase_complete_orders">
+			<%= link_to  "刷新已完成的订单",  dashboard_purchases_complete_path, remote: true  %>
 			<%= render "dashboard/my_purchase_complete_orders" %>
 		</div>
-		<div class="tab-pane" id="all-orders">
-			
+		<div class="tab-pane" id="my_purchase_all_orders">
+			<%= link_to  "刷新所有的订单",  dashboard_purchases_all_path, remote: true  %>
 			<%= render "dashboard/my_purchase_all_orders" %>
 			
 		</div>

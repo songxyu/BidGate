@@ -16,9 +16,19 @@ BidGate::Application.routes.draw do
   #   resources :products
   
   get "dashboard/dashboard" => "users#dashboard", :as => "dashboard" # account info
-  get "dashboard/dashboard_orders" => "orders#dashboard_orders", :as => "dashboard_orders"
-  get "dashboard/dashboard_purchases" => "orders#dashboard_purchase_orders_all", :as => "dashboard_purchases"
-  get "dashboard/dashboard_biddings" => "orders#dashboard_vending_orders_all", :as => "dashboard_biddings"
+  get "dashboard/dashboard_purchases" => "orders#dashboard_purchase_orders", :as => "dashboard_purchases"
+  get "dashboard/dashboard_purchases_all" => "orders#dashboard_purchase_orders_all", :as => "dashboard_purchases_all"
+  get "dashboard/dashboard_purchases_forpaid" => "orders#dashboard_purchase_orders_forpaid", :as => "dashboard_purchases_forpaid"
+  get "dashboard/dashboard_purchases_complete" => "orders#dashboard_purchase_orders_complete", :as => "dashboard_purchases_complete"
+  get "dashboard/dashboard_purchases_bidding" => "orders#dashboard_purchase_orders_bidding", :as => "dashboard_purchases_bidding"
+  
+  get "dashboard/dashboard_vendings" => "orders#dashboard_vending_orders", :as => "dashboard_vendings"
+  get "dashboard/dashboard_vendings_all" => "orders#dashboard_vending_orders_all", :as => "dashboard_vendings_all"
+  get "dashboard/dashboard_vendings_dealed" => "orders#dashboard_vending_orders_dealed", :as => "dashboard_vendings_dealed"
+  get "dashboard/dashboard_vendings_complete" => "orders#dashboard_vending_orders_complete", :as => "dashboard_vendings_complete"
+  get "dashboard/dashboard_vendings_bidding" => "orders#dashboard_vending_orders_bidding", :as => "dashboard_vendings_bidding"
+  get "dashboard/dashboard_vendings_biddingfail" => "orders#dashboard_vending_orders_fail_bidding", :as => "dashboard_vendings_biddingfail"
+  
   get "dashboard/dashboard_msg" => "users#dashboard_msg", :as => "dashboard_msg"
   get "dashboard/dashboard_settings" => "users#dashboard_settings", :as => "dashboard_settings"
   

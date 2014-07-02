@@ -1,8 +1,7 @@
 <div class="all-complete-page">
-	<h3>已完成的采购单</h3>
+	<h3>已完成的竞拍单</h3>
 
-	<% @orders.each do |order| %>
-		<% if order.status == 3 %>
+	<% @complete_orders.each do |order| %>
 	
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -41,10 +40,9 @@
 			</div>
 		</div>
 	
-		<% end %>
 	<% end %>
 
 	<div class="pagination_area">
-		<%= paginate @orders, :remote => true  %>
+		<%= paginate @complete_orders, :remote => true  %>
 	</div>
 </div>

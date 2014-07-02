@@ -1,7 +1,7 @@
 <div class="all-forpaid-page">
-	<h3>待付款采购单</h3>
+	<h3>未能成功竞拍的订单</h3>
 
-	<% @forpaid_orders.each do |order| %>
+	<% @fail_bidding_orders.each do |order| %>
 	
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -43,6 +43,6 @@
 	<% end %>
 
 	<div class="pagination_area">
-		<%= paginate @forpaid_orders, :remote => true  %>
+		<%= paginate @fail_bidding_orders, :remote => true  %>
 	</div>
 </div>
