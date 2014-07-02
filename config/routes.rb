@@ -52,9 +52,13 @@ BidGate::Application.routes.draw do
   get "props_by_category" => "goods_props#props_by_category", :as => "props_by_category"
   get "category_list" => "categories#category_list", :as => "category_list"
   get "category_unit" => "categories#category_unit", :as => "category_unit"
-  
   get "logout" => "sessions#destroy", :as => "logout"
+  
+  # login dialog
   get "login" => "sessions#new", :as => "login"
+  # login page
+  get "logon" => "sessions#new_2", :as => "logon"
+  
   get "signup" => "users#new", :as => "signup"
   get "register_details" => "users#new", :as => "register_details"
   get "signup_success" => "users#signup_success", :as => "signup_success"

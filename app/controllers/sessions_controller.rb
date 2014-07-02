@@ -18,6 +18,15 @@ class SessionsController < ApplicationController
       end
   
     end
+    
+    #TODO
+    def new_2
+      if current_user
+          redirect_to root_url
+        else
+        render  layout: false, template: "sessions/new_page.html.erb"
+      end
+    end
 
   def create
     user = User.authenticate(params[:email_username], params[:password])

@@ -10,7 +10,7 @@
 
 //==================== user logon  =============
 
-//================ user reg page========================================
+//================ user reg page===================s
 .reg_page {
   background: #F2F2F2;
 }
@@ -362,4 +362,28 @@
 .link-to-change-pw{
 	cursor: pointer;
 	color: #428bca;
+}
+
+
+//----- logon page -----//
+.logon-page-main {
+  width: 950px;
+  height: 850px;
+  display: block;
+  margin: 30px auto;
+  padding: 20px 0 15px 0;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 30px;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  
+  .page-left-area {
+    width: 400px;
+    padding: 20px;
+    
+    .enter-area {
+      margin-bottom: 20px;
+    }
+  }
 }
