@@ -29,7 +29,7 @@ var $dashboard_rightarea =  $(".content_area .dashboard-page .right-area");
 <% if partial_template_path == default_partial_templ %>
 $dashboard_rightarea.html("<%= escape_javascript render(:partial => 'dashboard/'+ partial_template_path ) %>");
 <% else %>
-$dashboard_rightarea.find('#'+partial_template_path).html("<%= escape_javascript render(:partial => 'dashboard/'+ partial_template_path ) %>");
+$dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javascript render(:partial => 'dashboard/'+ partial_template_path ) %>");
 <% end %>
 
 // var $tabHeader = $dashboard_rightarea.find(".tab-headers");

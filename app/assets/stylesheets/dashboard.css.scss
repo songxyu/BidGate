@@ -126,6 +126,33 @@
 				width: 100%;
 				*/				
 				
+				
+				.panel-body > div{
+					position: relative;
+					float: left;
+				}
+				
+				.row-height{
+					line-height: 25px;
+				}
+				
+				.highlight_text{
+					font-weight: bold;
+				}
+				
+				.order-img-area{					
+					width: 150px;
+					
+					.order-image{
+						height: 80px;
+						width:auto;
+					}
+				}
+				
+				div.order-actions{
+					float: right;
+					right: 0px;
+				}
 			}
 			
 			
@@ -163,6 +190,9 @@
 		width: 100px;
 	}
 	
-
+	.algin_right {
+		float: right;
+		margin-top: -18px;
+	}
 	 
 }

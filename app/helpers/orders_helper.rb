@@ -53,7 +53,12 @@ module OrdersHelper
     return [['订单日期', 1], ['截止日期', 2], ['价格(低->高)', 3], ['价格(高->低)', 4], ['数量(少->多)', 5], ['数量(多->少)', 6] ]        
   end
   
-
+  def get_order_deposit_by_total(total_money)
+    if !total_money || total_money == ''
+      total_money = 0
+    end
+    return total_money * 0.2
+  end
 
   
    # orders I placed for purchase

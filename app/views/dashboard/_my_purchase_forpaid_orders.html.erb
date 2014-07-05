@@ -1,4 +1,6 @@
 <div class="all-forpaid-page">
+	<%= link_to  "刷新待付款的订单",  dashboard_purchases_forpaid_path, remote: true  %>
+	
 	<h3>待付款采购单</h3>
 
 	<% @forpaid_orders.each do |order| %>
@@ -6,35 +8,66 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">订单号: <%= order.order_num %></h3>
+				
+				<div class="algin_right row_margin">
+					<%= link_to '详情 >>', order, remote: true %>
+				</div>
 			</div>
 			<div class="panel-body">
 				<%
 				 og = order.order_goods[0]
 				 item_info_text = og.order_item_info_str
-				 bid_history_count = order.order_price_histories.count
+				 #bid_history_count = order.order_price_histories.count
 				%>
 				
-				<div class="algin_right row_margin">
-					<%= link_to '详情>>', order, remote: true %>
+				<div class="order-img-area">
+					<%= link_to image_tag('../img/order_item_sample.png', class:"order-image"), order, remote: true %>
 				</div>
 				
-				<div class="row_margin">
-					采购: <%= item_info_text %>
+				<div class="order-digest">
+					<div class="row-height">
+						<span>采购: <%= item_info_text %> ...</span>
+						<span class="algin_left">订单起拍价: <%= order.price %> 元 </span>
+					</div>
+		
+					<div class="row-height">
+						<span class="algin_left">成交价: </span>
+						<span class="highlight_text"><%= order.deal_price %> 元</span>
+						<span class="algin_left"> 成交日期:  </span>
+						<span class="highlight_text"><%= order.deal_date ? order.deal_date.strftime('%Y-%m-%d %H:%M')  : ""%> </span>
+						
+					</div>
+					
+					<div class="row-height">
+						<span class="algin_left"> 成交方: </span>
+						<span class="highlight_text"><%= order.vendor ? order.vendor.contact : ''%> 
+							<%= order.vendor ? order.vendor.company.name : ''%> *****  </span>
+					</div>
+					
+					<div>						
+						<span class="algin_left"> 需付定金:  </span> 
+						<span class="highlight_text"><%= get_order_deposit_by_total(order.deal_price) %> 元</span>
+					</div>
 				</div>
 	
-				<div class="row_margin">
-					<span><%= bid_history_count %> 个竞拍 </span>
-					<span>最新订单竞价: </span>
-					<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
-				</div>
-	
-				<div class="row_margin">
-					<span class="algin_left"> <%= order.price %> 元 </span>
-					<span class="algin_left"> 起拍 </span>
-				</div>
-				<div>
-					<span class="algin_left"> 截止日期: </span>
-					<span class="algin_left"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%> </span>
+				<div class="order-actions">
+					<div class="row-height">
+						<%= link_to order, :class=>" ", remote: true  do %>					 
+							<span class="span-text">去付款</span>
+						<% end %>
+					</div>
+					
+					<div class="row-height">
+						<%= link_to order, :class=>" ", remote: true  do %>					 
+							<span class="span-text">查看消息</span>
+						<% end %>
+					</div>
+					
+					<div class="row-height">
+						<%= link_to order, :class=>" ", remote: true  do %>					 
+							<span class="span-text">取消订单</span>
+						<% end %>
+					</div>
 				</div>
 	
 			</div>

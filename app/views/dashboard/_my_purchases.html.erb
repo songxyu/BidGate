@@ -34,22 +34,19 @@
 	<div class="tab-content">
 
 		<div class="tab-pane active" id="my_purchase_bidding_orders">
-		    <%= link_to  "刷新竞价中的订单",  dashboard_purchases_bidding_path, remote: true  %>
 			<%= render "dashboard/my_purchase_bidding_orders" %>
-		  
 		</div>
+		
 		<div class="tab-pane" id="my_purchase_forpaid_orders">
-			<%= link_to  "刷新待付款的订单",  dashboard_purchases_forpaid_path, remote: true  %>
 			<%= render "dashboard/my_purchase_forpaid_orders" %>
 		</div>
+		
 		<div class="tab-pane" id="my_purchase_complete_orders">
-			<%= link_to  "刷新已完成的订单",  dashboard_purchases_complete_path, remote: true  %>
 			<%= render "dashboard/my_purchase_complete_orders" %>
 		</div>
+		
 		<div class="tab-pane" id="my_purchase_all_orders">
-			<%= link_to  "刷新所有的订单",  dashboard_purchases_all_path, remote: true  %>
 			<%= render "dashboard/my_purchase_all_orders" %>
-			
 		</div>
 
 	</div>
