@@ -71,6 +71,7 @@
         margin-bottom: 20px;
         .enter-item {
           height: 45px;
+          font-size: 15px;
         }
       }
     }
@@ -97,7 +98,7 @@
 }
 
 .dialog_logon .logon_header_text {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   padding-left: 15px;
   line-height: 40px;
@@ -362,4 +363,17 @@
     }
   }
   
+}
+
+#order-create-success-dialog {
+    background-color: #fff;
+    display: none;
+    overflow: hidden;
+    width: 550px;
+    height: 400px;
+    text-align: left;
+    border: 3px solid #777;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
 }

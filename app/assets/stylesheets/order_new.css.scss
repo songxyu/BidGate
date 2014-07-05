@@ -589,3 +589,39 @@ create new order
   color: white;
 }
 
+#order-create-success-dialog {
+  display: none;
+  .hint-descr {
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top: 60px;
+    margin: 0 auto;
+    .icon_create_success {
+      position: relative;
+      top: 0px;
+      text-align: center;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .success-create-tip {
+      font-size: 26px;
+      color: #3dba45;
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+  
+  .step-tips {
+    position: relative;
+    top: 120px;
+    text-align: center;
+    .btn-publish {
+      width: 120px;
+      height: 45px;
+      font-size: 15px;
+    }
+  }
+}

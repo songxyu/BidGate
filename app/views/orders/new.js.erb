@@ -517,7 +517,24 @@ $payment.click(function(e){
 			
 		});
   
+$("#order-create-success-dialog").overlay({
+		top : 100,
+		mask : {
+			color : '#333',
+			loadSpeed : 200,
+			opacity : 0.6
+		},
+		closeOnClick : true,
+		load : false
+});
 
+// TODO test
+// $("#order-create-success-dialog").show();
+// $("#order-create-success-dialog").overlay().load();
+
+$('#order-create-success-dialog .close_btn').click(function(){
+	$("#order-create-success-dialog").overlay().close();
+});
 
 var $submitBtn = $step2Area.find('.order-submit-btn');
 $submitBtn.unbind('click');
@@ -536,6 +553,8 @@ $submitBtn.click(function(){
 			vendorIdList.push(v.id);
 		});
 	}		 
+	
+	// loading status
 	
 	var postData = {
 		'category' : categoryId,
@@ -557,7 +576,8 @@ $submitBtn.click(function(){
 		dataType: 'html', 
 		data : postData
 	}).done(function(data) {
-		// contentArea has been set to order detail in ajax response 
+		$("#order-create-success-dialog").show();
+		$("#order-create-success-dialog").overlay().load();
 	}).fail(function(jqXHR, textStatus) {
 		console.log("Request failed: " + JSON.stringify(textStatus));
 	});
