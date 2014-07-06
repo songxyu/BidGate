@@ -8,7 +8,10 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title">订单号: <%= order.order_num %></h3>
+			<h3 class="panel-title">
+				<span>订单号: <%= order.order_num %> </span>
+				<span class="highlight_text"> <%= get_order_status_text(order.status) %> </span> 
+			</h3>
 			
 			<div class="algin_right row_margin">
 				<%= link_to '详情 >>', order, remote: true %>
@@ -28,7 +31,7 @@
 				<div class="order-digest">
 					<div class="row-height">
 						<span>采购: <%= item_info_text %> ...</span>
-						<% if order.status.in?([0, 1]) == false  %>
+						<% if order.status >= 2  %>
 							<span class="algin_left">订单起拍价: <%= order.price %> 元 </span>
 						<% end %>
 					</div>
@@ -60,8 +63,11 @@
 							<span class="algin_left"> <%= order.price %> 元 </span>
 							<span class="algin_left"> 起拍,  </span>
 							<span class="highlight_text"><%= bid_history_count %> </span>
-							<span>个竞拍, 最新订单竞价: </span>
-							<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
+							<span>个竞拍 </span>
+							<% if bid_history_count > 0 %>
+								<span>, 最新订单竞价: </span>
+								<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
+							<% end %>
 						</div>
 						
 						<div class="row-height">

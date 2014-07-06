@@ -33,8 +33,11 @@
 						<span class="algin_left"> <%= order.price %> 元 </span>
 						<span class="algin_left"> 起拍,  </span>
 						<span class="highlight_text"><%= bid_history_count %> </span>
-						<span>个竞拍, 最新订单竞价: </span>
-						<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
+						<span>个竞拍 </span>
+						<% if bid_history_count > 0 %>
+							<span>, 最新订单竞价: </span>
+							<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
+						<% end %>
 					</div>
 					
 					<div class="row-height">

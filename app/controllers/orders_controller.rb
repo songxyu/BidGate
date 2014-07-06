@@ -353,7 +353,6 @@ class OrdersController < CommonController
   def dashboard_vending_orders_all
     user_id = current_user.id
     page_info = params[:page]
-    
     @all_orders = OrdersHelper.my_vendings(user_id, nil, page_info)
     render "dashboard/dashboard_vendings" and return
   end
@@ -378,7 +377,7 @@ class OrdersController < CommonController
     user_id = current_user.id
     page_info = params[:page]
     
-    @bidding_orders = OrdersHelper.my_vendings(user_id, 1, page_info)
+    @bidding_orders = OrdersHelper.my_biddings(user_id, 1, page_info)
     render "dashboard/dashboard_vendings" and return
   end
   

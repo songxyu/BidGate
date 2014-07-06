@@ -35,13 +35,28 @@ module OrdersHelper
     return status
   end
 
+  # for order list on home page
   def get_bid_status_text(bid_status)
     case bid_status
-    when 0,1 then "";
+    when 0,1 then ""
     when 2 then "成功竞拍" #已成交
     when 3 then "已完成"
     when -1 then "已取消"
     when -2 then "已过期"
+    else ""
+    end
+  end
+  
+  # for order list on dashboard pages
+  def get_order_status_text(order_status)
+    case order_status
+    when 0 then "新建"
+    when 1 then "竞价中";
+    when 2 then "待付款"
+    when 3 then "已完成"
+    when -1 then "已取消"
+    when -2 then "已过期"
+    else ""
     end
   end
   
@@ -63,7 +78,7 @@ module OrdersHelper
   
    # orders I placed for purchase
   def my_purchases( user_id , status, page_info )
-    if !status || status == '' || status < 0
+    if ( !status && status != 0 )  || status == '' 
       @orders = Order.where(buyer_id: user_id).order(OrdersHelper::Default_Order_By).page(page_info)
     else
       @orders = Order.where(buyer_id: user_id, status: status.to_i).order(OrdersHelper::Default_Order_By).page(page_info)
@@ -73,8 +88,12 @@ module OrdersHelper
   
   # orders I am its vendor
   def my_vendings( user_id, status, page_info )
-    if !status || status == '' || status < 0
-      @orders = Order.where(vendor_id: user_id).order(OrdersHelper::Default_Order_By).page(page_info)
+    if ( !status && status != 0 ) || status == '' 
+      #@orders = Order.where(vendor_id: user_id).order(OrdersHelper::Default_Order_By).page(page_info)
+      @orders = Order.where("orders.id in (select id from orders where vendor_id =? ) \
+        or orders.id in (select distinct orders.id from orders inner join order_price_histories on orders.id = order_price_histories.order_id \
+        where order_price_histories.vendor_id = ? and orders.vendor_id <> ?)
+      ", user_id, user_id, user_id).order(OrdersHelper::Default_Order_By).page(page_info)
     else
       @orders = Order.where(vendor_id: user_id, status: status.to_i).order(OrdersHelper::Default_Order_By).page(page_info)
     end
@@ -85,17 +104,18 @@ module OrdersHelper
   # all orders I participated bidding, status: 1  bidding in process
   def my_biddings( user_id, status, page_info )
     #self.my_vendings(user_id, nil, page_info)
-    if !status || status == '' || status < 0
-      @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id)
+    if ( !status && status != 0 )  || status == '' 
+      @orders = Order.select('distinct "orders".id, "orders".*').joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id)
           .order(OrdersHelper::Default_Order_By).page(page_info)
     else
-      @orders = Order.joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id, 
+      @orders = Order.select('distinct "orders".id, "orders".*').joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id, 
               "orders.status" =>  status.to_i ).order(OrdersHelper::Default_Order_By).page(page_info)
     end
   end  
   
-   def my_biddings_failed( user_id, page_info )
-      @orders = Order.joins(:order_price_histories).where(
+  
+  def my_biddings_failed( user_id, page_info )
+      @orders = Order.select('distinct "orders".id, "orders".*').joins(:order_price_histories).where(
         "order_price_histories.vendor_id = :userId and orders.status > 1 and orders.vendor_id <> :userId",
         {userId: user_id} ).order(OrdersHelper::Default_Order_By).page(page_info)
   end  

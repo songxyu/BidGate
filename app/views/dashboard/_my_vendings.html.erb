@@ -35,26 +35,22 @@
 	<div class="tab-content">
 
 		<div class="tab-pane active" id="my_vending_bidding_orders">
-			<%= link_to  "刷新竞价中的订单",  dashboard_vendings_bidding_path, remote: true  %>
 			<%= render "dashboard/my_vending_bidding_orders" %>
-
 		</div>
+		
 		<div class="tab-pane" id="my_vending_dealed_orders">
-			<%= link_to  "刷新成功竞拍的订单",  dashboard_vendings_dealed_path, remote: true  %>
 			<%= render "dashboard/my_vending_dealed_orders" %>
 		</div>
 
 		<div class="tab-pane" id="my_vending_complete_orders">
-			<%= link_to  "刷新已完成的订单",  dashboard_vendings_complete_path, remote: true  %>
 			<%= render "dashboard/my_vending_complete_orders" %>
 		</div>
+		
 		<div class="tab-pane" id="my_vending_all_orders">
-			<%= link_to  "刷新所有竞拍订单",  dashboard_vendings_all_path, remote: true  %>
 			<%= render "dashboard/my_vending_all_orders" %>
-
 		</div>
+		
 		<div class="tab-pane" id="my_vending_failbidding_orders">
-			<%= link_to  "刷新竞价失败的订单",  dashboard_vendings_biddingfail_path, remote: true  %>
 			<%= render "dashboard/my_vending_failbidding_orders" %>
 		</div>
 	</div>
