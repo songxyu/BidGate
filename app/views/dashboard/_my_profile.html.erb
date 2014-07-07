@@ -25,9 +25,9 @@
 		</div>
 		<div class="tab-pane" id="company-profile">
 			<% 
-			## NOTE: 传参(:locals等)情况下, 不能在调用render方法时省略 :partial symbol.!! 
+			## NOTE: 传参(:locals等)情况下, 不能在调用render方法时省略 :partial symbol.!!  
 			%>
-			<%= render  :partial => "companies/edit", :locals => { :@company => @user.company }  %>	
+			<%= render  :partial => "companies/show" , :locals => { :@company => @user.company }  %>
 		</div>
 
 	</div>

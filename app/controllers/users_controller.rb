@@ -131,13 +131,77 @@ def create
 
   def edit
     @user = current_user
-    common_response
+    #common_response
+    
+    respond_to do |format|
+      format.js { render :file => "dashboard/dashboard_profile.js.erb" }  # , :xml, :json
+    end
+  end
+  
+  def update
+    changedUserInfo = params[:user]
+    @user = User.find(params['id']) # user id
+    if @user
+       @user.nickname = changedUserInfo['nickname']
+       @user.email = changedUserInfo['email']
+       @user.contact = changedUserInfo['contact']
+        @user.contact_title = changedUserInfo['contact_title']
+        @user.contact_cellphone = changedUserInfo['contact_cellphone']
+        @user.contact_tel = changedUserInfo['contact_tel']
+      
+      if @user.save #update_attributes(changedUserInfo)
+         logger.debug "save user info ok!"
+         flash.now[:notice] = "保存成功!"
+      else
+        logger.error "Fail to update user!"
+        flash.now.alert = "无法更新用户信息!"
+      end
+      
+    else
+      logger.error "cannot find user! Fail to update user!"
+      flash.now.alert = "无法更新用户信息!"      
+    end
+     
+     respond_to do |format|
+        format.js { render :file => "dashboard/dashboard_profile.js.erb" }  # , :xml, :json
+      end
   end
   
   # ===================== dashboard related =============== 
   def dashboard
     @user = current_user
     render "dashboard/dashboard" and return
+  end
+  
+  def change_password
+     # ref to src of has_secure_password
+     @user = current_user
+     old_pw = params[:old_password]
+     if @user.authenticate(old_pw)
+       @user.password = params[:password]
+       @user.password_confirmation = params[:password_confirmation]
+       if @user.save
+         logger.debug "change password successfully!"
+         flash.now[:notice] = "密码已修改成功!"
+       else
+         logger.debug "change password failed, may inconsistent inputs."
+         flash.now.alert = "密码修改失败! 确认密码输入一致"
+       end      
+     else
+      logger.debug "old password is incorrect"
+      flash.now.alert = "原密码错误!"
+     end
+     
+     #render "dashboard/dashboard_profile" and return
+     # must use ajax...
+     respond_to do |format|
+      format.js { render :file => "dashboard/dashboard_profile.js.erb" }  # , :xml, :json
+     end
+  end
+  
+  
+  def edit_profile
+    
   end
   
   

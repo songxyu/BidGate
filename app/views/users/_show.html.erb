@@ -1,5 +1,5 @@
 <h3>账户信息</h3>
-
+ 
 <p>
 	用户名: <%= @user.username %>
 </p>
@@ -31,7 +31,8 @@
 	联系电话: <%= @user.contact_tel %>
 </p>
 
-<%= link_to '修改', user_edit_path,  remote: true %>
+<!--  link_to '修改', user_edit_path,   remote: true -->
+<%= link_to '修改', "/dashboard/edit_profile",  remote: true %>
 
 
 <%= debug @user %>

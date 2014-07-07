@@ -51,7 +51,7 @@ module OrdersHelper
   def get_order_status_text(order_status)
     case order_status
     when 0 then "新建"
-    when 1 then "竞价中";
+    when 1 then "竞价中"
     when 2 then "待付款"
     when 3 then "已完成"
     when -1 then "已取消"

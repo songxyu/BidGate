@@ -1,3 +1,37 @@
-TODO: 修改用户信息!
+<%= render "layouts/flash_msg" %>
+
+<h3>修改账户信息</h3>
+
+<%= form_for @user, :remote => true do |f| %>
+<p>
+	用户名: <%= @user.username %>
+</p>
+
+<p>
+	<%= f.label :nickname, "*昵称:" %> <%= f.text_field :nickname, :value => @user.nickname  %>
+</p>
+
+<p>
+	<%= f.label :email, "*邮箱:" %> <%= f.text_field :email, :value => @user.email  %>
+</p>
+
+<p>
+	<%= f.label :contact, "真实姓名:" %> <%= f.text_field :contact, :value => @user.contact  %>
+</p>
+
+<p>
+	<%= f.label :contact_title, "职责:" %> <%= f.text_field :contact_title, :value => @user.contact_title  %>
+</p>
+
+<p>
+	<%= f.label :contact_cellphone, "手机:" %> <%= f.text_field :contact_cellphone, :value => @user.contact_cellphone  %>
+</p>
+<p>
+	<%= f.label :contact_tel, "联系电话:" %> <%= f.text_field :contact_tel, :value => @user.contact_tel  %>
+</p>
+
+<%= submit_tag "提交", class:"button orange btn_submit" %>
+
+<% end %>
 
 <%= debug @user %>

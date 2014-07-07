@@ -31,6 +31,9 @@ BidGate::Application.routes.draw do
   
   get "dashboard/dashboard_msg" => "users#dashboard_msg", :as => "dashboard_msg"
   get "dashboard/dashboard_settings" => "users#dashboard_settings", :as => "dashboard_settings"
+  post "dashboard/changepw" => "users#change_password", :as => "change_password"
+  get "dashboard/edit_profile" => "users#edit", :as => "edit_profile"
+  get "dashboard/edit_company" => "companies#edit", :as => "edit_company"
   
   get "orders/search" => "orders#search"
   # not use the following to avoid duplicate collection paths
@@ -68,6 +71,7 @@ BidGate::Application.routes.draw do
   get "user_edit" => "users#edit", :as => "user_edit"
   get "company/edit" => "companies#edit", :as => "company_edit"
   get "company/verify" => "companies#verify", :as => "company_verify"
+  put "company/:id" => "companies#update", :as => "company_update"
   get  "user_new_partial"  => "users#reg_ajax_partial_company_form", :as => "user_new_partial"
   
   #add by Song

@@ -1,0 +1,28 @@
+
+<%
+	logger.debug "======= responded with rendered dashboard.js.erb ======"
+	relative_path_arr = request.fullpath.split('/')
+	ctrl_name = relative_path_arr[1] # params[:path]
+ 	action_name = relative_path_arr[2].split('?')[0]  # params[:action] 
+	logger.debug "****** path controller_name= " + ctrl_name +", path action_name= " + action_name 
+	
+%>
+
+
+<% if ctrl_name == "dashboard" %>
+	var $dashboard_rightarea =  $(".content_area .dashboard-page .right-area");
+	
+	<% if action_name == 'changepw' %>	 
+	 $dashboard_rightarea.find('#password-edit').html("<%= escape_javascript render(:partial => 'users/edit_pw') %>");
+	<% end %>
+	
+	<% if action_name == 'edit_profile' %>	 
+	 $dashboard_rightarea.find('#account-profile').html("<%= escape_javascript render(:partial => 'users/edit') %>");
+	<% end %>
+	
+	<% if action_name == 'edit_company' %>	 
+	 $dashboard_rightarea.find('#company-profile').html("<%= escape_javascript render(:partial => 'companies/edit') %>");
+	<% end %>
+
+
+<% end %>

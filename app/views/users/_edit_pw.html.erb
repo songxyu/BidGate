@@ -1,33 +1,32 @@
+<%= form_tag("/dashboard/changepw", method: "post", remote: true) do %>
 
-<%= form_tag("/users/changepw", method: "post") do %>
-  
-  
- <div class="pw-form">
- 	<h3>修改用户密码</h3>
-<dl>
-	<dt class="f_label">
-		<%= label_tag(:old_password, "*原密码:") %>
-	</dt>
-	<dd class="f_input">
-		<%= password_field_tag(:old_password, ) %>  
-	</dd>
-	<dt class="f_label">
-		<%= label_tag( :password, "*密码:" ) %>
-	</dt>
-	<dd class="f_input">
-		<%= password_field_tag( :password ) %>
-	</dd>
+<%= render "layouts/flash_msg" %>
 
-	<dt class="f_label">
-		<%= label_tag( :password_confirmation, "*确认密码:" ) %>
-	</dt>
-	<dd class="f_input">
-		<%= password_field_tag( :password_confirmation ) %>
-	</dd>
-</dl>
+<div class="pw-form">
+	<h3>修改用户密码</h3>
+	<dl>
+		<dt class="f_label">
+			<%= label_tag(:old_password, "*原密码:") %>
+		</dt>
+		<dd class="f_input">
+			<%= password_field_tag(:old_password, ) %>
+		</dd>
+		<dt class="f_label">
+			<%= label_tag( :password, "*密码:" ) %>
+		</dt>
+		<dd class="f_input">
+			<%= password_field_tag( :password ) %>
+		</dd>
+
+		<dt class="f_label">
+			<%= label_tag( :password_confirmation, "*确认密码:" ) %>
+		</dt>
+		<dd class="f_input">
+			<%= password_field_tag( :password_confirmation ) %>
+		</dd>
+	</dl>
 </div>
 <%= submit_tag "提交", class:"button orange btn_submit" %>
 
 <% end %>
 
-<%= debug @user %>

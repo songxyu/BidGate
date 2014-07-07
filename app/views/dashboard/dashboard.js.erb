@@ -1,5 +1,15 @@
 
+<%
+	logger.debug "======= responded with rendered dashboard.js.erb ======"
+	relative_path_arr = request.fullpath.split('/')
+	ctrl_name = relative_path_arr[1] # params[:path]
+ 	action_name = relative_path_arr[2].split('?')[0]  # params[:action] 
+	logger.debug "****** path controller_name= " + ctrl_name +", path action_name= " + action_name 
+	
+%>
+
 $('.filter_area').hide();
+
 $(".content_area").show().html("<%= escape_javascript render(:partial => 'dashboard/dashboard_main') %>");
 
 var $leftMenu = $(".content_area .dashboard-page .left-list .ui-side-item");
@@ -15,7 +25,12 @@ $('.right-area .tab-items a').on('click', function (e) {
 });
 
 
-$('#account-profile ').on('click', '.link-to-change-pw', function(){
+// change password tab
+var fnShowChangePwTab = function(){
 	$('.my-profile-page .tab-items a[href="#password-edit"]').tab('show');
+};
+
+$('#account-profile ').on('click', '.link-to-change-pw', function(){
+	fnShowChangePwTab();
 });
 

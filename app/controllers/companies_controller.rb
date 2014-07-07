@@ -1,8 +1,13 @@
 class CompaniesController < CommonController
   def edit
     @user = current_user
-    @company = @user.company
-    common_response
+    @company =  Company.find(@user.company.id)
+    #common_response
+    
+    # for dashboard
+    respond_to do |format|
+      format.js { render :file => "dashboard/dashboard_profile.js.erb" }  # , :xml, :json
+    end
   end
 
   def verify
@@ -34,4 +39,33 @@ class CompaniesController < CommonController
     render :template => "companies/verify.js.erb" and return
   end
 
+
+  def update
+    changedCompnayInfo = params[:company]
+    @company = Company.find(params['id'])
+    if @company
+      @company.legal_person = changedCompnayInfo['legal_person']
+      @company.main_biz = changedCompnayInfo['main_biz']
+      @company.register_address = changedCompnayInfo['register_address']
+      @company.register_capital = changedCompnayInfo['register_capital']
+      
+      if @company.save
+         logger.debug "save company info ok!"
+         flash.now[:notice] = "保存成功!"
+      else
+        logger.error "Fail to update company!"
+        flash.now.alert = "无法更新公司信息!"
+      end
+      
+    else
+      logger.error "cannot find company! Fail to update company!"
+      flash.now.alert = "无法更新公司信息!"      
+    end
+     
+     respond_to do |format|
+        format.js { render :file => "dashboard/dashboard_profile.js.erb" }  # , :xml, :json
+      end
+  end
+  
+  
 end
