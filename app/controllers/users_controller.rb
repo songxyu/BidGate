@@ -182,7 +182,7 @@ def create
        @user.password_confirmation = params[:password_confirmation]
        if @user.save
          logger.debug "change password successfully!"
-         flash.now[:notice] = "密码已修改成功!"
+         flash.now.notice = "密码已修改成功!"
        else
          logger.debug "change password failed, may inconsistent inputs."
          flash.now.alert = "密码修改失败! 确认密码输入一致"

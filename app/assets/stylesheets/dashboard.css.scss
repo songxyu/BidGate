@@ -183,11 +183,17 @@
 	
 	dt, dd{
 		padding: 10px 10px;
+		
 	}
 	
 	dt {
 		float: left;
 		width: 100px;
+		text-align: right;
+	}
+	
+	dd span{
+		display: inline-block;
 	}
 	
 	.algin_right {

@@ -1,39 +1,66 @@
-<h3>账户信息</h3>
- 
-<p>
-	用户名: <%= @user.username %>
-</p>
-
-<p>
-	密码: ******  <span class="link-to-change-pw">修改密码</span>
-</p>
-
-<p>
-	昵称: <%= @user.nickname %>
-</p>
-
-<p>
-	邮箱: <%= @user.email %>
-</p>
-
-<p>
-	真实姓名: <%= @user.contact %>
-</p>
-
-<p>
-	职责: <%= @user.contact_title %>
-</p>
-
-<p>
-	手机: <%= @user.contact_cellphone %>
-</p>
-<p>
-	联系电话: <%= @user.contact_tel %>
-</p>
-
+<h3>账户信息
 <!--  link_to '修改', user_edit_path,   remote: true -->
 <%= link_to '修改', "/dashboard/edit_profile",  remote: true %>
+</h3>
 
+ <dl>
+ 		<dt class="f_label">
+			 用户名:
+		</dt>
+		<dd class="f_input">
+			 <%= @user.username %>
+		</dd>
+		
+		<dt class="f_label">
+			 密码: 
+		</dt>
+		<dd class="f_input">
+			 ******  <span class="link-to-change-pw">修改密码</span>
+		</dd> 
+		
+		<dt class="f_label">
+			 昵称:
+		</dt>
+		<dd class="f_input">
+			<span><%= @user.nickname %></span>
+		</dd>
+		
+		<dt class="f_label">
+			 邮箱: 
+		</dt>
+		<dd class="f_input">
+			<span><%= @user.email %></span>
+		</dd>
+		
+		<dt class="f_label">
+			 真实姓名:
+		</dt>
+		<dd class="f_input">
+			<span><%= @user.contact ? @user.contact : ' ' %></span>
+		</dd>
+		
+		<dt class="f_label">
+			 职责:
+		</dt>
+		<dd class="f_input">
+			 <span><%= @user.contact_title ? @user.contact_title : " " %></span>
+		</dd>
+		
+		<dt class="f_label">
+			 手机: 
+		</dt>
+		<dd class="f_input">
+			 <span><%= @user.contact_cellphone ? @user.contact_cellphone : " " %></span>
+		</dd>
+		
+		<dt class="f_label">
+			 联系电话:
+		</dt>
+		<dd class="f_input">
+			 <span><%= @user.contact_tel ? @user.contact_tel : ' '%></span>
+		</dd>
+</dl>		
+ 
 
 <%= debug @user %>
  

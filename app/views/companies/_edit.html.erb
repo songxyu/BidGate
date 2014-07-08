@@ -5,29 +5,55 @@
  form_for (@company), url: company_update_path(@company), html: { method: :put }, :remote => true do |f| 
 %>
 <h3>公司信息 </h3>
-<p>
-	公司名称: <%= @company.name %>
-</p>
 
-<p>
-	公司注册帐号: <%= @company.account_num %>
-</p>
 
-<p>
-	<%= f.label :legal_person, "*公司法人:" %> <%= f.text_field :legal_person, :value => @company.legal_person  %>
-</p>
 
-<p>
-	<%= f.label :main_biz, "主营业务:" %> <%= f.text_field :main_biz, :value => @company.main_biz  %>
-</p>
-
-<p>
-	<%= f.label :register_address, "公司注册地址:" %> <%= f.text_field :register_address, :value => @company.register_address  %>
-</p>
-
-<p>
-	<%= f.label :register_capital, "公司注册资金:" %> <%= f.text_field :register_capital, :value => @company.register_capital  %>
-</p>
+ <dl>
+ 		<dt class="f_label">
+			 公司名称: 
+		</dt>
+		<dd class="f_input">
+			<%= @company.name %>
+		</dd>
+		
+		<dt class="f_label">
+			 公司注册帐号: 
+		</dt>
+		<dd class="f_input">
+			 <%= @company.account_num %>
+		</dd>
+		
+		<dt class="f_label">
+			 <%= f.label :legal_person, "*公司法人:" %> 
+		</dt>
+		<dd class="f_input">
+			<%= f.text_field :legal_person, :value => @company.legal_person  %>
+		</dd> 
+		
+				
+		<dt class="f_label">
+			 <%= f.label :main_biz, " 主营业务:" %> 
+		</dt>
+		<dd class="f_input">
+			<%= f.text_field :main_biz, :value => @company.main_biz  %>
+		</dd>
+		
+		<dt class="f_label">
+			 <%= f.label :register_address, "公司注册地址:" %> 
+		</dt>
+		<dd class="f_input">
+			<%= f.text_field :register_address, :value => @company.register_address  %>
+		</dd>
+		
+		
+		<dt class="f_label">
+			 <%= f.label :register_capital, "公司注册地址:" %> 
+		</dt>
+		<dd class="f_input">
+			<%= f.text_field :register_capital, :value => @company.register_capital  %>
+		</dd>
+</dl>		
+		 
 
 <div>
 	<%= submit_tag "提交", class:"button orange btn_submit"  %>

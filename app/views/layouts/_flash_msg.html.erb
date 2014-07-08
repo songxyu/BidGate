@@ -1,7 +1,3 @@
-<% flash.each do |name, msg| %>
-	<% if name != 'notice' %>
-	<%= content_tag :div, msg + '  X', :id => "flash_#{name}", :class => "msg_area error" %>
-	<% else %>
-	<%= content_tag :div, msg + '  X', :id => "flash_#{name}", :class => "msg_area" %>
-	<% end %>
-<% end %>
+ 
+
+<%= display_notice_and_alert %>
