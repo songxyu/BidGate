@@ -1,14 +1,15 @@
 <div class="orderDetailPage">
+
 	<div class="leftWrapper">
 		<!-- header info -->
 		<article class="orderSummaryContainer">
 			<div class="orderSummary">
 				<div class="sumHeader">
 					<div class="order-must-title">
-						采购：<span>301、302不锈钢，钢管，0.4吨</span>
+						采购：<span><%= @order.order_goods[0].order_item_info_str %></span>
 					</div>
 					<div class="order-id">
-						订单编号: <%= @order.id %>
+						订单编号: <%= @order.order_num %>
 					</div>
 				</div>
 
@@ -19,17 +20,12 @@
 					<div class="order-sum-area">
 						<div class="order-sum-keywords">
 							<ul>
-								<li>
-									<p class="title">
-										采购公司
-									</p>
-									<span class="value">温州***材料有限公司</span>
-								</li>
+
 								<li>
 									<p class="title">
 										收货城市
 									</p>
-									<span class="value">浙江，台州</span>
+									<span class="value"><%= @order.location.name %></span>
 								</li>
 
 								<li>
@@ -38,19 +34,30 @@
 									</p>
 									<div class="order-timecounter">
 										<div class="progress">
-											<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-												<span class="sr-only">60% Complete</span>
-											</div>
+											<div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100"
+												 style="width: <%= get_bid_progress(@order.create_time, @order.deadline)%>%;"></div>
 										</div>
 									</div>
-									<span class="deadline">截止日期：2014.6.30</span>
+									<div>
+										<span class="deadline">截止日期：
+											<br/>
+											<%= @order.deadline.strftime('%Y年%m月%d日') %></span>
+									</div>
 								</li>
+
+								<li>
+									<p class="title">
+										竞拍次数
+									</p>
+									<span class="count"><%= get_bid_count(@order) %></span>
+								</li>
+
 							</ul>
 						</div>
 						<div class="order-sum-other-info">
 							<div class="sum-info">
 								<div class="purchaser-company-name">
-									采购商：温州***材料有限公司
+									采购商：<%= @order.buyer.company.name %>
 								</div>
 								<div class="split-line"></div>
 								<div class="other">
@@ -75,38 +82,46 @@
 					<!-- item table TODO hardcode -->
 					<table class="itemTable">
 						<tbody>
+
 							<tr class="title">
-								<th>物料编码</th>
 								<th>物料名称</th>
 								<th>型号</th>
-								<th>规格</th>
-								<th>长/宽/高（mm）</th>
-								<th>数量（吨）</th>
+								<th>数量(<%= @category_unit.unit_name %>)</th>
+								<th>描述</th>
+								<% @dynamic_goods_props.each do |prop|%>
+								<th><%= prop.name %></th>
+								<% end %>
+							</tr>
+
+							<% @order.order_goods.each do |good|%>
+
+							<tr>
+								<td><%= good.name %></td>
+								<td><%= good.model %></td>
+								<td><%= good.quantity %></td>
+								<td><%= good.memo %></td>
+								<% good.goods_exts.each do |prop_ext|%>
+								<td><%= prop_ext.prop_value %></td>
+								<% end %>
+
+							</tr>
+							<% end %>
+							<!-- <tr class="alt">
+							<td>1002</td>
+							<td>不锈钢</td>
+							<td>412</td>
+							<td>方管</td>
+							<td>D*300*5600</td>
+							<td>1.5</td>
 							</tr>
 							<tr>
-								<td>1001</td>
-								<td>不锈钢</td>
-								<td>301</td>
-								<td>方管</td>
-								<td>D*200*5600</td>
-								<td>0.8</td>
-							</tr>
-							<tr class="alt">
-								<td>1002</td>
-								<td>不锈钢</td>
-								<td>412</td>
-								<td>方管</td>
-								<td>D*300*5600</td>
-								<td>1.5</td>
-							</tr>
-							<tr>
-								<td>1011</td>
-								<td>螺纹钢</td>
-								<td>D3</td>
-								<td>螺纹钢</td>
-								<td>D*150*8000</td>
-								<td>2.0</td>
-							</tr>
+							<td>1011</td>
+							<td>螺纹钢</td>
+							<td>D3</td>
+							<td>螺纹钢</td>
+							<td>D*150*8000</td>
+							<td>2.0</td>
+							</tr> -->
 						</tbody>
 					</table>
 
@@ -179,18 +194,18 @@
 					最新竞拍金额（元）
 				</div>
 				<div class="price">
-					<span>¥ </span>4.30<span class="RMB"> 万</span>
+					<span>¥ </span><%= get_order_lastest_bid_price(@order) %> <span class="RMB"> 万</span>
 				</div>
 			</div>
 			<div class="bidStatusTag">
-				竞价中 <span class="triangle"></span>
+				<%= get_order_status_text(@order.status) %><span class="triangle"></span>
 			</div>
 			<div class="bidCount">
-				12个竞拍
+				<%= get_bid_count(@order) %> 个竞拍
 			</div>
 
 			<div class="lastBidVendor">
-				竞价方：<span class="companyInfo">赣州***金属材料有限公司</span>
+				竞价方：<span class="companyInfo"><%= get_order_lastest_bid_company(@order) %></span>
 			</div>
 
 			<div class="bidField">

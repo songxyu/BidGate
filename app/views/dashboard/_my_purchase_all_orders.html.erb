@@ -21,7 +21,7 @@
 			<%
 			 og = order.order_goods[0]
 			 item_info_text = og.order_item_info_str
-			 bid_history_count = order.order_price_histories.count
+			 bid_history_count = get_bid_count(order)
 			%>
 			 
 				<div class="order-img-area">
@@ -66,7 +66,7 @@
 							<span>个竞拍 </span>
 							<% if bid_history_count > 0 %>
 								<span>, 最新订单竞价: </span>
-								<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
+								<span class="highlight_text"> <%= get_order_lastest_bid_price(order) %> 元 </span>
 							<% end %>
 						</div>
 						

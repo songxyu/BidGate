@@ -255,6 +255,9 @@ class OrdersController < CommonController
   
   def show
     @order = Order.find(params[:id])
+    @dynamic_goods_props = CategoriesHelper.get_dyn_props_by_category(@order.category_id)
+    @category_unit = CategoriesHelper.get_category_unit(@order.category_id)
+    # from_path = params[:form_path];
      # no need do this!
     #@order.vendor = User.find( @order.vendor_id )
     #@order.buyer = User.find( @order.buyer_id )

@@ -166,6 +166,7 @@ $nextStepBtn.click(function(){
 	//$(".order_onboarding").hide();
 	$(".selectionQuickview").show();
 	
+	
 	// use the var selection	 
 	var categoryId = $step1Area.find(".category_select .select_btn.selected").attr('data-type-id');
 	var city = $step1Area.find('.city_select .city_input').val();
@@ -231,6 +232,8 @@ $nextStepBtn.click(function(){
 	
 	$step2Area.show();
 	fnShowRightArea('empty-info');
+	
+	$(window).scrollTop(760);
 });
 
 //****************** end of step1 page actions *******************

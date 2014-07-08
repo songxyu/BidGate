@@ -273,12 +273,12 @@
   .order-must-title {
     font-size: 18px;
     font-weight: bold;
-    width: 400px;
+    width: 380px;
     float: left;
   }
   .order-id {
     font-size: 15px;
-    width: 200px;
+    width: 250px;
     float: right;
     text-align: right;
   }
@@ -330,6 +330,11 @@
         .value:hover {
           background: #eee;
           border-radius: 2px;
+        }
+        .count {
+          font-size: 20px;
+          font-weight: 700;
+          color: #2996cc;
         }
         p {
           margin-top: 20px;
