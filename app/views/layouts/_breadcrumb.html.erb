@@ -1,0 +1,21 @@
+<%
+	arrPathInfo = get_breadcrumb_path_info(params[:breadcrumb_path_key])
+	path_count = arrPathInfo.length
+%>
+
+<div>
+	<% arrPathInfo.each_with_index  do |path_info, i| 
+		path_url = path_info[1]
+		path_text = path_info[0]
+		
+		Rails.logger.debug  'arrPathInfo['+i.to_s+']: ' + path_text+", "+path_url  
+	%>
+		<%= link_to path_url, :class=>" ", remote: true  do %>					 
+			<span class="span-text"><%= path_text %></span> 
+		<% end %>
+			
+		<% if i < path_count-1 %>
+			<span> / </span>
+		<% end %>
+	<% end %>
+</div>

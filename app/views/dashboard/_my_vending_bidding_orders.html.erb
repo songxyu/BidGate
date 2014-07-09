@@ -12,7 +12,9 @@
 			<h3 class="panel-title">订单号: <%= order.order_num %></h3>
 			
 			<div class="algin_right row_margin">
-				<%= link_to '详情>>', order, remote: true %>
+				<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard'}), :class=>" ",  remote: true  do %>					 
+					<span class="span-text">详情 >></span>
+				<% end %>
 			</div>
 			
 		</div>
