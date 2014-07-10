@@ -43,7 +43,7 @@
 			 职责:
 		</dt>
 		<dd class="f_input">
-			 <span><%= @user.contact_title ? @user.contact_title : " " %></span>
+			 <span><%= getContactTitleText( @user.contact_title ? @user.contact_title : " " )%></span>
 		</dd>
 		
 		<dt class="f_label">

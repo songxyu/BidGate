@@ -1,4 +1,5 @@
 class UsersController < CommonController
+  include UsersHelper
   
   before_filter  :authorize, :only => [:signup_success, :profile, :edit, 
           :dashboard, :dashboard_settings, :dashboard_msg]
@@ -142,20 +143,26 @@ def create
     changedUserInfo = params[:user]
     @user = User.find(params['id']) # user id
     if @user
-       @user.nickname = changedUserInfo['nickname']
-       @user.email = changedUserInfo['email']
+       @user.nickname = changedUserInfo['nickname']      
        @user.contact = changedUserInfo['contact']
-        @user.contact_title = changedUserInfo['contact_title']
-        @user.contact_cellphone = changedUserInfo['contact_cellphone']
-        @user.contact_tel = changedUserInfo['contact_tel']
-      
-      if @user.save #update_attributes(changedUserInfo)
-         logger.debug "save user info ok!"
-         flash.now[:notice] = "保存成功!"
-      else
-        logger.error "Fail to update user!"
-        flash.now.alert = "无法更新用户信息!"
-      end
+       @user.contact_title = changedUserInfo['contact_title'].to_i
+       @user.contact_cellphone = changedUserInfo['contact_cellphone']
+       @user.contact_tel = changedUserInfo['contact_tel']
+       
+       email = changedUserInfo['email']
+       if !UsersHelper.checkUserEmailUnique(email, @user.id)
+          logger.warn "Fail to update user! due to email duplicate!"
+          flash.now.alert = "保存失败: 邮箱已被其他用户使用!"          
+       else
+          @user.email = email
+          if @user.save(:validate => false) #update_attributes(changedUserInfo)
+             logger.debug "save user info ok!"
+             flash.now.notice = "保存成功!"
+          else
+            logger.error "Fail to update user!"
+            flash.now.alert = "无法更新用户信息!"
+          end
+       end
       
     else
       logger.error "cannot find user! Fail to update user!"
@@ -164,7 +171,7 @@ def create
      
      respond_to do |format|
         format.js { render :file => "dashboard/dashboard_profile.js.erb" }  # , :xml, :json
-      end
+     end
   end
   
   # ===================== dashboard related =============== 

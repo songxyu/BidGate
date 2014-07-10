@@ -34,6 +34,7 @@ BidGate::Application.routes.draw do
   post "dashboard/changepw" => "users#change_password", :as => "change_password"
   get "dashboard/edit_profile" => "users#edit", :as => "edit_profile"
   get "dashboard/edit_company" => "companies#edit", :as => "edit_company"
+  #put "users/:id" => "users#update", :as => "update_profile"
   
   get "orders/search" => "orders#search"
   # not use the following to avoid duplicate collection paths

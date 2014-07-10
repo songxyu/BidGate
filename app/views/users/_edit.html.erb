@@ -37,7 +37,7 @@
 		<%= f.label :contact_title, "职责:" %>
 	</dt>
 	<dd class="f_input">
-		<%= f.text_field :contact_title, :value => @user.contact_title  %>
+		<%= f.select( :contact_title, getContactTitles(), { :class => "large btn btn-default"} ) %>
 	</dd>
 
 	<dt class="f_label">

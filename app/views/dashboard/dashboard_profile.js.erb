@@ -16,13 +16,25 @@
 	 $dashboard_rightarea.find('#password-edit').html("<%= escape_javascript render(:partial => 'users/edit_pw') %>");
 	<% end %>
 	
-	<% if action_name == 'edit_profile' %>	 
+	<% if action_name == 'edit_profile' || action_name == 'update_profile' %>	 
 	 $dashboard_rightarea.find('#account-profile').html("<%= escape_javascript render(:partial => 'users/edit') %>");
 	<% end %>
+	
 	
 	<% if action_name == 'edit_company' %>	 
 	 $dashboard_rightarea.find('#company-profile').html("<%= escape_javascript render(:partial => 'companies/edit') %>");
 	<% end %>
+	
+<% end %>	
 
+
+// ********** workaround for error msg display! ************ 
+
+<% if ctrl_name == "users" %>
+	 $dashboard_rightarea.find('#account-profile').html("<%= escape_javascript render(:partial => 'users/edit') %>");
+<% end %>
+
+<% if ctrl_name == "company" %>
+	 $dashboard_rightarea.find('#company-profile').html("<%= escape_javascript render(:partial => 'companies/edit') %>");
 
 <% end %>
