@@ -48,7 +48,7 @@
 					<% if current_user %>
 					<!-- 您好， <b><%= current_user.nickname %> </b>  -->
 					<li class="my-profile-link">
-						<%= link_to dashboard_path, :class=>"", remote: true do %>
+						<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
 						<span>您好，<b><%= current_user.nickname %> </b> </span>
 						<span class="caret"></span>
 						<%= link_to "出", logout_path %>

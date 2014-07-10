@@ -1,6 +1,5 @@
 module ApplicationHelper
   extend self
-
   def parse_something(string)
     # do stuff here
   end
@@ -8,32 +7,36 @@ module ApplicationHelper
   def other_utility_method(number, string)
     # do some more stuff
   end
-  
-  
+
   def display_notice_and_alert
     msg = ''
     msg << content_tag(:div, notice, :class => "alert alert-success") if notice
-    msg << content_tag(:div, alert, :class => "alert alert-warning") if alert
+    msg << content_tag(:div, content_tag(:i, "", :class => "glyphicon glyphicon-info-sign span-icon")+ alert,
+         :class => "alert alert-warning") if alert
     sanitize msg
   end
-  
-  
+
   def get_breadcrumb_path_info (path_key)
     pathKeyArr = path_key.split(',')
     path_info = []
     pathKeyArr.each do |pathKey|
       case pathKey
-      when 'dashboard' then path_info.push(['我的控制台', './dashboard/dashboard'])
       when 'homepage' then path_info.push(['首页', './'])
+      when 'createOrder' then path_info.push(['创建采购单', './order_new'])
       when 'detail' then path_info.push(['订单详情', './orders/'])
-      when 'filter' then path_info.push(['订单搜索', './orders/search?search'])
+      when 'filter' then path_info.push(['订单搜索', './orders/search?search='])
+      when 'dashboard' then path_info.push(['我的壹百万', './dashboard/dashboard'])
+      when 'myPurchase' then path_info.push(['采购单管理', './dashboard/dashboard_purchases'])
+      when 'myVending' then path_info.push(['竞价单管理', './dashboard/dashboard_vendings'])
+      when 'myMessage' then path_info.push(['消息管理', './dashboard/dashboard_msg'])
+      when 'mySetting' then path_info.push(['设置', './dashboard/dashboard_settings'])
       else path_info.push(['首页', './'])
       end
     end
-    
+
     Rails.logger.debug "get_breadcrumb_path_info: " + path_info.to_s
-    
+
     return path_info
   end
-  
+
 end

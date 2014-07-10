@@ -107,7 +107,7 @@ $(document).ready(function() {
 		mask : {
 			color : '#111',
 			loadSpeed : 200,
-			opacity : 0.4
+			opacity : 0.2
 		},
 		closeOnClick : true,
 		load : false

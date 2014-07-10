@@ -26,9 +26,16 @@
 
 								<li>
 									<p class="title">
-										收货城市
+										交货城市
 									</p>
 									<span class="value"><%= @order.location.name %></span>
+								</li>
+								
+								<li>
+									<p class="title">
+										交货周期
+									</p>
+									<span class="count">3周</span>
 								</li>
 
 								<li>
@@ -48,12 +55,7 @@
 									</div>
 								</li>
 
-								<li>
-									<p class="title">
-										竞拍次数
-									</p>
-									<span class="count"><%= get_bid_count(@order) %></span>
-								</li>
+								
 
 							</ul>
 						</div>
@@ -80,7 +82,11 @@
 		<article class="orderContainer">
 			<div class="orderInfoContainer">
 				<div class="orderInfo">
-					<h4>采购明细</h4>
+					<div class="info-header"><h4>采购明细</h4></div>
+					<div class="detail-download-button">
+						<i class="glyphicon  glyphicon-download-alt span-icon"></i>
+						<span>下载采购单明细</span>
+					</div>
 					<hr class="dashed">
 					<!-- item table TODO hardcode -->
 					<table class="itemTable">
