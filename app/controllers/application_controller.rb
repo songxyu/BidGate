@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   
   
   def authorize
-    redirect_to login_url, alert: "Not authorized" if current_user.nil?
+    redirect_to login_url, alert: "您尚未登录，请在此登录或注册" if current_user.nil?
   end
   
   

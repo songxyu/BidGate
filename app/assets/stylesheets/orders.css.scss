@@ -442,6 +442,8 @@ hr.dashed {
 .orderInfoContainer .itemTable {
   border-collapse:collapse;
   margin: 0 auto;
+  min-width: 550px;
+  max-width: 700px;
 }
 
 .orderInfoContainer .itemTable td, .itemTable th {

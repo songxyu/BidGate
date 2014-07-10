@@ -74,6 +74,7 @@ module OrdersHelper
     return total_money * 0.2
   end
 
+  # get lastest bid price
   def get_order_lastest_bid_price(order)
     bid_history_count = order.order_price_histories.count
     bid_price = order.order_price_histories[bid_history_count-1] ? 
@@ -81,12 +82,14 @@ module OrdersHelper
     return bid_price
   end
   
+  # get lastest bid company name
   def get_order_lastest_bid_company(order)
     bid_history_count = order.order_price_histories.count
     return bid_history_count != 0 ? 
         order.order_price_histories[bid_history_count-1].vendor.company.name : ""
   end
   
+  # get the count of bid history
   def get_bid_count(order)
     return order.order_price_histories.count
   end
