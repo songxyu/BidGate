@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def display_notice_and_alert
     msg = ''
-    msg << content_tag(:div, notice, :class => "alert alert-success") if notice
+    msg << content_tag(:div, content_tag(:i, "", :class => "glyphicon glyphicon glyphicon-ok span-icon")+ notice, :class => "alert alert-success") if notice
     msg << content_tag(:div, content_tag(:i, "", :class => "glyphicon glyphicon-info-sign span-icon")+ alert,
          :class => "alert alert-warning") if alert
     sanitize msg

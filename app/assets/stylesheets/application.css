@@ -17,7 +17,7 @@
  *= require bootstrap.min
  *
  *= require bootstrap-theme.min
- * 
+ *
  *= require responsiveslides
  */
 
@@ -85,9 +85,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	border: 1px solid #ff7549;
 }
 
-
-
-
 /*** ----------------------- content ------------------------ */
 
 .homepage a {
@@ -149,6 +146,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	color: #888;
 }
 
+.span-text {
+	padding-right: 5px;
+}
+
+.span-icon {/* NOTE: can only use font icon files under folder public */
+	font-size: 16px;
+	vertical-align: middle;
+	padding-right: 3px;
+}
 
 /*** ----------------------- footer ------------------------ */
 .footer {
@@ -164,7 +170,4 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	color: red;
 	background-color: yellow;
 }
-
-
-
 

@@ -3,8 +3,10 @@
 .dashboard-page{
 	height: 800px; 
 	width: 100%;
+	padding-top: 5px;
 	border: 1px solid #ececec;
-	border-radius: 3px;
+	background: #fff;
+	font-size: 15px;
 	
 	.grid_layout_area{
 		display: inline;
@@ -27,16 +29,8 @@
 		
 		.ui-side-item{
 			cursor: pointer;
-			background: #ececec;
 			font-size: 14px;
-			.span-text{
-				padding-right: 5px;
-			}
-			
-			.span-icon{ /* NOTE: can only use font icon files under folder public */  
-				font-size: 16px;
-				vertical-align: middle;
-			}
+			border: 1px solid #eee;
 		}
 		
 		.ui-side-item.active{
@@ -57,6 +51,18 @@
 		height: 100%;
 		width: 800px;
 		position: relative;
+		
+		.dash-sum-area {
+		  width: 100%;
+		  height: 100px;
+		  padding: 19px;
+		  background-color: #fffbe2;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 10px;
+		}
+		.dash-summary {
+		  height: 150px;
+		}
 					
 		
 		> div{			 
