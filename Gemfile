@@ -48,6 +48,8 @@ gem 'kaminari'
 gem 'sunspot_rails'
 gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development, run using:  rake sunspot:solr:run
 
+gem 'whenever', :require => false
+
 
 group :development do
   gem 'meta_request','0.2.8'

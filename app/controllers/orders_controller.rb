@@ -392,4 +392,47 @@ class OrdersController < CommonController
     render "dashboard/dashboard_vendings" and return
   end
   
+  
+  
+  # buyer approves a bid
+  def approve_bid
+    order_id = params[:order_id]
+    bid_history_id = params[:price_history_id]
+    user_id = current_user.id
+    
+    @order = Order.find(order_id)
+    if @order
+      if user_id == @order.buyer.id
+        @order_hist = OrderPriceHistory.find(bid_history_id)
+        @order.vendor_id = @order_hist.vendor_id
+        @order.deal_price = @order_hist.price
+        @order.deal_date =  DateTime.current
+        
+        if @order.save
+           logger.debug "order approved, dealed.  for order_id = " + order_id.to_s
+           flash.now.notice = "竞拍成交!"
+        else
+          logger.error "order approved failed  for order_id = " + order_id.to_s
+          flash.now.alert = "竞拍未能成交!"
+        end
+      else
+         logger.error "order approved failed, buyer not correct. for order_id = " + order_id.to_s
+         flash.now.alert = "竞拍未能成交!"
+      end      
+     else
+         logger.error "order approved failed, not found. for order_id = " + order_id.to_s
+         flash.now.alert = "竞拍未能成交!!"
+     end
+        
+  end
+  
+  
+  def cancel_bid
+    order_id = params[:order_id]
+    user_id = current_user.id
+    
+    @order = Order.find(order_id)    
+    @order.update_attribute(:status, -1)    
+  end
+  
 end
