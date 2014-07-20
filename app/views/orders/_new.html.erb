@@ -1,79 +1,358 @@
-<h1>Fill your order</h1>
+<div class="order_onboarding">
 
-<%= nested_form_for @order, remote: true   do |f| %>
-<div style="padding-left: 50px;">
-	<!-- category selection area -->
-	<span><b>订单类型：</b></span>
-	<br>
-	<div style="padding-left: 50px;">
-		<% @category.each do |cate| %>		
-		<div>
-			<%= radio_button_tag :parent_category, cate.id %><%= label_tag cate.name %>
-			<br />
-			
-			<% cate.child_categories.each do |child_cate| %>			
-			<div style='padding-left: 50px;'>
-				<%= radio_button_tag :category, child_cate.id %><%= label_tag child_cate.name %>
-				<br />	
-			</div> 
-			<% end %>
-			
-		</div>		
-		<% end %>
+	<div class="onboarding_header">
+		<span class="shift">免费发布您的采购单</span>
+		<hr>
+		<p class="lead">
+			壹百万帮您找到最低采购价格
+		</p>
+
 	</div>
-	<hr />
 
+	<div class="panel_background_blue_radial">
+		<div class= "panel_inner_padding">
+			<div class="row">
+				<div class="order_onboarding_form">
+					<div class="selectors">
+						<span>采购的物料类型</span>
 
-	<!-- order goods data fill area -->
-	<p><b> 货物信息:  	</b></p>
-	<p><%= f.link_to_add "增加货物", :order_goods, :data => { :target => ".add_order_goods_area" } %></p>
-	
-	<div>
-	<%= f.fields_for :order_goods,  @order.order_goods.new do | goods_form | %>
-		<span><b>名称：</b></span>
-		<%= goods_form.text_field :name  %>
-		<br>
-		
-		<span><b>型号：</b></span>
-		<%= goods_form.text_field :model  %>
-		<br>
-		
-		<span><b>价格：</b></span>
-		<%= goods_form.text_field :price %>
-		<br>
-	
-		<span><b>数量：</b></span>
-		<%= goods_form.text_field :quantity  %>
-		<br>
+					</div>
+					<div class="selectors">
+						<span>采购范围</span>
 
-		<a href="javascript:void" class="addExtProp"> 添加扩展属性 </a>
-		<div class="extPropArea"></div>
-		<%= goods_form.link_to_remove "删除该货" %>		
-		<br>
-		<br/>
-	<% end %>	
+					</div>
+					<div class="selectors">
+						<span>交货城市</span>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="select_row">
+				<div class="category_select">
+					<div class="btn_group">
+						<%
+ top_level_categories = get_categories_array(0, false);
+%>
+
+						<ul>
+							<% top_level_categories.each do |cate| %>
+							<li class="select_btn" data-name="<%= cate.name%>" data-type-id="<%= cate.id%>">
+								<span><%= cate.name%></span>
+							</li>
+							<% end %>
+
+							<!--
+							<li class="select_btn" data-name="steel" data-type-id="1">
+							<span>钢材/不锈钢</span>
+							</li>
+
+							<li class="select_btn" data-name="chemistry" data-type-id="2">
+							<span>化工化学</span>
+							</li>
+
+							<li class="select_btn" data-name="plastics" data-type-id="3">
+							<span>塑料</span>
+							</li>
+
+							<li class="select_btn" data-name="rubber" data-type-id="3">
+							<span>橡胶</span>
+							</li>
+
+							<li class="select_btn" data-name="wood" data-type-id="4">
+							<span>木材</span>
+							</li>
+
+							<li class="select_btn" data-name="alloy" data-type-id="5">
+							<span> 镍 /锡/合金</span>
+							</li>
+							-->
+
+							<li class="select_btn" data-name="others" data-type-id="0">
+								<div class="dropdown_container">
+									<span class="dropdown_btn_text">其他</span>
+									<div class="icon_dropdown"></div>
+								</div>
+							</li>
+						</ul>
+						<div>
+							<ul class="dropdown_list">
+								<li class="item" data-name="11" data-item="铝/铜">
+									<span>铝/铜</span>
+								</li>
+								<li class="item" data-name="12" data-item="陶瓷">
+									<span>陶瓷</span>
+								</li>
+								<li class="item" data-name="13" data-item="毡制品">
+									<span>毡制品</span>
+								</li>
+								<li class="item" data-name="14" data-item="玻璃纤维">
+									<span>玻璃纤维</span>
+								</li>
+								<li class="item" data-name="15" data-item="泡沫">
+									<span>泡沫</span>
+								</li>
+								<li class="item" data-name="16" data-item="毡制品">
+									<span>毡制品</span>
+								</li>
+								<li class="item" data-name="99" data-item="其它">
+									<span>其它</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="bid_select">
+					<div class="btn_group">
+						<ul>
+							<li class="select_btn" data-name="global_bid" data-type-id="1">
+								<div class="icon_global"></div>
+								<span>公开采购</span>
+							</li>
+
+							<li class="select_btn" data-name="local_bid" data-type-id="2">
+								<div class="icon_local"></div>
+								<span>指定采购</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="city_select">
+					<div class="bg">
+						<div class="icon_location"></div>
+						<input type="text" class="form-control city_input" placeholder="请输入交货城市" />
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<button  class="next_btn disabled" disabled="disabled">
+			<span class="next_txt">保存，下一步</span>
+		</button>
+
 	</div>
-	
-	<div class="add_order_goods_area"></div>
-	<hr />
-	<span><b>竞拍总价格：</b></span>
-	<%= f.text_field (:price) %>
-	<br>
-	
-	<!-- order basic data fill area -->
-	<span><b><font color='#68217A'>一口价：</font></b></span>
-	<%= f.select(:price_type, [["正常竞价", 1], ["一口价", 0]]) %>
-	<br>
-	
-		<span><b>截止日期：</b></span>
-	<label for='deadline'></label>
-	<%= f.text_field :deadline %>
-	<br>
-	<hr>
-
-
-	<%= button_to  '提交' %>
 </div>
 
+<!---=========== Order Details Edit ============== -->
 
-<% end %>
+<link rel="stylesheet" href="javascripts/SlickGrid/slick.grid.css" type="text/css"/>
+<link rel="stylesheet" href="javascripts/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
+<div class="create_order_step2">
+
+	<div class="selectionQuickview"></div>
+
+	<div class="left-area col-md-8">
+		<div class="left-header">
+			<div class="headerTitle">
+				编辑我的采购单
+			</div>
+		</div>
+		<p class="tableTitle">
+			<span class="glyphicon glyphicon-pencil item-icon"></span><span> 采购物料</span>
+		</p>
+		<div class="order-items-grid-area"></div>
+
+		<div class="add-items-btn">
+			<span> + 添加物料</span>
+		</div>
+
+		<div class="order-vendor-area">
+			<p class="tableTitle">
+				<span class="glyphicon glyphicon-pencil item-icon"></span><span> 竞拍供应商列表</span>
+			</p>
+			<div class="order-vendor-list">
+
+			</div>
+			<div class="add-vendor-btn">
+				<span> + 添加供应商</span>
+			</div>
+
+		</div>
+
+		<div class="order-other-info-area">
+			<div class="label-column">
+				<div class="label">
+					<span>竞拍总价格</span>
+				</div>
+				<div class="label">
+					<span>付款方式</span>
+				</div>
+				<div class="label ">
+					<span>竞价截至日期</span>
+				</div>
+				<div class="label">
+					<span>交货日期</span>
+				</div>
+				<div class="label">
+					<span>收货地址</span>
+				</div>
+				<div class="label">
+					<span>备注</span>
+				</div>
+			</div>
+			<div class="input-column">
+				<div class="values">
+					<input type="text" class="form-control price" placeholder="  输入总价格"/>
+				</div>
+				<div class="values">
+					<select class="payment" >
+						<option value="1">押金</option>
+						<option value="2">押金 + 尾期款</option>
+						<option value="3">担保支付</option>
+					</select>
+				</div>
+
+				<!-- <div class="btn-group">
+				<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">
+				Stainless Steel <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+				<li>10% 押金</li>
+				<li>10% 押金 + 尾期款</li>
+				<li>担保支付</li>
+				</ul>
+				</div> -->
+
+				<div class="values">
+					<input class="date-input deadline" />
+				</div>
+				<div class="values">
+					<input class="date-input delivery-date" />
+				</div>
+				<div class="values">
+					<input class="shipping-addr" placeholder="  输入交货地址"/>
+				</div>
+				<div class="values">
+					<textarea class="order-memo" />
+				</div>
+
+			</div>
+		</div>
+
+		<div class="submit-area">
+			<button type="button" class="btn btn-default order-submit-btn" data-loading-text="Loading...">
+				提交订单
+			</button>
+
+		</div>
+
+	</div>
+
+	<div class="right-area">
+		<div class="right-header">
+			<div class="preview-btn">
+				预览
+			</div>
+		</div>
+		<div class="dynamic-select-area">
+			<div class="field-list">
+				<div class="section-label">
+					基本信息: xxx
+				</div>
+
+				<div class="item-field-area">
+
+					<p>
+						子类别:
+					</p>
+					<div class="category_dropdown_list"></div>
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						名称:
+					</p>
+					<input class="input name" />
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						型号:
+					</p>
+					<input class="input model" />
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						数量:
+					</p>
+					<input class="input quantity" />
+					<span class="category-unit"/>
+				</div>
+
+				<div class="item-field-area">
+					<p>
+						描述:
+					</p>
+					<textarea class="input memo" />
+				</div>
+
+				<div class="section-label">
+					更多信息:
+				</div>
+
+				<div class="dynamic_properties"></div>
+			</div>
+
+			<div class="button-area">
+				<button class="btn btn-success add-one-item-btn">
+					添加
+				</button>
+			</div>
+
+		</div>
+
+		<div class="vendor-select-area">
+			<div class="field-list">
+				<div class="section-label">
+					可选供应商:
+				</div>
+
+				<div class="vendor_list">
+					<% vendors = []
+            if current_user
+              company_id = current_user.company.id
+              vendors = CompanyVendor.get_vendor_list(company_id)
+            end
+%>
+
+					<% vendors.each do |v| %>
+					<div class="one-vendor">
+						<input name="vendor-<%= v.id%>" type="checkbox" value="<%= v.id%>" data-location="<%= v.register_address%>" data-mainbiz="<%= v.main_biz%>"/>
+						<label for="vendor-<%= v.id%>"> <%= v.name%> </label>
+					</div>
+					<% end %>
+				</div>
+
+			</div>
+
+			<div class="button-area">
+				<button class="add-one-btn add-one-vendor-btn">
+					<span>添加</span>
+				</button>
+			</div>
+
+		</div>
+
+		<div class="empty-info">
+			<div></div>
+			<p>
+				轻松添加采购物料，合理设定价格，能帮助您更快的找到最低价格
+			</p>
+		</div>
+	</div>
+
+</div>
+
+<script src="javascripts/SlickGrid/lib/firebugx.js"></script>
+<script src="javascripts/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="javascripts/SlickGrid/lib/jquery.event.drag-2.2.js"></script>
+
+<script src="javascripts/SlickGrid/slick.core.js"></script>
+<script src="javascripts/SlickGrid/plugins/slick.cellrangedecorator.js"></script>
+<script src="javascripts/SlickGrid/plugins/slick.cellrangeselector.js"></script>
+<script src="javascripts/SlickGrid/plugins/slick.cellselectionmodel.js"></script>
+<script src="javascripts/SlickGrid/slick.formatters.js"></script>
+<script src="javascripts/SlickGrid/slick.editors.js"></script>
+<script src="javascripts/SlickGrid/slick.grid.js"></script>
+<script src="javascripts/SlickGrid/slick.dataview.js"></script>

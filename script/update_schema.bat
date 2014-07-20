@@ -71,6 +71,9 @@ call rails generate migration AddOrderMemoToOrders order_memo:string
 
 echo add new table for vendor
 call rails generate model CompanyVendor  company:references  vendor_id:integer
+
+echo add three columns on table order_price_history
+call rails generate migration AddColumnsToOrderPriceHistories delivery_days:integer bid_memo:string is_valid:boolean
  
 
 echo  ----- finished changes ----

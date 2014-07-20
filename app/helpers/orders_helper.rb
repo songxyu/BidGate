@@ -94,6 +94,15 @@ module OrdersHelper
     return order.order_price_histories.count
   end
 
+  # get user role
+  def get_user_role(role_id)
+    case role_id
+    when 0 then "未指定"
+    when 1 then "采购"
+    when 2 then "销售"
+    when 3 then "销售经理"
+    end
+  end
   # orders I placed for purchase
   def my_purchases( user_id , status, page_info )
     if ( !status && status != 0 )  || status == ''

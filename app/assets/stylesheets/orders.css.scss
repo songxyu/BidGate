@@ -532,6 +532,7 @@ hr.dashed {
   float: right;
   margin: 20px 10px;
   width: 295px;
+  padding: 10px;
 }
 
 .orderInfoContainer .vendorDemandsTitle {
@@ -597,13 +598,13 @@ hr.dashed {
 #bidActionArea .bidStatusTag {
   position: relative;
   top: -100px;
-  left: 168px;
-  width: 90px;
-  height: 30px;
+  left: 158px;
+  width: 100px;
+  height: 35px;
   background: #e60027;
   color: #fff;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 17px;
+  line-height: 35px;
   text-align: center;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
   
@@ -722,3 +723,28 @@ hr.dashed {
   height: 300px;
 }
 
+.bid-area {
+  height: 100%;
+  ul {
+    font-size: 15px;
+    list-style: none;
+    margin-top: 20px;
+    li {
+      height: 40px;
+      .fieldValue {
+        float: left;
+        color: #666;
+        line-height: 40px;
+      }
+    }
+  }
+  .bid-button{
+    text-align: center;
+    padding-top: 15px;
+    .btn-bid {
+      width: 120px;
+      height: 40px;
+      font-size: 15px;
+    }
+  }
+}

@@ -12,7 +12,7 @@ $(document).ready(function() {
 		top : 100,
 		mask : {
 			color : '#333',
-			loadSpeed : 200,
+			loadSpeed : 100,
 			opacity : 0.6
 		},
 		closeOnClick : true,
@@ -23,7 +23,18 @@ $(document).ready(function() {
 		top : 100,
 		mask : {
 			color : '#333',
-			loadSpeed : 200,
+			loadSpeed : 100,
+			opacity : 0.6
+		},
+		closeOnClick : true,
+		load : false
+	});
+	
+	$("#order_bid_dialog").overlay({
+		top : 100,
+		mask : {
+			color : '#333',
+			loadSpeed : 100,
 			opacity : 0.6
 		},
 		closeOnClick : true,

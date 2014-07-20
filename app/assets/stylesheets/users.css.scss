@@ -169,14 +169,6 @@
 // end time line
 
 .regContainer {
-  .fieldLabel {
-    float: left;
-    width: 100px;
-    color: #666;
-    text-align: right;
-    height: 40px;
-    line-height: 40px;
-  }
   .fieldValue {
     float: left;
   }
@@ -190,7 +182,6 @@
   }
   
   .fieldInput {
-    height: 45px;
     .reg-input {
       height: 45px;
     }

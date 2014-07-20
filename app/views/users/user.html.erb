@@ -13,9 +13,9 @@
 				<%= render "reg_header" %>
 				<% request_name = request.path %>
 				<% if 	request_name == "/signup" %>
-				<%= render "new_1" %>
+				<%= render "reg_basic_info" %>
 				<% elsif  request_name == "/register_details" %>
-				<%= render "new_2" %>
+				<%= render "reg_phone_verify" %>
 				<% elsif  request_name == "/signup_success" %>
 				<%= render "reg_success" %>
 				<% else %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140602070422) do
+ActiveRecord::Schema.define(:version => 20140719031901) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -129,10 +129,13 @@ ActiveRecord::Schema.define(:version => 20140602070422) do
   create_table "order_price_histories", :force => true do |t|
     t.integer  "order_id"
     t.datetime "bid_time"
-    t.decimal  "price",      :precision => 8, :scale => 2
+    t.decimal  "price",         :precision => 8, :scale => 2
     t.integer  "vendor_id"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.integer  "delivery_days"
+    t.string   "bid_memo"
+    t.boolean  "valid"
   end
 
   add_index "order_price_histories", ["order_id"], :name => "index_order_price_histories_on_order_id"

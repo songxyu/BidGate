@@ -1,3 +1,52 @@
+//------ common style -------//
+.dialog {
+  background-color: #fff;
+  display: none;
+  overflow: hidden;
+  width: 200px;
+  height: 100px;
+  text-align: left;
+  border: 5px solid #666;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  .dialog-content {
+    padding: 20px;
+  }
+  .dialog-header {
+      height: 40px;
+      width: 100%;
+      border-bottom: 1px solid #ddd;
+      background-color: #eee;
+      border-radius: 4px 4px 0 0;
+  }
+
+  .dialog-header-text {
+      font-size: 15px;
+      font-weight: bold;
+      padding-left: 15px;
+      line-height: 40px;
+  }
+  .close_btn {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      cursor: pointer;
+      display: block;
+      height: 30px;
+      width: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-position: 0px -142px;
+      background-repeat: no-repeat no-repeat;
+  }
+  .close_btn:hover {
+      background: #8dcae8;
+  }
+}
+  
+  //------- logon ----------//
+
 #dialog_area {
   background-color:#fff;
   display:none;
@@ -26,17 +75,12 @@
 .dialog_logon {
   width: 550px;
   height: 420px;
-  background-color: #fefefe;
-  border: 1px solid #666;
-  border-radius: 4px;
-  box-shadow: 0 0 25px 2px #666;
   display: none;
 }
 
 .dialog_logon .logon-content {
   width: 100%;
   float: left;
-  font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   
   .left-area {
     width: 200px;
@@ -60,7 +104,7 @@
   
   .logon-form-area{
     float: left;
-    width: 345px;
+    width: 340px;
     padding: 20px;
     
     .shake-area {
@@ -88,60 +132,7 @@
   
 }
 
-
-.dialog_logon .logon_header {
-  height: 40px;
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-  background-color: #eee;
-  border-radius: 4px 4px 0 0;
-}
-
-.dialog_logon .logon_header_text {
-  font-size: 16px;
-  font-weight: bold;
-  padding-left: 15px;
-  line-height: 40px;
-}
-
-.close_btn {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  cursor: pointer;
-  display: block;
-  height: 30px;
-  width: 30px;
-  line-height: 30px;
-  text-align: center;
-  background-position: 0px -142px;
-  background-repeat: no-repeat no-repeat;
-}
-
-.close_btn .close-btn {
-  font-size: 16px;
-}
-
-.close_btn:hover {
-  background: #8dcae8;
-}
-
 //==================== quickview dialog =====================
-  
-.quickview_dialog {
-  background-color: #fff;
-  display: none;
-  overflow: hidden;
-  width: 650px;
-  height: 440px;
-  text-align: left;
-  border: 3px solid #777;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-}
-
-// quick view dialog
 
 .quickview {
   width: 100%;
@@ -294,31 +285,8 @@
 //==================== communication dialog =====================
 
 #communication_dialog {
-  background-color: #fff;
-  display: none;
-  overflow: hidden;
   width: 400px;
   height: 500px;
-  text-align: left;
-  border: 3px solid #777;
-  border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  .comm_header {
-      height: 40px;
-      width: 100%;
-      border-bottom: 1px solid #ddd;
-      background-color: #eee;
-      border-radius: 4px 4px 0 0;
-  }
-
-  .comm_header_text {
-      font-size: 15px;
-      font-weight: bold;
-      padding-left: 15px;
-      line-height: 40px;
-  }
-  
   .role-name {
       color: red;
       font-size: 15px;
@@ -366,14 +334,14 @@
 }
 
 #order-create-success-dialog {
-    background-color: #fff;
-    display: none;
-    overflow: hidden;
     width: 550px;
     height: 400px;
-    text-align: left;
-    border: 3px solid #777;
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+    display: none;
+}
+
+
+//------ order bid dialog ------//
+#order_bid_dialog {
+    width: 450px;
+    height: 350px;
 }

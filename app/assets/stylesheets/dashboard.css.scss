@@ -3,10 +3,44 @@
 .dashboard-page{
 	height: 800px; 
 	width: 100%;
-	padding-top: 5px;
+	padding-top: 0px;
 	border: 1px solid #ececec;
 	background: #fff;
 	font-size: 15px;
+	
+	.dash-header {
+	  height: 45px;
+    border: 1px solid #ececec;
+    background: #428bca;
+    padding: 10px;
+    color: #ececec;
+    font-size: 14px;
+    position: absolute;
+    width: 960px;
+    ul {
+      list-style: none;
+      li {
+        float: left;
+      }
+    }
+    
+    .title {
+      color: #bbb;
+    }
+
+    .company-name {
+      width: 300px;
+    }
+    .compnay-id {
+      width: 150px;
+    }
+    .user-email {
+      width: 280px;
+    }
+    .user-role {
+      width: 150px;
+    }
+	}
 	
 	.grid_layout_area{
 		display: inline;
@@ -18,7 +52,8 @@
 	.left-list{
 		width: 150px;
 		height: 100%; 
-				
+	  position: relative;
+	  top: 45px;
 		ul{
 			list-style-type: none;
 		}
@@ -51,6 +86,7 @@
 		height: 100%;
 		width: 800px;
 		position: relative;
+		top: 45px;
 		
 		.dash-sum-area {
 		  width: 100%;

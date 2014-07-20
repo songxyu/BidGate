@@ -1,0 +1,41 @@
+<div class="bid-area">
+	<!-- header -->
+	<div class="dialog-header">
+		<div class="dialog-header-text">
+			<span>参与竞拍</span>
+		</div>
+		<div class="close_btn">
+			<span class="glyphicon glyphicon-remove close-btn"></span>
+		</div>
+	</div>
+
+	<!-- content -->
+	<div class="content">
+		<%= form_for @order, url: order_order_price_histories_path(@order), remote: true, method: :post do |f| %>
+
+		<ul>
+			<li>
+				<div class="fieldLabel">
+					<span>最新竞价：</span>
+				</div>
+				<div class="fieldValue">
+					<span>¥ </span><%= get_order_lastest_bid_price(@order) %></span>
+				</div>
+			</li>
+
+			<li>
+				<div class="fieldLabel">
+					<span>我的报价：</span>
+				</div>
+				<div class="fieldValue">
+					<%= text_field_tag(:bid_price, '', type: 'text', class: 'input') %> 元
+				</div>
+
+			</li>
+
+		</ul>
+		<div class="bid-button">
+			<%= submit_tag("立即竞价", class: 'btn btn-primary btn-bid') %>
+		</div>
+		<% end %>
+	</div>

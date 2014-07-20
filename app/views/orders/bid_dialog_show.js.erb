@@ -1,0 +1,7 @@
+$("#order_bid_dialog").html("<%= escape_javascript render(:partial => 'orders/bid_dialog_show')%>");
+
+$("#order_bid_dialog").overlay().load();
+
+$('.close_btn').click(function(){
+	$("#order_bid_dialog").overlay().close();
+});

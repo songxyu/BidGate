@@ -106,7 +106,7 @@ $(document).ready(function() {
 		top : 100,
 		mask : {
 			color : '#111',
-			loadSpeed : 200,
+			loadSpeed : 50,
 			opacity : 0.2
 		},
 		closeOnClick : true,

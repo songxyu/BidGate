@@ -280,6 +280,13 @@ class OrdersController < CommonController
     end
   end
   
+  def bid_dialog_show
+    @order = Order.find(params[:id])
+    respond_to do |format|
+            format.js
+    end
+  end
+  
   def edit
     @order = Order.find(params[:id])
     common_response

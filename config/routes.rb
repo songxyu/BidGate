@@ -84,6 +84,7 @@ BidGate::Application.routes.draw do
   get "order_new" => "orders#new", :as => "orders_new"
   get "order_quickview_show" => "orders#quickview_show", :as => "order_quickview_show"
   get "comm_dialog_show" => "orders#comm_dialog_show", :as => "comm_dialog_show"
+  get "bid_dialog_show" =>"orders#bid_dialog_show", :as => "bid_dialog_show"
   #end add
   
   #root :to => "users#new"
