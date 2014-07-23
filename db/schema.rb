@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140719031901) do
+ActiveRecord::Schema.define(:version => 20140719072838) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(:version => 20140719031901) do
     t.datetime "updated_at",                                  :null => false
     t.integer  "delivery_days"
     t.string   "bid_memo"
-    t.boolean  "valid"
+    t.boolean  "is_valid"
   end
 
   add_index "order_price_histories", ["order_id"], :name => "index_order_price_histories_on_order_id"

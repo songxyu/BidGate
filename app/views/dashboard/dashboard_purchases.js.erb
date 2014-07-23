@@ -32,6 +32,32 @@ $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javasc
 <% end %>
 
 
+var $bidList = $dashboard_rightarea.find(".bid-hist-list");
+var $radioButtons = $bidList.find('.radio-button-approve-vendor');
+console.log('$radioButtons count=', $radioButtons.length);
+
+$radioButtons.on('click', '', function(){
+	var $approveBtn = $(this).parents('.bid-hist-list').find('.btn-approve-area');
+	console.log('$approveBtn count=', $approveBtn.length);
+	$approveBtn.show();
+});  
+ 
+ 
+ var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
+	$.each($arr_bid_progressbar, function(index, elem) {
+		var prog_val = parseInt($(elem).data("progressval"));
+		var bid_status = parseInt($(elem).data("status"));
+
+		if (bid_status == 1 || bid_status == 0) {
+			$(elem).css("height", "10px");
+			$(elem).find(".ui-widget-header").css("height", "10px");
+		}
+		
+		$(elem).progressbar({
+			value : prog_val
+		});
+	});
+
 // var $tabHeader = $dashboard_rightarea.find(".tab-headers");
 //var $tabItems = $tabHeader.find('.tab-item');
 //$tabHeader.on('click', '.tab-item', function(){

@@ -168,9 +168,51 @@
 				*/				
 				
 				
-				.panel-body > div{
-					position: relative;
-					float: left;
+				.panel-body{
+					
+					> div{
+						position: relative;
+						float: left;
+					}
+					
+					.action-link{
+						text-align: right;
+					}
+					
+					.bid_progressbar_area{
+						height: 25px;
+						> span{							
+    						float: left;  
+    						position: relative;
+						}
+						
+						> div.bid_progressbar {
+							height: 10px;	
+							width: 80px;
+							position: relative;
+							top: 6px;							
+							left: 6px;
+						}
+					}
+					
+					> div.bid-hist-list{
+						clear: both;
+						width: 100%;
+						
+						.button{
+							background-color: lightblue;
+							border: none;
+						}
+						
+						.btn-hidden{
+							display:none;
+						}
+						
+						p{
+							text-align: center;
+							padding-top: 10px;
+						}
+					}
 				}
 				
 				.row-height{
@@ -203,14 +245,7 @@
 	
 	
 	
- 
-	.ui-icon-home:before {
-		content: "\f205";
-	}
-	 
-	.icon:before {
-		line-height: 1;
-	}
+  
 	
 	.pagination_area{
 		float: none;	
