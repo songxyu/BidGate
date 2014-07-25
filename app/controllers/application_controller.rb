@@ -13,5 +13,11 @@ class ApplicationController < ActionController::Base
     redirect_to login_url, alert: "您尚未登录，请在此登录或注册" if current_user.nil?
   end
   
+  public
+  def home
+    @home_layout = true
+    render layout: false, template: "layouts/application.html.erb"
+  end
+  
   
 end

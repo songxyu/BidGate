@@ -14,12 +14,17 @@
 		<%= yield :header %> <!-- THIS NOT WORK!? -->
 
 		<div class="main">
-			<div class ="filter_area"> </div>
 			
+			<div class ="filter_area"></div>
 			<div class="content_area">
+				<% if @home_layout %>
+				<%= render "layouts/homepage" %>
+				<% else %>			
 				<%= yield %>
+				<% end %>
 			</div>
 			
+
 		</div>
 
 		<%= render "layouts/footer" %>

@@ -7,9 +7,7 @@
   height: 100px;
   text-align: left;
   border: 5px solid #666;
-  border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
+  
   .dialog-content {
     padding: 20px;
   }
@@ -73,9 +71,10 @@
 //==================== user logon dialog =====================
   
 .dialog_logon {
-  width: 550px;
+  width: 555px;
   height: 420px;
   display: none;
+  border: 7px solid #aaa;
 }
 
 .dialog_logon .logon-content {

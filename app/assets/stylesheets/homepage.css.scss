@@ -1,0 +1,138 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/**--------------------------------- header --------------------------------------------*/
+
+.homepage {
+  height: 800px;
+}
+
+.tile {
+  float: left;
+  width: 200px;
+  height: 160px;
+  padding: 0;
+  margin: 0 0 20px 30px;
+  background-color: #fff;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  font-size: 14px;
+  display: inline;
+  cursor: pointer;
+  color: #595959;
+  list-style: none;
+}
+
+.tile:hover {
+  opacity: 1;
+  -webkit-box-shadow: #666 4px 4px 10px;
+  -moz-box-shadow: #666 4px 4px 10px;
+}
+
+.portal {
+  height: 380px;
+  background: url("../img/homepage-intro-desktop.jpg") no-repeat 0 center;
+  background-size: cover;
+  .portal-content {
+    height: 380px;
+    min-width: 960px;
+    max-width: 960px;
+    padding: 30px 20px;
+    margin: 0 auto;
+    .industries-portals {
+      width: 600px;
+      padding-left: 0px;
+      float: left;
+      .portal-tile {
+        float: left;
+        width: 180px;
+        height: 150px;
+        padding: 0;
+        margin: 0 0 15px 15px;
+        background-color: #fff;
+        filter: alpha(opacity=80);
+        opacity: 0.8;
+        font-size: 14px;
+        display: inline;
+        cursor: pointer;
+        color: #595959;
+        list-style: none;
+        
+        a {
+          text-decoration: none;
+          text-align: center;
+        }
+        
+        h4 {
+          font-size: 22px;
+          font-weight: 700;
+          color: #595959;
+        }
+        
+        .industry {
+          font-size: 16px;
+        }
+      }
+      
+      .portal-tile:hover {
+        opacity: 1;
+      }
+    }
+    
+    .brief-intro {
+      float: left;
+      width: 320px;
+      height: 300px;
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #f2f2f2;
+      margin-top: 40px;
+    }
+  }
+}
+
+.block {
+  height: 100px;
+ }
+
+.plastics-color {
+  color: #dfad28;
+}
+
+.stainless-color {
+  color: #3dc0d6;
+}
+
+.rubber-color {
+  color: #3dc0d6;
+}
+
+.bronze-color {
+  color: #659932;
+}
+
+.ceramics-color {
+  color: #13b8a9;
+}
+
+.glass-color {
+  color: #8c4cca;
+}
+
+.ind-pls {
+  font-size: 18px;
+}
+
+.ind-stat {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+}
+
+.success_cases {
+  
+}

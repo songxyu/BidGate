@@ -4,7 +4,7 @@
 	<div class="headerHelper">
 		<div class="helper">
 			<div class="hpRight">
-				
+
 				<%= link_to "首页", './', class:"helperLink" %>
 
 				<%= link_to dashboard_path, :class=>"helperLink", remote: true do %>
@@ -22,8 +22,7 @@
 		<div class="masthead">
 
 			<div>
-				<%= link_to orders_path, :class=>"logoWrapper", remote: true do %>
-				<% end %>
+				<%= link_to "", './', class:"logoWrapper" %>
 			</div>
 
 			<div class="menuBar">
@@ -48,9 +47,20 @@
 					<% if current_user %>
 					<!-- 您好， <b><%= current_user.nickname %> </b>  -->
 					<li class="my-profile-link">
-						<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
-						<span>您好，<b><%= current_user.nickname %> </b> </span>
-						<span class="caret"></span>
+						<div class="btn-group">
+						<div class="user-avator" data-toggle="dropdown" data-hover="dropdown" data-delay="500">
+							<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
+							<span>您好，<b><%= current_user.nickname %> </b> </span>
+							<span class="caret"></span>
+						</div>
+						
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">总览</a></li>
+							<li><a href="#">采购单管理</a></li>
+							<li><a href="#">竞价单管理</a></li>
+						</ul>
+						
+						</div>
 						<%= link_to "出", logout_path %>
 						<% end %>
 					</li>

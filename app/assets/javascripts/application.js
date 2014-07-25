@@ -19,6 +19,8 @@
 
 //=require bootstrap.min
 
+//=require bootstrap_hover_dropdown.min
+
 //= require jquery_nested_form
 
 //=require common

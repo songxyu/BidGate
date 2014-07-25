@@ -137,6 +137,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	margin: 0 auto;
 	min-height: 500px;
 	min-width: 960px;
+}
+
+.central-screen {
 	max-width: 960px;
 }
 
@@ -156,6 +159,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	padding-right: 3px;
 }
 
+.alert-warning-info {
+	font-weight: bold;
+	padding-right: 10px;
+}
+
 .fieldLabel {
 	float: left;
 	width: 100px;
@@ -168,6 +176,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .fieldInput {
 	height: 45px;
 }
+
 
 /*** ----------------------- footer ------------------------ */
 .footer {

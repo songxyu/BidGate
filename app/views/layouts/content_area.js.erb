@@ -18,6 +18,7 @@ $(".left_wrapper").show();
    
  	$("#dialog_area").html("<%= escape_javascript render(:partial => action_path ) %>");
 	//$("#dialog_area").dialog();
+	$(".content_area").addClass("central-screen");
 	
 	$("#dialog_area").overlay({
 		 top: 260,
@@ -32,4 +33,6 @@ $(".left_wrapper").show();
   
  <% else %>
 	$(".content_area").html("<%= escape_javascript render(:partial => action_path ) %>");
+	$(".content_area").addClass("central-screen");
+	alert('fuck');
  <% end %>
