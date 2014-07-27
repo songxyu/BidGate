@@ -1,0 +1,14 @@
+<!-- industry portal tile -->
+
+<%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
+<h4><%= @ind[1] %></h4>
+<p class="industry plastics-color">
+	<%= @ind[2] %>
+</p>
+
+<!-- <i class="glyphicon  glyphicon-home inpls-color ind-pls"></i> -->
+
+<p class="ind-stat">
+	竞价中采购单：<%= get_ordercount(@ind[0]) %>个
+</p>
+<% end %>

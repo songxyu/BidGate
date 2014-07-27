@@ -143,5 +143,11 @@ module OrdersHelper
         "order_price_histories.vendor_id = :userId and orders.status > 1 and orders.vendor_id <> :userId",
         {userId: user_id} ).order(OrdersHelper::Default_Order_By).page(page_info)
   end
+  
+  #get orders count by category id
+  def get_ordercount(cate_id)
+    Order.where(category_id: cate_id ).count
+    
+  end
 
 end

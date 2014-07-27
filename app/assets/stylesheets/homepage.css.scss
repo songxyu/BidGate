@@ -3,10 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-/**--------------------------------- header --------------------------------------------*/
-
 .homepage {
-  height: 800px;
+  height: 1500px;
+  background: #fff;
 }
 
 .tile {
@@ -42,14 +41,14 @@
     padding: 30px 20px;
     margin: 0 auto;
     .industries-portals {
-      width: 600px;
+      width: 560px;
       padding-left: 0px;
       float: left;
       .portal-tile {
         float: left;
-        width: 180px;
+        width: 170px;
         height: 150px;
-        padding: 0;
+        padding: 10px;
         margin: 0 0 15px 15px;
         background-color: #fff;
         filter: alpha(opacity=80);
@@ -63,16 +62,18 @@
         a {
           text-decoration: none;
           text-align: center;
+          margin-left: 0px;
         }
         
         h4 {
           font-size: 22px;
           font-weight: 700;
           color: #595959;
+          margin-top: 20px;
         }
         
         .industry {
-          font-size: 16px;
+          font-size: 15px;
         }
       }
       
@@ -83,17 +84,162 @@
     
     .brief-intro {
       float: left;
-      width: 320px;
-      height: 300px;
+      width: 360px;
+      height: 100%;
       text-align: center;
-      padding: 20px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #f2f2f2;
-      margin-top: 40px;
+      .full-intro{
+        font-size: 18px;
+        font-weight: 700;
+        color: #f2f2f2;
+        padding: 20px;
+        .slogan-avator {
+          font-size: 30px;
+          font-weight: 800;
+          color: #eccb00;
+          margin-bottom: 13px;
+        }
+      }
+      
+      .saved-search {
+        width: 340px;
+        height: 150px;
+        background: #fff;
+        margin: 0 auto;
+        cursor: pointer;
+        border: 1px solid #bbb;
+        position: absolute;
+        margin-left: 10px;
+        .ind-pic {
+          width: 100px;
+          height: 100%;
+          float: left;
+          background: #eee;
+        }
+        .search-content {
+          width: 210px;
+          height: 100%;
+          float: left;
+          padding: 10px;
+          .sheader {
+            text-align: left;
+            font-size: 16px;
+            font-weight: 700;
+            color: #666;
+          }
+          .scontent {
+            font-size: 15px;
+            text-align: left;
+            margin-top: 10px;
+          }
+        }
+        .navi {
+          width: 30px;
+          height: 100%;
+          float: left;
+          line-height: 150px;
+          background: #eee;
+          position: absolute;
+          right: 0px;
+          .navi-bar-icon {
+            font-size: 20px;
+            color: #bbb;
+            text-align: center;
+          }
+        }
+      }
+      
+      .saved-search:hover {
+
+      }
+    }
+
+  }
+}
+
+.success-cases {
+  height: 600px;
+  min-width: 960px;
+  max-width: 960px;
+  padding: 30px 20px;
+  margin: 0 auto;
+  
+  .cases-title {
+    font-size: 25px;
+    color: #666;
+    font-weight: 800;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    
+  }
+  
+  ul {
+      list-style: none;
+      padding-left: 0px;
+      li {
+        float: left;
+        margin-right: 25px;
+      }
+      
+  }
+  
+}
+
+.success-tile {
+  width: 280px;
+  height: 400px;
+  border: 1px solid #888;
+  
+}
+
+
+// testimonials
+.testimonials {
+  width: 100%;
+  background: #58be89;
+  .testi-content {
+    height: 500px;
+    min-width: 960px;
+    max-width: 960px;
+    padding: 30px 20px;
+    margin: 0 auto; 
+    .title {
+      margin: 0 0 50px;
+      font-size: 48px;
+      color: #fff;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      li {
+        float: left;
+        width: 360px;
+        height: 263px;
+        padding: 25px;
+        background-color: #fff;
+        margin: 0 0 0 36px;
+        overflow: hidden;
+        .avator-info {
+          height: 100px;
+          img {
+            float: left;
+            width: 100px;
+            height: 100px;
+          }
+          .avator-intro {
+            padding-left: 120px;
+          }
+          .comment-text {
+            padding-top: 50px;
+            font-size: 14px;
+          }
+        }
+      }
     }
   }
 }
+
+
+
 
 .block {
   height: 100px;
@@ -104,7 +250,7 @@
 }
 
 .stainless-color {
-  color: #3dc0d6;
+  color: #5a98de;
 }
 
 .rubber-color {
@@ -131,8 +277,4 @@
   color: #666;
   font-size: 14px;
   text-align: center;
-}
-
-.success_cases {
-  
 }

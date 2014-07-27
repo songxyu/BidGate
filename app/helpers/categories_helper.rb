@@ -52,6 +52,30 @@ module CategoriesHelper
     
   end
   
+  # get 6 parent categories name and first-child categories for homepage
+  def get_cates_descs
+    categoryDescArr = []
+    categoriesRoot = Category.where(parent_id: 0).limit(6)
+    categoriesRoot.each do |parentCate|
+      cateInfo = []
+      firstChildren = Category.where(parent_id: parentCate.id).limit(3)
+      childrenNameStr = ''
+      firstChildren.each do |child|
+        childrenNameStr += child.name+","# remove last ,
+        
+      end
+      
+      cateInfo << parentCate.id
+      cateInfo << parentCate.name
+      cateInfo << childrenNameStr
+      
+      categoryDescArr << cateInfo
+
+    end 
+    
+    return categoryDescArr
+  end
+   
    
     
   private

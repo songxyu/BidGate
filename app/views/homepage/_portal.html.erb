@@ -1,105 +1,36 @@
 <!-- portal: industries gates, self-intro -->
 
+
 <div class="portal">
 	<div class="portal-content">
 
 		<!-- Industries Portal -->
 		<ul class="industries-portals">
-			<!-- Plastics -->
+			<% get_cates_descs().each do |parentCateInfo|%>
 			<li class="portal-tile">
-				<%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
-				<h4>工程塑料</h4>
-				<p class="industry plastics-color">
-					聚乙烯,丙烷,费塑料
-				</p>
-
-				<!-- <i class="glyphicon  glyphicon-home inpls-color ind-pls"></i> -->
-
-				<p class="ind-stat">
-					竞价中采购单：45个
-				</p>
-				<% end %>
+				<%= render :partial => "homepage/ind_portal_tile", :locals => { :@ind => parentCateInfo } %>
 			</li>
-
-			<!-- Stainless -->
-			<li class="portal-tile">
-				<%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
-				<h4>不锈钢/钢材</h4>
-				<p class="industry stainless-color">
-					不锈钢,螺纹钢,抗震钢
-				</p>
-
-				<p class="ind-stat">
-					竞价中采购单：119个
-				</p>
-				<% end %>
-			</li>
-
-			<!-- Rubber -->
-			<li class="portal-tile">
-				<%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
-				<h4>橡胶制品</h4>
-				<p class="industry rubber-color">
-					合成橡胶,树脂,丙烷油
-				</p>
-
-				<p class="ind-stat">
-					竞价中采购单：37个
-				</p>
-				<% end %>
-			</li>
-
-			<!-- Bronze -->
-			<li class="portal-tile">
-				<%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
-				<h4>铝铜/有色金属</h4>
-				<p class="industry bronze-color">
-					黄铜,纯铜,铝板
-				</p>
-
-				<p class="ind-stat">
-					竞价中采购单：209个
-				</p>
-				<% end %>
-			</li>
-
-			<!-- Ceramics -->
-			<li class="portal-tile">
-				<%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
-				<h4>陶瓷</h4>
-				<p class="industry ceramics-color">
-					氮化硅陶瓷,氧化铝,99,95
-				</p>
-
-				<p class="ind-stat">
-					竞价中采购单：11个
-				</p>
-				<% end %>
-			</li>
-
-			<!-- Glass Fiber -->
-			<li class="portal-tile">
-				<%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
-				<h4>玻璃纤维</h4>
-				<p class="industry glass-color">
-					缠绕纱,网格纱,方格布
-				</p>
-
-				<p class="ind-stat">
-					竞价中采购单：53个
-				</p>
-				<% end %>
-			</li>
+			<% end %>
 		</ul>
 
 		<!-- Intro -->
 
 		<div class="brief-intro">
-			<p class="full-intro">
-				找到最低采购价，节省采购成本
-				<br/>
-				发现更多采购单，提高销售业绩
-			<p>
+			<div class="full-intro">
+				<p class="slogan-avator">
+					揭开采购价的遮羞布！
+				</p>
+				<p>
+					找到最低采购价，节省采购成本
+				</p>
+				<p>
+					发现更多采购单，提高销售业绩
+				</p>
+
+			</div>
+			
+			<%= render "homepage/saved_last_search" %>
+			
 		</div>
 
 	</div>

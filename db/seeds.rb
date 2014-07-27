@@ -1,8 +1,15 @@
 # run: rake db:seed
+#connection = ActiveRecord::Base.connection()
+#connection.execute("UPDATE SQLITE_SEQUENCE SET seq = 0  WHERE name = 'categories'")
 
-Category.create(name: "钢材", is_parent: true, parent_id: 0, sort_order:1, status: 0, image_path:"/public/img/1.png")
+
+Category.create(name: "不锈钢/钢材", is_parent: true, parent_id: 0, sort_order:1, status: 0, image_path:"/public/img/1.png")
 Category.create(name: "橡胶制品", is_parent: true, parent_id: 0, sort_order: 1, status: 0, image_path:"/public/img/1.png")
 Category.create(name: "木材", is_parent: true, parent_id: 0, sort_order: 1, status: 0, image_path:"/public/img/1.png")
+Category.create(name: "工程塑料", is_parent: true, parent_id: 0, sort_order: 1, status: 0, image_path:"/public/img/1.png")
+Category.create(name: "铜铝/有色金属", is_parent: true, parent_id: 0, sort_order: 1, status: 0, image_path:"/public/img/1.png")
+Category.create(name: "玻璃纤维", is_parent: true, parent_id: 0, sort_order: 1, status: 0, image_path:"/public/img/1.png")
+
 
 Category.create(name: "不锈钢", is_parent: false, parent_id: 1, sort_order:2, status: 0, image_path: "")
 Category.create(name: "普通钢", is_parent: false, parent_id: 1, sort_order:3, status: 0, image_path: "")
@@ -11,7 +18,15 @@ Category.create(name: "螺纹钢", is_parent: false, parent_id: 1, sort_order:5,
 Category.create(name: "硅橡胶", is_parent: false, parent_id: 2, sort_order: 2, status: 0, image_path: "")
 Category.create(name: "乙丙胶", is_parent: false, parent_id: 2, sort_order: 3, status: 0, image_path: "")
 Category.create(name: "红柳木", is_parent: false, parent_id: 3, sort_order: 2, status: 0, image_path: "")
-Category.create(name: "美国红桃木", is_parent: false, parent_id: 4, sort_order: 2, status: 0, image_path: "")
+Category.create(name: "美国红桃木", is_parent: false, parent_id: 3, sort_order: 2, status: 0, image_path: "")
+Category.create(name: "聚乙烯", is_parent: false, parent_id: 4, sort_order: 2, status: 0, image_path: "")
+Category.create(name: "丙烷", is_parent: false, parent_id: 4, sort_order: 3, status: 0, image_path: "")
+Category.create(name: "黄铜", is_parent: false, parent_id: 5, sort_order: 2, status: 0, image_path: "")
+Category.create(name: "纯铜", is_parent: false, parent_id: 5, sort_order: 3, status: 0, image_path: "")
+Category.create(name: "铝板", is_parent: false, parent_id: 5, sort_order: 4, status: 0, image_path: "")
+Category.create(name: "缠绕纱", is_parent: false, parent_id: 6, sort_order: 2, status: 0, image_path: "")
+Category.create(name: "网格纱", is_parent: false, parent_id: 6, sort_order: 3, status: 0, image_path: "")
+Category.create(name: "方格布", is_parent: false, parent_id: 6, sort_order: 4, status: 0, image_path: "")
 
 
 Company.create(name: "无锡博杨制钢有限公司", register_address: "江苏-无锡", contact:"徐杨", contact_tel: "12345", legal_person:"Mr.Song", main_biz:"诈骗", register_capital: 10000, account_num: "ACC1232143")
