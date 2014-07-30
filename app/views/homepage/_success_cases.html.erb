@@ -5,16 +5,14 @@
 		最新成功竞拍的采购单：
 	</p>
 	<ul>
+		<% get_4_last_success_bid_orders().each do |successOrder|%>
 		<li>
-			<%= render "homepage/success_tile" %>
+			<%= render :partial => "homepage/success_tile", :locals => { :@so => successOrder } %>
 		</li>
-		
-		<li>
-			<%= render "homepage/success_tile" %>
-		</li>
-		
-		<li>
-			<%= render "homepage/success_tile" %>
-		</li>
+		<% end %>
 	</ul>
+
+	<div class="more-orders">
+		<%= link_to "查看更多竞价中采购单...", orders_search_path(:search => "") %>
+	</div>
 </div>

@@ -1,6 +1,25 @@
 <!-- success tile -->
 
 <div class="success-tile">
-	<div class="case-ind-pic">pic</div>
-	<div class="case-content">content</div>
+	<div class="case-ind-pic">
+		<img src='../img/order_item_sample.png'>
+	</div>
+	<div class="so-content">
+		<div class="success-order-buyer-info">
+			<div class="so-id">订单编号：<%= @so.order_num %></div>
+			<div class="so-title"><span>采购：12345</span></div>
+			<div class="so-buyer">采购商：<%= @so.buyer.company.name %></div>
+			<!-- <div class="so-location">地址：杭州，浙江</div> -->
+		</div>
+		<div class="price-vendor-info">
+			<div class="so-dealtime">成交日期：<%= @so.deal_date ? @so.deal_date.strftime('%Y-%m-%d') : "" %></div>
+			<div class="so-dealprice">成交价格：￥<%= @so.deal_price %></div>
+			<!-- <div class="so-bidcount">总竞拍次数：12</div> -->
+			<div class="so-vendor">竞价供应商：<%= @so.vendor.company.name %></div>
+		</div>
+	</div>
+
+	<div class="ok-button">
+		<i class="glyphicon  glyphicon-ok-sign case-ok-btn"></i>
+	</div>
 </div>

@@ -150,4 +150,9 @@ module OrdersHelper
     
   end
 
+  #get four lastest successfully bid orders
+  def get_4_last_success_bid_orders
+    @orders = Order.where(status: 2).order(deal_date: :desc).limit(4)
+  end
+
 end
