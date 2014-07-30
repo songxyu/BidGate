@@ -236,6 +236,13 @@
         font-weight: 800;
         color: #666;
       }
+      a {
+        margin-left: 0px;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #00a8e8;
+      }
     }
     
     .price-vendor-info {
@@ -329,27 +336,27 @@
   height: 100px;
  }
 
-.plastics-color {
+.industry-1 {
   color: #dfad28;
 }
 
-.stainless-color {
+.industry-2 {
   color: #5a98de;
 }
 
-.rubber-color {
+.industry-3 {
   color: #3dc0d6;
 }
 
-.bronze-color {
+.industry-4 {
   color: #659932;
 }
 
-.ceramics-color {
+.industry-5 {
   color: #13b8a9;
 }
 
-.glass-color {
+.industry-6 {
   color: #8c4cca;
 }
 

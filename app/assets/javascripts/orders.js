@@ -12,7 +12,7 @@ $(document).ready(function() {
 		top : 100,
 		mask : {
 			color : '#333',
-			loadSpeed : 100,
+			loadSpeed : 50,
 			opacity : 0.6
 		},
 		closeOnClick : true,

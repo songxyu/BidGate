@@ -2,7 +2,7 @@
 
 <%= link_to orders_search_path(:search => ""), :class=>"block", remote: true do %>
 <h4><%= @ind[1] %></h4>
-<p class="industry plastics-color">
+<p class="industry industry-<%= @ind[0] %>">
 	<%= @ind[2] %>
 </p>
 
