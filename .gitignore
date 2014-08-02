@@ -16,3 +16,4 @@
 
 # Ignore all indexing files
 /solr
+.idea/*

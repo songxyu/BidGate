@@ -1,0 +1,8 @@
+<%
+   bid_progres = get_bid_progress(order.create_time, order.deadline)
+   bid_status = get_bid_status(bid_progres, order.status)
+%>
+<div class="row-height bid_progressbar_area">
+  <span>竞拍进度</span>
+  <div class="bid_progressbar row_margin" data-status="<%= bid_status%>" data-progressval="<%= bid_progres%>"></div>
+</div>

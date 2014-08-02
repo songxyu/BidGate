@@ -30,9 +30,18 @@ class OrderPriceHistoriesController < CommonController
   end
 
 
-  def create   
-  	@price_history = OrderPriceHistory.new(order_id: params[:order_id], price: params[:bid_price], vendor_id: session[:user_id] , bid_time: DateTime.current() )
+  def create
+    orderId = params[:order_id]
+    vendorId = session[:user_id]
+
+    condition = " order_price_histories.order_id = " + orderId + " and order_price_histories.vendor_id = " + vendorId.to_s
+
+    OrderPriceHistory.update_all('is_valid = 0', condition)
+
+  	@price_history = OrderPriceHistory.new(order_id: orderId, price: params[:bid_price], vendor_id: vendorId ,
+          bid_time: DateTime.current(), bid_memo: params[:bid_memo], delivery_days: params[:delivery_days], is_valid: true )
   	@price_history.save
+
     redirect_to order_order_price_history_path(:order_id => @price_history.order_id, :id=>@price_history.id)
   end
  

@@ -1,16 +1,16 @@
 <div class="all-complete-page">
 	<%= link_to  "刷新竞价中的订单",  dashboard_purchases_bidding_path, remote: true  %>
-	
+
 	<h3>竞价中的采购单</h3>
 
 	<% @bidding_orders.each do |order| %>
-	
-		<div class="panel panel-default">
+
+		<div class="panel panel-default" data-order-id="<%=order.id%>">
 			<div class="panel-heading">
 				<h3 class="panel-title">订单号: <%= order.order_num %></h3>
-				
+
 				<div class="algin_right row_margin">
-					<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class=>" ",  remote: true  do %>					 
+					<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class=>" ",  remote: true  do %>
 						<span class="span-text">详情 >></span>
 					<% end %>
 				</div>
@@ -20,17 +20,17 @@
 				 og = order.order_goods[0]
 				 item_info_text = og.order_item_info_str
 				 bid_history_count = order.order_price_histories.count
-				%>			
-				
+				%>
+
 				<div class="order-img-area">
 					<%= link_to image_tag('../img/order_item_sample.png', class:"order-image"), order, remote: true %>
 				</div>
-				
+
 				<div class="order-digest">
 					<div class="row-height">
 						采购: <%= item_info_text %> ...
 					</div>
-		
+
 					<div class="row-height">
 						<span class="algin_left"> <%= order.price %> 元 </span>
 						<span class="algin_left"> 起拍,  </span>
@@ -41,40 +41,33 @@
 							<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
 						<% end %>
 					</div>
-					
+
 					<div class="row-height">
 						<span class="algin_left"> 截止日期: </span>
 						<span class="highlight_text"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%> </span>
 					</div>
 				</div>
-	
+
 				<div class="order-actions">
-					 <%
-					 	bid_progres = get_bid_progress(order.create_time, order.deadline)
-      					bid_status = get_bid_status(bid_progres, order.status)
-					 %>
-					<div class="row-height bid_progressbar_area">
-						<span>竞拍进度</span>
-						<div class="bid_progressbar row_margin" data-status="<%= bid_status%>" data-progressval="<%= bid_progres%>"></div>
-					</div>					 
-					
+					<%= render  :partial => "common/bid_progress_bar", :locals => { :order => order } %>
+
 					<div class="row-height">
 						<div class="action-link">
-							<%= link_to order, :class=>" ", remote: true  do %>					 
+							<%= link_to order, :class=>" ", remote: true  do %>
 								<span class="span-text">取消订单</span>
 							<% end %>
 						</div>
-						 	 
+
 						<div class="action-link">
-							<%= link_to order, :class=>" ", remote: true  do %>					 
+							<%= link_to order, :class=>" ", remote: true  do %>
 								<span class="span-text">查看所有报价</span>
 							<% end %>
-						</div>						
-					</div>	
-					
+						</div>
+					</div>
+
 				</div>
-				
-				
+
+
 				<div class="bid-hist-list">
 					<% if bid_history_count>0 %>
 						<table class="table table-condensed table-hover">
@@ -86,25 +79,27 @@
 						 	<th>交货期</th>
 						 	<th>备注</th>
 						 </thead>
-						 
+
 						 <tbody>
 						 	<% order.order_price_histories.each do |order_hist| %>
-						 	
-						 	<tr <% if order_hist.is_valid %> class="active" <%end%> >
+
+						 	<tr class="price-hist-row <% if order_hist.is_valid %> active<%end%>"  >
 						 		<td> <input type="radio" name="selec-bid-item-<%=order_hist.order_id%>"
-						 			 class="radio-button-approve-vendor">	</td>
+						 			 class="radio-button-approve-vendor" data-histid="<%=order_hist.id%>"
+                                     data-orderid="<%=order_hist.order_id%>"
+                                >	</td>
 						 		<td> <%=order_hist.vendor.contact%> </td>
 						 		<td> <%=order_hist.vendor.company.name%>	</td>
 						 		<td> <%=order_hist.price%>	</td>
-						 		<td> <%=order_hist.delivery_days%>	</td>
-						 		<td> <%=order_hist.bid_memo%>	</td>					 		
+						 		<td> <% if order_hist.delivery_days%>  <%=order_hist.delivery_days.to_s%> 天 <% end %>	</td>
+						 		<td> <%=order_hist.bid_memo%>	</td>
 						 	</tr>
-						 	
+
 						 	<% end %>
-						  
+
 						 </tbody>
 						</table>
-	
+
 						<div class="button btn-hidden btn-approve-area">
 							<input class="button  btn_submit" name="commit" type="submit" value="成交">
 						</div>
@@ -114,7 +109,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 	<% end %>
 
 	<div class="pagination_area">

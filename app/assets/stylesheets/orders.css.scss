@@ -735,6 +735,16 @@ hr.dashed {
         float: left;
         color: #666;
         line-height: 40px;
+
+        input{
+          line-height: 25px;
+        }
+
+        textarea{
+          line-height: 25px;
+          width: 178px;
+          height: 50px;
+        }
       }
     }
   }

@@ -38,4 +38,20 @@ $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javasc
 //	$tabItems.removeClass('tab-item-active');
 //	$(this).addClass('tab-item-active');
 //})  
- 
+
+
+
+var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
+$.each($arr_bid_progressbar, function(index, elem) {
+    var prog_val = parseInt($(elem).data("progressval"));
+    var bid_status = parseInt($(elem).data("status"));
+
+    if (bid_status == 1 || bid_status == 0) {
+        $(elem).css("height", "10px");
+        $(elem).find(".ui-widget-header").css("height", "10px");
+    }
+
+    $(elem).progressbar({
+        value : prog_val
+    });
+});

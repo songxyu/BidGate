@@ -19,7 +19,7 @@
 					<span>最新竞价：</span>
 				</div>
 				<div class="fieldValue">
-					<span>¥ </span><%= get_order_lastest_bid_price(@order) %></span>
+					<span>¥ <%= get_order_lastest_bid_price(@order) %></span>
 				</div>
 			</li>
 
@@ -33,9 +33,32 @@
 
 			</li>
 
+
+          <li>
+            <div class="fieldLabel">
+              <span>交货期：</span>
+            </div>
+            <div class="fieldValue">
+              <%= text_field_tag(:delivery_days, '', type: 'text', class: 'input') %> 天
+            </div>
+
+          </li>
+
+
+          <li>
+            <div class="fieldLabel">
+              <span>备注：</span>
+            </div>
+            <div class="fieldValue">
+              <%= text_area_tag(:bid_memo, '', type: 'text', class: 'input') %>
+            </div>
+
+          </li>
+
 		</ul>
 		<div class="bid-button">
 			<%= submit_tag("立即竞价", class: 'btn btn-primary btn-bid') %>
 		</div>
 		<% end %>
 	</div>
+</div>

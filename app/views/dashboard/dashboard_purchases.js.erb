@@ -32,36 +32,69 @@ $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javasc
 <% end %>
 
 
+var afterAprroveBid = function(order_id, hist_id){
+    alert('该订单已进入待付款状态');
+    $('div[data-order-id="'+order_id+'"].panel').hide();
+};
+
+
 var $bidList = $dashboard_rightarea.find(".bid-hist-list");
-var $radioButtons = $bidList.find('.radio-button-approve-vendor');
-console.log('$radioButtons count=', $radioButtons.length);
+var $radioButtons = $bidList.find('.price-hist-row');
+console.log('$radioButtons rows count=', $radioButtons.length);
 
 $radioButtons.on('click', '', function(){
+    var $radioBtn = $(this).find('.radio-button-approve-vendor');
+    $radioBtn.attr('checked', true);
+
 	var $approveBtn = $(this).parents('.bid-hist-list').find('.btn-approve-area');
 	console.log('$approveBtn count=', $approveBtn.length);
 	$approveBtn.show();
-});  
- 
- 
- var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
-	$.each($arr_bid_progressbar, function(index, elem) {
-		var prog_val = parseInt($(elem).data("progressval"));
-		var bid_status = parseInt($(elem).data("status"));
-
-		if (bid_status == 1 || bid_status == 0) {
-			$(elem).css("height", "10px");
-			$(elem).find(".ui-widget-header").css("height", "10px");
+	
+	$approveBtn.unbind('click');
+	$approveBtn.click(function(e){
+        var $selectPriceHistRow = $(this).parents('.bid-hist-list').find('input[type="radio"]:checked');
+        var order_id = $selectPriceHistRow.attr("data-orderid");
+		var hist_id = $selectPriceHistRow.attr('data-histid');
+		if(hist_id > 0){
+			$.ajax({
+				url : '/orders/approve_bid',
+				type : 'put',
+				dataType: 'json',  
+				data : {
+                    'order_id': order_id,
+					'price_history_id' : hist_id
+				}
+			}).done(function(data) {
+				console.log('hist_id = '+hist_id);
+				afterAprroveBid(order_id, hist_id);
+			}).fail(function(jqXHR, textStatus) {
+				console.log("Request failed: " + JSON.stringify(textStatus));
+			});
 		}
 		
-		$(elem).progressbar({
-			value : prog_val
-		});
 	});
+	
+});  
 
-// var $tabHeader = $dashboard_rightarea.find(".tab-headers");
-//var $tabItems = $tabHeader.find('.tab-item');
-//$tabHeader.on('click', '.tab-item', function(){
-//	$tabItems.removeClass('tab-item-active');
-//	$(this).addClass('tab-item-active');
-//})  
+
  
+ 
+var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
+$.each($arr_bid_progressbar, function(index, elem) {
+	var prog_val = parseInt($(elem).data("progressval"));
+	var bid_status = parseInt($(elem).data("status"));
+
+	if (bid_status == 1 || bid_status == 0) {
+		$(elem).css("height", "10px");
+		$(elem).find(".ui-widget-header").css("height", "10px");
+	}
+	
+	$(elem).progressbar({
+		value : prog_val
+	});
+});
+
+
+
+
+

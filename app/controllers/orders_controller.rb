@@ -414,6 +414,7 @@ class OrdersController < CommonController
         @order.vendor_id = @order_hist.vendor_id
         @order.deal_price = @order_hist.price
         @order.deal_date =  DateTime.current
+        @order.status = 2
         
         if @order.save
            logger.debug "order approved, dealed.  for order_id = " + order_id.to_s
@@ -426,11 +427,12 @@ class OrdersController < CommonController
          logger.error "order approved failed, buyer not correct. for order_id = " + order_id.to_s
          flash.now.alert = "竞拍未能成交!"
       end      
-     else
-         logger.error "order approved failed, not found. for order_id = " + order_id.to_s
-         flash.now.alert = "竞拍未能成交!!"
-     end
-        
+   else
+       logger.error "order approved failed, not found. for order_id = " + order_id.to_s
+       flash.now.alert = "竞拍未能成交!!"
+   end
+
+    render "dashboard/approve_bid" and return
   end
   
   
