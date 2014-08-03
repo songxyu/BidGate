@@ -1,4 +1,4 @@
-<div class="all-complete-page">
+<div class="all-bidding-page">
 	<%= link_to  "刷新竞价中的订单",  dashboard_purchases_bidding_path, remote: true  %>
 
 	<h3>竞价中的采购单</h3>
@@ -52,17 +52,19 @@
 					<%= render  :partial => "common/bid_progress_bar", :locals => { :order => order } %>
 
 					<div class="row-height">
-						<div class="action-link">
-							<%= link_to order, :class=>" ", remote: true  do %>
+						<div class="action-link" data-orderid="<%=order.id%>" data-ordernum="<%=order.order_num%>">
+							<%= link_to "#cancel_bid", :class=>"action-cancel-order", remote: true  do %>
 								<span class="span-text">取消订单</span>
 							<% end %>
 						</div>
 
+                      <% if bid_history_count > 0 %>
 						<div class="action-link">
 							<%= link_to order, :class=>" ", remote: true  do %>
 								<span class="span-text">查看所有报价</span>
 							<% end %>
 						</div>
+                      <% end %>
 					</div>
 
 				</div>
@@ -81,13 +83,19 @@
 						 </thead>
 
 						 <tbody>
-						 	<% order.order_price_histories.each do |order_hist| %>
+						 	<%  # sort by bid_time desc
+                                sortedHistArray = order.order_price_histories.sort {|a, b| b.bid_time <=> a.bid_time}
+                                sortedHistArray.each do |order_hist|
+                            %>
 
-						 	<tr class="price-hist-row <% if order_hist.is_valid %> active<%end%>"  >
-						 		<td> <input type="radio" name="selec-bid-item-<%=order_hist.order_id%>"
+						 	<tr class="price-hist-row <% if order_hist.is_valid %> valid active<%end%>"  >
+						 		<td>
+                                  <% if order_hist.is_valid %>
+                                      <input type="radio" name="select-bid-item-<%=order_hist.order_id%>"
 						 			 class="radio-button-approve-vendor" data-histid="<%=order_hist.id%>"
-                                     data-orderid="<%=order_hist.order_id%>"
-                                >	</td>
+                                     data-orderid="<%=order_hist.order_id%>" data-ordernum="<%=order.order_num%>">
+                                  <% end %>
+                                </td>
 						 		<td> <%=order_hist.vendor.contact%> </td>
 						 		<td> <%=order_hist.vendor.company.name%>	</td>
 						 		<td> <%=order_hist.price%>	</td>

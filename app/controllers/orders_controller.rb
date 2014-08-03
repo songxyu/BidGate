@@ -282,6 +282,8 @@ class OrdersController < CommonController
   
   def bid_dialog_show
     @order = Order.find(params[:id])
+    #params[:redirect_path]
+
     respond_to do |format|
             format.js
     end
@@ -433,6 +435,7 @@ class OrdersController < CommonController
    end
 
     render "dashboard/approve_bid" and return
+    #redirect_to  dashboard_purchases_path #"/dashboard/dashboard_purchases"
   end
   
   
@@ -441,7 +444,9 @@ class OrdersController < CommonController
     user_id = current_user.id
     
     @order = Order.find(order_id)    
-    @order.update_attribute(:status, -1)    
+    @order.update_attribute(:status, -1)
+
+    render "dashboard/cancel_bid" and return
   end
   
 end

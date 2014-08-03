@@ -42,7 +42,17 @@ class OrderPriceHistoriesController < CommonController
           bid_time: DateTime.current(), bid_memo: params[:bid_memo], delivery_days: params[:delivery_days], is_valid: true )
   	@price_history.save
 
-    redirect_to order_order_price_history_path(:order_id => @price_history.order_id, :id=>@price_history.id)
+    redirect_path = params[:redirect_path]
+    logger.debug 'order_price_histories.create() : redirect_path= ' + redirect_path
+    if  redirect_path
+       # redirect_to "/dashboard/dashboard_vendings"
+      rediPath = (redirect_path[0] =='/' ? '': '/') + redirect_path.gsub('@@', '/')
+      logger.debug ' rediPath = '+ rediPath
+
+      redirect_to rediPath # to the action
+    else
+      redirect_to order_order_price_history_path(:order_id => @price_history.order_id, :id=>@price_history.id)
+    end
   end
  
 

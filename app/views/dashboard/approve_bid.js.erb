@@ -1,17 +1,9 @@
-/**
- * Created by I076003 on 7/26/2014.
- */
-alert('该订单已进入待付款状态');
 
 <%
 
  logger.debug "======= responded with  approve_bid.js.erb ======"
-
  order_id =  params[:order_id]
-
-
+logger.debug "order_id: "+ order_id.to_s
  %>
-var $approvedOrder = $('div[data-order-id="<%=order_id%>"].panel');
-console.log('$approvedOrder.length='+$approvedOrder.length);
 
-$approvedOrder.hide();
+

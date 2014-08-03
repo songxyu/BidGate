@@ -75,7 +75,8 @@
                         </div>
 
                         <div class="action-link">
-                          <%= link_to bid_dialog_show_path(:id => order.id), :class=>"btn btn-primary bidBtn", remote: true do %>
+                          <%= link_to bid_dialog_show_path(:id => order.id, :redirect_path => "dashboard@@dashboard_vendings"),
+                                      :class=>"btn btn-primary bidBtn", remote: true do %>
                               <span class="bidBtnText">新竞价</span>
                           <% end %>
                         </div>
@@ -94,11 +95,12 @@
 						 </thead>
 						 
 						 <tbody>
-						 	<%
+						 	<%  # sort by bid_time desc
                                sortedHistArray = order.order_price_histories.sort {|a, b| b.bid_time <=> a.bid_time}
-                               sortedHistArray.each do |order_hist| %>
+                               sortedHistArray.each do |order_hist|
+                            %>
 						 	
-						 	<tr class="price-hist-row inactive-bid <% if order_hist.is_valid %> active<%end%>"  >
+						 	<tr class="price-hist-row inactive-bid <% if order_hist.is_valid %> active <%end%>"  >
 						 		<td> <%=order_hist.bid_time.strftime('%Y-%m-%d %H:%M')%> </td>
 						 		<td class="bid-price"> <%=order_hist.price%>	</td>
                                 <td> <% if order_hist.delivery_days%>  <%=order_hist.delivery_days.to_s%> 天 <% end %>	</td>

@@ -2,6 +2,7 @@ $("#order_bid_dialog").html("<%= escape_javascript render(:partial => 'orders/bi
 
 $("#order_bid_dialog").overlay().load();
 
-$('.close_btn').click(function(){
+$('.btn-bid, .close_btn').click(function(){
 	$("#order_bid_dialog").overlay().close();
 });
+

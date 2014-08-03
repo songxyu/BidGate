@@ -32,17 +32,18 @@ $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javasc
 <% end %>
 
 
-var afterAprroveBid = function(order_id, hist_id){
-    alert('该订单已进入待付款状态');
-    $('div[data-order-id="'+order_id+'"].panel').hide();
-};
 
 
 var $bidList = $dashboard_rightarea.find(".bid-hist-list");
-var $radioButtons = $bidList.find('.price-hist-row');
-console.log('$radioButtons rows count=', $radioButtons.length);
+var $bidListRows = $bidList.find('.price-hist-row');
+console.log('$radioButtons rows count=', $bidListRows.length);
 
-$radioButtons.on('click', '', function(){
+// ADD click handler for approve
+$bidListRows.on('click', '', function(){
+    if(!$(this).hasClass('valid')){
+        return;
+    }
+
     var $radioBtn = $(this).find('.radio-button-approve-vendor');
     $radioBtn.attr('checked', true);
 
@@ -54,31 +55,60 @@ $radioButtons.on('click', '', function(){
 	$approveBtn.click(function(e){
         var $selectPriceHistRow = $(this).parents('.bid-hist-list').find('input[type="radio"]:checked');
         var order_id = $selectPriceHistRow.attr("data-orderid");
+        var order_num = $selectPriceHistRow.attr("data-ordernum");
 		var hist_id = $selectPriceHistRow.attr('data-histid');
 		if(hist_id > 0){
 			$.ajax({
 				url : '/orders/approve_bid',
 				type : 'put',
-				dataType: 'json',  
+				dataType: 'html', // must use html, as response is: js and html src in approve_bid.js.erb
 				data : {
                     'order_id': order_id,
 					'price_history_id' : hist_id
 				}
 			}).done(function(data) {
-				console.log('hist_id = '+hist_id);
-				afterAprroveBid(order_id, hist_id);
-			}).fail(function(jqXHR, textStatus) {
+				console.log('approved: order_id='+order_id+', hist_id = '+hist_id);
+
+                $('div[data-order-id="'+order_id+'"].panel').hide();
+                alert('该订单 (订单号:'+order_num+') 已进入待付款状态, 请到待付款页面查看!');
+
+            }).fail(function(jqXHR, textStatus) {
 				console.log("Request failed: " + JSON.stringify(textStatus));
 			});
 		}
 		
 	});
 	
-});  
+});
+
+var $orderListPagesCanbeCancelled = $dashboard_rightarea.find(".all-forpaid-page, .all-bidding-page");
+var $orderListCancelLink = $orderListPagesCanbeCancelled.find('.panel-body .action-cancel-order');
+$orderListCancelLink.on('click', '', function(){
+    var $actionArea =  $(this).parent();
+    var orderId = $actionArea.attr("data-orderid");
+    var orderNum = $actionArea.attr("data-ordernum");
+    console.log("cancel order id: "+orderId+", orderNum="+orderNum);
+    $.ajax({
+        url : '/orders/cancel_bid',
+        type : 'put',
+        dataType: 'html', // must use html, as response is: js and html src in approve_bid.js.erb
+        data : {
+            'order_id': orderId
+        }
+    }).done(function(data) {
+        console.log('cancel_bid: order_id='+orderId);
+
+        $('div[data-order-id="'+orderId+'"].panel').hide();
+        alert('该订单 (订单号:'+orderNum+') 取消, 请到已关闭页面中查看!');
+
+    }).fail(function(jqXHR, textStatus) {
+        console.log("Request failed: " + JSON.stringify(textStatus));
+    });
+});
 
 
- 
- 
+
+
 var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
 $.each($arr_bid_progressbar, function(index, elem) {
 	var prog_val = parseInt($(elem).data("progressval"));
@@ -93,6 +123,33 @@ $.each($arr_bid_progressbar, function(index, elem) {
 		value : prog_val
 	});
 });
+
+
+
+// refresh forpaid orders when click the tab header
+var fnRefreshListWhenClickTab  = function(tab_id, datalist_url){
+    var $tabForpaidOrders = $('.right-area .tab-items '+tab_id);
+    $tabForpaidOrders.unbind('click');
+    $tabForpaidOrders.bind('click', function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url : datalist_url,
+            type : 'get',
+            //dataType: 'json', // must use html, as response is: js and html src in approve_bid.js.erb
+            data : { }
+        }).done(function(data) {
+            //$(this).tab('show');// not needed
+        });
+    });
+};
+
+
+fnRefreshListWhenClickTab('#tab-my-purchase-forpaid-orders', '/dashboard/dashboard_purchases_forpaid');
+
+fnRefreshListWhenClickTab('#tab-my-purchase-all-orders', '/dashboard/dashboard_purchases_all');
+
+
 
 
 

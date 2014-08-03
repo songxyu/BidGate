@@ -65,8 +65,8 @@
 						<% end %>
 					</div>
 					
-					<div class="row-height">
-						<%= link_to order, :class=>" ", remote: true  do %>					 
+					<div class="row-height" data-orderid="<%=order.id%>"  data-ordernum="<%=order.order_num%>" >
+						<%= link_to "#cancel_bid", :class=>"action-cancel-order", remote: true  do %>
 							<span class="span-text">取消订单</span>
 						<% end %>
 					</div>

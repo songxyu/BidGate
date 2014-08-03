@@ -58,6 +58,7 @@
 		</ul>
 		<div class="bid-button">
 			<%= submit_tag("立即竞价", class: 'btn btn-primary btn-bid') %>
+            <%= hidden_field_tag(:redirect_path, params[:redirect_path] )%>
 		</div>
 		<% end %>
 	</div>

@@ -219,8 +219,8 @@
 				竞价方：<span class="companyInfo"><%= get_order_lastest_bid_company(@order) %></span>
 			</div>
 
+          <!-- no use!
 			<div class="bidField">
-				<!-- TODO -->
 				<div class="bidPriceField">
 					<input name="myBidPrice" placeholder="  我的竞价">
 					<p class="inputUnit">
@@ -228,6 +228,7 @@
 					</p>
 				</div>
 			</div>
+            -->
 
 			<!-- <div class="">
 			<span class="bidBtnText">竞价</span>
@@ -235,7 +236,8 @@
 			<!-- <button class="btn btn-primary bidBtn">
 				<span class="bidBtnText">竞价</span>
 			</button> -->
-			<%= link_to bid_dialog_show_path(:id => @order.id), :class=>"btn btn-primary bidBtn", remote: true do %>
+			<%= link_to bid_dialog_show_path(:id => @order.id, :redirect_path => request.fullpath),
+                        :class=>"btn btn-primary bidBtn", remote: true do %>
 				<span class="bidBtnText">竞价</span>
 				<% end %>
 
