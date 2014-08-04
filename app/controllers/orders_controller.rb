@@ -288,6 +288,8 @@ class OrdersController < CommonController
             format.js
     end
   end
+
+
   
   def edit
     @order = Order.find(params[:id])
@@ -310,7 +312,9 @@ class OrdersController < CommonController
     @bidding_orders = OrdersHelper.my_purchases(user_id, 1, page_info)
     @forpaid_orders = OrdersHelper.my_purchases(user_id, 2, page_info)
     @complete_orders = OrdersHelper.my_purchases(user_id, 3, page_info)
-    @all_orders = OrdersHelper.my_purchases(user_id, nil, page_info)
+    #@all_orders = OrdersHelper.my_purchases(user_id, nil, page_info)
+    @closed_orders = OrdersHelper.my_purchases(user_id, -1, page_info)
+
     render "dashboard/dashboard_purchases" and return
   end
   
@@ -346,7 +350,15 @@ class OrdersController < CommonController
     @bidding_orders = OrdersHelper.my_purchases(user_id, 1, page_info)
     render "dashboard/dashboard_purchases" and return
   end
-  
+
+  def dashboard_purchase_orders_closed
+    user_id = current_user.id
+    page_info = params[:page]
+
+    @closed_orders = OrdersHelper.my_purchases(user_id, -1, page_info)
+    render "dashboard/dashboard_purchases" and return
+  end
+
   # default, load all tabs' data
   def dashboard_vending_orders
     user_id = current_user.id
@@ -448,5 +460,21 @@ class OrdersController < CommonController
 
     render "dashboard/cancel_bid" and return
   end
-  
+
+
+  def reopen_bid
+    order_id = params[:order_id]
+    user_id = current_user.id
+
+    @order = Order.find(order_id)
+    @order.update_attribute(:status, 1)
+
+    # delete its bid histories
+    bidHistories = OrderPriceHistory.delete_all(:order_id => order_id)
+    #bidHistories.destroy
+
+    render "dashboard/reopen_bid" and return
+  end
+
+
 end

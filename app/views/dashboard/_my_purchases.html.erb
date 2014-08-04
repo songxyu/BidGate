@@ -10,7 +10,7 @@
 	<div class="tab-headers">
 		<ul class="nav nav-tabs  tab-items">
 			<li class="active" >
-				<a href="#my_purchase_bidding_orders" class="tab-item" role="tab" data-toggle="tab">
+				<a href="#my_purchase_bidding_orders" class="tab-item" id="tab-my-purchase-bidding-orders" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
 					竞价中</a>
 				<!--   link_to "竞价中",  my_biddings_path, remote: true  -->
@@ -22,16 +22,22 @@
 				<!--  link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
 			</li>
 			<li>
-				<a href="#my_purchase_complete_orders" class="tab-item" role="tab" data-toggle="tab">
+				<a href="#my_purchase_complete_orders" class="tab-item" id="tab-my-purchase-complete-orders" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-ok"></i>
 					已完成</a>
 				<!--   link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true   -->
 			</li>
 			<li>
-				<a href="#my_purchase_all_orders" class="tab-item" id="tab-my-purchase-all-orders" role="tab" data-toggle="tab">
+              <!-- <a href="#my_purchase_all_orders" class="tab-item" id="tab-my-purchase-all-orders" role="tab" data-toggle="tab">
+                <i class="glyphicon glyphicon-list"></i>
+                所有订单</a>
+              -->
+              <!--   link_to "所有订单",  my_all_orders_path, remote: true  -->
+
+				<a href="#my_purchase_closed_orders" class="tab-item" id="tab-my-purchase-closed-orders" role="tab" data-toggle="tab">
 					<i class="glyphicon glyphicon-list"></i>
 					已关闭</a>
-				<!--   link_to "所有订单",  my_all_orders_path, remote: true  -->
+
 			</li>
 
 		</ul>
@@ -51,9 +57,14 @@
 			<%= render "dashboard/my_purchase_complete_orders" %>
 		</div>
 		
-		<div class="tab-pane" id="my_purchase_all_orders">
-			<%= render "dashboard/my_purchase_all_orders" %>
+		<div class="tab-pane" id="my_purchase_closed_orders">
+			<%= render "dashboard/my_purchase_closed_orders" %>
 		</div>
+
+    <!--
+        <div class="tab-pane" id="my_purchase_all_orders">
+          < % = render "dashboard/my_purchase_all_orders" % >
+         </div>-->
 
 	</div>
 

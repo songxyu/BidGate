@@ -15,6 +15,7 @@
   		when 'dashboard_purchases_forpaid' then 'my_purchase_forpaid_orders'
   		when 'dashboard_purchases_complete' then 'my_purchase_complete_orders'
   		when 'dashboard_purchases_bidding' then 'my_purchase_bidding_orders'
+  		when 'dashboard_purchases_closed' then 'my_purchase_closed_orders'
   		else default_partial_templ
   	  	end
   	  	
@@ -88,25 +89,67 @@ $orderListCancelLink.on('click', '', function(){
     var orderId = $actionArea.attr("data-orderid");
     var orderNum = $actionArea.attr("data-ordernum");
     console.log("cancel order id: "+orderId+", orderNum="+orderNum);
+
+    var $overlayDialog = $("#order_bid_dialog");
+    $overlayDialog.html("<%= escape_javascript render(:partial => 'dashboard/cancel_bid_confirm_dialog')%>");
+    $overlayDialog.overlay().load();
+    $overlayDialog.find('.btn-close, .close_btn').click(function(){
+        $overlayDialog.overlay().close();
+    });
+
+    $overlayDialog.find('.btn-confirm').click(function(){
+        $.ajax({
+            url : '/orders/cancel_bid',
+            type : 'put',
+            dataType: 'html', // must use html, as response is: js and html src in approve_bid.js.erb
+            data : {
+                'order_id': orderId
+            }
+        }).done(function(data) {
+            console.log('cancelled bid: order_id='+orderId);
+            $('div[data-order-id="'+orderId+'"].panel').hide();
+            $overlayDialog.overlay().close();
+            //alert('该订单 (订单号:'+orderNum+') 取消成功, 请到已关闭页面中查看!');
+        }).fail(function(jqXHR, textStatus) {
+            console.log("Request failed: " + JSON.stringify(textStatus));
+        });
+    });
+
+});
+
+
+
+var $orderListPagesCanbeReopened = $dashboard_rightarea.find(".all-closed-page");
+var $orderListReopenLink = $orderListPagesCanbeReopened.find('.panel-body .action-reopen-order');
+$orderListReopenLink.on('click', '', function(){
+    var $actionArea =  $(this).parent();
+    var orderId = $actionArea.attr("data-orderid");
+    var orderNum = $actionArea.attr("data-ordernum");
+    console.log("reopen order id: "+orderId+", orderNum="+orderNum);
     $.ajax({
-        url : '/orders/cancel_bid',
+        url : '/orders/reopen_bid',
         type : 'put',
         dataType: 'html', // must use html, as response is: js and html src in approve_bid.js.erb
         data : {
             'order_id': orderId
         }
     }).done(function(data) {
-        console.log('cancel_bid: order_id='+orderId);
+        console.log('reopened bid: order_id='+orderId);
 
         $('div[data-order-id="'+orderId+'"].panel').hide();
-        alert('该订单 (订单号:'+orderNum+') 取消成功, 请到已关闭页面中查看!');
+//        alert('该订单 (订单号:'+orderNum+') 重新提交成功, 请到竞价中页面中查看!');
+
+        var $overlayDialog = $("#order_bid_dialog");
+        $overlayDialog.html("<%= escape_javascript render(:partial => 'dashboard/reopen_bid_success')%>");
+        $overlayDialog.overlay().load();
+        $overlayDialog.find('.btn-close, .close_btn').click(function(){
+            $overlayDialog.overlay().close();
+        });
 
     }).fail(function(jqXHR, textStatus) {
         console.log("Request failed: " + JSON.stringify(textStatus));
     });
 });
-
-
 
 
 var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
@@ -147,7 +190,13 @@ var fnRefreshListWhenClickTab  = function(tab_id, datalist_url){
 
 fnRefreshListWhenClickTab('#tab-my-purchase-forpaid-orders', '/dashboard/dashboard_purchases_forpaid');
 
+fnRefreshListWhenClickTab('#tab-my-purchase-closed-orders', '/dashboard/dashboard_purchases_closed');
+
 fnRefreshListWhenClickTab('#tab-my-purchase-all-orders', '/dashboard/dashboard_purchases_all');
+
+fnRefreshListWhenClickTab('#tab-my-purchase-bidding-orders', '/dashboard/dashboard_purchases_bidding');
+
+fnRefreshListWhenClickTab('#tab-my-purchase-complete-orders', '/dashboard/dashboard_purchases_complete');
 
 
 

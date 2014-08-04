@@ -29,7 +29,7 @@
 			</div>
 			<!-- <div class="so-bidcount">总竞拍次数：12</div> -->
 			<div class="so-vendor">
-				竞价供应商：<%= @so.vendor.company.name %>
+				竞价供应商：<%= @so.vendor ? @so.vendor.company.name : "" %>
 			</div>
 		</div>
 	</div>

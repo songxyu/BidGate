@@ -21,7 +21,8 @@ BidGate::Application.routes.draw do
   get "dashboard/dashboard_purchases_forpaid" => "orders#dashboard_purchase_orders_forpaid", :as => "dashboard_purchases_forpaid"
   get "dashboard/dashboard_purchases_complete" => "orders#dashboard_purchase_orders_complete", :as => "dashboard_purchases_complete"
   get "dashboard/dashboard_purchases_bidding" => "orders#dashboard_purchase_orders_bidding", :as => "dashboard_purchases_bidding"
-  
+  get "dashboard/dashboard_purchases_closed" => "orders#dashboard_purchase_orders_closed", :as => "dashboard_purchases_closed"
+
   get "dashboard/dashboard_vendings" => "orders#dashboard_vending_orders", :as => "dashboard_vendings"
   get "dashboard/dashboard_vendings_all" => "orders#dashboard_vending_orders_all", :as => "dashboard_vendings_all"
   get "dashboard/dashboard_vendings_dealed" => "orders#dashboard_vending_orders_dealed", :as => "dashboard_vendings_dealed"
@@ -39,7 +40,10 @@ BidGate::Application.routes.draw do
   
   put "orders/approve_bid" => "orders#approve_bid", :as => "approve_bid"
   put "orders/cancel_bid" => "orders#cancel_bid", :as => "cancel_bid"
-  
+  put "orders/reopen_bid" => "orders#reopen_bid", :as => "reopen_bid"
+
+  get "cancel_bid_dialog" =>"orders#cancel_bid_dialog", :as => "cancel_bid_dialog"
+
   
   get "orders/search" => "orders#search"
   # not use the following to avoid duplicate collection paths

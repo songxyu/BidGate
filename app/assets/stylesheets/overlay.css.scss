@@ -348,4 +348,32 @@
 #order_bid_dialog {
     width: 450px;
     height: 350px;
+
+
+  .btn{
+    margin: 10px;
+  }
+
+  p{
+    padding: 10px;
+  }
+
+
+  .btn-close{
+    background-color: green;
+  }
+
+
+  .success-icon{
+    font-size: 50px;
+    color: green;
+  }
+
+  .warning-icon{
+    font-size: 50px;
+    color: #F8EA48;
+  }
+
+
+
 }

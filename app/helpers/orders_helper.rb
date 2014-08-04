@@ -64,7 +64,7 @@ module OrdersHelper
   end
 
   def get_sortby_criteria
-    return [['订单日期', 1], ['截止日期', 2], ['价格(低->高)', 3], ['价格(高->低)', 4], ['数量(少->多)', 5], ['数量(多->少)', 6] ]
+    return [['订单日期', 1], ['截止日期', 2], ['价格(低-, >高)', 3], ['价格(高->低)', 4], ['数量(少->多)', 5], ['数量(多->少)', 6] ]
   end
 
   def get_order_deposit_by_total(total_money)
@@ -108,7 +108,14 @@ module OrdersHelper
     if ( !status && status != 0 )  || status == ''
       @orders = Order.where(buyer_id: user_id).order(OrdersHelper::Default_Order_By).page(page_info)
     else
-      @orders = Order.where(buyer_id: user_id, status: status.to_i).order(OrdersHelper::Default_Order_By).page(page_info)
+      if status == 1
+        # do not break this where clause! 采购商的竞价中的订单列表, 以竞价的最新时间排序!
+        @orders = Order.select(' "orders".id, "orders".*, "order_price_histories".bid_time as bid_time, "orders".create_time as create_time ')
+        .joins(' LEFT JOIN "order_price_histories" ON "order_price_histories"."order_id" = "orders"."id" and "order_price_histories".bid_time = (select max(bid_time) from order_price_histories  where order_id = "orders".id  ) ')
+        .where(' "orders".buyer_id=? and "orders".status = 1 ', user_id).order('bid_time DESC, create_time DESC').page(page_info)
+      else
+        @orders = Order.where(buyer_id: user_id, status: status.to_i).order(OrdersHelper::Default_Order_By).page(page_info)
+      end
     end
   end
 

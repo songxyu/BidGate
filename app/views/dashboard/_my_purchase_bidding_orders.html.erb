@@ -56,6 +56,14 @@
 							<%= link_to "#cancel_bid", :class=>"action-cancel-order", remote: true  do %>
 								<span class="span-text">取消订单</span>
 							<% end %>
+
+                          <!--
+                          < % = link_to cancel_bid_dialog_path(:id => order.id, :redirect_path => "dashboard@@dashboard_prchases"),
+                                      :class=>"btn btn-primary bidBtn action-cancel-order", remote: true do % >
+                              <span class="bidBtnText">取消订单</span>
+                          < % end % >
+                           -->
+
 						</div>
 
                       <% if bid_history_count > 0 %>
