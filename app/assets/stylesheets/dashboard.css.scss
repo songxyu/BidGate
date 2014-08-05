@@ -13,7 +13,7 @@
     border: 1px solid #ececec;
     background: #428bca;
     padding: 10px;
-    color: #ececec;
+    color: #f2f2f2;
     font-size: 14px;
     position: absolute;
     width: 960px;
@@ -25,7 +25,7 @@
     }
     
     .title {
-      color: #bbb;
+
     }
 
     .company-name {
@@ -90,15 +90,58 @@
 		
 		.dash-sum-area {
 		  width: 100%;
-		  height: 100px;
 		  padding: 19px;
-		  background-color: #fffbe2;
       border: 1px solid #e0e0e0;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .purchase-summary {
+      background: #fff7c9;
+    }
+    
+    .purchase-vending {
+      background: #fff7c9;
+    }
+    
+    .dash-summary {
+      height: 200px;
+
+      .summary-left{
+        padding-right: 20px;
+        width: 280px;
+        float: left;
+      }
+      
+      .summary-right {
+        border-left: 1px solid #e0e0e0;
+        padding-left: 19px;
+        width: 460px;
+        color: #696969;
+        float: left;
+        
+        .dimgray-top {
+          
+        }
+        
+        hr {
+          border: 0;
+          background: #f2f2f2;
+          color: #f2f2f2;
+          height: 1px;
+          line-height: 1px;
+          font-size: 0;
+        }
+      
+      .sep-line {
+          margin-top: 10px;
+        }
+        
+        .dimgray-bottom {
+          margin-top: 10px;
+        }
+      }
 		}
-		.dash-summary {
-		  height: 150px;
-		}
+		
 					
 		
 		> div{			 

@@ -25,6 +25,15 @@
 				<%= link_to "", './', class:"logoWrapper" %>
 			</div>
 
+			<div class="search-bar">
+				<%= form_tag orders_search_path, :method => :get, :remote => true do %>
+				<p>
+					<%= text_field_tag :search, params[:search] %>
+					<!-- <%= submit_tag "搜索", :name => nil %> -->
+				</p>
+				<% end %>
+			</div>
+
 			<div class="menuBar">
 				<ul class="navMenu">
 					<li>
@@ -48,21 +57,43 @@
 					<!-- 您好， <b><%= current_user.nickname %> </b>  -->
 					<li class="my-profile-link">
 						<div class="btn-group">
-						<div class="user-avator" data-toggle="dropdown" data-hover="dropdown" data-delay="500">
-							<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
-							<span>您好，<b><%= current_user.nickname %> </b> </span>
-							<span class="caret"></span>
+							<div class="user-avator " data-hover="dropdown" data-delay="100">
+								<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
+								<span>您好，<b><%= current_user.nickname %> </b> </span>
+								<span class="caret"></span>
+								<% end %>
+							</div>
+
+							<ul class="dropdown-menu ui-nav-dropdown" role="menu">
+								<li class="ui-nav-dropdown-angle">
+									<span></span>
+								</li>
+								<li class="ui-nav-dropdown-item">
+									<!-- TODO not work? -->
+									<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
+									<span>总览</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-item">
+									<a href="#">消息</a>
+								</li>
+								<li class="ui-nav-dropdown-separator"></li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
+									<span>采购单管理</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-item">
+									<a href="#">竞价单管理</a>
+								</li>
+
+								<li class="ui-nav-dropdown-separator"></li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to "退出", logout_path %>
+								</li>
+							</ul>
+
 						</div>
-						
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">总览</a></li>
-							<li><a href="#">采购单管理</a></li>
-							<li><a href="#">竞价单管理</a></li>
-						</ul>
-						
-						</div>
-						<%= link_to "出", logout_path %>
-						<% end %>
 					</li>
 					<% else %>
 					<li class="logon">

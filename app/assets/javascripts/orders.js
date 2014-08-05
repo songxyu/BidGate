@@ -40,39 +40,7 @@ $(document).ready(function() {
 		closeOnClick : true,
 		load : false
 	});
-	
-	
 
-	/*
-	 $(".home_slides").slidesjs({
-	 width: 1200,
-	 height: 420,
-	 play: {
-	 active: false,
-	 interval: 8000,
-	 effect: "fade",
-	 auto: true,
-	 swap: false,
-	 restartDelay: 2500
-	 },
-	 navigation: {
-	 active: false
-	 },
-	 pagination: {
-	 active: false
-	 }
-	 });*/
-
-	/*
-	 $(".home_slides").responsiveSlides({
-	 auto: true,
-	 speed: 800,
-	 fade: true,
-	 timeOut: 4000,
-	 nav: true,
-	 maxWidth: 1200
-
-	 });*/
 
 });
 

@@ -67,7 +67,7 @@
 /* ==========  home header menu =============*/
 
 .header .masthead .menuBar {
-	width: 400px;
+	width: 300px;
 	float: left;
 	height: 72px;
 	line-height: 72px;
@@ -148,10 +148,62 @@
     
     .my-profile-link {
       width: 180px;
+      .ui-nav-dropdown {
+        width: 160px;
+        padding-left: 0px;
+        margin-left: -20px;
+        margin-top: -15px;
+        border: 1px solid #e0e0e0;
+        -webkit-box-shadow: 0 0 3px -1px #ccc;
+        -moz-box-shadow: 0 0 3px -1px #ccc;
+        box-shadow: 0 0 3px -1px #ccc;
+        border-radius: 0px;
+        
+        .ui-nav-dropdown-item {
+          min-width: 140px;
+          margin: 2px 10px;
+          padding: 2px 10px;
+          a {
+            padding: 0px;
+          }
+          a:hover {
+            background-image: none; //override
+            background-color: initial; //override
+          }
+          
+        }
+        
+        .ui-nav-dropdown-item:hover {
+          background: #00a8e8;
+        }
+        .ui-nav-dropdown-item:hover a{
+          color: #fff;
+        }
+        
+        .ui-nav-dropdown-angle {
+          position: absolute;
+          top: -5px;
+          left: 46px;
+          span {
+            display: block;
+            width: 9px;
+            height: 5px;
+            background: url("../img/nav-angle-up.png") no-repeat center center;
+          }
+        }
+        
+        .ui-nav-dropdown-separator {
+          height: 0;
+          margin: 5px 10px;
+          border-bottom: 1px solid #f2f2f2;
+          font-size: 0;
+          min-width: 140px;
+        }
+        
+      }
     }
     a:hover, li:hover{
       color: #2996cc;
-      cursor: pointer;
     }
     li.clicked {
       background: #2996cc;
@@ -225,14 +277,12 @@
 }
 
 .header  .search-bar {
-	margin-left: 50px;
-	width: 200px;
-	padding-top: 3px;
+	padding-top: 20px;
+	float: left;
+	width: 120px;
 }
 
 .header .search-bar input[type="submit"] {
 	float: right;
 	top: 5px;
-	right: -70px;
-	position: absolute;
 }

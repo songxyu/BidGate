@@ -12,8 +12,12 @@
 	%>
 	
 		<% if i < path_count-1 %>
-			<%= link_to path_url, :class=>" ", remote: true  do %>					 
-				<span class="span-text"><%= path_text %></span> 
+			<% if i == 0 %>
+				<%= link_to path_text, path_url, :class=>"span-text"%>				 
+			<% else %>
+				<%= link_to path_url, :class=>" ", remote: true  do %>					 
+					<span class="span-text"><%= path_text %></span> 
+				<% end %>
 			<% end %>
 			<i class="glyphicon  glyphicon-chevron-right span-icon"></i>
 		<% else %>

@@ -17,6 +17,10 @@ module ApplicationHelper
   end
 
   def get_breadcrumb_path_info (path_key)
+    if !path_key
+    return []
+    end
+
     pathKeyArr = path_key.split(',')
     path_info = []
     pathKeyArr.each do |pathKey|
@@ -24,8 +28,8 @@ module ApplicationHelper
       when 'homepage' then path_info.push(['首页', './'])
       when 'createOrder' then path_info.push(['创建采购单', './order_new'])
       when 'detail' then path_info.push(['订单详情', './orders/'])
-      when 'filter' then path_info.push(['订单搜索', './orders/search?search='])
-      when 'dashboard' then path_info.push(['我的壹百万', './dashboard/dashboard'])
+      when 'filter' then path_info.push(['订单搜索', './orders/search?breadcrumb_path_key=homepage,filter&search='])
+      when 'dashboard' then path_info.push(['我的壹百万', './dashboard/dashboard?breadcrumb_path_key=homepage,dashboard'])
       when 'myPurchase' then path_info.push(['采购单管理', './dashboard/dashboard_purchases'])
       when 'myVending' then path_info.push(['竞价单管理', './dashboard/dashboard_vendings'])
       when 'myMessage' then path_info.push(['消息管理', './dashboard/dashboard_msg'])
