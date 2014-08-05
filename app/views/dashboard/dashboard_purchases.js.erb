@@ -152,51 +152,19 @@ $orderListReopenLink.on('click', '', function(){
 });
 
 
-var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
-$.each($arr_bid_progressbar, function(index, elem) {
-	var prog_val = parseInt($(elem).data("progressval"));
-	var bid_status = parseInt($(elem).data("status"));
-
-	if (bid_status == 1 || bid_status == 0) {
-		$(elem).css("height", "10px");
-		$(elem).find(".ui-widget-header").css("height", "10px");
-	}
-	
-	$(elem).progressbar({
-		value : prog_val
-	});
-});
+fnGenerateBidProgressBarForEveryDashboardOrder();
 
 
+//  refresh corresponding orders list when click the tab header
+fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-forpaid-orders', '/dashboard/dashboard_purchases_forpaid');
 
-// refresh forpaid orders when click the tab header
-var fnRefreshListWhenClickTab  = function(tab_id, datalist_url){
-    var $tabForpaidOrders = $('.right-area .tab-items '+tab_id);
-    $tabForpaidOrders.unbind('click');
-    $tabForpaidOrders.bind('click', function (e) {
-        e.preventDefault();
+fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-closed-orders', '/dashboard/dashboard_purchases_closed');
 
-        $.ajax({
-            url : datalist_url,
-            type : 'get',
-            //dataType: 'json', // must use html, as response is: js and html src in approve_bid.js.erb
-            data : { }
-        }).done(function(data) {
-            //$(this).tab('show');// not needed
-        });
-    });
-};
+fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-all-orders', '/dashboard/dashboard_purchases_all');
 
+fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-bidding-orders', '/dashboard/dashboard_purchases_bidding');
 
-fnRefreshListWhenClickTab('#tab-my-purchase-forpaid-orders', '/dashboard/dashboard_purchases_forpaid');
-
-fnRefreshListWhenClickTab('#tab-my-purchase-closed-orders', '/dashboard/dashboard_purchases_closed');
-
-fnRefreshListWhenClickTab('#tab-my-purchase-all-orders', '/dashboard/dashboard_purchases_all');
-
-fnRefreshListWhenClickTab('#tab-my-purchase-bidding-orders', '/dashboard/dashboard_purchases_bidding');
-
-fnRefreshListWhenClickTab('#tab-my-purchase-complete-orders', '/dashboard/dashboard_purchases_complete');
+fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-complete-orders', '/dashboard/dashboard_purchases_complete');
 
 
 

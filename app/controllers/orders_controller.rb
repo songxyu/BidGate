@@ -303,17 +303,17 @@ class OrdersController < CommonController
   end
   
  
-  # default, load all tabs' data
+  # default, only load bidding orders(data on the first visible tab)
   def dashboard_purchase_orders
     user_id = current_user.id
     #status = params[:status]
     page_info = params[:page]
     
     @bidding_orders = OrdersHelper.my_purchases(user_id, 1, page_info)
-    @forpaid_orders = OrdersHelper.my_purchases(user_id, 2, page_info)
-    @complete_orders = OrdersHelper.my_purchases(user_id, 3, page_info)
+    #@forpaid_orders = OrdersHelper.my_purchases(user_id, 2, page_info)
+    #@complete_orders = OrdersHelper.my_purchases(user_id, 3, page_info)
     #@all_orders = OrdersHelper.my_purchases(user_id, nil, page_info)
-    @closed_orders = OrdersHelper.my_purchases(user_id, -1, page_info)
+    #@closed_orders = OrdersHelper.my_purchases(user_id, -1, page_info)
 
     render "dashboard/dashboard_purchases" and return
   end
@@ -359,17 +359,17 @@ class OrdersController < CommonController
     render "dashboard/dashboard_purchases" and return
   end
 
-  # default, load all tabs' data
+  # default,  only load bidding orders(data on the first visible tab)
   def dashboard_vending_orders
     user_id = current_user.id
     #status = params[:status]
     page_info = params[:page]
     
     @bidding_orders = OrdersHelper.my_biddings(user_id, 1, page_info)
-    @fail_bidding_orders = OrdersHelper.my_biddings_failed(user_id, page_info)
-    @dealed_orders = OrdersHelper.my_vendings(user_id, 2, page_info)
-    @complete_orders = OrdersHelper.my_vendings(user_id, 3, page_info)
-    @all_orders = OrdersHelper.my_vendings(user_id, nil, page_info)
+    #@fail_bidding_orders = OrdersHelper.my_biddings_failed(user_id, page_info)
+    #@dealed_orders = OrdersHelper.my_vendings(user_id, 2, page_info)
+    #@complete_orders = OrdersHelper.my_vendings(user_id, 3, page_info)
+    #@all_orders = OrdersHelper.my_vendings(user_id, nil, page_info)
     
     render "dashboard/dashboard_vendings" and return
   end

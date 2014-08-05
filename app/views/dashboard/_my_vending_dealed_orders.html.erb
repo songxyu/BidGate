@@ -3,7 +3,8 @@
 
 	<h3>成功竞拍的订单</h3>
 
-	<% @dealed_orders.each do |order| %>
+  <% if @dealed_orders
+       @dealed_orders.each do |order| %>
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -17,10 +18,10 @@
 		</div>
 		<div class="panel-body">
 			<%
- og = order.order_goods[0]
-        item_info_text = og.order_item_info_str
-        bid_history_count = order.order_price_histories.count
-%>
+                og = order.order_goods[0]
+                item_info_text = og.order_item_info_str
+                bid_history_count = order.order_price_histories.count
+            %>
 
 			<div class="order-img-area">
 				<%= link_to image_tag('../img/order_item_sample.png', class:"order-image"), order, remote: true %>
@@ -74,4 +75,5 @@
 	<div class="pagination_area">
 		<%= paginate @dealed_orders, :remote => true  %>
 	</div>
+  <% end %>
 </div>

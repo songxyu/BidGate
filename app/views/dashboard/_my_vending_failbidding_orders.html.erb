@@ -3,7 +3,8 @@
 	
 	<h3>未能成功竞拍的订单</h3>
 
-	<% @fail_bidding_orders.each do |order| %>
+	<% if @fail_bidding_orders
+        @fail_bidding_orders.each do |order| %>
 	
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -72,9 +73,10 @@
 			</div>
 		</div>
 	
-	<% end %>
+	<%  end %>
 
 	<div class="pagination_area">
 		<%= paginate @fail_bidding_orders, :remote => true  %>
 	</div>
+  <% end %>
 </div>

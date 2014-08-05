@@ -1,68 +1,69 @@
 <div class="all-complete-page">
-	<%= link_to  "刷新已完成的订单",  dashboard_vendings_complete_path, remote: true  %>
+  <%= link_to "刷新已完成的订单", dashboard_vendings_complete_path, remote: true %>
 
-	<h3>已完成的竞拍单</h3>
+  <h3>已完成的竞拍单</h3>
 
-	<% @complete_orders.each do |order| %>
+  <% if @complete_orders
+       @complete_orders.each do |order| %>
 
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h3 class="panel-title">订单号: <%= order.order_num %></h3>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">订单号: <%= order.order_num %></h3>
 
-			<div class="algin_right row_margin">
-				<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class=>" ",  remote: true  do %>					 
-					<span class="span-text">详情 >></span>
-				<% end %>
-			</div>
+              <div class="algin_right row_margin">
+                <%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class => " ", remote: true do %>
+                    <span class="span-text">详情 >></span>
+                <% end %>
+              </div>
 
-		</div>
-		<div class="panel-body">
-			<%
-			 og = order.order_goods[0]
-			        item_info_text = og.order_item_info_str
-			        bid_history_count = order.order_price_histories.count
-			%>
+            </div>
+            <div class="panel-body">
+              <%
+                 og = order.order_goods[0]
+                 item_info_text = og.order_item_info_str
+                 bid_history_count = order.order_price_histories.count
+              %>
 
-			<div class="order-img-area">
-				<%= link_to image_tag('../img/order_item_sample.png', class:"order-image"), order, remote: true %>
-			</div>
+              <div class="order-img-area">
+                <%= link_to image_tag('../img/order_item_sample.png', class: "order-image"), order, remote: true %>
+              </div>
 
-			<div class="order-digest">
+              <div class="order-digest">
 
-				<div class="row-height">
-					<span>采购: <%= item_info_text %> ...</span>
-					<span class="algin_left">订单起拍价: <%= order.price %> 元 </span>
-				</div>
+                <div class="row-height">
+                  <span>采购: <%= item_info_text %> ...</span>
+                  <span class="algin_left">订单起拍价: <%= order.price %> 元 </span>
+                </div>
 
-				<div class="row-height">
-					<span class="algin_left">成交价: </span>
-					<span class="highlight_text"><%= order.deal_price %> 元</span>
-					<span class="algin_left"> 成交日期: </span>
-					<span class="highlight_text"><%= order.deal_date ? order.deal_date.strftime('%Y-%m-%d %H:%M')  : ""%> </span>
+                <div class="row-height">
+                  <span class="algin_left">成交价: </span>
+                  <span class="highlight_text"><%= order.deal_price %> 元</span>
+                  <span class="algin_left"> 成交日期: </span>
+                  <span class="highlight_text"><%= order.deal_date ? order.deal_date.strftime('%Y-%m-%d %H:%M') : "" %> </span>
 
-				</div>
+                </div>
 
-				<div class="row-height">
-					<span class="algin_left"> 采购方: </span>
-					<span class="highlight_text"><%= order.buyer ? order.buyer.contact : ''%>
-						<%= order.buyer ? order.buyer.company.name : ''%> ***** </span>
-				</div>
-			</div>
-			
-			<div class="order-actions">
-				<div class="row-height">
-					<%= link_to order, :class=>" ", remote: true  do %>
-					<span class="span-text">查看消息</span>
-					<% end %>
-				</div>
-			</div>
-		</div>
+                <div class="row-height">
+                  <span class="algin_left"> 采购方: </span>
+					<span class="highlight_text"><%= order.buyer ? order.buyer.contact : '' %>
+                      <%= order.buyer ? order.buyer.company.name : '' %> ***** </span>
+                </div>
+              </div>
 
-		<% end %>
+              <div class="order-actions">
+                <div class="row-height">
+                  <%= link_to order, :class => " ", remote: true do %>
+                      <span class="span-text">查看消息</span>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
 
-		<div class="pagination_area">
-			<%= paginate @complete_orders, :remote => true  %>
-		</div>
-	</div>
+  <div class="pagination_area">
+    <%= paginate @complete_orders, :remote => true %>
+  </div>
+  <% end %>
 
 </div>

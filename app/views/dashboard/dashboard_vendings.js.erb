@@ -21,9 +21,7 @@
   	  	
   	  	logger.debug "*** partial_template_path: " + partial_template_path
   	end
-  	
 %>
- 
  
 var $dashboard_rightarea =  $(".content_area .dashboard-page .right-area");
 <% if partial_template_path == default_partial_templ %>
@@ -31,6 +29,8 @@ $dashboard_rightarea.html("<%= escape_javascript render(:partial => 'dashboard/'
 <% else %>
 $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javascript render(:partial => 'dashboard/'+ partial_template_path ) %>");
 <% end %>
+
+
 
 // var $tabHeader = $dashboard_rightarea.find(".tab-headers");
 //var $tabItems = $tabHeader.find('.tab-item');
@@ -40,18 +40,15 @@ $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javasc
 //})  
 
 
+fnGenerateBidProgressBarForEveryDashboardOrder();
 
-var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
-$.each($arr_bid_progressbar, function(index, elem) {
-    var prog_val = parseInt($(elem).data("progressval"));
-    var bid_status = parseInt($(elem).data("status"));
+//  refresh corresponding orders list when click the tab header
+fnBindEventToRefreshListWhenClickTab('#tab-my-vending-bidding-orders', '/dashboard/dashboard_vendings_bidding');
 
-    if (bid_status == 1 || bid_status == 0) {
-        $(elem).css("height", "10px");
-        $(elem).find(".ui-widget-header").css("height", "10px");
-    }
+fnBindEventToRefreshListWhenClickTab('#tab-my-vending-dealed-orders', '/dashboard/dashboard_vendings_dealed');
 
-    $(elem).progressbar({
-        value : prog_val
-    });
-});
+fnBindEventToRefreshListWhenClickTab('#tab-my-vending-failbidding-orders', '/dashboard/dashboard_vendings_biddingfail');
+
+fnBindEventToRefreshListWhenClickTab('#tab-my-vending-complete-orders', '/dashboard/dashboard_vendings_complete');
+
+fnBindEventToRefreshListWhenClickTab('#tab-my-vending-all-orders', '/dashboard/dashboard_vendings_all');

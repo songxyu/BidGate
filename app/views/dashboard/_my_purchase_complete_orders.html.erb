@@ -3,7 +3,8 @@
 		
 	<h3>已完成的采购单</h3>
 
-	<% @complete_orders.each do |order| %>
+	<% if @complete_orders 
+		@complete_orders.each do |order| %>
 	
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -68,4 +69,5 @@
 	<div class="pagination_area">
 		<%= paginate @complete_orders, :remote => true  %>
 	</div>
+	<% end %>
 </div>

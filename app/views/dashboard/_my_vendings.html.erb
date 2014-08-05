@@ -25,16 +25,18 @@
 					<i class="glyphicon glyphicon-ok"></i> 已完成</a>
 				<!--   link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true   -->
 			</li>
-			<li>
-				<a href="#my_vending_all_orders" class="tab-item" id="tab-my-vending-all-orders" role="tab" data-toggle="tab">
-					<i class="glyphicon glyphicon-list"></i> 所有订单</a>
-				<!--   link_to "所有订单",  my_all_orders_path, remote: true  -->
-			</li>
+            <li>
+            <a href="#my_vending_failbidding_orders" class="tab-item" id="tab-my-vending-failbidding-orders" role="tab" data-toggle="tab">
+              <i class="glyphicon glyphicon-remove"></i> 未成交</a>
+            </li>
 
-			<li>
-				<a href="#my_vending_failbidding_orders" class="tab-item" id="tab-my-vending-failbidding-orders" role="tab" data-toggle="tab">
-					 <i class="glyphicon glyphicon-remove"></i> 未成交</a>
+        <!-- <li>
+              <a href="#my_vending_all_orders" class="tab-item" id="tab-my-vending-all-orders" role="tab" data-toggle="tab">
+                  <i class="glyphicon glyphicon-list"></i> 所有订单</a>
+                link_to "所有订单",  my_all_orders_path, remote: true
 			</li>
+        -->
+
 		</ul>
 	</div>
 
@@ -51,14 +53,16 @@
 		<div class="tab-pane" id="my_vending_complete_orders">
 			<%= render "dashboard/my_vending_complete_orders" %>
 		</div>
-		
-		<div class="tab-pane" id="my_vending_all_orders">
-			<%= render "dashboard/my_vending_all_orders" %>
-		</div>
-		
+
 		<div class="tab-pane" id="my_vending_failbidding_orders">
 			<%= render "dashboard/my_vending_failbidding_orders" %>
 		</div>
+
+        <!--
+        <div class="tab-pane" id="my_vending_all_orders">
+			< % = render "dashboard/my_vending_all_orders" % >
+		</div>
+         -->
 	</div>
 
 </div>

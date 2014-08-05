@@ -3,7 +3,8 @@
 
 	<h3>竞价中的采购单</h3>
 
-	<% @bidding_orders.each do |order| %>
+	<%  if @bidding_orders 
+		@bidding_orders.each do |order| %>
 
 		<div class="panel panel-default" data-order-id="<%=order.id%>">
 			<div class="panel-heading">
@@ -131,4 +132,5 @@
 	<div class="pagination_area">
 		<%= paginate @bidding_orders, :remote => true  %>
 	</div>
+	<%end%>
 </div>

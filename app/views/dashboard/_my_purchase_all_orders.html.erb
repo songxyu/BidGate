@@ -4,7 +4,8 @@
 
 	<h3>我的所有采购单</h3>
 
-	<% @all_orders.each do |order| %>
+	<%  if @all_orders
+		@all_orders.each do |order| %>
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -120,4 +121,5 @@
 	<div class="pagination_area">
 		<%= paginate @all_orders, :remote => true  %>
 	</div>
+	<%end%>
 </div>

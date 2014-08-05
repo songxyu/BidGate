@@ -1,130 +1,139 @@
 <div class="my-bidding-orders-page">
-	<%= link_to  "刷新竞价中的订单",  dashboard_vendings_bidding_path, remote: true  %>
-	
-	<h3>竞拍进行中的订单</h3>
-	<%  #=debug current_user
-	 %>
-	 
-	<% @bidding_orders.each do |order| %>
+  <%= link_to "刷新竞价中的订单", dashboard_vendings_bidding_path, remote: true %>
 
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h3 class="panel-title">订单号: <%= order.order_num %></h3>
-			
-			<div class="algin_right row_margin">
-				<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class=>" ",  remote: true  do %>					 
-					<span class="span-text">详情 >></span>
-				<% end %>
-			</div>
-			
-		</div>
-		<div class="panel-body">
+  <h3>竞拍进行中的订单</h3>
+  <% #=debug current_user
+   logger.debug "dashboard_vendings_bidding 竞拍进行中的订单个数: " + (@bidding_orders ? @bidding_orders.count.to_s : "0")
+  %>
 
-			<%
-			 og = order.order_goods[0]
-			 item_info_text = og.order_item_info_str
-			 bid_history_count = order.order_price_histories.count
-			 
-			 # find the latest bid of mine
-			 my_latest_bid_price = 0
-			 order.order_price_histories.reverse_each { |v|
-			 	if v.vendor_id == current_user.id
-					my_latest_bid_price = v.price
-					break;
-				end
-			 }
-			%>
-			
-				<div class="order-img-area">
-					<%= link_to image_tag('../img/order_item_sample.png', class:"order-image"), order, remote: true %>
-				</div>
-				
-				<div class="order-digest">
-					<div class="row-height">
-						<span> 采购: <%= item_info_text %> ... </span>
-					</div>
-		
-					<div class="row-height">
-						<span class="algin_left"> <%= order.price %> 元 </span>
-						<span class="algin_left"> 起拍,  </span>
-						<span class="highlight_text"><%= bid_history_count %> </span>
-						<span>个竞拍 </span>
-						<span>, 最新订单竞价: </span>
-						<span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %> 元 </span>
-					</div>
-					
-					<div class="row-height">
-						<span>我的最新竞价: <%= my_latest_bid_price %></span>	
-					</div>
-					
-					<div class="row-height">
-						<span class="algin_left"> 截止日期: </span>
-						<span class="highlight_text"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%> </span>
-					</div>
-					
-				</div>
-	
-				<div class="order-actions">
-                    <%= render  :partial => "common/bid_progress_bar", :locals => { :order => order } %>
+  <% if @bidding_orders 
+       @bidding_orders.each do |order| %>
 
-					<div class="row-height">
-                        <div class="action-link">
-                            <%= link_to order, :class=>" ", remote: true  do %>
-                                <span class="span-text">查看消息</span>
-                            <% end %>
-                        </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">订单号: <%= order.order_num %></h3>
 
-                        <div class="action-link">
-                          <%= link_to bid_dialog_show_path(:id => order.id, :redirect_path => "dashboard@@dashboard_vendings"),
-                                      :class=>"btn btn-primary bidBtn", remote: true do %>
-                              <span class="bidBtnText">新竞价</span>
-                          <% end %>
-                        </div>
-					</div>
-					 
-				</div>
-				
-				<div class="bid-hist-list">
-					<% if bid_history_count > 0 %>
-						<table class="table table-condensed table-hover">
-						  <thead>
-						 	<th>竞价时间</th>
-						 	<th>竞价</th>
-						 	<th>交货期</th>
-						 	<th>备注</th>
-						 </thead>
-						 
-						 <tbody>
-						 	<%  # sort by bid_time desc
-                               sortedHistArray = order.order_price_histories.sort {|a, b| b.bid_time <=> a.bid_time}
-                               sortedHistArray.each do |order_hist|
-                            %>
-						 	
-						 	<tr class="price-hist-row inactive-bid <% if order_hist.is_valid %> active <%end%>"  >
-						 		<td> <%=order_hist.bid_time.strftime('%Y-%m-%d %H:%M')%> </td>
-						 		<td class="bid-price"> <%=order_hist.price%>	</td>
-                                <td> <% if order_hist.delivery_days%>  <%=order_hist.delivery_days.to_s%> 天 <% end %>	</td>
-						 		<td> <%=order_hist.bid_memo%>	</td>					 		
-						 	</tr>
-						 	
-						 	<% end %>
-						  
-						 </tbody>
-						</table>
-	
-						<div class="button btn-hidden btn-approve-area">
-							<input class="button  btn_submit" name="commit" type="submit" value="成交">
-						</div>
-					<% else %>
-						<p>暂无竞价</p>
-					<% end %>
-				</div>
-		</div>
-	</div>
+              <div class="algin_right row_margin">
+                <%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class => " ", remote: true do %>
+                    <span class="span-text">详情 >></span>
+                <% end %>
+              </div>
 
-	<% end %>
+            </div>
+            <div class="panel-body">
 
-	<div class="pagination_area">
-		<%= paginate @bidding_orders, :remote => true  %>
-	</div>
+              <%
+                 og = order.order_goods[0]
+                 item_info_text = og.order_item_info_str
+                 bid_history_count = order.order_price_histories.count
+
+                 # find the latest bid of mine
+                 my_latest_bid_price = 0
+                 order.order_price_histories.reverse_each { |v|
+                   if v.vendor_id == current_user.id
+                     my_latest_bid_price = v.price
+                     break;
+                   end
+                 }
+              %>
+
+              <div class="order-img-area">
+                <%= link_to image_tag('../img/order_item_sample.png', class: "order-image"), order, remote: true %>
+              </div>
+
+              <div class="order-digest">
+                <div class="row-height">
+                  <span> 采购: <%= item_info_text %> ... </span>
+                </div>
+
+                <div class="row-height">
+                  <span class="algin_left"> <%= order.price %> 元 </span>
+                  <span class="algin_left"> 起拍,  </span>
+                  <span class="highlight_text"><%= bid_history_count %> </span>
+                  <span>个竞拍 </span>
+                  <span>, 最新订单竞价: </span>
+                  <span class="highlight_text"> <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %>
+                    元 </span>
+                </div>
+
+                <div class="row-height">
+                  <span>我的最新竞价: <%= my_latest_bid_price %></span>
+                </div>
+
+                <div class="row-height">
+                  <span class="algin_left"> 截止日期: </span>
+                  <span class="highlight_text"><%= order.deadline ? order.deadline.strftime('%Y-%m-%d %H:%M') : "" %> </span>
+                </div>
+
+              </div>
+
+              <div class="order-actions">
+                <%= render :partial => "common/bid_progress_bar", :locals => {:order => order} %>
+
+                <div class="row-height">
+                  <div class="action-link">
+                    <%= link_to order, :class => " ", remote: true do %>
+                        <span class="span-text">查看消息</span>
+                    <% end %>
+                  </div>
+
+                  <div class="action-link">
+                    <%= link_to bid_dialog_show_path(:id => order.id, :redirect_path => "dashboard@@dashboard_vendings"),
+                                :class => "btn btn-primary bidBtn", remote: true do %>
+                        <span class="bidBtnText">新竞价</span>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="bid-hist-list">
+                <% if bid_history_count > 0 %>
+                    <table class="table table-condensed table-hover">
+                      <thead>
+                      <th>竞价时间</th>
+                      <th>竞价</th>
+                      <th>交货期</th>
+                      <th>备注</th>
+                      </thead>
+
+                      <tbody>
+                      <% # sort by bid_time desc
+                         sortedHistArray = order.order_price_histories.sort { |a, b| b.bid_time <=> a.bid_time }
+                         sortedHistArray.each do |order_hist|
+                      %>
+
+                          <tr class="price-hist-row inactive-bid
+                            <% if order_hist.is_valid %> active
+                            <% end %>">
+                            <td> <%= order_hist.bid_time.strftime('%Y-%m-%d %H:%M') %> </td>
+                            <td class="bid-price"> <%= order_hist.price %>    </td>
+                            <td>
+                              <% if order_hist.delivery_days %>  <%= order_hist.delivery_days.to_s %> 天
+                              <% end %>    </td>
+                            <td> <%= order_hist.bid_memo %>    </td>
+                          </tr>
+
+                      <% end %>
+
+                      </tbody>
+                    </table>
+
+                    <div class="button btn-hidden btn-approve-area">
+                      <input class="button  btn_submit" name="commit" type="submit" value="成交">
+                    </div>
+                <% else %>
+                    <p>暂无竞价</p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+      <% end %>
+
+      <div class="pagination_area">
+        <%= paginate @bidding_orders, :remote => true %>
+      </div>
+
+  <% end %>
 </div>

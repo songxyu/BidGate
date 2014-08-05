@@ -3,7 +3,8 @@
 	
 	<h3>待付款采购单</h3>
 
-	<% @forpaid_orders.each do |order| %>
+	<% if @forpaid_orders
+         @forpaid_orders.each do |order| %>
 	
 		<div class="panel panel-default" data-order-id="<%=order.id%>">
 			<div class="panel-heading">
@@ -80,4 +81,5 @@
 	<div class="pagination_area">
 		<%= paginate @forpaid_orders, :remote => true  %>
 	</div>
+	<% end %>
 </div>

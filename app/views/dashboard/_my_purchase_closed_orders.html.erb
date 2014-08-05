@@ -3,7 +3,8 @@
 	
 	<h3>已关闭的采购单</h3>
 
-	<% @closed_orders.each do |order| %>
+	<% if @closed_orders
+		@closed_orders.each do |order| %>
 	
 		<div class="panel panel-default" data-order-id="<%=order.id%>">
 			<div class="panel-heading">
@@ -60,4 +61,5 @@
 	<div class="pagination_area">
 		<%= paginate @closed_orders, :remote => true  %>
 	</div>
+	<% end %>
 </div>
