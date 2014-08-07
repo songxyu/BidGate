@@ -36,14 +36,71 @@
 
 			<div class="menuBar">
 				<ul class="navMenu">
-					<li>
-						<%= link_to orders_search_path(:search => ""), :class=>"menuItem", remote: true do %>
-						<span>发现采购单</span>
-						<% end %>
+					<li class="item">
+						<div class="btn-group">
+							<div class="find-orders" data-hover="dropdown" data-delay="100">
+								<%= link_to orders_search_path(:search => ""), :class=>"menuItem", remote: true do %>
+								<span>发现采购单</span>
+								<span class="caret"></span>
+								<% end %>
+							</div>
+
+							<ul class="dropdown-menu ui-nav-dropdown" role="menu">
+								<li class="ui-nav-dropdown-angle">
+									<span></span>
+								</li>
+								<li class="ui-nav-dropdown-item">
+									<!-- TODO not work? -->
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<i class="glyphicon glyphicon-cutlery navi-icon"></i>
+									<span>不锈钢/钢材</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-separator"></li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<i class="glyphicon glyphicon-dashboard navi-icon"></i>
+									<span>橡胶制品</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-separator"></li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<i class="glyphicon glyphicon-tree-conifer navi-icon"></i>
+									<span>木材</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-separator"></li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<i class="glyphicon glyphicon-headphones navi-icon"></i>
+									<span>工程塑料</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-separator"></li>
+
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<i class="glyphicon glyphicon-adjust navi-icon"></i>
+									<span>有色金属</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-separator"></li>
+								
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<i class="glyphicon glyphicon-filter navi-icon"></i>
+									<span>玻璃纤维</span>
+									<% end %>
+								</li>
+							</ul>
+						</div>
+
 					</li>
-					<li>
+					<li  class="item">
 						<%= link_to orders_path, :class=>"menuItem", remote: true do %>
 						<span>新手指引</span>
+						<span class="caret"></span>
 						<% end %>
 					</li>
 
@@ -58,7 +115,7 @@
 					<li class="my-profile-link">
 						<div class="btn-group">
 							<div class="user-avator " data-hover="dropdown" data-delay="100">
-								<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
+								<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"dash-profile", remote: true do %>
 								<span>您好，<b><%= current_user.nickname %> </b> </span>
 								<span class="caret"></span>
 								<% end %>
@@ -80,11 +137,11 @@
 								<li class="ui-nav-dropdown-separator"></li>
 								<li class="ui-nav-dropdown-item">
 									<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
-									<span>采购单管理</span>
+									<span>我的采购</span>
 									<% end %>
 								</li>
 								<li class="ui-nav-dropdown-item">
-									<a href="#">竞价单管理</a>
+									<a href="#">我的竞价</a>
 								</li>
 
 								<li class="ui-nav-dropdown-separator"></li>
@@ -96,10 +153,10 @@
 						</div>
 					</li>
 					<% else %>
-					<li class="logon">
+					<li class="logon-register">
 						<%= link_to "登录",  login_path, remote: true %>
 					</li>
-					<li class="register">
+					<li class="logon-register">
 						<%= link_to "注册", signup_path %>
 					</li>
 					<% end %>

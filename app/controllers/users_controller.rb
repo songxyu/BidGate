@@ -180,6 +180,12 @@ def create
     render "dashboard/dashboard" and return
   end
   
+  # new add - song
+  def dashboard_profile
+    @user = current_user
+    render "dashboard/dashboard_profile" and return
+  end
+  
   def change_password
      # ref to src of has_secure_password
      @user = current_user

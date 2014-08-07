@@ -6,9 +6,34 @@
 	<%= @ind[2] %>
 </p>
 
-<!-- <i class="glyphicon  glyphicon-home inpls-color ind-pls"></i> -->
+<!-- industry portal logo -->
+<p class="portal-logo">
+
+	<% if @ind[0] == 1 %>
+	<i class="glyphicon glyphicon-cutlery ind-portal-icon industry-<%= @ind[0] %>"></i>
+
+	<% elsif @ind[0] == 2 %>
+	<i class="glyphicon glyphicon-dashboard ind-portal-icon industry-<%= @ind[0] %>"></i>
+
+	<% elsif @ind[0] == 3 %>
+	<i class="glyphicon glyphicon-tree-conifer ind-portal-icon industry-<%= @ind[0] %>"></i>
+
+	<% elsif @ind[0] == 4 %>
+	<i class="glyphicon glyphicon-headphones ind-portal-icon industry-<%= @ind[0] %>"></i>
+
+	<% elsif @ind[0] == 5 %>
+	<i class="glyphicon glyphicon-adjust ind-portal-icon industry-<%= @ind[0] %>"></i>
+
+	<% elsif @ind[0] == 6 %>
+	<i class="glyphicon glyphicon-filter ind-portal-icon industry-<%= @ind[0] %>"></i>
+
+	<% end %>
+</p>
+
+<!-- end portal logo -->
 
 <p class="ind-stat">
 	竞价中采购单：<%= get_ordercount(@ind[0]) %>个
 </p>
 <% end %>
+

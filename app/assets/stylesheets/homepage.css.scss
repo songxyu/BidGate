@@ -69,11 +69,23 @@
           font-size: 22px;
           font-weight: 700;
           color: #595959;
-          margin-top: 20px;
+          margin-top: 10px;
+          margin-bottom: 5px;
+        }
+        
+        .portal-logo {
+          margin-bottom: 5px;
         }
         
         .industry {
           font-size: 15px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+        
+        .ind-portal-icon {
+          font-size: 30px;
+          text-align: center;
         }
       }
       
@@ -145,6 +157,10 @@
             color: #bbb;
             text-align: center;
           }
+        }
+        
+        .navi:hover {
+          background: #e2e2e2;
         }
       }
       

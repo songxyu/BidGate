@@ -95,32 +95,64 @@
       margin-bottom: 20px;
     }
     
-    .purchase-summary {
+    .box-summary {
       background: #fff7c9;
+      height: 120px;
     }
     
-    .purchase-vending {
-      background: #fff7c9;
+    .box-summary-left {
+      padding-right: 20px;
+      width: 280px;
+      float: left;
+    }
+    
+    .box-summary-right {
+      padding-left: 19px;
+      width: 460px;
+      color: #696969;
+      float: left;
+      border-left: 1px solid #e0e0e0;
+      
+      .box-dimgray-top {
+        
+        .dash-create-order-btn {
+          position: relative;
+          left: 20px;
+          bottom: 20px;
+        }
+      }
+      
+      .box-dimgray-bottom {
+        margin-top: 10px;
+      }
     }
     
     .dash-summary {
-      height: 200px;
-
+      height: 210px;
       .summary-left{
         padding-right: 20px;
         width: 280px;
         float: left;
+        
+        .user-comp-default {
+          float: left;
+        }
+        
+        .welcome-title {
+          float: left;
+          padding: 10px;
+          max-width: 200px;
+        }
       }
       
       .summary-right {
-        border-left: 1px solid #e0e0e0;
         padding-left: 19px;
         width: 460px;
         color: #696969;
         float: left;
         
         .dimgray-top {
-          
+          height: 70px;
         }
         
         hr {
@@ -130,19 +162,41 @@
           height: 1px;
           line-height: 1px;
           font-size: 0;
+          width: 100%;
         }
       
-      .sep-line {
-          margin-top: 10px;
-        }
-        
         .dimgray-bottom {
           margin-top: 10px;
+          height: 70px;
         }
       }
 		}
 		
-					
+		.grid_2 {
+        width: 160px;
+        float: left;
+     }
+          
+    .alpha {
+      margin-left: 0px;
+    }
+    
+    .omega {
+      width: 100px;
+    }
+    
+    .text-big {
+      font-size: 16px;
+    }	
+    
+    .num-big {
+      width: 100px;
+      margin-left: 20px;
+    }
+    
+    .sep-line {
+      margin-top: 10px;
+    }
 		
 		> div{			 
 			margin: 0;

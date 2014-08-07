@@ -37,6 +37,7 @@ BidGate::Application.routes.draw do
   get "dashboard/edit_company" => "companies#edit", :as => "edit_company"
   #put "users/:id" => "users#update", :as => "update_profile"
   
+  get "dashboard/user_profile" => "users#dashboard_profile", :as => "dashboard_profile"
   
   put "orders/approve_bid" => "orders#approve_bid", :as => "approve_bid"
   put "orders/cancel_bid" => "orders#cancel_bid", :as => "cancel_bid"
