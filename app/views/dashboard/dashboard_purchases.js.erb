@@ -44,6 +44,9 @@ $bidListRows.on('click', '', function(){
     if(!$(this).hasClass('valid')){
         return;
     }
+    
+    $bidListRows.removeClass('hint');
+    $(this).addClass('hint');
 
     var $radioBtn = $(this).find('.radio-button-approve-vendor');
     $radioBtn.attr('checked', true);
@@ -150,6 +153,8 @@ $orderListReopenLink.on('click', '', function(){
         console.log("Request failed: " + JSON.stringify(textStatus));
     });
 });
+
+
 
 
 fnGenerateBidProgressBarForEveryDashboardOrder();

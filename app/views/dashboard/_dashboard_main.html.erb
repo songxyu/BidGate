@@ -16,29 +16,29 @@
 			<ul class="ui-side-list nav nav-pills nav-stacked">
 				
 				<li class="ui-side-item active">
-					<%= link_to dashboard_path, :class=>" ", remote: true  do %>
-					<i class="glyphicon  glyphicon-home span-icon"></i>
+					<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>" ", remote: true  do %>
+					<i class="glyphicon  glyphicon-home user-tool-icon"></i>
 					<span class=" span-text" href="">账户总览</span> 
 					<% end %>
 				</li>
 				
 				<li class="ui-side-item ">
 					<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
-					<i class="glyphicon glyphicon-list span-icon"></i> 
+					<i class="glyphicon glyphicon-list user-tool-icon"></i> 
 					<span class="span-text">我的采购</span>
 					<% end %>
 				</li>
 				
 				<li class="ui-side-item ">
 					<%= link_to dashboard_vendings_path, :class=>" ", remote: true  do %>
-					<i class="glyphicon glyphicon-list-alt span-icon"></i> 
+					<i class="glyphicon glyphicon-list-alt user-tool-icon"></i> 
 					<span class="span-text">我的竞价</span>
 					<% end %>
 				</li>
 				
 				<li class="ui-side-item">
 					<%= link_to dashboard_profile_path, :class=>" ", remote: true  do %>
-					<i class="glyphicon  glyphicon-home span-icon"></i>
+					<i class="glyphicon  glyphicon-home user-tool-icon"></i>
 					<span class=" span-text" href="">个人资料</span> 
 					<% end %>
 				</li>
@@ -46,7 +46,7 @@
 				
 				<li class="ui-side-item ">
 					<%= link_to dashboard_msg_path, :class=>" ", remote: true do %>
-					<i class="glyphicon  glyphicon-envelope span-icon"></i>
+					<i class="glyphicon  glyphicon-envelope user-tool-icon"></i>
 					<span class="span-text">消息</span>
 					<% end %>
 				</li>

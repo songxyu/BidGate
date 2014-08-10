@@ -1,19 +1,24 @@
 <div class="all-forpaid-page">
-	<%= link_to  "刷新成功竞拍的订单",  dashboard_vendings_dealed_path, remote: true  %>
-
-	<h3>成功竞拍的订单</h3>
+	<div class="tab-item-header">
+		<span>成功竞拍的订单</span>
+		<%= link_to dashboard_vendings_dealed_path, :class=>"dash-refresh-icon",  remote: true  do %>
+		<span class="span-text"><i class="glyphicon glyphicon-refresh"></i> 刷新</span>
+		<% end %>
+	</div>
 
   <% if @dealed_orders
        @dealed_orders.each do |order| %>
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title">订单号: <%= order.order_num %></h3>
+			<span class="order-status-forpaid">状态：竞拍成功，等待付款</span>
+
+			<!-- TODO -->
+			<span class="order-create-date">创建时间：2014年7月22日</span>
+			<span class="order-number">订单号: <%= order.order_num %></span>
 
 			<div class="algin_right row_margin">
-				<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class=>" ",  remote: true  do %>					 
-					<span class="span-text">详情 >></span>
-				<% end %>
+
 			</div>
 		</div>
 		<div class="panel-body">

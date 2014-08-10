@@ -4,7 +4,7 @@
 	<!-- purchase order summary -->
 	<div class="dash-sum-area box-summary">
 		<div class="box-summary-left">
-			<h4>竞价中采购单</h4>
+			<h4>竞价中的采购单</h4>
 			<p>
 				12个
 			</p>
@@ -45,15 +45,15 @@
 	<div class="tab-headers">
 		<ul class="nav nav-tabs  tab-items">
 			<li class="active" >
-				<a href="#my_purchase_bidding_orders" class="tab-item" id="tab-my-purchase-bidding-orders" role="tab" data-toggle="tab"> <i class="glyphicon glyphicon-sort-by-attributes-alt"></i> 竞价中</a>
+				<a href="#my_purchase_bidding_orders" class="tab-item" id="tab-my-purchase-bidding-orders" role="tab" data-toggle="tab">竞价中<span class="order-num">8</span></a>
 				<!--   link_to "竞价中",  my_biddings_path, remote: true  -->
 			</li>
 			<li>
-				<a href="#my_purchase_forpaid_orders" class="tab-item" id="tab-my-purchase-forpaid-orders" role="tab" data-toggle="tab"> <i class="glyphicon glyphicon-usd"></i> 待付款</a>
+				<a href="#my_purchase_forpaid_orders" class="tab-item" id="tab-my-purchase-forpaid-orders" role="tab" data-toggle="tab">待付款<span class="order-num">2</span></a>
 				<!--  link_to "待付款", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
 			</li>
 			<li>
-				<a href="#my_purchase_complete_orders" class="tab-item" id="tab-my-purchase-complete-orders" role="tab" data-toggle="tab"> <i class="glyphicon glyphicon-ok"></i> 已完成</a>
+				<a href="#my_purchase_complete_orders" class="tab-item" id="tab-my-purchase-complete-orders" role="tab" data-toggle="tab">已完成<span class="order-num">1</span></a>
 				<!--   link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true   -->
 			</li>
 			<li>
@@ -63,7 +63,7 @@
 				-->
 				<!--   link_to "所有订单",  my_all_orders_path, remote: true  -->
 
-				<a href="#my_purchase_closed_orders" class="tab-item" id="tab-my-purchase-closed-orders" role="tab" data-toggle="tab"> <i class="glyphicon glyphicon-list"></i> 已关闭</a>
+				<a href="#my_purchase_closed_orders" class="tab-item" id="tab-my-purchase-closed-orders" role="tab" data-toggle="tab">已关闭<span class="order-num">0</span></a>
 
 			</li>
 

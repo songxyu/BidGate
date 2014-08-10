@@ -5,7 +5,7 @@
 	<!-- vending order summary -->
 	<div class="dash-sum-area box-summary">
 		<div class="box-summary-left">
-			<h4>参与竞价采购单</h4>
+			<h4>参与竞价的采购单</h4>
 			<p>9个</p>
 		</div>
 		
@@ -29,24 +29,20 @@
 	<div class="tab-headers">
 		<ul class="nav nav-tabs  tab-items">
 			<li class="active" >
-				<a href="#my_vending_bidding_orders" class="tab-item"  id="tab-my-vending-bidding-orders" role="tab" data-toggle="tab">
-					 <i class="glyphicon glyphicon-sort-by-attributes-alt"></i> 竞价中</a>
+				<a href="#my_vending_bidding_orders" class="tab-item"  id="tab-my-vending-bidding-orders" role="tab" data-toggle="tab">竞价中<span class="order-num">6</span></a>
 				<!--   link_to "竞价中",  my_biddings_path, remote: true  -->
 			</li>
 			<li>
-				<a href="#my_vending_dealed_orders" class="tab-item"  id="tab-my-vending-dealed-orders" role="tab" data-toggle="tab">
-					<i class="glyphicon glyphicon-usd"></i> 已成交</a>
+				<a href="#my_vending_dealed_orders" class="tab-item"  id="tab-my-vending-dealed-orders" role="tab" data-toggle="tab">已成交<span class="order-num">3</span></a>
 				<!--  link_to "已成交", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
 			</li>
 
 			<li>
-				<a href="#my_vending_complete_orders" class="tab-item" id="tab-my-vending-complete-orders" role="tab" data-toggle="tab">
-					<i class="glyphicon glyphicon-ok"></i> 已完成</a>
+				<a href="#my_vending_complete_orders" class="tab-item" id="tab-my-vending-complete-orders" role="tab" data-toggle="tab">已完成<span class="order-num">0</span></a>
 				<!--   link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true   -->
 			</li>
             <li>
-            <a href="#my_vending_failbidding_orders" class="tab-item" id="tab-my-vending-failbidding-orders" role="tab" data-toggle="tab">
-              <i class="glyphicon glyphicon-remove"></i> 未成交</a>
+            <a href="#my_vending_failbidding_orders" class="tab-item" id="tab-my-vending-failbidding-orders" role="tab" data-toggle="tab">未成交<span class="order-num">0</span></a>
             </li>
 
         <!-- <li>

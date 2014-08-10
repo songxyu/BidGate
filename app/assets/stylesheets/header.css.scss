@@ -45,8 +45,9 @@
 }
 
 .header .headMain {
-	height: 72px;
+	height: 55px;
 	background-color: #fff;
+	font-size: 16px;
 }
 
 .header .masthead {
@@ -58,7 +59,7 @@
 	position: relative;
 		float: left;
 		width: 200px;
-		height: 72px;
+		height: 55px;
 		background-size: contain;
 		background: url("../img/mock_logo.png") no-repeat center center; /* image is put under folder public */
 }
@@ -69,8 +70,7 @@
 .header .masthead .menuBar {
 	width: 300px;
 	float: left;
-	height: 72px;
-	line-height: 72px;
+	line-height: 55px;
 	position: relative;
 	
 	.item {
@@ -98,8 +98,6 @@
 
 .header .masthead .menuBar .menuItem {
 	color: #555;
-	font-size: 18px;
-	
 }
 
 .header .masthead .menuBar .menuItem:hover{
@@ -107,15 +105,11 @@
 	text-decoration: none;
 }
 
-.find-orders {
-  height: 72px;
-}
-
 .ui-nav-dropdown {
     width: 160px;
     padding-left: 0px;
     margin-left: -20px;
-    margin-top: -15px;
+    margin-top: -12px;
     border: 1px solid #e0e0e0;
     -webkit-box-shadow: 0 0 3px -1px #ccc;
     -moz-box-shadow: 0 0 3px -1px #ccc;
@@ -132,6 +126,9 @@
       a:hover {
         background-image: none; //override
         background-color: initial; //override
+      }
+      span {
+        padding: 0px;
       }
       
     }
@@ -176,13 +173,11 @@
 	position: relative;
 	float: right;
 	width: 330px;
-	height: 72px;
+	height: 55px;
 	
 	.welcome-signin {
 	  margin: 0px 5px;
     padding-left: 10px;
-    font-size: 18px;
-    height: 72px;
     position: relative;
     text-align: center;
     list-style: none;
@@ -190,7 +185,7 @@
     
     .my-profile-link {
       width: 180px;
-      line-height: 72px;
+      line-height: 55px;
       float: left;
       
       .dash-profile {
@@ -213,7 +208,7 @@
     
     .logon-register {
       width: 60px;
-      line-height: 72px;
+      line-height: 55px;
       float: left;
       a {
         color: #555;
@@ -262,7 +257,7 @@
 	border-radius: 5px;
 	position: absolute;
 	right: 0px;
-	top: 15px;
+	top: 8px;
 	cursor: pointer;
 	color: #555;
 }
@@ -289,7 +284,7 @@
 }
 
 .header  .search-bar {
-	padding-top: 20px;
+	padding-top: 10px;
 	float: left;
 	width: 120px;
 }

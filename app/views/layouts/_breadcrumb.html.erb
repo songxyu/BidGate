@@ -4,13 +4,14 @@
 %>
 
 <div class="breadcrumb_area">
+	<span>当前位置：</span>
 	<% arrPathInfo.each_with_index  do |path_info, i| 
 		path_url = path_info[1]
 		path_text = path_info[0]
 		
 		Rails.logger.debug  'arrPathInfo['+i.to_s+']: ' + path_text+", "+path_url  
 	%>
-	
+		
 		<% if i < path_count-1 %>
 			<% if i == 0 %>
 				<%= link_to path_text, path_url, :class=>"span-text"%>				 
@@ -19,7 +20,7 @@
 					<span class="span-text"><%= path_text %></span> 
 				<% end %>
 			<% end %>
-			<i class="glyphicon  glyphicon-chevron-right span-icon"></i>
+			>
 		<% else %>
 			<span class="span-text"><%= path_text %></span> 
 		<% end %>

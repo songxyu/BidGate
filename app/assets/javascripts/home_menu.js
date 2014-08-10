@@ -22,3 +22,27 @@ $(document).ready(function() {
 	}
 
 }); 
+
+
+// common js for header menu
+
+
+// common function to ajax navigation
+function fnNavigateFromHeaderDropdown(naviFrom, naviToUrl){
+    var $naviFromDropdown = $('.my-profile-link .ui-nav-dropdown-item' + naviFrom );
+    $naviFromDropdown.unbind('click');
+    $naviFromDropdown.bind('click', function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url : naviToUrl,
+            type : 'get',
+            //dataType: 'json', // must use html, as response is: js and html src in approve_bid.js.erb
+            data : { }
+        }).done(function(data) {
+            //$(this).tab('show');// not needed
+        });
+    });
+};
+
+fnNavigateFromHeaderDropdown('.dash-gen', 'dashboard/dashboard?breadcrumb_path_key=homepage%2Cdashboard');

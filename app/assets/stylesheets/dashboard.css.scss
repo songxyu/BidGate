@@ -6,7 +6,6 @@
 	padding-top: 0px;
 	border: 1px solid #ececec;
 	background: #fff;
-	font-size: 15px;
 	
 	.dash-header {
 	  height: 45px;
@@ -14,7 +13,6 @@
     background: #428bca;
     padding: 10px;
     color: #f2f2f2;
-    font-size: 14px;
     position: absolute;
     width: 960px;
     ul {
@@ -46,7 +44,6 @@
 		display: inline;
 		float: left;
 		margin: 10px 0;
-		border-radius: 3px;
 	}
 	
 	.left-list{
@@ -64,18 +61,29 @@
 		
 		.ui-side-item{
 			cursor: pointer;
-			font-size: 14px;
-			border: 1px solid #eee;
+			
+			a:hover {
+			  border-radius: 0px;
+			}
+			
+			.user-tool-icon {
+			   margin-right: 5px;
+			}
 		}
 		
 		.ui-side-item.active{
+		  background: #fff url(../img/usertool_libg.png) left repeat-y;
+		  border: 1px solid #d5d5d5;
 			cursor: default;
-			color: #fff;
-			background: #00a8e8;
-			font-weight: bold;
 			
-			a{
-				color: #fff;
+			a {
+			  color: #428bca;
+			  background: none;
+			  font-weight: 800;
+			}
+			
+			.user-tool-icon {
+			  color: #00b300;
 			}
 		}
 	}
@@ -83,16 +91,16 @@
 	
 	
 	.right-area{
-		height: 100%;
 		width: 800px;
 		position: relative;
 		top: 45px;
+		border: 1px solid #d5d5d5;
 		
 		.dash-sum-area {
 		  width: 100%;
 		  padding: 19px;
-      border: 1px solid #e0e0e0;
       margin-bottom: 20px;
+      float: left;
     }
     
     .box-summary {
@@ -104,6 +112,12 @@
       padding-right: 20px;
       width: 280px;
       float: left;
+    }
+    
+    h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #555;
     }
     
     .box-summary-right {
@@ -128,7 +142,6 @@
     }
     
     .dash-summary {
-      height: 210px;
       .summary-left{
         padding-right: 20px;
         width: 280px;
@@ -170,6 +183,11 @@
           height: 70px;
         }
       }
+      
+      .summary-bottom {
+        width: 90%;
+        float: left;
+      }
 		}
 		
 		.grid_2 {
@@ -186,7 +204,6 @@
     }
     
     .text-big {
-      font-size: 16px;
     }	
     
     .num-big {
@@ -194,16 +211,35 @@
       margin-left: 20px;
     }
     
-    .sep-line {
-      margin-top: 10px;
-    }
-		
 		> div{			 
 			margin: 0;
 			padding: 0;
 			
 			.tab-item i{
 				padding: 0 5px;
+			}
+			
+			.tab-headers {
+			  .tab-items {
+			    padding-left: 15px;
+			    
+			    a {
+			      border-radius: 0px;
+			      color: #555;
+			      font-weight: 800;
+			    }
+			    
+			    li.active>a {
+			      color: #428bca;
+			    }
+			    
+			    .order-num {
+			      color:#428bca;
+			      padding-left: 5px;
+			      font-size: 15px;
+			      font-weight: normal;
+			    }
+			  }
 			}
 			
 			/*
@@ -250,7 +286,6 @@
 			
 			.tab-content{
 				padding: 10px;
-				border: 1px solid #e0e0e0;
 				border-top: none; 
 				background: #fff;
 				display: block;
@@ -262,18 +297,70 @@
 				position: absolute;
 				top: 50px;
 				width: 100%;
-				*/				
+				*/
+				.panel {
+				  border-radius: 0px;
+				}
+				
+				.panel-heading {
+				  background-image: none;
+				  background-color: #E7F0F9;
+				  
+				  .order-status-bidding {
+				    color: #EE4C08;
+				    font-weight: bold;
+				  }
+				  
+				  .order-status-forpaid {
+				    color: orange;
+				    font-weight: bold;
+				  }
+				  
+				  .order-status-completed {
+            color: green;
+            font-weight: bold;
+          }
+          
+          .order-status-closed {
+            color: red;
+            font-weight: bold;
+          }
+				  
+				  .order-number {
+				    max-width: 250px;
+            float: right;
+            text-align: right;
+				  }
+				  
+				  .order-create-date {
+				    max-width: 250px;
+				    position: relative;
+            left: 55px;
+				  }
+				}
 				
 				
 				.panel-body{
-					
+					padding: 0px;
 					> div{
 						position: relative;
 						float: left;
 					}
 					
-					.action-link{
-						text-align: right;
+					.row-action {
+					   float: right;
+					   margin-top: 10px;
+  					.action-link{
+  						float: left;
+  						
+  						.action-text {
+  						  padding-left: 20px;
+  						}
+  						.action-text:hover {
+  						  text-decoration: none;
+  						}
+  					}
+					
 					}
 					
 					.bid_progressbar_area{
@@ -295,6 +382,14 @@
                             margin: 0;
                           }
 						}
+						
+					 >div.dash-bid-progressbar {
+              height: 12px;
+              width: 110px;
+              position: relative;
+              top: 6px;
+              left: 8px;
+					 }
 					}
 					
 					> div.bid-hist-list{
@@ -302,9 +397,10 @@
 						width: 100%;
 						
 						.button{
-							background-color: #428bca;
 							border: none;
-                            color: #000;
+              width: 80px;
+              height: 35px;
+              line-height: 35px;
 						}
 						
 						.btn-hidden{
@@ -316,19 +412,23 @@
 							padding-top: 10px;
 						}
 
-                        .inactive-bid{
-                          color: #ccc;
-                        }
-
-                        .active{
-                          font-weight: bold;
-                          color: #000;
-
-                          .bid-price{
-                            color: red;
-                            font-size: 14px;
-                          }
-                        }
+            tr.active>td{
+              color: #333;
+              background-color: #fff;
+              .bid-price{
+                color: red;
+                font-size: 14px;
+              }
+            }
+            
+            tr:hover>td {
+              background-color: #fff7c9;
+              cursor: pointer;
+            }
+            
+            tr.hint>td {
+              background-color: #ffec7d;
+            }
 					}
 				}
 				
@@ -340,8 +440,13 @@
 					font-weight: bold;
 				}
 				
+				.no-bid-text {
+          padding-top: 0px;
+        }
+				
 				.order-img-area{					
 					width: 150px;
+					padding: 10px;
 					
 					.order-image{
 						height: 80px;
@@ -349,9 +454,14 @@
 					}
 				}
 				
+				.order-digest {
+				  padding: 10px;
+				}
+				
 				div.order-actions{
 					float: right;
 					right: 0px;
+					padding: 10px;
 				}
 			}
 			
@@ -366,6 +476,10 @@
 	
 	.pagination_area{
 		float: none;	
+	}
+	
+	.tab-item-header {
+	  margin-bottom: 15px;
 	}
 	
 	
@@ -393,5 +507,57 @@
 		float: right;
 		margin-top: -18px;
 	}
+	
+	.sep-line {
+      margin-top: 10px;
+  }
+  
+  .dash-refresh-icon {
+    text-decoration: none;
+    float: right;
+  }
+  
+  table {
+    font-size: 13px;
+    thead {
+      border: 1px solid #C8CED3;
+      border-left: none;
+      border-right: none;
+      background: url(../img/prolist_tit.jpg) repeat-x 0 0;
+      th {
+        font-weight: normal;
+        text-align: center;
+      }
+    }
+    
+    tbody {
+      border: none;
+      td {
+        background-color: #f8f8f8;
+        color: #888;
+        border: 1px solid #C8CED3;
+        border-left: none;
+      }
+      
+    }
+    
+  }
+  
+  .approve-btn {
+    text-align: center;
+  }
+  
+  .radio-button-approve-vendor {
+    cursor: pointer;
+  }
+  
+  .order-title {
+    font-weight: 800;
+  }
+  
+  .order-title:hover {
+    text-decoration: none;
+  }
+  
 	 
 }

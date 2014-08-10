@@ -6,7 +6,6 @@
 .totalCount {
   height: 40px;
   line-height: 40px;
-  font-size: 16px;
   color: #555;
   font-weight: bold;
   .totalCountNumber {
@@ -130,7 +129,6 @@
   opacity: 0.9;
   color: #fff;
   height: 40px;
-  font-size: 15px;
   font-weight: bold;
   line-height: 40px;
   width: 238px;
@@ -139,7 +137,6 @@
 }
 
 .order_item .highlight_text{
-  font-size: 16px;
   font-weight: 800;
 }
 
@@ -270,13 +267,11 @@
   color: #555;
   line-height: 20px;
   .order-must-title {
-    font-size: 18px;
     font-weight: bold;
     width: 380px;
     float: left;
   }
   .order-id {
-    font-size: 15px;
     width: 250px;
     float: right;
     text-align: right;
@@ -318,7 +313,6 @@
         text-align: center;
         background: #fafafa;
         text-shadow: 0px;
-        font-size: 15px;
         .title {
           font-weight: bold;
         }
@@ -466,13 +460,11 @@ hr.dashed {
 }
 
 .orderInfoContainer .itemTable td, .itemTable th {
-  font-size: 15px;
   border:1px solid #359ade;
   padding: 5px 15px;
 }
 
 .orderInfoContainer .itemTable th {
-  font-size: 17px;
   font-weight: 500;
   text-align: left;
   padding-top: 5px;
@@ -494,7 +486,6 @@ hr.dashed {
 
 .orderInfoContainer .descrDetailTitle {
   text-align: center;
-  font-size: 16px;
   color: #333;
 }
 
@@ -535,7 +526,6 @@ hr.dashed {
 }
 
 .orderInfoContainer .vendorDemandsTitle {
-  font-size: 16px;
   text-align: center;
 }
 
@@ -570,7 +560,6 @@ hr.dashed {
   font-size: 20px;
   
   .title {
-    font-size: 16px;
     padding-bottom: 10px;
   }
   
@@ -587,7 +576,6 @@ hr.dashed {
 
 #bidActionArea .bidCount {
   color: #2996cc;
-  font-size: 15px;
   font-weight: bold;
   position: absolute;
   top: 455px;
@@ -673,7 +661,6 @@ hr.dashed {
 }
 
 #bidActionArea .bidBtn .bidBtnText {
-  font-size: 18px;
   letter-spacing: 10px;
   color: #fff;
 }
@@ -681,12 +668,10 @@ hr.dashed {
 #communicationArea .avatarInfoContainer {
   text-align: center;
   color: #666;
-  font-size: 15px;
   
   .avatarTitle {
     padding-top: 10px;
     .role {
-      font-size: 13px;
       color: #bbb;
     }
   }
@@ -702,7 +687,6 @@ hr.dashed {
       cursor: pointer;
       margin: 0 auto;
       padding: 10px 30px;
-      font-size: 15px;
       border: 1px solid #bbb;
       font-weight: bold;
       background: #f2f2f2;
@@ -725,7 +709,6 @@ hr.dashed {
 .bid-area {
   height: 100%;
   ul {
-    font-size: 15px;
     list-style: none;
     margin-top: 20px;
     li {
@@ -753,7 +736,6 @@ hr.dashed {
     .btn-bid {
       width: 120px;
       height: 40px;
-      font-size: 15px;
     }
   }
 }

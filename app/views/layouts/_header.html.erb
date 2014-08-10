@@ -115,7 +115,7 @@
 					<li class="my-profile-link">
 						<div class="btn-group">
 							<div class="user-avator " data-hover="dropdown" data-delay="100">
-								<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"dash-profile", remote: true do %>
+								<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"dash-profile", :remote => true do %>
 								<span>您好，<b><%= current_user.nickname %> </b> </span>
 								<span class="caret"></span>
 								<% end %>
@@ -125,22 +125,17 @@
 								<li class="ui-nav-dropdown-angle">
 									<span></span>
 								</li>
-								<li class="ui-nav-dropdown-item">
-									<!-- TODO not work? -->
-									<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"", remote: true do %>
-									<span>总览</span>
-									<% end %>
-								</li>
-								<li class="ui-nav-dropdown-item">
+								<li class="ui-nav-dropdown-item dash-gen">总览</li>
+								<li class="ui-nav-dropdown-item dash-msg">
 									<a href="#">消息</a>
 								</li>
 								<li class="ui-nav-dropdown-separator"></li>
-								<li class="ui-nav-dropdown-item">
+								<li class="ui-nav-dropdown-item dash-pur">
 									<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
 									<span>我的采购</span>
 									<% end %>
 								</li>
-								<li class="ui-nav-dropdown-item">
+								<li class="ui-nav-dropdown-item dash-ven">
 									<a href="#">我的竞价</a>
 								</li>
 
