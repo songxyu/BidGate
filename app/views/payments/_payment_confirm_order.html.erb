@@ -1,0 +1,99 @@
+<div class="pay-confirm-order-page">
+	<%= render "payments/pay_steps_bar" %>
+
+	<h2>核对并确认采购单竞价信息</h2>
+	<div>
+		<p>
+			<h4>订单号: <%= @order.order_num %></h4>
+		</p>
+		<div>
+			<h4>采购单信息</h4>
+		</div>
+		<%
+ og = @order.order_goods[0]
+      item_info_text = og ? og.order_item_info_str : ""
+%>
+
+		<dl class="dl-horizontal">
+			<dt>
+				采购：
+			</dt>
+			<dd>
+				<%= item_info_text %>
+			</dd>
+		</dl>
+
+		<dl class="dl-horizontal">
+			<dt>
+				成交价格：
+			</dt>
+			<dd>
+				￥ <%= @order.deal_price %> 元
+			</dd>
+		</dl>
+
+		<dl class="dl-horizontal">
+			<dt>
+				竞拍成交时间：
+			</dt>
+			<dd>
+				<%= @order.deal_date ? @order.deal_date.strftime('%Y-%m-%d %H:%M')  : ""%>
+			</dd>
+		</dl>
+
+		<dl class="dl-horizontal">
+			<dt>
+				竞价方：
+			</dt>
+			<dd>
+				<%= @order.vendor ? @order.vendor.contact : ''%> <%= @order.vendor ? @order.vendor.company.name : ''%>
+			</dd>
+		</dl>
+
+	</div>
+
+	<div>
+		<div>
+			<h4>结算信息</h4>
+		</div>
+
+		<dl class="dl-horizontal">
+			<dt>
+				订单总价：
+			</dt>
+			<dd>
+				￥<%= @order.deal_price %> 元
+			</dd>
+		</dl>
+
+		<dl class="dl-horizontal">
+			<dt>
+				需支付定金：
+			</dt>
+			<dd>
+				￥<%= get_order_deposit_by_total(@order.deal_price) %>元（2%比例）
+			</dd>
+		</dl>
+
+		<dl class="dl-horizontal">
+			<dt>
+				支付方式：
+			</dt>
+			<dd>
+				支付宝（担保交易）
+			</dd>
+		</dl>
+
+	</div>
+
+	<p class="highlight-text">
+		应付定金总额：<span class="pay-amount">￥<%= get_order_deposit_by_total(@order.deal_price) %>元 </span>
+	</p>
+
+	<input class="button btn-success btn_submit" name="commit" type="submit" value="立即支付">
+
+	<p>
+		您可以选择导出待付款单
+	</p>
+
+</div>

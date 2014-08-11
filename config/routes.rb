@@ -44,7 +44,7 @@ BidGate::Application.routes.draw do
   put "orders/reopen_bid" => "orders#reopen_bid", :as => "reopen_bid"
 
   get "cancel_bid_dialog" =>"orders#cancel_bid_dialog", :as => "cancel_bid_dialog"
-
+  get "payment_confirm" => "orders#payment_confirm", :as => "payment_confirm"
   
   get "orders/search" => "orders#search"
   # not use the following to avoid duplicate collection paths

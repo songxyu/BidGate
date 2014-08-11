@@ -477,4 +477,11 @@ class OrdersController < CommonController
   end
 
 
+  def payment_confirm
+    order_id = params[:order_id]
+    @order = Order.find(order_id)
+    
+    render "payments/payment_confirm" and return
+  end
+
 end

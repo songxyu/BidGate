@@ -61,7 +61,7 @@
 
 			<div class="order-actions">
 				<div class="row-height">
-					<%= link_to order, :class=>" ", remote: true  do %>
+					<%= link_to payment_confirm_path({:order_id => order.id}), :class=>" ", remote: true  do %>
 					<span class="span-text">去付款</span>
 					<% end %>
 				</div>

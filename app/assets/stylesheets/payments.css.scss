@@ -1,0 +1,33 @@
+
+
+.pay-steps-bar{
+	padding: 8px;
+	font-size: 16px;
+	
+	.step-current{
+		background-color: yellow;
+		font-weight: bold;	
+	}
+}
+
+
+.pay-confirm-order-page{
+	h4{
+		font-weight: bold;
+	}
+	
+	p{
+		padding:8px;
+		
+	}
+	
+	.highlight-text{
+		font-weight: bold;
+		
+		.pay-amount{
+			color: red;
+			background-color: yellow;
+		}
+	}
+}
+
