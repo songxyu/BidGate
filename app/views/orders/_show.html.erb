@@ -28,7 +28,7 @@
 									<p class="title">
 										交货城市
 									</p>
-									<span class="value"><%= @order.location.name %></span>
+									<span class="value"><%= @order.location ? @order.location.name : '' %></span>
 								</li>
 								
 								<li>

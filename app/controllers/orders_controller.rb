@@ -308,13 +308,22 @@ class OrdersController < CommonController
     user_id = current_user.id
     #status = params[:status]
     page_info = params[:page]
+    @user = current_user
     
     @bidding_orders = OrdersHelper.my_purchases(user_id, 1, page_info)
     #@forpaid_orders = OrdersHelper.my_purchases(user_id, 2, page_info)
     #@complete_orders = OrdersHelper.my_purchases(user_id, 3, page_info)
     #@all_orders = OrdersHelper.my_purchases(user_id, nil, page_info)
     #@closed_orders = OrdersHelper.my_purchases(user_id, -1, page_info)
-
+    
+    # get counts for all status orders
+    @bidding_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, 1);
+    @forpaid_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, 2);
+    @complete_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, 3);
+    @closed_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, -1);
+    
+    logger.debug "---------- bid: " + @bidding_orders_count.to_s + "complete: " + @complete_orders_count.to_s + "---------------"
+    
     render "dashboard/dashboard_purchases" and return
   end
   

@@ -24,7 +24,13 @@
   	
 %>
 
-var $dashboard_rightarea =  $(".content_area .dashboard-page .right-area");
+var sRightAreaSelector = ".content_area .dashboard-page .right-area";
+var $dashboard_rightarea =  $(sRightAreaSelector);
+if($dashboard_rightarea.length == 0){	
+	$(".content_area").show().html("<%= escape_javascript render(:partial => 'dashboard/dashboard_main') %>");
+	$(".content_area").addClass("central-screen");
+	$dashboard_rightarea =  $(sRightAreaSelector);
+}
 
 <% if partial_template_path == default_partial_templ %>
 $dashboard_rightarea.html("<%= escape_javascript render(:partial => 'dashboard/'+ partial_template_path ) %>");

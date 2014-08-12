@@ -118,6 +118,11 @@ module OrdersHelper
       end
     end
   end
+  
+  
+  def get_purchase_orders_total_count_by_status(user_id, status)
+     @order_count = Order.where(buyer_id: user_id, status: status.to_i).count
+  end
 
   # orders I am its vendor
   def my_vendings( user_id, status, page_info )
@@ -161,5 +166,8 @@ module OrdersHelper
   def get_4_last_success_bid_orders
     @orders = Order.where(status: 2).order(deal_date: :desc).limit(4)
   end
+  
+  
+  
 
 end
