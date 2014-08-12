@@ -4,12 +4,11 @@
 	height: 800px; 
 	width: 100%;
 	padding-top: 0px;
-	border: 1px solid #ececec;
+	border: 1px solid #eee;
 	background: #fff;
 	
 	.dash-header {
 	  height: 45px;
-    border: 1px solid #ececec;
     background: #428bca;
     padding: 10px;
     color: #f2f2f2;
@@ -40,62 +39,9 @@
     }
 	}
 	
-	.grid_layout_area{
-		display: inline;
-		float: left;
-		margin: 10px 0;
-	}
-	
-	.left-list{
-		width: 150px;
-		height: 100%; 
-	  position: relative;
-	  top: 45px;
-		ul{
-			list-style-type: none;
-		}
-		
-		.ui-side-list{
-			margin: 0 10px;
-		}
-		
-		.ui-side-item{
-			cursor: pointer;
-			
-			a:hover {
-			  border-radius: 0px;
-			}
-			
-			.user-tool-icon {
-			   margin-right: 5px;
-			}
-		}
-		
-		.ui-side-item.active{
-		  background: #fff url(../img/usertool_libg.png) left repeat-y;
-		  border: 1px solid #d5d5d5;
-			cursor: default;
-			
-			a {
-			  color: #428bca;
-			  background: none;
-			  font-weight: 800;
-			}
-			
-			.user-tool-icon {
-			  color: #00b300;
-			}
-		}
-	}
-	
-	
-	
 	.right-area{
-		width: 800px;
 		position: relative;
-		top: 45px;
-		border: 1px solid #d5d5d5;
-		
+		top: 0px;
 		.dash-sum-area {
 		  width: 100%;
 		  padding: 19px;

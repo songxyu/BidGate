@@ -191,7 +191,7 @@
   .leftWrapper {
     margin-top: 5px;
     float: left;
-    width: 680px;
+    width: 920px;
     margin-right: 10px;
   }
   
@@ -398,6 +398,7 @@ hr.dashed {
 
 .orderInfoContainer {
   position: relative;
+  width: 920px;
   background: #fff;
   float: left;
   border: 1px solid #e3e3e3;
@@ -557,7 +558,7 @@ hr.dashed {
 }
 
 #bidActionArea .lastBidPrice {
-  font-size: 20px;
+  font-size: 16px;
   
   .title {
     padding-bottom: 10px;

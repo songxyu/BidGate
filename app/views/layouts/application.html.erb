@@ -11,6 +11,11 @@
 	</head>
 	<body>
 		<%= render "layouts/header" %>
+		<% if current_user %>
+			<%= render "layouts/left_wrapper" %>
+		<% end %>
+		
+		
 		<%= yield :header %> <!-- THIS NOT WORK!? -->
 
 		<div class="main">

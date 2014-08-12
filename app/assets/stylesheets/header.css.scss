@@ -45,13 +45,13 @@
 }
 
 .header .headMain {
-	height: 55px;
+	height: 50px;
 	background-color: #fff;
 	font-size: 16px;
 }
 
 .header .masthead {
-	width: 960px;
+	width: 1200px;
 	margin: 0 auto;
 }
 
@@ -64,20 +64,35 @@
 		background: url("../img/mock_logo.png") no-repeat center center; /* image is put under folder public */
 }
 
+.header .masthead .user-company {
+  width: 400px;
+  max-width: 450px;
+  color: #666;
+  font-size: 16px;
+  line-height: 50px;
+  display: inline-block;
+  float: left;
+  font-weight: 400;
+}
+
 
 /* ==========  home header menu =============*/
 
 .header .masthead .menuBar {
 	width: 300px;
 	float: left;
-	line-height: 55px;
 	position: relative;
 	
 	.item {
 	  float: left;
     width: 120px;
+    line-height: 50px;
     text-align: center;
     list-style: none;
+    
+    .btn-group {
+      vertical-align: initial;
+    }
 	}
 	
 }
@@ -185,7 +200,7 @@
     
     .my-profile-link {
       width: 180px;
-      line-height: 55px;
+      line-height: 50px;
       float: left;
       
       .dash-profile {
@@ -257,7 +272,7 @@
 	border-radius: 5px;
 	position: absolute;
 	right: 0px;
-	top: 8px;
+	top: 5px;
 	cursor: pointer;
 	color: #555;
 }
@@ -284,7 +299,7 @@
 }
 
 .header  .search-bar {
-	padding-top: 10px;
+	padding-top: 12px;
 	float: left;
 	width: 120px;
 }

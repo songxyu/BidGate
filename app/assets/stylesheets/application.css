@@ -139,7 +139,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .central-screen {
-	max-width: 960px;
+	max-width: 1200px;
 }
 
 .breadcrumb_area {
@@ -175,6 +175,65 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	height: 45px;
 }
 
+/*** --------------------- left wrapper ---------------------*/
+
+.left-wrapper {
+	width: 100px;
+	background: #00a2ca;
+	height: 100%;
+	float: left;
+	position: fixed;
+	min-height: 590px;
+	top: 0;
+}
+
+.left-wrapper .logo-wrap {
+	position: relative;
+	float: left;
+	width: 200px;
+	height: 55px;
+	background-size: contain;
+	background: url("../img/mock_logo.png") no-repeat center center;
+}
+
+.side-menu {
+	margin-top: 100px;
+}
+
+.left-wrapper ul {
+	margin: 0;
+	padding: 0;
+}
+
+.left-wrapper li {
+	list-style-type: none;
+	height: 80px;
+	position: relative;
+	cursor: pointer;
+}
+
+.left-wrapper li:hover, .left-wrapper li.active {
+	background: #007997;
+}
+
+.left-wrapper li a {
+	display: block;
+	height: 33px;
+	padding-top: 15px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+}
+
+.left-wrapper li a:hover {
+	text-decoration: none;
+}
+
+.left-wrapper .user-tool-icon {
+	font-size: 25px;
+	text-align: center;
+	width: 100%;
+}
 
 /*** ----------------------- footer ------------------------ */
 .footer {
