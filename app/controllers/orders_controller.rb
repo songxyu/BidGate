@@ -150,6 +150,8 @@ class OrdersController < CommonController
     
     puts   params
      
+    isPreview = params[:is_preview].to_i
+    
     #@parent_category = Category.find(params[:parent_category])    
     cateId = params[:category]
     #cateId = cateId ? cateId : params[:parent_category]
@@ -228,6 +230,17 @@ class OrdersController < CommonController
     # end
     
     @order.order_goods.build(arrOrderGoods)     
+    logger.debug 'isPreview: '+isPreview.to_s
+    
+    if isPreview == 1   
+       @dynamic_goods_props = CategoriesHelper.get_dyn_props_by_category(@order.category_id)
+      @category_unit = CategoriesHelper.get_category_unit(@order.category_id)
+    
+      logger.debug '@@@@ render order_preview js for preview order....'              
+      render "orders/order_preview" and return
+    end      
+    
+    logger.debug '!!!! now save the new order!! !!'
     @order.save   
         
     logger.debug "@order.order_goods: "+ @order.order_goods.to_s
@@ -249,6 +262,7 @@ class OrdersController < CommonController
     end
     
     redirect_to @order
+    
   end
   
 

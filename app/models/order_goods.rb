@@ -9,7 +9,7 @@ class OrderGoods < ActiveRecord::Base
   attr_accessible :category, :model, :name, :price, :quantity, :order_id, :image, :memo
   
   def order_item_info_str
-    order = Order.find(order_id)
+    order = self.order #Order.find(order_id)
     cateUnit = CategoriesHelper.get_category_unit(order.category_id)
     
     # note: when use ? : in string concat, must use ( ? : ) !! 

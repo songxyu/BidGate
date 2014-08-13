@@ -35,7 +35,7 @@
 									<p class="title">
 										交货周期
 									</p>
-									<span class="count">3周</span>
+									<span class="count"> XX3周XX</span>
 								</li>
 
 								<li>
@@ -102,17 +102,26 @@
 							</tr>
 
 							<% @order.order_goods.each do |good|%>
-
-							<tr>
-								<td><%= good.name %></td>
-								<td><%= good.model %></td>
-								<td><%= good.quantity %></td>
-								<td><%= good.memo %></td>
-								<% good.goods_exts.each do |prop_ext|%>
-								<td><%= prop_ext.prop_value %></td>
-								<% end %>
-
-							</tr>
+								<tr>
+									<td><%= good.name %></td>
+									<td><%= good.model %></td>
+									<td><%= good.quantity %></td>
+									<td><%= good.memo %></td>
+									<% 
+									dyn_prop_count = @dynamic_goods_props.count 
+									counter = 0;
+									good.goods_exts.each do |prop_ext|
+										counter  = counter + 1
+									%>
+										<td><%= prop_ext.prop_value ? prop_ext.prop_value : " " %></td>
+									<% end %>
+									
+									<% while counter < dyn_prop_count 
+											counter  = counter + 1
+									 %>
+										<td><%= " " %></td>
+									<% end %>	
+								</tr>
 							<% end %>
 							<!-- <tr class="alt">
 							<td>1002</td>
@@ -142,30 +151,30 @@
 							<tbody>
 								<tr>
 									<td>采购商：</td>
-									<td class="value">深圳***金属加工公司</td>
+									<td class="value"><%= @order.buyer.company.name %></td>
 								</tr>
 								<tr>
-									<td>收货地址：</td>
-									<td class="value">佛山，广东</td>
+									<td>X收货地址：</td>
+									<td class="value"><%= @order.location ? @order.location.full_location_name : ""%></td>
 								</tr>
 								<tr>
-									<td>收货日期：</td>
+									<td>X收货日期：</td>
 									<td class="value">2014年3月15日</td>
 								</tr>
-								<tr>
+								<!-- <tr>
 									<td>竞拍截止时间：</td>
 									<td class="value">2014年2月20日</td>
-								</tr>
+								</tr> -->
 								<tr>
 									<td>付款方式：</td>
-									<td class="value">押金+发货付款</td>
+									<td class="value"><%= get_payment_method(@order.payment_method) %></td>
 								</tr>
 								<tr>
-									<td>物流运输费用：</td>
+									<td>X物流运输费用：</td>
 									<td class="value">供应商承担</td>
 								</tr>
 								<tr>
-									<td>是否区域采购：</td>
+									<td>X是否区域采购：</td>
 									<td class="value">是</td>
 								</tr>
 							</tbody>
@@ -247,15 +256,15 @@
 				<!-- TODO link to user info page -->
 				<div class="avatarTitle">
 					<p>
-						赵经理
+						<%= @order.buyer.contact %>
 					</p>
 					<p class="role">
-						（采购经理）
+						<%= get_user_role(  @order.buyer.contact_title ) %>（采购经理）
 					</p>
 				</div>
 				<div class="avatarImg"></div>
 				<p class="registerTime">
-					注册时间 2013-3-23
+					注册地址: <%= @order.buyer.company.register_address %>
 				</p>
 				<!-- TODO (:buyer_id => order.buyer_id) -->
 				<%= link_to comm_dialog_show_path, :class=>"comm-dialog-show", remote: true do %>
@@ -267,7 +276,7 @@
 		</div>
 
 		<div class="wall" id="avatar-verification-area">
-			Personal & Company Verification Info
+			X Personal & Company Verification Info
 		</div>
 
 	</div>

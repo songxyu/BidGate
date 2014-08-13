@@ -541,8 +541,10 @@ $('#order-create-success-dialog .close_btn').click(function(){
 });
 
 var $submitBtn = $step2Area.find('.order-submit-btn');
+var $previewBtn = $step2Area.find('.preview-btn');
 $submitBtn.unbind('click');
-$submitBtn.click(function(){
+$previewBtn.unbind('click');
+var fnPreviewOrCreateOrder = function(isPreview){
 	var categoryId = $step1Area.find(".category_select .select_btn.selected").attr('data-type-id');
 	var city = $step1Area.find('.city_select .city_input').val();
 	var bidType = $step1Area.find('.bid_select .selected').attr('data-type-id');  
@@ -561,6 +563,7 @@ $submitBtn.click(function(){
 	// loading status
 	
 	var postData = {
+		'is_preview': isPreview ? 1 : 0,
 		'category' : categoryId,
 		'location': city, // location_id? TODO: fuzzy agorithm for location name -> id
 		'price_type': bidType,
@@ -577,15 +580,28 @@ $submitBtn.click(function(){
 	$.ajax({
 		url : '/orders',  
 		type : 'post',
-		dataType: 'html', 
+		dataType: isPreview ? 'json': 'html', 
 		data : postData
 	}).done(function(data) {
-		$("#order-create-success-dialog").show();
-		$("#order-create-success-dialog").overlay().load();
+		if(!isPreview){
+			$("#order-create-success-dialog").show();
+			$("#order-create-success-dialog").overlay().load();
+		}
+		
 	}).fail(function(jqXHR, textStatus) {
 		console.log("Request failed: " + JSON.stringify(textStatus));
 	});
+};
+
+$submitBtn.click(function(){
+	fnPreviewOrCreateOrder(null);
 });
+$previewBtn.click(function(){
+	fnPreviewOrCreateOrder(1);
+});
+
+
+
 
 //addVendorsGrid();
 

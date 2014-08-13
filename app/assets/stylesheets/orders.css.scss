@@ -578,9 +578,9 @@ hr.dashed {
 #bidActionArea .bidCount {
   color: #2996cc;
   font-weight: bold;
-  position: absolute;
-  top: 455px;
-  right: 330px;
+  position: relative;
+  top: -20px;
+  /*right: 330px;*/
 }
 
 #bidActionArea .bidStatusTag {

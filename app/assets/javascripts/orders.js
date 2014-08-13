@@ -42,5 +42,16 @@ $(document).ready(function() {
 	});
 
 
+	$("#order-preview-dialog").overlay({
+		top : 100,
+		mask : {
+			color : '#333',
+			loadSpeed : 100,
+			opacity : 0.6
+		},
+		closeOnClick : true,
+		load : false
+	});
+
 });
 

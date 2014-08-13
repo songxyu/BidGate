@@ -1,0 +1,8 @@
+ 
+var $dialog = $("#order-preview-dialog");
+console.log('$dialog.length= ', $dialog.length);
+
+$dialog.html("<%= escape_javascript render(:partial => 'orders/show') %>");
+$dialog.overlay().load();
+
+console.log('open order preview dialog..');

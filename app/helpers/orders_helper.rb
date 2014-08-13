@@ -66,6 +66,18 @@ module OrdersHelper
   def get_sortby_criteria
     return [['订单日期', 1], ['截止日期', 2], ['价格(低-, >高)', 3], ['价格(高->低)', 4], ['数量(少->多)', 5], ['数量(多->少)', 6] ]
   end
+  
+  
+  def get_payment_method(method_id)
+    all_methods = ['担保支付', '押金', '押金+尾气款']
+  
+    case method_id
+    when 1 then all_methods[0]
+    when 2 then all_methods[1]
+    when 3 then all_methods[2]
+    else all_methods
+    end
+  end
 
   def get_order_deposit_by_total(total_money)
     if !total_money || total_money == ''
@@ -98,9 +110,10 @@ module OrdersHelper
   def get_user_role(role_id)
     case role_id
     when 0 then "未指定"
-    when 1 then "采购"
-    when 2 then "销售"
+    when 1 then "采购员"
+    when 2 then "销售员"
     when 3 then "销售经理"
+    when 4 then "采购经理"
     end
   end
   # orders I placed for purchase
