@@ -13,12 +13,6 @@ $('.filter_area').hide();
 $(".content_area").show().html("<%= escape_javascript render(:partial => 'dashboard/dashboard_main') %>");
 $(".content_area").addClass("central-screen");
 
-var $leftMenu = $(".content_area .dashboard-page .left-list .ui-side-item");
-$leftMenu.unbind('click').bind('click', function(){
-	$leftMenu.removeClass('active');
-	$(this).addClass('active');
-})
-
 
 $('.right-area .tab-items a').on('click', function (e) {
   e.preventDefault();
@@ -35,5 +29,13 @@ $('#account-profile ').on('click', '.link-to-change-pw', function(){
 	fnShowChangePwTab();
 });
 
+
+//**** left wrapper ********//
+
+var $leftWrapperMenu = $(".left-wrapper .side-menu li");
+$leftWrapperMenu.unbind('click').bind('click', function(){
+	$leftWrapperMenu.removeClass('active');
+	$(this).addClass('active');
+})
 
 

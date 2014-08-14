@@ -179,7 +179,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .left-wrapper {
 	width: 100px;
-	background: #00a2ca;
+	background: #3da8b9;
 	height: 100%;
 	float: left;
 	position: fixed;
@@ -213,12 +213,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .left-wrapper li:hover, .left-wrapper li.active {
-	background: #007997;
+	background: #188fa2;
+}
+
+.left-wrapper li.active {
+	color: red;
 }
 
 .left-wrapper li a {
 	display: block;
-	height: 33px;
 	padding-top: 15px;
 	text-align: center;
 	font-size: 14px;

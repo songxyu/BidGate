@@ -14,27 +14,34 @@
 				<span>总览</span>
 				<% end %>
 			</li>
-
+			
 			<li>
 				<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
-				<i class="glyphicon glyphicon-list user-tool-icon"></i>
-				<span>采购</span>
+				<i class="glyphicon glyphicon-gift user-tool-icon"></i>
+				<span>下单</span>
+				<% end %>
+			</li>
+			
+			<li>
+				<%= link_to orders_search_path(:search => ""), :class=>" ", remote: true  do %>
+				<i class="glyphicon glyphicon-search user-tool-icon"></i>
+				<span>找单</span>
 				<% end %>
 			</li>
 
 			<li>
 				<%= link_to dashboard_vendings_path, :class=>" ", remote: true  do %>
-				<i class="glyphicon glyphicon-list-alt user-tool-icon"></i>
-				<span>竞拍</span>
+				<i class="glyphicon glyphicon-hand-up user-tool-icon"></i>
+				<span>竞单</span>
 				<% end %>
 			</li>
 
-			<li>
+			<!-- <li>
 				<%= link_to dashboard_profile_path, :class=>" ", remote: true  do %>
 				<i class="glyphicon  glyphicon-home user-tool-icon"></i>
 				<span>公司</span>
 				<% end %>
-			</li>
+			</li> -->
 
 			<li>
 				<%= link_to dashboard_msg_path, :class=>" ", remote: true do %>
@@ -42,13 +49,20 @@
 				<span>消息</span>
 				<% end %>
 			</li>
-
+			
 			<li>
+				<%= link_to dashboard_settings_path, :class=>" ", remote: true do %>
+				<i class="glyphicon  glyphicon-signal user-tool-icon"></i>
+				<span>报表</span>
+				<% end %>
+			</li>
+
+			<!-- <li>
 				<%= link_to dashboard_settings_path, :class=>" ", remote: true do %>
 				<i class="glyphicon  glyphicon-cog user-tool-icon"></i>
 				<span>设置</span>
 				<% end %>
-			</li>
+			</li> -->
 
 		</ul>
 

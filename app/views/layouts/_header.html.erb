@@ -5,15 +5,14 @@
 
 		<div class="masthead">
 
-		<% if current_user %>
+			<% if current_user %>
 			<div class="user-company">
 				<%= current_user.company.name %>
 			</div>
-		<% else %>
+			<% else %>
 			<div>
-			<%= link_to "", './', class:"logoWrapper" %>
+				<%= link_to "", './', class:"logoWrapper" %>
 			</div>
-		<% end %>
 			<div class="menuBar">
 				<ul class="navMenu">
 					<li class="item">
@@ -66,7 +65,7 @@
 									<% end %>
 								</li>
 								<li class="ui-nav-dropdown-separator"></li>
-								
+
 								<li class="ui-nav-dropdown-item">
 									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
 									<i class="glyphicon glyphicon-filter navi-icon"></i>
@@ -86,7 +85,7 @@
 
 				</ul>
 			</div>
-			
+
 			<div class="search-bar">
 				<%= form_tag orders_search_path, :method => :get, :remote => true do %>
 				<p>
@@ -95,6 +94,8 @@
 				</p>
 				<% end %>
 			</div>
+
+			<% end %>
 
 			<div class="header_right">
 				<ul class="welcome-signin">
@@ -110,11 +111,13 @@
 								<% end %>
 							</div>
 
-							<ul class="dropdown-menu ui-nav-dropdown" role="menu">
+							<!-- <ul class="dropdown-menu ui-nav-dropdown" role="menu">
 								<li class="ui-nav-dropdown-angle">
 									<span></span>
 								</li>
-								<li class="ui-nav-dropdown-item dash-gen">总览</li>
+								<li class="ui-nav-dropdown-item dash-gen">
+									总览
+								</li>
 								<li class="ui-nav-dropdown-item dash-msg">
 									<a href="#">消息</a>
 								</li>
@@ -132,10 +135,25 @@
 								<li class="ui-nav-dropdown-item">
 									<%= link_to "退出", logout_path %>
 								</li>
-							</ul>
+							</ul> -->
 
 						</div>
 					</li>
+					
+					<li class="setting">
+						<%= link_to "退出", logout_path %>
+					</li>
+
+					<li class="setting">
+						<span>设置</span>
+						<span class="arrowDown"></span>
+					</li>
+					
+					<li class="help">
+						<span>帮助</span>
+					</li>
+					
+					
 					<% else %>
 					<li class="logon-register">
 						<%= link_to "登录",  login_path, remote: true %>
@@ -143,29 +161,10 @@
 					<li class="logon-register">
 						<%= link_to "注册", signup_path %>
 					</li>
+					
 					<% end %>
 
-					<!-- <li class="help">
-					<span>帮助</span>
-					<span class="arrowDown"></span>
-
-					</li> -->
-
 				</ul>
-
-				<!-- <div class="helpDropdownlist">
-				<ul class="dropdown_list">
-				<li class="item" data-name="11" data-item="test1">
-				<span>test1</span>
-				</li>
-				<li class="item" data-name="12" data-item="test2">
-				<span>test2</span>
-				</li>
-				<li class="item" data-name="13" data-item="test3">
-				<span>test3</span>
-				</li>
-				</ul>
-				</div> -->
 
 				<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
 				<span class="create_po_text">免费发布采购单</span>

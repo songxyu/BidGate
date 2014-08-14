@@ -29,11 +29,11 @@ module ApplicationHelper
       when 'createOrder' then path_info.push(['创建采购单', './order_new'])
       when 'detail' then path_info.push(['订单详情', './orders/'])
       when 'filter' then path_info.push(['订单搜索', './orders/search?breadcrumb_path_key=homepage,filter&search='])
-      when 'dashboard' then path_info.push(['我的壹百万', './dashboard/dashboard?breadcrumb_path_key=homepage,dashboard'])
-      when 'myPurchase' then path_info.push(['采购单管理', './dashboard/dashboard_purchases'])
-      when 'myVending' then path_info.push(['竞价单管理', './dashboard/dashboard_vendings'])
-      when 'myMessage' then path_info.push(['消息管理', './dashboard/dashboard_msg'])
-      when 'mySetting' then path_info.push(['设置', './dashboard/dashboard_settings'])
+      when 'dashboard' then path_info.push(['总览', './dashboard/dashboard?breadcrumb_path_key=homepage,dashboard'])
+      when 'myPurchase' then path_info.push(['我的采购', './dashboard/dashboard_purchases?breadcrumb_path_key=homepage,dashboard,myPurchase'])
+      when 'myVending' then path_info.push(['我的竞拍', './dashboard/dashboard_vendings?breadcrumb_path_key=homepage,dashboard,myVending'])
+      when 'myMessage' then path_info.push(['消息', './dashboard/dashboard_msg?breadcrumb_path_key=homepage,dashboard,myMessage'])
+      when 'mySetting' then path_info.push(['设置', './dashboard/dashboard_settings?breadcrumb_path_key=homepage,dashboard,mySetting'])
       else path_info.push(['首页', './'])
       end
     end

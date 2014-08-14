@@ -47,11 +47,10 @@
 .header .headMain {
 	height: 50px;
 	background-color: #fff;
-	font-size: 16px;
 }
 
 .header .masthead {
-	width: 1200px;
+	width: 1200px;
 	margin: 0 auto;
 }
 
@@ -82,6 +81,7 @@
 	width: 300px;
 	float: left;
 	position: relative;
+	font-size: 16px;
 	
 	.item {
 	  float: left;
@@ -90,11 +90,12 @@
     text-align: center;
     list-style: none;
     
-    .btn-group {
-      vertical-align: initial;
-    }
 	}
 	
+}
+
+.btn-group {
+    vertical-align: initial;
 }
 
 .header .masthead .categorySeleted {
@@ -187,44 +188,37 @@
 .header .masthead .header_right {
 	position: relative;
 	float: right;
-	width: 330px;
-	height: 55px;
+	width: 450px;
 	
 	.welcome-signin {
-	  margin: 0px 5px;
     padding-left: 10px;
     position: relative;
     text-align: center;
     list-style: none;
     float: left;
     
-    .my-profile-link {
-      width: 180px;
-      line-height: 50px;
+    
+    li {
       float: left;
-      
-      .dash-profile {
-        color: #555;
-      }
-      .dash-profile:hover{
-        color: #2996cc;
-        text-decoration: none;
-      }
+      line-height: 50px;
+      min-width: 60px;
+      cursor: pointer;
     }
     
-    li.clicked {
-      background: #2996cc;
-      color: #fff;
+    a {
+      color: #555;
     }
     
-    li.clicked + a {
-      color: #fff;
+    li:hover, a:hover {
+      color: #2996cc;
+      text-decoration: none;
     }
     
     .logon-register {
       width: 60px;
-      line-height: 55px;
+      line-height: 50px;
       float: left;
+      font-size: 16px;
       a {
         color: #555;
       }
@@ -248,16 +242,8 @@
 }
 
 .header .masthead .header_right .welcome-signin .arrowDown {
-	position: absolute;
-	top: 36px;
-	right: 0px;
-	z-index: 1;
-	
-	width: 0;
-	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 4px solid #555;
+	position: relative;
+	top: 10px;
 	
 }
 
@@ -268,8 +254,6 @@
 	height: 40px;
 	text-align: center;
 	background-color: #fed231;
-	border: 1px solid #eccb00;
-	border-radius: 5px;
 	position: absolute;
 	right: 0px;
 	top: 5px;

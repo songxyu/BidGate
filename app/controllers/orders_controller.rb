@@ -394,6 +394,12 @@ class OrdersController < CommonController
     #@complete_orders = OrdersHelper.my_vendings(user_id, 3, page_info)
     #@all_orders = OrdersHelper.my_vendings(user_id, nil, page_info)
     
+    # get counts for all status orders
+    @bidding_orders_count = OrdersHelper.get_vending_orders_total_count_by_status(user_id, 1);
+    @forpaid_orders_count = OrdersHelper.get_vending_orders_total_count_by_status(user_id, 2);
+    @complete_orders_count = OrdersHelper.get_vending_orders_total_count_by_status(user_id, 3);
+    @closed_orders_count = OrdersHelper.get_vending_orders_total_count_by_status(user_id, -1);
+    
     render "dashboard/dashboard_vendings" and return
   end
   

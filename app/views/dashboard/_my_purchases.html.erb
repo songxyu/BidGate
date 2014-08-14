@@ -6,17 +6,17 @@
 		<div class="box-summary-left">
 			<h4>竞价中的采购单</h4>
 			<p>
-				12个
+				<%=@bidding_orders_count%>个
 			</p>
 		</div>
 
 		<div class="box-summary-right">
 			<div class="box-dimgray-top">
 				<div class="grid_2 alpha">
-					<h5 class="text-big">待付款<span class="num-big">2个</span></h5>
+					<h5 class="text-big">待付款<span class="num-big"><%=@forpaid_orders_count%>个</span></h5>
 				</div>
 				<div class="grid_2 beta">
-					<h5 class="text-big">竞拍成功<span class="num-big">3个</span></h5>
+					<h5 class="text-big">竞拍成功<span class="num-big"><%=@complete_orders_count%>个</span></h5>
 				</div>
 				<div class="grid_2 omega">
 
@@ -25,10 +25,10 @@
 
 			<div class="box-dimgray-bottom">
 				<div class="grid_2 alpha">
-					<h5 class="text-big">已完成<span class="num-big">8个</span></h5>
+					<h5 class="text-big">已完成<span class="num-big"><%=@complete_orders_count%>个</span></h5>
 				</div>
 				<div class="grid_2 beta">
-					<h5 class="text-big">流拍(未成交)<span class="num-big">3个</span></h5>
+					<h5 class="text-big">流拍(未成交)<span class="num-big">(0)个</span></h5>
 				</div>
 				<div class="grid_2 omega"></div>
 			</div>

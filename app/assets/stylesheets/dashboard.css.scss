@@ -274,7 +274,6 @@
 				  
 				  .order-number {
 				    max-width: 250px;
-            float: right;
             text-align: right;
 				  }
 				  
@@ -282,6 +281,15 @@
 				    max-width: 250px;
 				    position: relative;
             left: 55px;
+				  }
+				  
+				  .order-detail-link {
+				    font-weight: 800;
+				    float: right
+				  }
+				  
+				  .order-detail-link:hover {
+				    text-decoration: none;
 				  }
 				}
 				

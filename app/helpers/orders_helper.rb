@@ -132,9 +132,14 @@ module OrdersHelper
     end
   end
   
-  
+  # get count of bidding, complete, forpaid status of purchase order
   def get_purchase_orders_total_count_by_status(user_id, status)
      @order_count = Order.where(buyer_id: user_id, status: status.to_i).count
+  end
+  
+  # get count of bidding, complete, forpaid status of vending order
+  def get_vending_orders_total_count_by_status(user_id, status)
+     @order_count = Order.where(vendor_id: user_id, status: status.to_i).count
   end
 
   # orders I am its vendor
