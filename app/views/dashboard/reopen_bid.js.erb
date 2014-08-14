@@ -4,3 +4,9 @@
  logger.debug "reopened order: order_id: "+ order_id.to_s
  %>
 
+<% 
+	# !! here do not use escape_javascript! 
+%>
+<%= render(:partial => 'dashboard/reopen_bid_success', :locals => {:order_id => @order ? @order.id : order_id } )%>
+
+ 

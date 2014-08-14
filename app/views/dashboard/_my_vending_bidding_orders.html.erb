@@ -108,7 +108,8 @@
 
 					<tbody>
 						<% # sort by bid_time desc
-						sortedHistArray = order.order_price_histories.sort { |a, b| b.bid_time <=> a.bid_time }
+						sortedHistArray = order.order_price_histories.select { |h| h.vendor_id == current_user.id }
+						sortedHistArray = sortedHistArray.sort { |a, b| b.bid_time <=> a.bid_time }
 						sortedHistArray.each do |order_hist|
 						%>
 

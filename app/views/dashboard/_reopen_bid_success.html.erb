@@ -16,7 +16,10 @@
     <p>提交后的订单,可以在”竞价中”中找到. </p>
 
     <div class="botton-rows">
-      <div class="btn-preview-detail btn btn-primary">预览采购单</div>
+    	<%= link_to order_path(:id => @order ? @order.id : 0), :class=>"linkto-order-detail", remote: true do %>
+			<div class="btn-preview-detail btn btn-primary">查看采购单</div>
+		<% end %>
+      
       <div class="btn-close btn btn-primary">关闭</div>
     </div>
 

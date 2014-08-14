@@ -154,7 +154,7 @@
 									<td class="value"><%= @order.buyer.company.name %></td>
 								</tr>
 								<tr>
-									<td>X收货地址：</td>
+									<td>收货地址：</td>
 									<td class="value"><%= @order.location ? @order.location.full_location_name : ""%></td>
 								</tr>
 								<tr>
@@ -264,7 +264,7 @@
 				</div>
 				<div class="avatarImg"></div>
 				<p class="registerTime">
-					注册地址: <%= @order.buyer.company.register_address %>
+					注册时间: <%= @order.buyer.signup_time.strftime('%Y年%m月%d日')  %>
 				</p>
 				<!-- TODO (:buyer_id => order.buyer_id) -->
 				<%= link_to comm_dialog_show_path, :class=>"comm-dialog-show", remote: true do %>

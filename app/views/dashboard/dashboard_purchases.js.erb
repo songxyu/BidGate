@@ -138,7 +138,7 @@ $orderListReopenLink.on('click', '', function(){
     $.ajax({
         url : '/orders/reopen_bid',
         type : 'put',
-        dataType: 'html', // must use html, as response is: js and html src in approve_bid.js.erb
+        dataType: 'html',  // must use html 
         data : {
             'order_id': orderId
         }
@@ -146,15 +146,16 @@ $orderListReopenLink.on('click', '', function(){
         console.log('reopened bid: order_id='+orderId);
 
         $('div[data-order-id="'+orderId+'"].panel').hide();
-//        alert('该订单 (订单号:'+orderNum+') 重新提交成功, 请到竞价中页面中查看!');
-
-        var $overlayDialog = $("#order_bid_dialog");
-        $overlayDialog.html("<%= escape_javascript render(:partial => 'dashboard/reopen_bid_success')%>");
-        $overlayDialog.overlay().load();
-        $overlayDialog.find('.btn-close, .close_btn').click(function(){
-            $overlayDialog.overlay().close();
-        });
-
+		console.log('该订单 (订单号:'+orderNum+') 重新提交成功, 请到竞价中页面中查看!');
+		
+		var $overlayDialog = $("#order_bid_dialog");
+		// NOTE: the html is rendered in reopen.js.erb!
+		$overlayDialog.html(data);
+		$overlayDialog.overlay().load();
+		$overlayDialog.find('.btn-close, .close_btn, .linkto-order-detail').click(function(){
+		    $overlayDialog.overlay().close();
+		});
+		
     }).fail(function(jqXHR, textStatus) {
         console.log("Request failed: " + JSON.stringify(textStatus));
     });

@@ -170,7 +170,7 @@ module OrdersHelper
 
   def my_biddings_failed( user_id, page_info )
     @orders = Order.select('distinct "orders".id, "orders".*').joins(:order_price_histories).where(
-        "order_price_histories.vendor_id = :userId and orders.status > 1 and orders.vendor_id <> :userId",
+        "order_price_histories.vendor_id = :userId and ( (orders.status > 1 and orders.vendor_id <> :userId) or orders.status < 0 )",
         {userId: user_id} ).order(OrdersHelper::Default_Order_By).page(page_info)
   end
   
