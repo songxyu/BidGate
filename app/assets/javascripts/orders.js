@@ -43,7 +43,7 @@ $(document).ready(function() {
 
 
 	$("#order-preview-dialog").overlay({
-		top : 100,
+		top : 50,
 		mask : {
 			color : '#333',
 			loadSpeed : 100,

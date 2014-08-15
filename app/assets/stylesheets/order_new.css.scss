@@ -625,3 +625,13 @@ create new order
     }
   }
 }
+
+
+#order-preview-dialog {
+  display: none;
+  height: 700px;
+  width: 1200px;
+  top: 50px;
+  left: 100px;
+  overflow-x: scroll;
+}
