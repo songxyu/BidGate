@@ -76,5 +76,11 @@ echo add three columns on table order_price_history
 call rails generate migration AddColumnsToOrderPriceHistories delivery_days:integer bid_memo:string is_valid:boolean
  
 
+echo add delivery_date column on table orders
+call rails generate migration AddDeliveryDateToOrders delivery_date:datetime
+
+echo add vendor_type column on table orders
+call rails generate migration AddVendorTypeToCompanies vendor_type:integer
+
 echo  ----- finished changes ----
 pause
