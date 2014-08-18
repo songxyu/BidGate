@@ -1,36 +1,14 @@
 <div class="regContainer">
 	<div class="regMain">
-		<div id="regTimelineBar" class="regTimelineBar">
-			<ul>
-				<li class="step">
-					<img src="../img/reg/step-bg-light.png">
-					<span class="step_number light">1</span>
-					<div class="hr"></div>
-					<br>
-					<span class="light">填写账号信息</span>
-				</li>
-
-				<li class="step">
-					<img src="../img/reg/step-bg-dark.png">
-					<span class="step_number">2</span>
-					<div class="hr"></div>
-					<br>
-					<span>手机信息验证</span>
-
-				</li>
-
-				<li class="step">
-					<img src="../img/reg/step-bg-dark.png">
-					<span class="step_number">3</span>
-					<div class="hr last"></div>
-					<br>
-					<span>注册成功</span>
-				</li>
-
-			</ul>
+		<div class="banner-wrap">
+			<p class="rb1">
+				免费注册，简单易用
+			</p>
 		</div>
+		<div class="reg-bg"></div>
 
 		<div class="userBasicInfoContainer">
+
 			<% user_form = nil %>
 			<%= form_for @user do |f| %>
 
@@ -38,98 +16,50 @@
 			<% user_form = f %>
 			<ul class="userBasicInfo">
 				<li>
-					<div class="fieldLabel">
-						<%= f.label :username, "用户名"%><span class="asterisk">*</span>
-					</div>
 					<div class="input-group fieldInput">
 						<span class="input-group-addon"><span class="glyphicon glyphicon-user reg-icon"></span></span>
-						<%= f.text_field :username, :class => "form-control reg-input", :placeholder => "输入您的用户名" %>
+						<%= f.text_field :username, :class => "form-control reg-input", :placeholder => "输入您的用户名（必填）" %>
 					</div>
 				</li>
 
 				<li>
-					<div class="fieldLabel">
-						<%= f.label :email, "邮箱"%><span class="asterisk">*</span>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-lock reg-icon"></span></span>
+						<%= f.password_field :password, :class => "form-control reg-input", :placeholder => "输入密码（必填）" %>
 					</div>
+				</li>
+
+				<li>
 					<div class="input-group fieldInput">
 						<span class="input-group-addon"><span class="glyphicon glyphicon-envelope reg-icon"></span></span>
-						<%= f.text_field :email, :class => "form-control reg-input", :placeholder => "输入您的邮箱" %>
+						<%= f.text_field :email, :class => "form-control reg-input", :placeholder => "输入您的邮箱（必填）" %>
 					</div>
 				</li>
 
 				<li>
-					<div class="fieldLabel">
-						<%= f.label :contact_cellphone, "手机号码"%><span class="asterisk">*</span>
-					</div>
-					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-phone reg-icon"></span></span>
-						<%= f.text_field :contact_cellphone, :class => "form-control reg-input", :placeholder => "输入手机号码" %>
-					</div>
-				</li>
-				<li>
-					<div class="fieldLabel">
-						<%= f.label :password, "登录密码"%><span class="asterisk">*</span>
-					</div>
-					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-lock reg-icon"></span></span>
-						<%= f.password_field :password, :class => "form-control reg-input", :placeholder => "输入密码" %>
-					</div>
-				</li>
-				<li>
-					<div class="fieldLabel">
-						<%= f.label :password_confirmation, "重复密码"%><span class="asterisk">*</span>
-					</div>
-					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-lock reg-icon"></span></span>
-						<%= f.password_field :password_confirmation, :class => "form-control reg-input", :placeholder => "再次输入密码" %>
-					</div>
-				</li>
-
-				<li>
-					<div class="fieldLabel">
-						<%= f.label :username, "职位"%><span class="asterisk">*</span>
-					</div>
-					<div class="fieldRole">
-						<div>
-							<div id="role_purchaser" class="role_selection">
-								<span>采购经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
-							</div>
-							<div id="role_vendor" class="role_selection">
-								<span>销售经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li>
-					<div class="fieldLabel">
-						<label>验证码</label>
-						<span class="asterisk">*</span>
-					</div>
 					<!-- <div class="fieldVerifyCode">
 					<input type="text" class="form-control reg-verify-code">
 					</div> -->
 					<div class="fieldInput">
-						<input type="text" class="form-control reg-verify-code">
+						<input type="text" class="form-control reg-verify-code" placeholder="验证码（必填）">
 					</div>
 				</li>
 
 				<li>
 					<div class="checkbox agreementArea">
 						<label>
-							<input type="checkbox">
+							<input type="checkbox" checked="true">
 							<span class="agree-text">我已阅读并同意<a href="" target="_blank">《壹百万网站服务协议》</a></span></label>
 					</div>
 				</li>
 				<li>
 					<%= f.submit "立即注册", :class => "button submitBtn", :id => "btn_submit_reg", :remote => true %>
+					<label class="label-login">已有账号？<%= link_to "立即登录",  logon_path, class:"cor_yellow" %></label>
 				</li>
 
 			</ul>
 			<% end %>
 
-			<!-- right register tips -->
-			<%= render "reg_right_tips" %>
 		</div>
 
 	</div>

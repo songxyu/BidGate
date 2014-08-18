@@ -1,39 +1,33 @@
 <!-- purchased orders  -->
 <div class="my-orders-page">
+	
+	<%= render "layouts/breadcrumb" %>
 
 	<!-- purchase order summary -->
 	<div class="dash-sum-area box-summary">
 		<div class="box-summary-left">
-			<h4>竞价中的采购单</h4>
+			<h4>竞价中的采购单<span class="bidding_order_count"><%=@bidding_orders_count%>个</span></h4>
 			<p>
-				<%=@bidding_orders_count%>个
+				
 			</p>
 		</div>
 
 		<div class="box-summary-right">
-			<div class="box-dimgray-top">
-				<div class="grid_2 alpha">
+				<div class="grid_2">
 					<h5 class="text-big">待付款<span class="num-big"><%=@forpaid_orders_count%>个</span></h5>
 				</div>
-				<div class="grid_2 beta">
+				<div class="grid_2">
 					<h5 class="text-big">竞拍成功<span class="num-big"><%=@complete_orders_count%>个</span></h5>
 				</div>
-				<div class="grid_2 omega">
 
-				</div>
-			</div>
-
-			<div class="box-dimgray-bottom">
-				<div class="grid_2 alpha">
+				<div class="grid_2">
 					<h5 class="text-big">已完成<span class="num-big"><%=@complete_orders_count%>个</span></h5>
 				</div>
-				<div class="grid_2 beta">
+				<div class="grid_2">
 					<h5 class="text-big">流拍(未成交)<span class="num-big">(0)个</span></h5>
 				</div>
-				<div class="grid_2 omega"></div>
-			</div>
 
-			<div>
+			<div class="grid_2">
 				<%= link_to orders_new_path, :class=>"btn btn-primary dash-create-order-btn", remote: true do %>
 				<span>发布采购单</span>
 				<% end %>

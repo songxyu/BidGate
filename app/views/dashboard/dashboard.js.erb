@@ -33,7 +33,7 @@ $('#account-profile ').on('click', '.link-to-change-pw', function(){
 //**** left wrapper ********//
 
 var $leftWrapperMenu = $(".left-wrapper .side-menu li");
-$leftWrapperMenu.unbind('click').bind('click', function(){
+$leftWrapperMenu.on('click', function(){
 	$leftWrapperMenu.removeClass('active');
 	$(this).addClass('active');
 })

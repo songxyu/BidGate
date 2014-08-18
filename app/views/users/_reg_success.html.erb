@@ -1,41 +1,61 @@
 <div class="regContainer">
 	<div class="regMain">
-		<div id="regTimelineBar" class="regTimelineBar">
-			<ul>
-				<li class="step">
-					<img src="../img/reg/step-bg-light.png">
-					<span class="step_number light">1</span>
-					<div class="hr active"></div>
-					<br>
-					<span class="light">填写账号信息</span>
+		<div class="banner-wrap">
+			<p class="rb2">
+				<img src="../img/reg/register_success.png">服务已开通，请进行系统初始化设置
+			</p>
+		</div>
+		<div class="reg-bg"></div>
+
+		<div class="userBasicInfoContainer">
+
+			<% user_form = nil %>
+			<%= form_for current_user do |f| %>
+
+			<!-- user basic info area table -->
+			<% user_form = f %>
+			<span>请填写以下信息，即可启用服务</span>
+			<ul class="userBasicInfo">
+				<li>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-user reg-icon"></span></span>
+						<%= f.text_field :company, :class => "form-control reg-input", :placeholder => "公司名称（必填）" %>
+					</div>
+				</li>
+				
+				<li>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-phone reg-icon"></span></span>
+						<%= f.text_field :nickname, :class => "form-control reg-input", :placeholder => "您的姓名（必填）" %>
+					</div>
 				</li>
 
-				<li class="step">
-					<img src="../img/reg/step-bg-light.png">
-					<span class="step_number light">2</span>
-					<div class="hr active"></div>
-					<br>
-					<span class="light">手机信息验证</span>
-
+				<li>
+					<div class="input-group fieldInput">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-phone reg-icon"></span></span>
+						<%= f.text_field :contact_cellphone, :class => "form-control reg-input", :placeholder => "手机号码（必填）" %>
+					</div>
 				</li>
 
-				<li class="step">
-					<img src="../img/reg/step-bg-light.png">
-					<span class="step_number light">3</span>
-					<div class="hr last"></div>
-					<br>
-					<span class="light">注册成功</span>
+				<li>
+					<div class="fieldRole">
+						<div>
+							<div id="role_purchaser" class="role_selection">
+								<span>采购经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
+							</div>
+							<div id="role_vendor" class="role_selection">
+								<span>销售经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
+							</div>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<%= f.submit "立即启用", :class => "button submitBtn", :id => "btn_submit_reg", :remote => true %>
 				</li>
 
 			</ul>
-		</div>
-
-		<div class="regSuccessArea">
-			<div class="icon_success"><img src="../img/reg/register_success.png">
-			</div>
-			<div class="successTip">
-				恭喜您，注册成功！
-			</div>
+			<% end %>
 
 		</div>
 

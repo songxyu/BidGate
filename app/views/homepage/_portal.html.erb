@@ -1,6 +1,5 @@
 <!-- portal: industries gates, self-intro -->
 
-
 <div class="portal">
 	<div class="portal-content">
 
@@ -28,9 +27,11 @@
 				</p>
 
 			</div>
-			
-			<%= render "homepage/saved_last_search" %>
-			
+
+			<% if current_user %>
+				<%= render "homepage/saved_last_search" %>
+			<% end %>
+
 		</div>
 
 	</div>

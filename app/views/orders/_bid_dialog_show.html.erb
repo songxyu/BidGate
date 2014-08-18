@@ -16,6 +16,33 @@
 		<ul>
 			<li>
 				<div class="fieldLabel">
+					<span>竞拍供应商：</span>
+				</div>
+				<div class="fieldValue">
+					<span><%= current_user.company.name %></span>
+				</div>
+			</li>
+			
+			<li>
+				<div class="fieldLabel">
+					<span>采购商：</span>
+				</div>
+				<div class="fieldValue">
+					<span>温州****公司</span>
+				</div>
+			</li>
+			
+			<li>
+				<div class="fieldLabel">
+					<span>采购：</span>
+				</div>
+				<div class="fieldValue">
+					<span>123</span>
+				</div>
+			</li>
+			
+			<li>
+				<div class="fieldLabel">
 					<span>最新竞价：</span>
 				</div>
 				<div class="fieldValue">
@@ -33,10 +60,9 @@
 
 			</li>
 
-
           <li>
             <div class="fieldLabel">
-              <span>交货期：</span>
+              <span>备货期：</span>
             </div>
             <div class="fieldValue">
               <%= text_field_tag(:delivery_days, '', type: 'text', class: 'input') %> 天
@@ -60,6 +86,8 @@
 			<%= submit_tag("立即竞价", class: 'btn btn-primary btn-bid') %>
             <%= hidden_field_tag(:redirect_path, params[:redirect_path] )%>
 		</div>
+		
+		<div class="btn btn-primary">取消</div>
 		<% end %>
 	</div>
 </div>
