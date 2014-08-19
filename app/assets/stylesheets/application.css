@@ -178,7 +178,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 /*** --------------------- left wrapper ---------------------*/
 
 .left-wrapper {
-	width: 100px;
+	width: 120px;
 	background: #3da8b9;
 	height: 100%;
 	float: left;
@@ -207,24 +207,32 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .left-wrapper li {
 	list-style-type: none;
-	height: 80px;
+	height: 55px;
 	position: relative;
 	cursor: pointer;
 }
 
-.left-wrapper li:hover, .left-wrapper li.active {
+.left-wrapper li:hover {
 	background: #188fa2;
 }
 
 .left-wrapper li.active {
-	color: red;
+	background: #188fa2 url(../img/menu.png) -80px -44px no-repeat;
+}
+
+.left-wrapper .triangle-left {
+	display: none;
+}
+
+.left-wrapper li:hover + .left-wrapper .triangle-left {
+	display: block
 }
 
 .left-wrapper li a {
 	display: block;
-	padding-top: 15px;
+	line-height: 55px;
 	text-align: center;
-	font-size: 14px;
+	font-size: 15px;
 	color: #fff;
 }
 
@@ -233,9 +241,37 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .left-wrapper .user-tool-icon {
-	font-size: 25px;
+	font-size: 16px;
+	padding-right: 5px;
+}
+
+.left-wrapper .triangle-left {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	border-right:10px solid blue; 
+}
+
+/*** ----------------------- right wrapper -----------------**/
+
+.right-wrapper {
+	position: fixed;
+	right: 0px;
+	top: 200px;
+	overflow: hidden;
+	height: 280px;
+}
+
+.right-wrapper .help-link {
+	border-radius: 5px 0 0 5px;
+	width: 30px;
+	height: 100px;
 	text-align: center;
-	width: 100%;
+	cursor: pointer;
+	background: #3da8b9;
+	float: left;
+	color: #FFFFFF;
 }
 
 /*** ----------------------- footer ------------------------ */

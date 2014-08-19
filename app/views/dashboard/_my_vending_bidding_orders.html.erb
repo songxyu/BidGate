@@ -14,7 +14,7 @@
 		<div class="panel-heading">
 			<span class="order-number">订单号: <%= order.order_num %></span>
 
-			<span class="order-create-date">创建时间：2014年7月22日</span>
+			<span class="order-create-date">创建时间：<%= order.create_time.strftime('%Y-%m-%d') %></span>
 
 			<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class=>" ",  remote: true  do %>
 			<span class="order-detail-link">查看详情</span>

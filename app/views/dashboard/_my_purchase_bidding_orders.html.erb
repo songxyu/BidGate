@@ -16,7 +16,7 @@
 
 			<span class="order-number">订单号: <%= order.order_num %></span>
 
-			<span class="order-create-date">创建时间：2014年7月22日</span>
+			<span class="order-create-date">创建时间：<%= order.create_time.strftime('%Y-%m-%d') %></span>
 
 			<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,detail'}), :class=>" ",  remote: true  do %>
 			<span class="order-detail-link">查看详情</span>
@@ -94,7 +94,7 @@
 						<th>选择</th>
 						<th>供应商</th>
 						<th>销售经理</th>
-						<th>报价</th>
+						<th class="text-right">报价</th>
 						<th>报价时间</th>
 						<th>供应商类型</th>
 						<th>交货期</th>
@@ -116,9 +116,9 @@
 							<% end %> </td>
 							<td> <%= order_hist.vendor.company.name%> </td>
 							<td> <%= order_hist.vendor.contact%> </td>
-							<td> ￥<%= order_hist.price%> </td>
+							<td class="text-right"> ￥<%= order_hist.price%> </td>
 							<!-- TODO -->
-							<td> 2天前</td>
+							<td> <%= order_hist.bid_time ? order_hist.bid_time.strftime('%Y-%m-%d %H:%M')  : ""%></td>
 							<td> 生产厂商</td>
 							<td> <% if order_hist.delivery_days%>  <%= order_hist.delivery_days.to_s%> 天 <% end %> </td>
 							<td> <%= order_hist.bid_memo%> </td>

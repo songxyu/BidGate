@@ -1,7 +1,24 @@
 <div class="general-info-page">
+	
+	<%= render "layouts/breadcrumb" %>
 
 	<!-- dash summary -->
 	<div class="dash-sum-area dash-summary">
+			<div class="col-md-12 msg-area">
+				<div class="alert alert-warning alert-dismissible fade in alert-msg" role="alert">
+				  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				  <strong>提示! </strong>请您<a>完善公司信息</a>，以便顺利获得更多服务.
+				</div>
+			</div>
+		<% if !current_user.company.name %>
+		<% logger.debug("+++++++++++++++++" + current_user.company.name)%>
+			<div class="col-md-12 alert-msg">
+				<div class="alert alert-danger alert-dismissible fade in" role="alert">
+				  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				  <strong>提示! </strong>请您<a>完善公司信息</a>，以便顺利获得更多服务.
+				</div>
+			</div>
+		<% end %>
 		<div class="summary-left">
 			<img src="../img/default_user_portrait.gif" class="user-comp-default">
 			<p class="welcome-title">

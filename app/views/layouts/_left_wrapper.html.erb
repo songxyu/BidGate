@@ -13,6 +13,7 @@
 				<i class="glyphicon  glyphicon-home user-tool-icon"></i>
 				<span>总览</span>
 				<% end %>
+				<div class="triangle-left"></div>
 			</li>
 			
 			<li>
@@ -30,7 +31,7 @@
 			</li>
 
 			<li>
-				<%= link_to dashboard_vendings_path, :class=>" ", remote: true  do %>
+				<%= link_to dashboard_vendings_path(:breadcrumb_path_key => 'homepage,dashboard,myVending'), :class=>" ", remote: true  do %>
 				<i class="glyphicon glyphicon-hand-up user-tool-icon"></i>
 				<span>竞单</span>
 				<% end %>
@@ -44,14 +45,14 @@
 			</li> -->
 
 			<li>
-				<%= link_to dashboard_msg_path, :class=>" ", remote: true do %>
+				<%= link_to dashboard_msg_path(:breadcrumb_path_key => 'homepage,dashboard,myMessage'), :class=>" ", remote: true do %>
 				<i class="glyphicon  glyphicon-envelope user-tool-icon"></i>
 				<span>消息</span>
 				<% end %>
 			</li>
 			
 			<li>
-				<%= link_to dashboard_settings_path, :class=>" ", remote: true do %>
+				<%= link_to dashboard_settings_path(:breadcrumb_path_key => 'homepage,dashboard,mySetting'), :class=>" ", remote: true do %>
 				<i class="glyphicon  glyphicon-signal user-tool-icon"></i>
 				<span>报表</span>
 				<% end %>
