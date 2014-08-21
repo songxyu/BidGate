@@ -22,7 +22,7 @@
 
 	<!-- right area -->
 	<div class="logon-form-area">
-		<%= form_tag sessions_path do %>
+		<%= form_tag sessions_path, :remote => true  do %>
 		<div class="shake-area" id="shake_area">
 			<div class="enter-area input-group">
 				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>

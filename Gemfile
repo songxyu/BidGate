@@ -51,6 +51,8 @@ gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in developm
 gem 'whenever', :require => false
 
 
+gem 'activemerchant'
+
 group :development do
   gem 'meta_request','0.2.8'
   gem 'progress_bar' # for fulltext index progress reporting, when use rake sunspot:reindex

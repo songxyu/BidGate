@@ -21,7 +21,7 @@
         params[:search_sort_by] ? params[:search_sort_by] : 1
       ]
 %>
-		<%= form_tag orders_search_path, :id => "search_filter_form",  :method => :get, remote: true   do |f| %>
+		<%= form_tag orders_search_path, :id => "search_filter_form",  :method => :get, :remote => true   do |f| %>
 		在城市 <%= select_tag( :search_location_id, options_for_select(@location_array, selected_filter_id_array[0]), { :class => "large btn btn-default"} ) %>
 		查找  <%= select_tag( :search_category_id, options_for_select(@category_array, selected_filter_id_array[1]), { :class => "large btn btn-default"} ) %> 类别,
 		<%= select_tag( :search_status, options_for_select(@status_array, selected_filter_id_array[2]), { :class => "large btn btn-default"} ) %> 状态的订单,

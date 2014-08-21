@@ -8,6 +8,19 @@
 	
 %>
 
+<%	
+	redirect_url = params[:redirect_url]
+	logger.debug "******* redirect_url===> "+redirect_url.to_s
+	
+	if redirect_url  # redirect from login		
+%>
+	$('#dialog_logon').overlay().close();
+	$("body > .header").remove();
+	$("body").prepend("<%= j render 'layouts/header' %>").after("<%= j render 'layouts/left_wrapper' %>");
+<%     
+	end	
+%>
+
 $('.filter_area').hide();
 
 $(".content_area").show().html("<%= escape_javascript render(:partial => 'dashboard/dashboard_main') %>");

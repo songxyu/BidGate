@@ -42,8 +42,14 @@ class SessionsController < ApplicationController
       else
         logger.debug "***** Failed to update user login info for user.id=" + user.id.to_s
       end
-    
-      redirect_to root_url, :notice => "Logged in!"
+
+      if request.xhr? # redirect to dashboard after login
+        #params[:redirect_url] = dashboard_url # ajax request url
+        redirect_to(:controller => 'users', :action => 'dashboard', 
+              :redirect_url => dashboard_url, :breadcrumb_path_key => "homepage,dashboard")
+      else
+        redirect_to root_url, :notice => "Logged in!"
+      end
     else
       logger.debug "Invalid email or password, redirect to logon page..."
       
