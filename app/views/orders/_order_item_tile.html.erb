@@ -1,0 +1,75 @@
+<!-- order item tile -->
+<div class="order_item" id="order_item_<%= @order.id %>">
+	<%
+ og = @order.order_goods[0]
+    item_info_text = og.order_item_info_str
+
+    bid_progres = get_bid_progress(@order.create_time, @order.deadline)
+    bid_status = get_bid_status(bid_progres, @order.status)
+    bid_status_text = get_bid_status_text(bid_status)
+    logger.debug "bid_progres="+ bid_progres.to_s + ", bid_status="+bid_status.to_s
+
+    bid_history_count = @order.order_price_histories.count
+%>
+
+	<div class="item_inner_area">
+
+		<div class="container-row">
+			<!-- image display -->
+			<div class="order_image"><img class="item_img" src=<%= getItemImgUrl(@order.category_id)%>>
+			</div>
+
+			<div class="order_cate_row" >
+				<span><%= @order.category ?  @order.category.name : "" %> </span>
+				<span> | <%= @order.order_goods[0].name %> </span>
+			</div>
+
+		</div>
+
+		<div class="container-row">
+
+			<div class="row_margin">
+				<%= link_to order_path({:id => @order.id, :breadcrumb_path_key => (@is_searching ? 'homepage,filter,detail': 'homepage,detail')}), :class=>"tile-detail-desc-link",  remote: true  do %>
+				<span>采购: <%= item_info_text %></span>
+				<% end %>
+
+				<%= link_to order_path({:id => @order.id, :breadcrumb_path_key => (@is_searching ? 'homepage,filter,detail': 'homepage,detail')}), :class=>"tile-detail-link",  remote: true  do %>
+				<span class="span-text desc-link-text">详情 >></span>
+				<% end %>
+			</div>
+			<div class="row_margin">
+				<%= bid_history_count %> 个竞拍
+			</div>
+			<div class="row_margin">
+				<span>最新订单竞价: ￥</span><span class="highlight_text"><%= @order.order_price_histories[bid_history_count-1] ? @order.order_price_histories[bid_history_count-1].price : "" %></span>
+			</div>
+
+			<div class="bid_progressbar_area  row_margin">
+				<div class="progress tile-progress">
+				<div class="progress-bar tile-progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100"
+												 style="width: <%= bid_progres%>%;"></div>
+				</div>
+			</div>
+
+			<div class="row_margin">
+				<div class="tile-order-status"><%= get_order_status_text(@order.status) %></div>
+				<div class="align-right">截止日期：<%= @order.deadline ? @order.deadline.strftime('%Y-%m-%d %H:%M')  : ""%></div>
+			</div>
+
+			<div class="row_margin">
+				<div class="order-location">
+					<i class="glyphicon glyphicon-map-marker tile-location-icon"></i>
+					<%= @order.location_searchable %>
+				</div>
+
+				<div class="order-purchaser">
+					采购商：<%= @order.buyer.company.name %>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+

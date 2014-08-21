@@ -1,24 +1,9 @@
 <div class="general-info-page">
-	
+
 	<%= render "layouts/breadcrumb" %>
 
 	<!-- dash summary -->
-	<div class="dash-sum-area dash-summary">
-			<div class="col-md-12 msg-area">
-				<div class="alert alert-warning alert-dismissible fade in alert-msg" role="alert">
-				  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				  <strong>提示! </strong>请您<a>完善公司信息</a>，以便顺利获得更多服务.
-				</div>
-			</div>
-		<% if !current_user.company.name %>
-		<% logger.debug("+++++++++++++++++" + current_user.company.name)%>
-			<div class="col-md-12 alert-msg">
-				<div class="alert alert-danger alert-dismissible fade in" role="alert">
-				  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				  <strong>提示! </strong>请您<a>完善公司信息</a>，以便顺利获得更多服务.
-				</div>
-			</div>
-		<% end %>
+	<div class="widget dash-summary">
 		<div class="summary-left">
 			<img src="../img/default_user_portrait.gif" class="user-comp-default">
 			<p class="welcome-title">
@@ -26,56 +11,154 @@
 			</p>
 		</div>
 
-		<div class="summary-right">
-			<div class="dimgray-top">
-				<div class="grid_2 alpha">
-					<h5 class="text-big">当前竞价中采购单</h5>
-					<p>
-						8 个
-					</p>
+		<ul class="summary-right">
+			<li class="grid_1 alpha">
+				<div class="grid-header alpha-header">
+					<span class="text-big">竞价中采购单</span>
 				</div>
-				<div class="grid_2 beta">
-					<h5 class="text-big">待付款</h5>
-					<p>
-						0 个
-					</p>
+				<div class="grid-body">
+					<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>"grid-count", remote: true  do %>
+					<span>8</span>
+					<% end %>个
 				</div>
-				<div class="grid_2 omega">
-					<h5 class="text-big">总发布</h5>
-					<p>
-						12 个
-					</p>
+			</li>
+			<li class="grid_1 beta">
+				<div class="grid-header beta-header">
+					<span class="text-big">待付款</span>
 				</div>
-			</div>
+				<div class="grid-body">
+					<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>"grid-count", remote: true  do %>
+					<span>0</span>
+					<% end %>个
+				</div>
+			</li>
 
-			<hr class="sep-line">
+			<li class="grid_1 gamma">
+				<div class="grid-header gamma-header">
+					<span class="text-big">参与竞价采购单</span>
+				</div>
+				<div class="grid-body">
+					<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myVending'), :class=>"grid-count", remote: true  do %>
+					<span>6</span>
+					<% end %>个
+				</div>
+			</li>
+			<li class="grid_1 omega">
+				<div class="grid-header omega-header">
+					<span class="text-big">采购商回复</span>
+				</div>
+				<div class="grid-body">
+					<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myVending'), :class=>"grid-count", remote: true  do %>
+					<span>1</span>
+					<% end %>个
+				</div>
+			</li>
+		</ul>
 
-			<div class="dimgray-bottom">
-				<div class="grid_2 alpha">
-					<h5 class="text-big">参与竞价采购单</h5>
-					<p>
-						8 个
-					</p>
-				</div>
-				<div class="grid_2 beta">
-					<h5 class="text-big">采购商回复</h5>
-					<p>
-						0 个
-					</p>
-				</div>
-				<div class="grid_2 omega">
-					<h5 class="text-big">流拍(未成交)</h5>
-					<p>
-						12 个
-					</p>
-				</div>
-			</div>
+	</div>
+
+	<!-- widgets -->
+	<div class="widget list-guide">
+		<h5 class="guide-header">快捷操作</h5>
+
+		<div class="opt-role">
+			<h5>
+				采购商
+			</h5>
+			<ul class="stepline-group">
+				<li class="stepline-box">
+					<div class="stepline-position stepline-circle alpha">
+						<h4>1</h4>
+						下单
+					</div>
+					<div class="stepline-content">
+						功能：
+						<br>
+						<%= link_to orders_new_path, :class=>"button guide-left-btn", remote: true do %>
+						<span>+ 创建</span>
+						<% end %>
+						
+						<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>"button guide-left-btn", remote: true do %>
+						<span>查看采购单</span>
+						<% end %>
+					</div>
+					</li>
+				<li class="stepline-box">
+					<div class="stepline-position stepline-circle alpha">
+						<h4>2</h4>
+						管理报价
+					</div>
+					<div class="stepline-content">
+						功能：
+						<br>
+						<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>"button guide-left-btn", remote: true do %>
+						<span>查报价</span>
+						<% end %>
+					</div>
+				</li>
+				<li class="stepline-box">
+					<div class="stepline-position stepline-circle alpha">
+						<h4>3</h4>
+						付款
+					</div>
+					<div class="stepline-content">
+						功能：
+						<br>
+						<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>"button guide-left-btn", remote: true do %>
+						<span>采购单付款</span>
+						<% end %>
+					</div>
+				</li>
+			</ul>	
 		</div>
 
-		<div class="summary-bottom">
-			<p>
-				TO DO
-			</p>
+		<div class="opt-role">
+			<h5>
+				供应商
+			</h5>
+			
+			<ul class="stepline-group">
+				<li class="stepline-box">
+					<div class="stepline-position stepline-circle beta">
+						<h4>1</h4>
+						找单
+					</div>
+					<div class="stepline-content">
+						功能：
+						<br>
+						<%= link_to orders_search_path(:search => ""), :class=>"button guide-right-btn", remote: true do %>
+						<span>查找采购单</span>
+						<% end %>
+					</div>
+					</li>
+				<li class="stepline-box">
+					<div class="stepline-position stepline-circle beta">
+						<h4>2</h4>
+						竞价
+					</div>
+					<div class="stepline-content">
+						功能：
+						<br>
+						<%= link_to dashboard_vendings_path(:breadcrumb_path_key => 'homepage,dashboard,myVending'), :class=>"button guide-right-btn", remote: true do %>
+						<span>竞拍</span>
+						<% end %>
+					</div>
+				</li>
+				<li class="stepline-box">
+					<div class="stepline-position stepline-circle beta">
+						<h4>3</h4>
+						成交
+					</div>
+					<div class="stepline-content">
+						功能：
+						<br>
+						<%= link_to dashboard_vendings_path(:breadcrumb_path_key => 'homepage,dashboard,myVending'), :class=>"button guide-right-btn", remote: true do %>
+						<span>查看成交</span>
+						<% end %>
+					</div>
+				</li>
+			</ul>
+			
 		</div>
 
 	</div>

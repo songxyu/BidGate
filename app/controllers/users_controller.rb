@@ -115,6 +115,7 @@ def create
       logger.debug @user.to_s
 
       session[:user_id] = @user.id
+      @company = Company.new
       redirect_to signup_success_url #, :notice => "注册成功!"
     else
       logger.debug "Fail to create new user! redirect to reg page..."

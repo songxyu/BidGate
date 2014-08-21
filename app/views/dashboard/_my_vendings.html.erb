@@ -1,58 +1,53 @@
 <!-- purchased orders  -->
 
 <div class="my-vending-orders-page">
-	
+
 	<%= render "layouts/breadcrumb" %>
-	
+
 	<!-- vending order summary -->
-	<div class="dash-sum-area box-summary">
+	<div class="widget box-summary">
 		<div class="box-summary-left">
-			<h4>参与竞价的采购单</h4>
-			<p><%=@bidding_orders_count%>个</p>
+			<h4>参与竞价的采购单<span class="bidding_order_count"><%= @bidding_orders_count%>个</span></h4>
 		</div>
-		
+
 		<div class="box-summary-right">
-			<div class="box-dimgray-top">
-				<div class="grid_2 alpha">
-					<h5 class="text-big">竞拍成功<span class="num-big"><%=@complete_orders_count%>个</span></h5>
-				</div>
-				<div class="grid_2 beta">
-					<h5 class="text-big">流拍(未成交)<span class="num-big">(1)个</span></h5>
-				</div>
-				<div class="grid_2 omega">
-				</div>
+			<div class="grid_2">
+				<h5 class="text-big">竞拍成功<span class="num-big"><%= @complete_orders_count%>个</span></h5>
 			</div>
+			<div class="grid_2">
+				<h5 class="text-big">流拍(未成交)<span class="num-big">(1)个</span></h5>
+			</div>
+			<div class="grid_2"></div>
 
 		</div>
 	</div>
-	
-	
+
 	<!-- tabs -->
 	<div class="tab-headers">
 		<ul class="nav nav-tabs  tab-items">
 			<li class="active" >
-				<a href="#my_vending_bidding_orders" class="tab-item"  id="tab-my-vending-bidding-orders" role="tab" data-toggle="tab">竞价中<span class="order-num"><%=@bidding_orders_count%></span></a>
+				<a href="#my_vending_bidding_orders" class="tab-item"  id="tab-my-vending-bidding-orders" role="tab" data-toggle="tab">竞价中<span class="order-num"><%= @bidding_orders_count%></span></a>
 				<!--   link_to "竞价中",  my_biddings_path, remote: true  -->
 			</li>
 			<li>
-				<a href="#my_vending_dealed_orders" class="tab-item"  id="tab-my-vending-dealed-orders" role="tab" data-toggle="tab">待付款<span class="order-num"><%=@forpaid_orders_count%></span></a>
+				<a href="#my_vending_dealed_orders" class="tab-item"  id="tab-my-vending-dealed-orders" role="tab" data-toggle="tab">待付款<span class="order-num"><%= @forpaid_orders_count%></span></a>
 				<!--  link_to "已成交", {:controller => "orders", :action => "my_purchases", :status=> "2"}, remote: true   -->
 			</li>
 
 			<li>
-				<a href="#my_vending_complete_orders" class="tab-item" id="tab-my-vending-complete-orders" role="tab" data-toggle="tab">已完成<span class="order-num"><%=@complete_orders_count%></span></a>
+				<a href="#my_vending_complete_orders" class="tab-item" id="tab-my-vending-complete-orders" role="tab" data-toggle="tab">已完成<span class="order-num"><%= @complete_orders_count%></span></a>
 				<!--   link_to "已完成",  {:controller => "orders", :action => "my_purchases", :status=> "3"}, remote: true   -->
 			</li>
-            <li>
-            <a href="#my_vending_failbidding_orders" class="tab-item" id="tab-my-vending-failbidding-orders" role="tab" data-toggle="tab">未成交<span class="order-num">0</span></a>
-            </li>
-
-        <!-- <li>
-              <a href="#my_vending_all_orders" class="tab-item" id="tab-my-vending-all-orders" role="tab" data-toggle="tab">
-                  <i class="glyphicon glyphicon-list"></i> 所有订单</a>
-                link_to "所有订单",  my_all_orders_path, remote: true
+			<li>
+				<a href="#my_vending_failbidding_orders" class="tab-item" id="tab-my-vending-failbidding-orders" role="tab" data-toggle="tab">未成交<span class="order-num">0</span></a>
 			</li>
-        -->
+
+			<!-- <li>
+			<a href="#my_vending_all_orders" class="tab-item" id="tab-my-vending-all-orders" role="tab" data-toggle="tab">
+			<i class="glyphicon glyphicon-list"></i> 所有订单</a>
+			link_to "所有订单",  my_all_orders_path, remote: true
+			</li>
+			-->
 
 		</ul>
 	</div>
@@ -62,7 +57,7 @@
 		<div class="tab-pane active" id="my_vending_bidding_orders">
 			<%= render "dashboard/my_vending_bidding_orders" %>
 		</div>
-		
+
 		<div class="tab-pane" id="my_vending_dealed_orders">
 			<%= render "dashboard/my_vending_dealed_orders" %>
 		</div>
@@ -75,11 +70,11 @@
 			<%= render "dashboard/my_vending_failbidding_orders" %>
 		</div>
 
-        <!--
-        <div class="tab-pane" id="my_vending_all_orders">
-			< % = render "dashboard/my_vending_all_orders" % >
+		<!--
+		<div class="tab-pane" id="my_vending_all_orders">
+		< % = render "dashboard/my_vending_all_orders" % >
 		</div>
-         -->
+		-->
 	</div>
 
 </div>

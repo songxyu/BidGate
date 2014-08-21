@@ -13,10 +13,10 @@
 		
 		<% if i < path_count-1 %>
 			<% if i == 0 %>
-				<%= link_to path_text, path_url, :class=>"span-text"%>				 
+				<%= link_to path_text, path_url, :class=>"span-text breadcrumb-text-light"%>				 
 			<% else %>
 				<%= link_to path_url, :class=>" ", remote: true  do %>					 
-					<span class="span-text"><%= path_text %></span> 
+					<span class="span-text breadcrumb-text-light"><%= path_text %></span> 
 				<% end %>
 			<% end %>
 			>

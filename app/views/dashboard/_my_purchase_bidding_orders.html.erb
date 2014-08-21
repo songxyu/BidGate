@@ -119,7 +119,7 @@
 							<td class="text-right"> ￥<%= order_hist.price%> </td>
 							<!-- TODO -->
 							<td> <%= order_hist.bid_time ? order_hist.bid_time.strftime('%Y-%m-%d %H:%M')  : ""%></td>
-							<td> 生产厂商</td>
+							<td> <%= getVendorTypeName(order_hist.vendor.company.vendor_type)%></td>
 							<td> <% if order_hist.delivery_days%>  <%= order_hist.delivery_days.to_s%> 天 <% end %> </td>
 							<td> <%= order_hist.bid_memo%> </td>
 						</tr>

@@ -26,7 +26,7 @@ module ApplicationHelper
     pathKeyArr.each do |pathKey|
       case pathKey
       when 'homepage' then path_info.push(['首页', './'])
-      when 'createOrder' then path_info.push(['创建采购单', './order_new'])
+      when 'createOrder' then path_info.push(['创建采购单', './order_new?breadcrumb_path_key=homepage,createOrder'])
       when 'detail' then path_info.push(['订单详情', './orders/'])
       when 'filter' then path_info.push(['订单搜索', './orders/search?breadcrumb_path_key=homepage,filter&search='])
       when 'dashboard' then path_info.push(['总览', './dashboard/dashboard?breadcrumb_path_key=homepage,dashboard'])

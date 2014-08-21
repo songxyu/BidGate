@@ -9,6 +9,15 @@
 			<div class="user-company">
 				<%= current_user.company.name %>
 			</div>
+			<!-- TODO need search ? -->
+			<div class="search-bar">
+				<%= form_tag orders_search_path, :method => :get, :remote => true do %>
+				<p>
+					<%= text_field_tag :search, params[:search] %>
+					<!-- <%= submit_tag "搜索", :name => nil %> -->
+				</p>
+				<% end %>
+			</div>
 			<% else %>
 			<div>
 				<%= link_to "", './', class:"logoWrapper" %>
@@ -86,15 +95,6 @@
 				</ul>
 			</div>
 
-			<div class="search-bar">
-				<%= form_tag orders_search_path, :method => :get, :remote => true do %>
-				<p>
-					<%= text_field_tag :search, params[:search] %>
-					<!-- <%= submit_tag "搜索", :name => nil %> -->
-				</p>
-				<% end %>
-			</div>
-
 			<% end %>
 
 			<div class="header_right">
@@ -112,48 +112,50 @@
 							</div>
 
 							<!-- <ul class="dropdown-menu ui-nav-dropdown" role="menu">
-								<li class="ui-nav-dropdown-angle">
-									<span></span>
-								</li>
-								<li class="ui-nav-dropdown-item dash-gen">
-									总览
-								</li>
-								<li class="ui-nav-dropdown-item dash-msg">
-									<a href="#">消息</a>
-								</li>
-								<li class="ui-nav-dropdown-separator"></li>
-								<li class="ui-nav-dropdown-item dash-pur">
-									<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
-									<span>我的采购</span>
-									<% end %>
-								</li>
-								<li class="ui-nav-dropdown-item dash-ven">
-									<a href="#">我的竞价</a>
-								</li>
+							<li class="ui-nav-dropdown-angle">
+							<span></span>
+							</li>
+							<li class="ui-nav-dropdown-item dash-gen">
+							总览
+							</li>
+							<li class="ui-nav-dropdown-item dash-msg">
+							<a href="#">消息</a>
+							</li>
+							<li class="ui-nav-dropdown-separator"></li>
+							<li class="ui-nav-dropdown-item dash-pur">
+							<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
+							<span>我的采购</span>
+							<% end %>
+							</li>
+							<li class="ui-nav-dropdown-item dash-ven">
+							<a href="#">我的竞价</a>
+							</li>
 
-								<li class="ui-nav-dropdown-separator"></li>
-								<li class="ui-nav-dropdown-item">
-									<%= link_to "退出", logout_path %>
-								</li>
+							<li class="ui-nav-dropdown-separator"></li>
+							<li class="ui-nav-dropdown-item">
+							<%= link_to "退出", logout_path %>
+							</li>
 							</ul> -->
 
 						</div>
 					</li>
-					
+
 					<li class="setting">
 						<%= link_to "退出", logout_path %>
 					</li>
 
 					<li class="setting">
+						<%= link_to dashboard_settings_path(:breadcrumb_path_key => 'homepage,dashboard,mySetting'), :class=>" ", remote: true do %>
 						<span>设置</span>
 						<span class="arrowDown"></span>
+						<% end %>
+						
 					</li>
-					
+
 					<li class="help">
 						<span>帮助</span>
 					</li>
-					
-					
+
 					<% else %>
 					<li class="logon-register">
 						<%= link_to "登录",  login_path, remote: true %>
@@ -161,12 +163,12 @@
 					<li class="logon-register">
 						<%= link_to "注册", signup_path %>
 					</li>
-					
+
 					<% end %>
 
 				</ul>
 
-				<%= link_to orders_new_path, :class=>"create_purchase_order_btn", remote: true do %>
+				<%= link_to orders_new_path(:breadcrumb_path_key => 'homepage,createOrder'), :class=>"create_purchase_order_btn", remote: true do %>
 				<span class="create_po_text">免费发布采购单</span>
 				<% end %>
 

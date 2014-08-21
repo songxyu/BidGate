@@ -5,48 +5,17 @@
 	width: 100%;
 	padding-top: 0px;
 	
-	.dash-header {
-	  height: 45px;
-    background: #428bca;
-    padding: 10px;
-    color: #f2f2f2;
-    position: absolute;
-    width: 960px;
-    ul {
-      list-style: none;
-      li {
-        float: left;
-      }
-    }
-    
-    .title {
-
-    }
-
-    .company-name {
-      width: 300px;
-    }
-    .compnay-id {
-      width: 150px;
-    }
-    .user-email {
-      width: 280px;
-    }
-    .user-role {
-      width: 150px;
-    }
-	}
+	.widget {
+    width: 100%;
+    padding: 15px;
+    background: #fff;
+    float: left;
+    margin-bottom: 20px;
+  }
 	
 	.right-area{
 		position: relative;
 		top: 0px;
-		.dash-sum-area {
-		  width: 100%;
-		  padding: 19px;
-      margin-bottom: 20px;
-      float: left;
-      background: #fff;
-    }
     
     .box-summary {
       background: #fff7c9;
@@ -103,24 +72,6 @@
         color: #696969;
         float: left;
         
-        .dimgray-top {
-          height: 70px;
-        }
-        
-        hr {
-          border: 0;
-          background: #f2f2f2;
-          color: #f2f2f2;
-          height: 1px;
-          line-height: 1px;
-          font-size: 0;
-          width: 100%;
-        }
-      
-        .dimgray-bottom {
-          margin-top: 10px;
-          height: 70px;
-        }
       }
       
       .summary-bottom {
@@ -129,17 +80,57 @@
       }
 		}
 		
+		.grid-header {
+		  width: 100%;
+		  line-height: 45px;
+		  color: #fff;
+		}
+		
+		.grid_1 {
+		    width: 200px;
+        float: left;
+        list-style: none;
+        margin-right: 10px;
+        text-align: center;
+        border-radius: 2px;
+		}
+		
 		.grid_2 {
         width: 160px;
         float: left;
      }
+     
+    .grid-body {
+      line-height: 50px;
+      text-align: center;
+    }
           
     .alpha {
-      margin-left: 0px;
+      background-color: #ffd3ce;
+      .alpha-header {
+        background-color: #fe8e82;
+      }
+    }
+    
+    .beta {
+      background-color: #d6eabf;
+      .beta-header {
+        background-color: #b0d786;
+      }
+    }
+    
+    .gamma {
+      background-color: #f7e5cb;
+      .gamma-header {
+        background-color: #edc389;
+      }
     }
     
     .omega {
-      width: 100px;
+      background-color: #a0ddec;
+      .omega-header {
+        background-color: #60c6df;
+      }
     }
     
     .text-big {
@@ -148,6 +139,12 @@
     .num-big {
       width: 100px;
       margin-left: 20px;
+    }
+    
+    .grid-count {
+      font-size: 26px;
+      text-decoration: none;
+      color: #888;
     }
     
 		> div{			 
@@ -201,48 +198,6 @@
 			  }
 			}
 			
-			/*
-			.tab-headers{
-				line-height: 50px;
-			
-				.tab-items{
-					border-bottom: 0;
-					list-style: none;
-					margin: 0;
-					padding: 0;
-					font-size: 14px; 
-					
-					.tab-item{
-						position: relative;
-						list-style: none;
-						vertical-align: top;
-						display: inline-block;
-						padding: 0 30px;
-						cursor: pointer;
-					}
-					
-					.active{
-						background: #fff;
-						border: 1px solid #e0e0e0;
-						border-top: 4px solid #00a8e8;
-						cursor: default;
-						
-						a{
-							cursor: default;
-						}
-						
-					}
-				} 
-	
-				li{
-					float: left;
-					list-style: none;
-					
-				}
-			}
-			*/
-			
-			
 			.tab-content{
 				padding: 10px;
 				border-top: none; 
@@ -250,13 +205,6 @@
 				display: block;
 				
 				min-height: 500px;
-				
-				/*
-				float: left;
-				position: absolute;
-				top: 50px;
-				width: 100%;
-				*/
 				.panel {
 				  border-radius: 0px;
 				}
@@ -344,10 +292,10 @@
 							top: 6px;							
 							left: 6px;
 
-                          /* reset to fix the style */
-                          .ui-progressbar-value{
-                            margin: 0;
-                          }
+              /* reset to fix the style */
+              .ui-progressbar-value{
+                margin: 0;
+              }
 						}
 						
 					 >div.dash-bid-progressbar {
@@ -540,6 +488,119 @@
   .alert-msg {
     background-image: none;
   }
+  
+  
+  //---- guide -----//
+  .list-guide {
+    height: 400px;
+//    border: 2px solid rgba(23, 195, 229, 0.2);
+    
+    .guide-header {
+      margin-top: 0px;
+      color: gray;
+      font-weight: 800;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    
+    .opt-role {
+      width: 50%;
+      height: 200px;
+      float: left;
+    }
+    
+    h5 {
+      text-align: center;
+      color: #666;
+      font-weight: 800;
+      margin-bottom: 40px;
+    }
+    
+    .stepline-group {
+      margin: auto 0px;
+      padding-left: 20px;
+      
+      li {
+        float: left;
+        list-style: none;
+      }
+      
+      .stepline-box {
+        width: 180px;
+        margin-top: 30px;
+        border-top: 1px solid #1fafd3;
+        position: relative;
+        
+        .stepline-position {
+          position: absolute;
+          top: -32px;
+          left: 45px;
+          width: 70px;
+          height: 70px;
+          color: #fff;
+        }
+        
+        .stepline-circle {
+          border-radius: 50%;
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+          h4 {
+            color: #fff;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 5px;
+            font-family: 'Microsoft yahei', "SimSun", Tahoma;
+          }
+        }
+        
+        .stepline-content {
+          margin: 50px 0px 10px 50px;
+        }
+        
+        .guide-left-btn {
+          background: #4CC0DD;
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+        
+        .guide-left-btn:hover {
+          background: #27adcf;
+        }
+        
+        .guide-right-btn {
+          background: #bddd99;
+          font-size: 12px;
+          margin-right: 10px;
+        }
+        
+        .guide-right-btn:hover {
+          background: #b0d786;
+        }
+        
+        .alpha {
+          background-color: #1fafd3;
+        }
+        
+        .beta {
+          background-color: #b0d786;
+        }
+        
+        a {
+            line-height: 28px;
+        }
+        
+        a:hover {
+          text-decoration: none;
+          color: #fff;
+        }
+        
+      }
+      
+    }
+    
+    
+  } // list-guide
   
 	 
 }

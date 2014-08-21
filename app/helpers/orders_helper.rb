@@ -185,7 +185,15 @@ module OrdersHelper
     @orders = Order.where(status: 2).order(deal_date: :desc).limit(4)
   end
   
-  
+  # get order image by category id
+  def getItemImgUrl(cate_id)
+    imageResPool = {1 => true, 2 => true, 3 => true, 7 => true, 8 => true, 10 => true, 13 => true} #Hash
+    if imageResPool.key?(cate_id)
+    return "../img/item_categories/cate_" + cate_id.to_s + ".jpg"
+    else
+      return "../img/item_categories/image_default.png"
+    end
+  end
   
 
 end

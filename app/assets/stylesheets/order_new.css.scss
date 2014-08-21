@@ -327,15 +327,14 @@ create new order
 }
 
 .order_onboarding .onboarding_header {
-  margin: 22px 0;
   text-align: center;
 }
 
 .order_onboarding .shift {
   position: relative;
+  line-height: 50px;
   font-size: 26px;
   top: 15px;
-  background-color: #f2f2f2;
   padding: 0 10px;
 }
 .order_onboarding hr {

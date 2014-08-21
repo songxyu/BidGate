@@ -164,6 +164,12 @@ ActiveRecord::Schema.define(:version => 20140816072939) do
     t.datetime "delivery_date"
   end
 
+# Could not dump table "sqlite_stat1" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
+# Could not dump table "sqlite_stat4" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
   create_table "users", :force => true do |t|
     t.string   "nickname"
     t.integer  "company_id"

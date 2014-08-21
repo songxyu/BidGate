@@ -27,6 +27,13 @@ html {
 	background-color: white;
 }
 
+/*
+body {
+	background-image: url('../img/wood.png');
+}
+
+*/
+
 body, input, select, textarea, button {
 	line-height: 1.4;
 }
@@ -59,21 +66,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .button {
-	cursor: pointer;
-	background: #fff;
-	border: 1px solid #e5e5e5;
-	border-radius: 6px;
-	color: #7c7c7c;
-	display: block;
-	font-size: 16px;//
-	height: 44px;
-	line-height: 44px;
+	color: #fff;
+	background: #359ade;
+	display: inline-block;
+	min-height: 20px;
+	min-width: 50px;
+	width: auto;
+	margin-bottom: 0;
+	margin-top: 0;
+	position: relative;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 2px;
+	border: 0;
+	padding: 0 5px;
 	text-align: center;
-	margin: 20px auto;
-	width: 250px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+	
 }
 
 .orange {
@@ -151,6 +159,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	padding-right: 5px;
 }
 
+.breadcrumb-text-light {
+	text-shadow: 1px 1px #eee;
+}
+
 .span-icon {/* NOTE: can only use font icon files under folder public */
 	font-size: 16px;
 	vertical-align: middle;
@@ -175,11 +187,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	height: 45px;
 }
 
+.align-right {
+	text-align: right;
+}
+
 /*** --------------------- left wrapper ---------------------*/
 
 .left-wrapper {
 	width: 120px;
-	background: #3da8b9;
+	background: #4aabcc;
 	height: 100%;
 	float: left;
 	position: fixed;

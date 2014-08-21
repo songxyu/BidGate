@@ -27,4 +27,14 @@ module UsersHelper
     end
   end
   
+  # get vendor company type name by type id
+  def getVendorTypeName(typeId)
+    case typeId
+      when 0 then "未知"
+      when 1 then "生产厂商"
+      when 2 then "经销商"
+      else "其他"
+    end
+  end
+  
 end
