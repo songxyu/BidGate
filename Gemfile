@@ -52,6 +52,9 @@ gem 'whenever', :require => false
 
 
 gem 'activemerchant'
+gem 'activemerchant_patch_for_china'
+
+
 
 group :development do
   gem 'meta_request','0.2.8'
