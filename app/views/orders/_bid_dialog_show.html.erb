@@ -16,7 +16,7 @@
 		<ul>
 			<li>
 				<div class="fieldLabel">
-					<span>竞拍供应商：</span>
+					<i class="mustsign">*</i><span>竞拍供应商：</span>
 				</div>
 				<div class="fieldValue">
 					<span><%= current_user.company.name %></span>
@@ -25,10 +25,10 @@
 			
 			<li>
 				<div class="fieldLabel">
-					<span>采购商：</span>
+					<i class="mustsign">*</i><span>采购商：</span>
 				</div>
 				<div class="fieldValue">
-					<span>温州****公司</span>
+					<span><%= @order.buyer.company.name %></span>
 				</div>
 			</li>
 			
@@ -43,16 +43,16 @@
 			
 			<li>
 				<div class="fieldLabel">
-					<span>最新竞价：</span>
+					<i class="mustsign">*</i><span>最新竞价：</span>
 				</div>
 				<div class="fieldValue">
-					<span>¥ <%= get_order_lastest_bid_price(@order) %></span>
+					<span class="dialog-bid-price">¥ <%= get_order_lastest_bid_price(@order) %></span>
 				</div>
 			</li>
 
 			<li>
 				<div class="fieldLabel">
-					<span>我的报价：</span>
+					<i class="mustsign">*</i><span>我的报价：</span>
 				</div>
 				<div class="fieldValue">
 					<%= text_field_tag(:bid_price, '', type: 'text', class: 'input') %> 元
@@ -62,7 +62,7 @@
 
           <li>
             <div class="fieldLabel">
-              <span>备货期：</span>
+              <i class="mustsign">*</i><span>备货期：</span>
             </div>
             <div class="fieldValue">
               <%= text_field_tag(:delivery_days, '', type: 'text', class: 'input') %> 天
@@ -82,12 +82,11 @@
           </li>
 
 		</ul>
-		<div class="bid-button">
-			<%= submit_tag("立即竞价", class: 'btn btn-primary btn-bid') %>
-            <%= hidden_field_tag(:redirect_path, params[:redirect_path] )%>
+		<div class="button-rows">
+			<%= submit_tag("立即竞价", class: 'btn btn-primary') %>
+            <div class="btn btn-default">取消</div>
 		</div>
 		
-		<div class="btn btn-primary">取消</div>
 		<% end %>
 	</div>
 </div>

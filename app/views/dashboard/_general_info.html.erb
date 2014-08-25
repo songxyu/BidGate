@@ -74,7 +74,7 @@
 					<div class="stepline-content">
 						功能：
 						<br>
-						<%= link_to orders_new_path, :class=>"button guide-left-btn", remote: true do %>
+						<%= link_to orders_new_path(:breadcrumb_path_key => 'homepage,dashboard,createOrder'), :class=>"button guide-left-btn", remote: true do %>
 						<span>+ 创建</span>
 						<% end %>
 						

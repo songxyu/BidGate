@@ -1,0 +1,8 @@
+$("#company_info_dialog").html("<%= escape_javascript render(:partial => 'companies/company_info_dialog')%>");
+
+$("#company_info_dialog").overlay().load();
+
+$('.close_btn').click(function(){
+	$("#company_info_dialog").overlay().close();
+});
+

@@ -747,14 +747,12 @@ hr.dashed {
       }
     }
   }
-  .bid-button{
-    text-align: center;
-    padding-top: 15px;
-    .btn-bid {
-      width: 120px;
-      height: 40px;
-    }
+  
+  .dialog-bid-price {
+    color: #00b35a;
+    font-weight: 800;
   }
+  
 }
 
 //---------- order quick view -------------//

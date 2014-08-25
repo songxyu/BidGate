@@ -6,7 +6,7 @@
   width: 200px;
   height: 100px;
   text-align: left;
-  border: 5px solid #666;
+  border-radius: 5px;
   
   .dialog-content {
     padding: 20px;
@@ -16,7 +16,6 @@
       width: 100%;
       border-bottom: 1px solid #ddd;
       background-color: #eee;
-      border-radius: 4px 4px 0 0;
   }
 
   .dialog-header-text {
@@ -24,6 +23,7 @@
       font-weight: bold;
       padding-left: 15px;
       line-height: 40px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
   }
   .close_btn {
       position: absolute;
@@ -347,7 +347,7 @@
 //------ order bid dialog ------//
 #order_bid_dialog {
     width: 550px;
-    height: 580px;
+    height: 510px;
 
 
   .btn{
@@ -370,10 +370,32 @@
   }
 
   .warning-icon{
-    font-size: 50px;
-    color: #F8EA48;
+    font-size: 40px;
+    margin-top: 20px;
+    color: #ffbb33;
+  }
+  
+  .warning-info {
+    padding: 10px 0 0 10px;
+  }
+  
+  .cancel-buttons {
+    position: relative;
+    top: 40px;
+  }
+  
+  .fieldLabel {
+    color: #333;
+  }
+  
+  .fieldValue {
+    color: #333;
   }
 
+}
 
-
+//------ company info dialog ------//
+#company_info_dialog {
+  width: 850px;
+  height: 580px;
 }

@@ -81,7 +81,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	border: 0;
 	padding: 0 5px;
 	text-align: center;
-	
+	cursor: pointer;
 }
 
 .orange {
@@ -191,10 +191,21 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	text-align: right;
 }
 
+.color-dark {
+	color: #333;
+}
+
+.mustsign {
+	font-weight: 800;
+	color: #f00;
+	padding-right: 5px;
+	vertical-align: middle;
+}
+
 /*** --------------------- left wrapper ---------------------*/
 
 .left-wrapper {
-	width: 120px;
+	width: 130px;
 	background: #4aabcc;
 	height: 100%;
 	float: left;
@@ -233,7 +244,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .left-wrapper li.active {
-	background: #188fa2 url(../img/menu.png) -80px -44px no-repeat;
+	background: #188fa2 url(../img/menu.png) -70px -44px no-repeat;
 }
 
 .left-wrapper .triangle-left {
@@ -288,6 +299,54 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background: #3da8b9;
 	float: left;
 	color: #FFFFFF;
+}
+
+/*** ---------------------- tab items ---------------------***/
+.tab-item i{
+	padding: 0 5px;
+}
+
+.tab-headers .nav-tabs {
+	border: none;
+}
+
+.tab-headers .tab-items a {
+	border-radius: 0px;
+  	color: #555;
+  	font-weight: 800;
+  	border: none;
+}
+
+.tab-headers .tab-items li {
+	margin-right: 5px;
+    background: #e2e2e2;
+    margin-bottom: 0px;
+}
+
+.tab-headers .tab-items li>a {
+	margin-right: 0px;
+}
+
+.tab-headers .tab-items li.active>a {
+	color: #428bca;
+	border: none;
+}
+
+.tab-headers .tab-items li.active>a:hover {
+	background: #fff;
+	border: none;
+}
+
+.tab-headers .tab-items li>a:hover {
+	background: #bebebe;
+	
+}
+
+.tab-headers .tab-items .order-num {
+	color:#428bca;
+  	padding-left: 5px;
+  	font-size: 15px;
+  	font-weight: normal;
 }
 
 /*** ----------------------- footer ------------------------ */

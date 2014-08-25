@@ -101,6 +101,12 @@ module OrdersHelper
         order.order_price_histories[bid_history_count-1].vendor.company.name : ""
   end
   
+  # get lastest bid company id
+  def get_order_lastest_vendor_id(order)
+    bid_history_count = order.order_price_histories.count
+    return order.order_price_histories[bid_history_count-1].vendor_id
+  end
+  
   # get the count of bid history
   def get_bid_count(order)
     return order.order_price_histories.count

@@ -224,7 +224,13 @@
 			</div>
 
 			<div class="lastBidVendor">
-				竞价方：<span class="companyInfo"><%= get_order_lastest_bid_company(@order) %></span>
+				竞价方：
+				<div class="action-link">
+						<%= link_to company_info_dialog_path(:vendor_id => get_order_lastest_vendor_id(@order)),
+						:class => "", remote: true do %>
+						<span class="companyInfo"><%= get_order_lastest_bid_company(@order) %></span>
+						<% end %>
+					</div>
 			</div>
 
           <!-- no use!

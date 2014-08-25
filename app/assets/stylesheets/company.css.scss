@@ -1,0 +1,34 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.company-info {
+  background-color: #f2f2f2;
+  .brief-intro {
+    padding: 10px;
+    background: #319BD2;
+    color: #fff;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    
+    .company-logo {
+      float: left;
+      margin-left: 30px;
+      img {
+        width: 80px;
+      }
+    }
+    
+    .company-name {
+      float: left;
+      margin-left: 30px;
+      font-size: 20px;
+      line-height: 60px;
+    }
+  }
+  
+  .masterdata-tabs {
+    margin-top: 20px;
+  }
+}
