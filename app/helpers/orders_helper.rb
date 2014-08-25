@@ -104,7 +104,8 @@ module OrdersHelper
   # get lastest bid company id
   def get_order_lastest_vendor_id(order)
     bid_history_count = order.order_price_histories.count
-    return order.order_price_histories[bid_history_count-1].vendor_id
+    return bid_history_count != 0 ? 
+        order.order_price_histories[bid_history_count-1].vendor.company_id : ""
   end
   
   # get the count of bid history

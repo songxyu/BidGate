@@ -152,12 +152,6 @@
 			padding: 0;
 			
 			.tab-content{
-				padding: 10px;
-				border-top: none; 
-				background: #fff;
-				display: block;
-				
-				min-height: 500px;
 				.panel {
 				  border-radius: 0px;
 				}
@@ -271,8 +265,14 @@
               line-height: 35px;
 						}
 						
-						.btn-hidden{
+						.btn-hidden {
 							display:none;
+						}
+						
+						.btn-approve {
+						  position: relative;
+              left: 10px;
+              bottom: 10px;
 						}
 						
 						p{

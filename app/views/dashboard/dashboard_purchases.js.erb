@@ -43,21 +43,30 @@ $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javasc
 
 var $bidList = $dashboard_rightarea.find(".bid-hist-list");
 var $bidListRows = $bidList.find('.price-hist-row');
+var $bidListApprBtn = $bidList.find('.price-hist-row .approve-btn');
 console.log('$radioButtons rows count=', $bidListRows.length);
 
 // ADD click handler for approve
-$bidListRows.on('click', '', function(){
-    if(!$(this).hasClass('valid')){
+$bidListApprBtn.on('click', '', function(){
+	var $radioBtn = $(this).find('.radio-button-approve-vendor');
+    $radioBtn.attr('checked', true);
+
+	var $approveBtn = $(this).parents('.bid-hist-list').find('.btn-approve');
+	
+	if($(this).parent().hasClass('hint')) {
+		$approveBtn.hide();
+		$(this).parent().removeClass('hint');
+		$radioBtn.attr('checked', false);
+		return;
+	}
+	
+    if(!$(this).parent().hasClass('valid')){
         return;
     }
     
     $bidListRows.removeClass('hint');
-    $(this).addClass('hint');
+    $(this).parent().addClass('hint');
 
-    var $radioBtn = $(this).find('.radio-button-approve-vendor');
-    $radioBtn.attr('checked', true);
-
-	var $approveBtn = $(this).parents('.bid-hist-list').find('.btn-approve-area');
 	console.log('$approveBtn count=', $approveBtn.length);
 	$approveBtn.show();
 	

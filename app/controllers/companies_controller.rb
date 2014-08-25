@@ -68,7 +68,7 @@ class CompaniesController < CommonController
   end
   
   def company_info_dialog
-    @company = Company.find(params[:vendor_id])
+    @company = Company.find(params[:company_id])
     #params[:redirect_path]
 
     respond_to do |format|

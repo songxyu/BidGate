@@ -1,0 +1,18 @@
+<ul>
+	<li>
+		<span>公司名称：</span><%= @company.name %>
+	</li>
+
+	<li class="f_label">
+		<span>公司类型：</span><%= getVendorTypeName(@company.vendor_type) %>
+	</li>
+	
+	<li class="f_label">
+		<span>主营业务：</span><%= @company.main_biz %>
+	</li>
+
+	<li class="f_label">
+		<span>法人代表：</span><%= @company.legal_person %>
+	</li>
+
+</ul>

@@ -205,8 +205,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 /*** --------------------- left wrapper ---------------------*/
 
 .left-wrapper {
-	width: 130px;
-	background: #4aabcc;
+	width: 120px;
+	background: #0098a6;
 	height: 100%;
 	float: left;
 	position: fixed;
@@ -240,11 +240,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .left-wrapper li:hover {
-	background: #188fa2;
+	background: #00818c;
 }
 
 .left-wrapper li.active {
-	background: #188fa2 url(../img/menu.png) -70px -44px no-repeat;
+	background: #00818c url(../img/menu.png) -80px -44px no-repeat;
 }
 
 .left-wrapper .triangle-left {
@@ -347,6 +347,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   	padding-left: 5px;
   	font-size: 15px;
   	font-weight: normal;
+}
+
+.tab-content {
+	background: #fff;
+	padding: 10px;
+	min-height: 200px;
+	display: block;
+	border-top: none; 
 }
 
 /*** ----------------------- footer ------------------------ */

@@ -18,23 +18,46 @@
 				<%= @company.name %>
 			</div>
 		</div>
+		
+		
 		<!-- tabs -->
 		<div class="tab-headers masterdata-tabs">
 			<ul class="nav nav-tabs  tab-items">
 				<li class="active" >
-					<a href="#my_purchase_bidding_orders" class="tab-item" id="tab-my-purchase-bidding-orders" role="tab" data-toggle="tab">店铺首页</a>
+					<a href="#home_intro" class="tab-item" id="tab-home-intro" role="tab" data-toggle="tab">店铺首页</a>
 				</li>
 				<li>
-					<a href="#my_purchase_forpaid_orders" class="tab-item" id="tab-my-purchase-forpaid-orders" role="tab" data-toggle="tab">供应产品</a>
+					<a href="#sales_products" class="tab-item" id="tab-my-purchase-forpaid-orders" role="tab" data-toggle="tab">供应产品</a>
 				</li>
 				<li>
-					<a href="#my_purchase_complete_orders" class="tab-item" id="tab-my-purchase-complete-orders" role="tab" data-toggle="tab">公司档案</a>
+					<a href="#profile" class="tab-item" id="tab-my-purchase-complete-orders" role="tab" data-toggle="tab">公司档案</a>
 				</li>
 				<li>
-					<a href="#my_purchase_complete_orders" class="tab-item" id="tab-my-purchase-complete-orders" role="tab" data-toggle="tab">参与竞价</a>
+					<a href="#bid_info" class="tab-item" id="tab-my-purchase-complete-orders" role="tab" data-toggle="tab">参与竞价</a>
 				</li>
 			</ul>
 		</div>
+
+		<div class="tab-content">
+
+			<div class="tab-pane active" id="home_intro">
+				<%= render "companies/home_intro" %>
+			</div>
+			
+			<div class="tab-pane" id="sales_products">
+				sales products
+			</div>
+			
+			<div class="tab-pane" id="profile">
+				profile
+			</div>
+			
+			<div class="tab-pane" id="bid_info">
+				bid info
+			</div>
+
+		</div>
+
 	</div>
 </div>
 

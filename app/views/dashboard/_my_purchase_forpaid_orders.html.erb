@@ -51,8 +51,13 @@
 
 				<div class="row-height">
 					<span class="algin_left">成功竞拍供应商: </span>
+					<%= link_to company_info_dialog_path(:company_id => order.vendor.company_id),
+					:class => "", remote: true do %>
 					<span class="highlight_text"><%= order.vendor ? order.vendor.contact : ''%>
 						<%= order.vendor ? order.vendor.company.name : ''%></span>
+					<i class="glyphicon glyphicon-zoom-in"></i>
+					<% end %>
+
 				</div>
 
 				<div>

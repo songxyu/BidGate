@@ -54,7 +54,12 @@
 				</div>
 
 				<div class="row-height">
-					<span>采购商: <%= order.buyer.company.name %></span>
+					<span>采购商: </span>
+					<%= link_to company_info_dialog_path(:company_id => order.buyer.company_id),
+					:class => "", remote: true do %>
+					<span><%= order.buyer.company.name %></span>
+					<i class="glyphicon glyphicon-zoom-in"></i>
+					<% end %>
 				</div>
 
 				<div class="row-height">

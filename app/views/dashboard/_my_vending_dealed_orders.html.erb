@@ -50,8 +50,12 @@
 
 				<div class="row-height">
 					<span class="algin_left"> 采购方: </span>
-					<span class="highlight_text"><%= order.buyer ? order.buyer.contact : ''%>
-						<%= order.buyer ? order.buyer.company.name : ''%> ***** </span>
+					<%= link_to company_info_dialog_path(:company_id => order.vendor.company_id),
+					:class => "", remote: true do %>
+					<span><%= order.vendor ? order.vendor.contact : ''%>
+						<%= order.vendor ? order.vendor.company.name : ''%></span>
+					<i class="glyphicon glyphicon-zoom-in"></i>
+					<% end %>
 				</div>
 
 				<div>
