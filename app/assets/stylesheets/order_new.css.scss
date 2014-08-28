@@ -49,7 +49,7 @@
 		
 		.order-items-grid-area{
 			min-height: 80px;
-			width: 600px;
+			width: 100%;
 			margin: 0 auto;
 		}
 		
@@ -361,9 +361,12 @@ create new order
 }
 
 .order_onboarding .panel_inner_padding {
-  padding: 40px 0;
-  color: white;
+  padding: 40px 0 0 0;
+  color: #fff;
   font-size: 20px;
+  float: left;
+  width: 100%;
+  position: relative;
 }
 
 .order_onboarding .panel_inner_padding .row {
@@ -427,7 +430,7 @@ create new order
   height: auto;
   position: absolute;
   top: 60px;
-  right: 18px;
+  right: 38px;
   z-index: 2000;
   min-width: 130px;
 }

@@ -33,41 +33,17 @@
 				<div class="category_select">
 					<div class="btn_group">
 						<%
- top_level_categories = get_categories_array(0, false);
-%>
+						 top_level_categories = get_categories_array(0, false);
+						%>
 
 						<ul>
-							<% top_level_categories.each do |cate| %>
-							<li class="select_btn" data-name="<%= cate.name%>" data-type-id="<%= cate.id%>">
-								<span><%= cate.name%></span>
-							</li>
+							<% top_level_categories.each_with_index do |cate, index| %>
+								<% if index <= 4 %>
+								<li class="select_btn" data-name="<%= cate.name%>" data-type-id="<%= cate.id%>">
+									<span><%= cate.name%></span>
+								</li>
+								<% end %>
 							<% end %>
-
-							<!--
-							<li class="select_btn" data-name="steel" data-type-id="1">
-							<span>钢材/不锈钢</span>
-							</li>
-
-							<li class="select_btn" data-name="chemistry" data-type-id="2">
-							<span>化工化学</span>
-							</li>
-
-							<li class="select_btn" data-name="plastics" data-type-id="3">
-							<span>塑料</span>
-							</li>
-
-							<li class="select_btn" data-name="rubber" data-type-id="3">
-							<span>橡胶</span>
-							</li>
-
-							<li class="select_btn" data-name="wood" data-type-id="4">
-							<span>木材</span>
-							</li>
-
-							<li class="select_btn" data-name="alloy" data-type-id="5">
-							<span> 镍 /锡/合金</span>
-							</li>
-							-->
 
 							<li class="select_btn" data-name="others" data-type-id="0">
 								<div class="dropdown_container">
@@ -76,29 +52,17 @@
 								</div>
 							</li>
 						</ul>
+						
 						<div>
 							<ul class="dropdown_list">
-								<li class="item" data-name="11" data-item="铝/铜">
-									<span>铝/铜</span>
-								</li>
-								<li class="item" data-name="12" data-item="陶瓷">
-									<span>陶瓷</span>
-								</li>
-								<li class="item" data-name="13" data-item="毡制品">
-									<span>毡制品</span>
-								</li>
-								<li class="item" data-name="14" data-item="玻璃纤维">
-									<span>玻璃纤维</span>
-								</li>
-								<li class="item" data-name="15" data-item="泡沫">
-									<span>泡沫</span>
-								</li>
-								<li class="item" data-name="16" data-item="毡制品">
-									<span>毡制品</span>
-								</li>
-								<li class="item" data-name="99" data-item="其它">
-									<span>其它</span>
-								</li>
+								<% top_level_categories.each_with_index do |cate, index| %>
+									<% if index > 4 %>
+										<li class="item" data-name="11" data-item="铝/铜">
+											<span><%= cate.name %></span>
+										</li>
+									<% end %>
+								<% end %>
+								
 							</ul>
 						</div>
 					</div>

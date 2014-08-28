@@ -145,10 +145,36 @@
 					</li>
 
 					<li class="setting">
-						<%= link_to dashboard_settings_path(:breadcrumb_path_key => 'homepage,dashboard,mySetting'), :class=>" ", remote: true do %>
-						<span>设置</span>
-						<span class="arrowDown"></span>
-						<% end %>
+						
+						<div class="btn-group">
+							<div class="" data-hover="dropdown" data-delay="100">
+								<%= link_to dashboard_settings_path(:breadcrumb_path_key => 'homepage,dashboard,mySetting'), :class=>" ", remote: true do %>
+								<span>设置</span>
+								<span class="arrowDown"></span>
+								<% end %>
+							</div>
+
+							<ul class="dropdown-menu ui-nav-dropdown" role="menu">
+								<li class="ui-nav-dropdown-angle">
+									<span></span>
+								</li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<span>公司信息</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<span>系统设置</span>
+									<% end %>
+								</li>
+								<li class="ui-nav-dropdown-item">
+									<%= link_to orders_search_path(:search => ""), :class=>"", remote: true do %>
+									<span>个人信息</span>
+									<% end %>
+								</li>
+							</ul>
+						</div>
 						
 					</li>
 

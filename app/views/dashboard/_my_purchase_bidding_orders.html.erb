@@ -117,7 +117,7 @@
 							<td> 
 								<%= link_to company_info_dialog_path(:company_id => order_hist.vendor.company_id),
 								:class => "", remote: true do %>
-								<span><%= order_hist.vendor.company.name%></span>
+								<span><%= order_hist.vendor ? order_hist.vendor.company.name : ''%></span>
 								<i class="glyphicon glyphicon-zoom-in"></i>
 								<% end %>
 								 </td>

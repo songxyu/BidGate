@@ -44,9 +44,10 @@ function fnBindEventToRefreshListWhenClickTab(tab_id, datalist_url){
 
 //**** left wrapper ********//
 $(document).ready(function(){
-	var $leftWrapperMenu = $(".left-wrapper .side-menu li");
-	$leftWrapperMenu.on('click', function(e){
-	$leftWrapperMenu.removeClass('active');
-	$(this).addClass('active');
-});
+		var $leftWrapperMenu = $(".left-wrapper .side-menu li");
+		$leftWrapperMenu.on('click', function(e){
+		$leftWrapperMenu.removeClass('active');
+		$(this).addClass('active');
+	});
+	
 });

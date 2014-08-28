@@ -214,13 +214,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	top: 0;
 }
 
-.left-wrapper .logo-wrap {
+.left-wrapper .logo_wrap {
 	position: relative;
 	float: left;
-	width: 200px;
-	height: 55px;
+	width: 100px;
+	margin: 0 auto
+	margin-top: 20px;
 	background-size: contain;
-	background: url("../img/mock_logo.png") no-repeat center center;
+	background: url("../img/comp_logo_1.png") no-repeat center center;
 }
 
 .side-menu {

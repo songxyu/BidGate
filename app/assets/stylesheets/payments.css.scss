@@ -24,8 +24,9 @@
   margin-top: 40px;
   .checkout-content {
     margin: 0 50px;
-    border: 1px solid #aaa;
+    border: 1px solid #ddd;
     margin-top: 20px;
+    background: #fff;
   }
 	.mt{
 		background-color: #f2f2f2;
@@ -41,7 +42,7 @@
 	
 	.checkout-steps {
 	  .step {
-	    border-top: 1px solid #aaa;
+	    border-top: 1px solid #ddd;
 	    padding: 0 10px;
 	  }
 	  
@@ -78,9 +79,9 @@
 	  }
 	  
 	  .checkout-by-pament-order {
-	    float: left;
-	    width: 100%;
-	    padding: 0 20px;
+	    float: right;
+      width: 250px;
+      padding: 0 20px;
 	    
 	    p {
 	      line-height: 40px;
@@ -91,7 +92,7 @@
 	    }
 	    
 	    p:hover {
-	      color: #333;
+	      color: #359ade;
 	    }
 	    
 	    .export-payment-order-icon {

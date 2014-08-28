@@ -229,7 +229,7 @@
 				<span>暂无</span>
 				<% else %>
 				<div class="action-link">
-						<%= link_to company_info_dialog_path(:vendor_id => get_order_lastest_vendor_id(@order)),
+						<%= link_to company_info_dialog_path(:company_id => get_order_lastest_vendor_id(@order)),
 						:class => "", remote: true do %>
 						<span class="companyInfo"><%= get_order_lastest_bid_company(@order) %></span>
 						<% end %>

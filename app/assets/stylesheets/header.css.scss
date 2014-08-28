@@ -122,7 +122,7 @@
 }
 
 .ui-nav-dropdown {
-    width: 160px;
+    min-width: 80px;
     padding-left: 0px;
     margin-left: -20px;
     margin-top: -12px;
@@ -245,6 +245,10 @@
 	position: relative;
 	top: 10px;
 	
+}
+
+.header .masthead .header_right .welcome-signin .btn-group {
+  width: 100%;
 }
 
 

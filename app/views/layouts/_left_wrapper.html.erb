@@ -1,10 +1,6 @@
 <div class="left-wrapper">
 
-	<% if current_user %>
-		<div>
-			<%= link_to "", './', class:"logo_wrap" %>
-		</div>
-	<% end %>
+	<%= link_to "", './', class:"logo_wrap" %>
 
 	<div class="side-menu" id="sidebar">
 		<ul>
@@ -15,14 +11,14 @@
 				<% end %>
 				<div class="triangle-left"></div>
 			</li>
-			
+
 			<li>
 				<%= link_to dashboard_purchases_path(:breadcrumb_path_key => 'homepage,dashboard,myPurchase'), :class=>" ", remote: true  do %>
 				<i class="glyphicon glyphicon-gift user-tool-icon"></i>
 				<span>下单</span>
 				<% end %>
 			</li>
-			
+
 			<li>
 				<%= link_to orders_search_path(:search => ""), :class=>" ", remote: true  do %>
 				<i class="glyphicon glyphicon-search user-tool-icon"></i>
@@ -38,10 +34,10 @@
 			</li>
 
 			<!-- <li>
-				<%= link_to dashboard_profile_path, :class=>" ", remote: true  do %>
-				<i class="glyphicon  glyphicon-home user-tool-icon"></i>
-				<span>公司</span>
-				<% end %>
+			<%= link_to dashboard_profile_path, :class=>" ", remote: true  do %>
+			<i class="glyphicon  glyphicon-home user-tool-icon"></i>
+			<span>公司</span>
+			<% end %>
 			</li> -->
 
 			<li>
@@ -50,7 +46,7 @@
 				<span>消息</span>
 				<% end %>
 			</li>
-			
+
 			<li>
 				<%= link_to dashboard_settings_path(:breadcrumb_path_key => 'homepage,dashboard,mySetting'), :class=>" ", remote: true do %>
 				<i class="glyphicon  glyphicon-signal user-tool-icon"></i>
@@ -59,10 +55,10 @@
 			</li>
 
 			<!-- <li>
-				<%= link_to dashboard_settings_path, :class=>" ", remote: true do %>
-				<i class="glyphicon  glyphicon-cog user-tool-icon"></i>
-				<span>设置</span>
-				<% end %>
+			<%= link_to dashboard_settings_path, :class=>" ", remote: true do %>
+			<i class="glyphicon  glyphicon-cog user-tool-icon"></i>
+			<span>设置</span>
+			<% end %>
 			</li> -->
 
 		</ul>
