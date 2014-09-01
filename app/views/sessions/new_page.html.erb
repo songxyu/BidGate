@@ -9,7 +9,7 @@
 	<body>
 
 		<div class="user_page_area">
-			<div class="reg_page">
+			<div class="logon_page">
 
 				<!-- logon page header -->
 				<div class="regHeader">
@@ -27,51 +27,40 @@
 
 				<!-- logon page content -->
 				<div class="logon-page-main">
-					<div class="page-left-area">
-						<div class="logon-content">
-							<div class="logon-form-area">
-								<%= form_tag sessions_path do %>
-								<div class="shake-area" id="shake_area">
-									<div class="enter-area input-group">
-										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-										<input type="text" class="enter-item form-control" placeholder="邮箱/用户名" id="email_username" name="email_username" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,6}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,}$)" autocomplete="on">
-										<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
-									</div>
-									<div class="enter-area input-group">
-										<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-										<input type="password" class="enter-item form-control" placeholder="密码" id="password" name="password" autocomplete="off" data-rule="">
-										<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
-									</div>
-								</div>
-
-								<div class="enter-area img-code-area" id="img_code_area" style="display:none;">
-									<img src="" class="code-img" id="code_img">
-									<input type="text" class="enter-item code-enter-item" id="miniLogin_captCode" autocomplete="off" maxlength="12">
-									<i class="placeholder" id="message_INPUT_CONFIRM">验证码</i>
-									<span class="error-tip"><em class="error-ico"></em><span class="error-msg" id="code_error_tips"></span></span>
-								</div>
-
-								<div class="ng-cookie-area" id="cookie_area">
-									<input type="checkbox" id="auto_login_two_weeks" >
-									<span id="message_AUTOLOGIN_TWOWEEKS" class="auto_login_text">自动登录</span>
-								</div>
-
-								<%= submit_tag "立即登录", class:"button orange btn_submit" %>
-
-								<%= link_to "免费注册", signup_path, class:"button logon-reg-btn" %>
-
-								<a style="display:none" id="redirectLink" href="" target="_top"></a>
-								<a style="display:none" id="redirectTwoPhraseLoginLink" href=""></a>
-								<% end %>
+					<div class="logon-form-new">
+						<%= form_tag sessions_path do %>
+						<div class="shake-area" id="shake_area">
+							<div class="enter-area input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+								<input type="text" class="enter-item form-control" placeholder="邮箱/用户名" id="email_username" name="email_username" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,6}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,}$)" autocomplete="on">
+								<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
+							</div>
+							<div class="enter-area input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+								<input type="password" class="enter-item form-control" placeholder="密码" id="password" name="password" autocomplete="off" data-rule="">
+								<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
 							</div>
 						</div>
-					</div>
 
-					<div class="sep-line"></div>
+						<div class="enter-area img-code-area" id="img_code_area" style="display:none;">
+							<img src="" class="code-img" id="code_img">
+							<input type="text" class="enter-item code-enter-item" id="miniLogin_captCode" autocomplete="off" maxlength="12">
+							<i class="placeholder" id="message_INPUT_CONFIRM">验证码</i>
+							<span class="error-tip"><em class="error-ico"></em><span class="error-msg" id="code_error_tips"></span></span>
+						</div>
 
-					<div class="page-right-area">
+						<div class="ng-cookie-area" id="cookie_area">
+							<input type="checkbox" id="auto_login_two_weeks" >
+							<span id="message_AUTOLOGIN_TWOWEEKS" class="auto_login_text">自动登录</span>
+						</div>
 
-						test
+						<%= submit_tag "立即登录", class:"button orange btn_submit" %>
+
+						<%= link_to "免费注册", signup_path, class:"button logon-reg-btn" %>
+
+						<a style="display:none" id="redirectLink" href="" target="_top"></a>
+						<a style="display:none" id="redirectTwoPhraseLoginLink" href=""></a>
+						<% end %>
 					</div>
 
 				</div>

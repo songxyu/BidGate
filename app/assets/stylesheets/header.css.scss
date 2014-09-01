@@ -207,11 +207,14 @@
     
     a {
       color: #555;
+      line-height: 50px;
+      display: block;
     }
     
     li:hover, a:hover {
       color: #2996cc;
       text-decoration: none;
+      background: #eee;
     }
     
     .logon-register {

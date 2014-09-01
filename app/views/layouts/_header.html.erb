@@ -7,7 +7,7 @@
 
 			<% if current_user %>
 			<div class="user-company">
-				<%= current_user.company.name %>
+				<%= current_user.company ? current_user.company.name : ""%>
 			</div>
 			<!-- TODO need search ? -->
 			<div class="search-bar">
@@ -184,7 +184,11 @@
 
 					<% else %>
 					<li class="logon-register">
-						<%= link_to "登录",  login_path, remote: true %>
+						<div>
+						<%= link_to login_path, :class=>"", remote: true do %>
+						<span>登录</span>
+						<% end %>
+						</div>
 					</li>
 					<li class="logon-register">
 						<%= link_to "注册", signup_path %>

@@ -17,21 +17,18 @@
 			<ul class="userBasicInfo">
 				<li>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-user reg-icon"></span></span>
 						<%= f.text_field :username, :class => "form-control reg-input", :placeholder => "您的用户名（必填）" %>
 					</div>
 				</li>
 
 				<li>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-lock reg-icon"></span></span>
 						<%= f.password_field :password, :class => "form-control reg-input", :placeholder => "登录密码（必填）" %>
 					</div>
 				</li>
 
 				<li>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-envelope reg-icon"></span></span>
 						<%= f.text_field :email, :class => "form-control reg-input", :placeholder => "您的邮箱（必填）" %>
 					</div>
 				</li>
@@ -54,7 +51,7 @@
 				</li>
 				<li>
 					<%= f.submit "立即注册", :class => "button submitBtn", :id => "btn_submit_reg", :remote => true %>
-					<label class="label-login">已有账号？<%= link_to "立即登录",  logon_path, class:"cor_yellow" %></label>
+					<label class="label-login">已有账号？<%= link_to "立即登录",  logon_page_path, class:"cor_yellow" %></label>
 				</li>
 
 			</ul>

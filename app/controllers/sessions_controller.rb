@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     end
     
     #TODO
-    def new_2
+    def new_logon_page
       if current_user
           redirect_to root_url
         else

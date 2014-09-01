@@ -18,8 +18,9 @@
 			<ul class="userBasicInfo">
 				<li>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-user reg-icon"></span></span>
+						<!--
 						<%= render :partial => 'companies/basic_info', :locals => {:company => @company } %>
+						-->
 						
 						<%= f.text_field :company, :class => "form-control reg-input", :placeholder => "公司名称（必填）" %>
 					</div>
@@ -27,14 +28,12 @@
 				
 				<li>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-phone reg-icon"></span></span>
 						<%= f.text_field :contact, :class => "form-control reg-input", :placeholder => "您的姓名（必填）" %>
 					</div>
 				</li>
 
 				<li>
 					<div class="input-group fieldInput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-phone reg-icon"></span></span>
 						<%= f.text_field :contact_cellphone, :class => "form-control reg-input", :placeholder => "手机号码（必填）" %>
 					</div>
 				</li>

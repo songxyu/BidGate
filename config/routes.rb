@@ -71,7 +71,7 @@ BidGate::Application.routes.draw do
   # login dialog
   get "login" => "sessions#new", :as => "login"
   # login page
-  get "logon" => "sessions#new_2", :as => "logon"
+  get "logon_page" => "sessions#new_logon_page", :as => "logon_page"
   
   get "signup" => "users#new", :as => "signup"
   get "register_details" => "users#new", :as => "register_details"
