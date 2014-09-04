@@ -53,7 +53,7 @@ gem 'whenever', :require => false
 
 gem 'activemerchant'
 gem 'activemerchant_patch_for_china'
-
+gem "pay_fu"
 
 
 group :development do

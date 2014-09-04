@@ -1,4 +1,6 @@
 BidGate::Application.routes.draw do
+  mount PayFu::Engine => '/pay_fu', :as => 'pay_fu'
+
   get "sessions/new"
 
   # The priority is based upon order of creation:
@@ -135,6 +137,14 @@ BidGate::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'application#home'
+
+
+  # payments related
+  ##mount PayFu::Engine => '/alipay_helper', :as => 'alipay_helper' # see top of this file    
+  post "payments/create"  => "payments#create", :as => "payment_create"
+  post "payments/notify" => "payments#notify", :as => "payment_notify"
+  get "payments/done" => "payments#done", :as => "payment_done"
+  resources :payments
 
 # See how all your routes lay out with "rake routes"
 

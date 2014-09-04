@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  notify_id: MyString
+  notify_type: MyString
+  notify_time: 2014-09-04 03:04:39
+  trade_no: MyString
+  trade_status: 1
+  buyer_alipay_account: MyString
+  seller_alipay_account: MyString
+  total_fee: 9.99
+  discount: 9.99
+  order: 
+  gmt_create: 2014-09-04 03:04:39
+  gmt_payment: 2014-09-04 03:04:39
+  refund_status: 1
+  gmt_refund: 2014-09-04 03:04:39
+
+two:
+  notify_id: MyString
+  notify_type: MyString
+  notify_time: 2014-09-04 03:04:39
+  trade_no: MyString
+  trade_status: 1
+  buyer_alipay_account: MyString
+  seller_alipay_account: MyString
+  total_fee: 9.99
+  discount: 9.99
+  order: 
+  gmt_create: 2014-09-04 03:04:39
+  gmt_payment: 2014-09-04 03:04:39
+  refund_status: 1
+  gmt_refund: 2014-09-04 03:04:39

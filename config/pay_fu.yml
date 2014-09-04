@@ -1,0 +1,23 @@
+development:
+  paypal:
+    mode: "test"
+    email: "xxx@qq.com"
+    login: "xxxx"
+    password: "xxxx"
+    signature: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  alipay:
+    key: "xxxxxxxxxxxx"
+    account: "xxx"
+    email: "xxx@qq.com"
+
+production:
+  paypal:
+    mode: "test"
+    email: "xxx@qq.com"
+    login: "xxxx"
+    password: "xxxx"
+    signature: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  alipay:
+    key: "xxx"
+    account: "xxx"
+    email: "xxxx@xxx.com"

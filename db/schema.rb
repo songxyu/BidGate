@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140816072939) do
+ActiveRecord::Schema.define(:version => 20140904151934) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -164,11 +164,38 @@ ActiveRecord::Schema.define(:version => 20140816072939) do
     t.datetime "delivery_date"
   end
 
-# Could not dump table "sqlite_stat1" because of following StandardError
-#   Unknown type '' for column 'tbl'
+  create_table "pay_fu_transactions", :force => true do |t|
+    t.string   "type"
+    t.string   "transaction_id"
+    t.string   "transaction_type"
+    t.string   "payment_status"
+    t.datetime "payment_date"
+    t.integer  "gross"
+    t.string   "raw_post"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
-# Could not dump table "sqlite_stat4" because of following StandardError
-#   Unknown type '' for column 'tbl'
+  create_table "transactions", :force => true do |t|
+    t.string   "notify_id"
+    t.string   "notify_type"
+    t.datetime "notify_time"
+    t.string   "trade_no"
+    t.integer  "trade_status"
+    t.string   "buyer_alipay_account"
+    t.string   "seller_alipay_account"
+    t.decimal  "total_fee",             :precision => 8, :scale => 2
+    t.decimal  "discount",              :precision => 8, :scale => 2
+    t.integer  "order_id"
+    t.datetime "gmt_create"
+    t.datetime "gmt_payment"
+    t.integer  "refund_status"
+    t.datetime "gmt_refund"
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+  end
+
+  add_index "transactions", ["order_id"], :name => "index_transactions_on_order_id"
 
   create_table "users", :force => true do |t|
     t.string   "nickname"

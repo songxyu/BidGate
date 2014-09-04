@@ -82,5 +82,13 @@ call rails generate migration AddDeliveryDateToOrders delivery_date:datetime
 echo add vendor_type column on table orders
 call rails generate migration AddVendorTypeToCompanies vendor_type:integer
 
+
+echo add payment transaction table
+call rails generate model Transaction notify_id:string notify_type:string notify_time:datetime trade_no:string trade_status:integer buyer_alipay_account:string seller_alipay_account:string total_fee:decimal{8,2} discount:decimal{8,2} order:references gmt_create:datetime gmt_payment:datetime refund_status:integer gmt_refund:datetime
+
+
+
+
+
 echo  ----- finished changes ----
 pause

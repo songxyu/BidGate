@@ -41,6 +41,8 @@ body, input, select, textarea, button {
 .main {
 	/*background: url("../img/main-bg.jpg") repeat;*/
 	/*background: #F2F2F2;*/
+	margin-left: 120px;
+	padding-left: 20px;
 }
 
 media="screen"

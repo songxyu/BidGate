@@ -15,9 +15,9 @@
 				<div>
 					<h4>采购单信息</h4>
 				</div>
-				<%
- og = @order.order_goods[0]
-          item_info_text = og ? og.order_item_info_str : ""
+<%
+ 		og = @order.order_goods[0]
+        item_info_text = og ? og.order_item_info_str : ""
 %>
 
 				<dl class="dl-horizontal">
@@ -57,6 +57,9 @@
 				</dl>
 			</div>
 
+<%
+	payment_amount = get_order_deposit_by_total(@order.deal_price) 
+%>
 			<div class="step">
 				<div>
 					<h4>结算信息</h4>
@@ -76,7 +79,7 @@
 						需支付定金：
 					</dt>
 					<dd>
-						￥<%= get_order_deposit_by_total(@order.deal_price) %>元（2%比例）
+						￥<%= payment_amount %>元（2%比例）
 					</dd>
 				</dl>
 
@@ -94,9 +97,12 @@
 			<div class="checkout-footer">
 
 				<div class="checkout-by-direct">
-					<div class="button btn_checkout" id="btn_checkout">
-						<span>立即支付</span>
-					</div>
+					<%= link_to payment_create_path({:order_id => order.id, :amount => payment_amount}), :class=>" " do %>
+						<div class="button btn_checkout" id="btn_checkout">
+							<span>立即支付</span>
+						</div>
+					<% end %>
+					
 
 					<p class="checkout-amount">
 						应付定金总额：<span class="pay-amount">￥<%= get_order_deposit_by_total(@order.deal_price) %>元 </span>
