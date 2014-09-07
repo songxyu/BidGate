@@ -5,12 +5,12 @@
 	padding-top: 0px;
 	
 	.widget {
-    width: 100%;
-    padding: 15px;
-    background: #fff;
-    float: left;
-    margin-bottom: 20px;
-  }
+	    width: 100%;
+	    padding: 15px;
+	    background: #fff;
+	    float: left;
+	    margin-bottom: 20px;
+	}
 	
 	.right-area{
 		position: relative;
@@ -50,6 +50,8 @@
     }
     
     .dash-summary {
+    	min-width: 1200px;
+    	
       .summary-left{
         padding-right: 20px;
         width: 280px;
@@ -446,6 +448,7 @@
   .list-guide {
     height: 400px;
 //    border: 2px solid rgba(23, 195, 229, 0.2);
+    min-width: 	1130px;
     
     .guide-header {
       margin-top: 0px;
@@ -471,6 +474,7 @@
     .stepline-group {
       margin: auto 0px;
       padding-left: 20px;
+      min-width: 560px;
       
       li {
         float: left;

@@ -90,8 +90,9 @@ $bidListApprBtn.on('click', '', function(){
 				console.log('approved: order_id='+order_id+', hist_id = '+hist_id);
 
                 $('div[data-order-id="'+order_id+'"].panel').hide();
+                
                 alert('该订单 (订单号:'+order_num+') 已进入待付款状态, 请到待付款页面查看!');
-
+				fnUpdateDashboardTabHeaderCount('tab-my-purchase-bidding-orders', 'tab-my-purchase-forpaid-orders', 1);
             }).fail(function(jqXHR, textStatus) {
 				console.log("Request failed: " + JSON.stringify(textStatus));
 			});
@@ -110,6 +111,11 @@ $orderListCancelLink.on('click', '', function(){
     var orderNum = $actionArea.attr("data-ordernum");
     console.log("cancel order id: "+orderId+", orderNum="+orderNum);
 
+	var isForPaidTab = false;
+	var parents = $(this).parents('.all-forpaid-page');
+	if(parents.length>0){
+		isForPaidTab = true;
+	}
     var $overlayDialog = $("#order_bid_dialog");
     $overlayDialog.html("<%= escape_javascript render(:partial => 'dashboard/cancel_bid_confirm_dialog')%>");
     $overlayDialog.overlay().load();
@@ -129,6 +135,9 @@ $orderListCancelLink.on('click', '', function(){
             console.log('cancelled bid: order_id='+orderId);
             $('div[data-order-id="'+orderId+'"].panel').hide();
             $overlayDialog.overlay().close();
+            
+            var currectTabId = isForPaidTab ? 'tab-my-purchase-forpaid-orders': 'tab-my-purchase-bidding-orders';
+            fnUpdateDashboardTabHeaderCount(currectTabId, 'tab-my-purchase-closed-orders', 1);
             //alert('该订单 (订单号:'+orderNum+') 取消成功, 请到已关闭页面中查看!');
         }).fail(function(jqXHR, textStatus) {
             console.log("Request failed: " + JSON.stringify(textStatus));
@@ -159,6 +168,7 @@ $orderListReopenLink.on('click', '', function(){
 
         $('div[data-order-id="'+orderId+'"].panel').hide();
 		console.log('该订单 (订单号:'+orderNum+') 重新提交成功, 请到竞价中页面中查看!');
+		fnUpdateDashboardTabHeaderCount('tab-my-purchase-closed-orders', 'tab-my-purchase-bidding-orders', 1);
 		
 		var $overlayDialog = $("#order_bid_dialog");
 		// NOTE: the html is rendered in reopen.js.erb!

@@ -61,6 +61,20 @@ function fnJumpToTabInDashboard(tabId){
 }
 
 
+function fnUpdateDashboardTabHeaderCount(minusTabId, plusTabId, count){
+	console.log('fnJumpToTabInDashboard(): ', minusTabId, plusTabId, count);
+	var $tabItems = $('.right-area .tab-items');
+	if(minusTabId && minusTabId!='' && count>0){
+		var $minusTabNum = $tabItems.find('#'+ minusTabId +' .order-num');
+		$minusTabNum.text(parseInt($minusTabNum.text())- count);
+	}
+	
+	if(plusTabId && plusTabId!='' && count>0){
+		var $plusTabNum = $tabItems.find('#'+ plusTabId +' .order-num');
+		$plusTabNum.text(parseInt($plusTabNum.text())+ count);
+	}	
+}
+
 
 //**** left wrapper ********//
 $(document).ready(function(){
