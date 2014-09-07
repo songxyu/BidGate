@@ -46,7 +46,7 @@
 
 				<div class="row-height">
 					<span class="algin_left"> 成交方: </span>
-					<%= link_to company_info_dialog_path(:company_id => order.vendor.company_id),
+					<%= link_to company_info_dialog_path(:company_id =>  order.vendor ? order.vendor.company_id : ''),
 					:class => "", remote: true do %>
 					<span><%= order.vendor ? order.vendor.contact : ''%>
 						<%= order.vendor ? order.vendor.company.name : ''%></span>

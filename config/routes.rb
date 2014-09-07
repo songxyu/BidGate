@@ -17,7 +17,7 @@ BidGate::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
-  get "dashboard/dashboard" => "users#dashboard", :as => "dashboard" # account info
+  get "dashboard/dashboard" => "orders#dashboard", :as => "dashboard" # account info
   get "dashboard/dashboard_purchases" => "orders#dashboard_purchase_orders", :as => "dashboard_purchases"
   get "dashboard/dashboard_purchases_all" => "orders#dashboard_purchase_orders_all", :as => "dashboard_purchases_all"
   get "dashboard/dashboard_purchases_forpaid" => "orders#dashboard_purchase_orders_forpaid", :as => "dashboard_purchases_forpaid"

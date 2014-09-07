@@ -45,4 +45,8 @@
 
 //=require home_menu
 
+//=require dashboard
+
+
+
 

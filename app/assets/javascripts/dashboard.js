@@ -1,10 +1,15 @@
 /**
     common js functions for dashboard pages
-
  */
 
 
-function fnGenerateBidProgressBarForEveryDashboardOrder(){
+function fnGenerateBidProgressBarForEveryDashboardOrder($dashboard_rightarea){
+	console.log('fnGenerateBidProgressBarForEveryDashboardOrder()... ');
+	if(!$dashboard_rightarea){
+		console.error('$dashboard_rightarea is null!');
+		return ;	
+	}
+	
     var $arr_bid_progressbar = $dashboard_rightarea.find(".bid_progressbar");
     $.each($arr_bid_progressbar, function(index, elem) {
         var prog_val = parseInt($(elem).data("progressval"));
@@ -29,7 +34,8 @@ function fnBindEventToRefreshListWhenClickTab(tab_id, datalist_url){
     $tabForpaidOrders.unbind('click');
     $tabForpaidOrders.bind('click', function (e) {
         e.preventDefault();
-
+		console.log('refresh order list for tab id= ', tab_id);
+		
         $.ajax({
             url : datalist_url,
             type : 'get',
@@ -40,6 +46,20 @@ function fnBindEventToRefreshListWhenClickTab(tab_id, datalist_url){
         });
     });
 };
+
+
+
+// common function to jump to the specified tab
+// tabId: e.g. tab-my-purchase-forpaid-orders
+function fnJumpToTabInDashboard(tabId){	
+	if( tabId && tabId != ''){
+		console.log('fnJumpToTabInDashboard(): tabId= ', tabId);
+		var $tabItems = $('.right-area .tab-items');
+		var $targetTab = $tabItems.find('#'+tabId);
+		$targetTab.tab('show').trigger('click');
+	}	
+}
+
 
 
 //**** left wrapper ********//

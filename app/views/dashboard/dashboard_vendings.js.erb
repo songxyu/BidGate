@@ -47,7 +47,7 @@ $dashboard_rightarea.find('#<%=partial_template_path%>').html("<%= escape_javasc
 //})  
 
 
-fnGenerateBidProgressBarForEveryDashboardOrder();
+fnGenerateBidProgressBarForEveryDashboardOrder($dashboard_rightarea);
 
 //  refresh corresponding orders list when click the tab header
 fnBindEventToRefreshListWhenClickTab('#tab-my-vending-bidding-orders', '/dashboard/dashboard_vendings_bidding');
@@ -59,3 +59,8 @@ fnBindEventToRefreshListWhenClickTab('#tab-my-vending-failbidding-orders', '/das
 fnBindEventToRefreshListWhenClickTab('#tab-my-vending-complete-orders', '/dashboard/dashboard_vendings_complete');
 
 fnBindEventToRefreshListWhenClickTab('#tab-my-vending-all-orders', '/dashboard/dashboard_vendings_all');
+
+
+// jump to the specifi tab
+var tabId = "<%= params[:tab_id] %>";  
+fnJumpToTabInDashboard(tabId);

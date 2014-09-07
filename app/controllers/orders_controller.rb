@@ -316,6 +316,21 @@ class OrdersController < CommonController
       order_goods_attributes: [:name, :model, :price, :quantity, :_destroy]) # when remove, need _destroy
   end
   
+  # overview page for dashbard
+  def dashboard
+    @user = current_user
+    user_id = @user.id
+    
+    @bidding_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, 1);
+    @forpaid_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, 2);
+    #@complete_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, 3);
+    #@closed_orders_count = OrdersHelper.get_purchase_orders_total_count_by_status(user_id, -1);
+    
+    @vendor_bidding_orders_count = OrdersHelper.get_vending_orders_total_count_by_status(user_id, 1);
+    @vendor_dealed_orders_count = OrdersHelper.get_vending_orders_total_count_by_status(user_id, 2);
+    
+    render "dashboard/dashboard" and return
+  end
  
   # default, only load bidding orders(data on the first visible tab)
   def dashboard_purchase_orders

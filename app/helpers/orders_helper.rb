@@ -146,7 +146,18 @@ module OrdersHelper
   
   # get count of bidding, complete, forpaid status of vending order
   def get_vending_orders_total_count_by_status(user_id, status)
-     @order_count = Order.where(vendor_id: user_id, status: status.to_i).count
+    if status == 2 || status == 3
+       @order_count = Order.where(vendor_id: user_id, status: status.to_i).count
+    elsif status == 1
+       @order_count = Order.select('distinct "orders".id, "orders".*').joins(:order_price_histories).where('order_price_histories.vendor_id' => user_id,
+              "orders.status" =>  status.to_i ).count
+    elsif status == -1
+      @order_count = Order.select('distinct "orders".id, "orders".*').joins(:order_price_histories).where(
+        "order_price_histories.vendor_id = :userId and ( (orders.status > 1 and orders.vendor_id <> :userId) or orders.status < 0 )",
+        {userId: user_id} ).count
+      
+    end
+         
   end
 
   # orders I am its vendor

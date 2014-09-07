@@ -47,6 +47,7 @@ var $bidListApprBtn = $bidList.find('.price-hist-row .approve-btn');
 console.log('$radioButtons rows count=', $bidListRows.length);
 
 // ADD click handler for approve
+//$bidListApprBtn.off('click');
 $bidListApprBtn.on('click', '', function(){
 	var $radioBtn = $(this).find('.radio-button-approve-vendor');
     $radioBtn.attr('checked', true);
@@ -102,6 +103,7 @@ $bidListApprBtn.on('click', '', function(){
 
 var $orderListPagesCanbeCancelled = $dashboard_rightarea.find(".all-forpaid-page, .all-bidding-page");
 var $orderListCancelLink = $orderListPagesCanbeCancelled.find('.panel-body .action-cancel-order');
+//$orderListCancelLink.off('click');
 $orderListCancelLink.on('click', '', function(){
     var $actionArea =  $(this).parent();
     var orderId = $actionArea.attr("data-orderid");
@@ -139,6 +141,7 @@ $orderListCancelLink.on('click', '', function(){
 
 var $orderListPagesCanbeReopened = $dashboard_rightarea.find(".all-closed-page");
 var $orderListReopenLink = $orderListPagesCanbeReopened.find('.panel-body .action-reopen-order');
+//$orderListReopenLink.off('click');
 $orderListReopenLink.on('click', '', function(){
     var $actionArea =  $(this).parent();
     var orderId = $actionArea.attr("data-orderid");
@@ -171,11 +174,9 @@ $orderListReopenLink.on('click', '', function(){
 });
 
 
+fnGenerateBidProgressBarForEveryDashboardOrder($dashboard_rightarea);
 
-
-fnGenerateBidProgressBarForEveryDashboardOrder();
-
-
+ 
 //  refresh corresponding orders list when click the tab header
 fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-forpaid-orders', '/dashboard/dashboard_purchases_forpaid');
 
@@ -188,8 +189,8 @@ fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-bidding-orders', '/dashbo
 fnBindEventToRefreshListWhenClickTab('#tab-my-purchase-complete-orders', '/dashboard/dashboard_purchases_complete');
 
 
-
-
-
+// jump to the specifi tab
+var tabId = "<%= params[:tab_id] %>";
+fnJumpToTabInDashboard(tabId);
 
 
