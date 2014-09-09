@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
 
       if request.xhr? # redirect to dashboard after login
         #params[:redirect_url] = dashboard_url # ajax request url
-        redirect_to(:controller => 'users', :action => 'dashboard', 
+        redirect_to(:controller => 'orders', :action => 'dashboard', 
               :redirect_url => dashboard_url, :breadcrumb_path_key => "homepage,dashboard")
       else
         redirect_to root_url, :notice => "Logged in!"

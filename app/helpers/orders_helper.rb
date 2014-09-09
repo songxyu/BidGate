@@ -215,7 +215,7 @@ module OrdersHelper
   
   
   def get_currency_name(currency_id)
-    case order_status
+    case currency_id
       when 0 then "RMB"
       when 1 then "USD"
       when 2 then "EUR"

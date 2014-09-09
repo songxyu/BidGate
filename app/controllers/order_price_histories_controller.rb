@@ -43,7 +43,7 @@ class OrderPriceHistoriesController < CommonController
   	@price_history.save
 
     redirect_path = params[:redirect_path]
-    logger.debug 'order_price_histories.create() : redirect_path= ' + redirect_path
+    logger.debug 'order_price_histories.create() : redirect_path= ' + (redirect_path ? redirect_path : "")
     if  redirect_path
        # redirect_to "/dashboard/dashboard_vendings"
       rediPath = (redirect_path[0] =='/' ? '': '/') + redirect_path.gsub('@@', '/')

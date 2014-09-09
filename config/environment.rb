@@ -15,7 +15,8 @@ require 'active_merchant/billing/integrations/action_view_helper'
 
 ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper)
 
-# TODO: your api key, account and email 
-ActiveMerchant::Billing::Integrations::Alipay::KEY = "xxxxx"
-ActiveMerchant::Billing::Integrations::Alipay::ACCOUNT = "account-xxx"
-ActiveMerchant::Billing::Integrations::Alipay::EMAIL  = "bid@test.com"
+# done in the pay_fu gem! (pay_fu.yml)
+# # TODO: your api key, account and email 
+# ActiveMerchant::Billing::Integrations::Alipay::KEY = "xxxxx"
+# ActiveMerchant::Billing::Integrations::Alipay::ACCOUNT = "account-xxx"
+# ActiveMerchant::Billing::Integrations::Alipay::EMAIL  = "bid@test.com"

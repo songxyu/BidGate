@@ -8,17 +8,30 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(params[:payment]) # need two params amount and order_id
     if @payment.valid?
       #@payment.quantity = Guid.new.to_s.gsub('-', '')
+      logger.debug "@payment is valid: " + @payment.to_s
+      
+      # note: URI::encode only conver space to %20, while Rack::Utils.escape can do more!
+      # http://a bc.dd => http%3A%2F%2Fa+bc.dd
+      escSubject = Rack::Utils.escape( @payment.subject )
+      escbody = Rack::Utils.escape(@payment.body)
+      escNotifyUrl = Rack::Utils.escape( pay_fu.alipay_transactions_notify_url)
+      logger.debug "escape subject: " + escSubject
+      logger.debug "escape body: " + escbody
+      logger.debug "escape notify_url: " + escNotifyUrl
       
       case @payment.currency
         when "USD"
           #redirect_to_paypal_gateway(:item_name => @payment.subject, :amount => @payment.amount)
           return
         when "RMB"
-          redirect_to_alipay_gateway(:subject => @payment.subject, :body => @payment.body, :amount => @payment.amount,
-                                     :out_trade_no => @payment.order_id, :notify_url => pay_fu.alipay_transactions_notify_url)
+          logger.debug 'redirect_to_alipay_gateway...'          
+          redirect_to_alipay_gateway(:subject => escSubject, :body => escbody, :amount => @payment.amount,
+                                     :out_trade_no => @payment.order_id, :notify_url => escNotifyUrl )
       end
-    else
-      #render :index
+    else      
+       logger.error "@payment is invalid! "
+       
+       #render :index
     end
   end
 

@@ -97,7 +97,9 @@
 			<div class="checkout-footer">
 
 				<div class="checkout-by-direct">
-					<%= link_to payment_create_path({:order_id => order.id, :amount => payment_amount}), :class=>" " do %>
+					<!-- here mock up a form post using "payment" and "post" method -->
+					<%= link_to payment_create_path({:payment => {:order_id => @order.id, :amount => payment_amount} }), 
+						:method =>'post',  :class=>" " do %>
 						<div class="button btn_checkout" id="btn_checkout">
 							<span>立即支付</span>
 						</div>

@@ -210,10 +210,6 @@ def create
   end
   
   # ===================== dashboard related =============== 
-  def dashboard
-    @user = current_user
-    render "dashboard/dashboard" and return
-  end
   
   # new add - song
   def dashboard_profile
