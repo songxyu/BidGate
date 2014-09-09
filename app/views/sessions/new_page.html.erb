@@ -12,60 +12,62 @@
 			<div class="logon_page">
 
 				<!-- logon page header -->
-				<div class="regHeader">
-					<div class="regHeaderMain">
-						<div class="pullLeft">
-							<span class="pullLeftText">登录</span>
-						</div>
-						<div class="pullRight">
-							<%= link_to "首页", './', class:"helperLink" %>
-							<%= link_to "帮助" %>
-							<%= link_to "注册", signup_path %>
-						</div>
-					</div>
+				<!-- <div class="regHeader">
+				<div class="regHeaderMain">
+				<div class="pullLeft">
+				<span class="pullLeftText">登录</span>
+				</div>
+				<div class="pullRight">
+				<%= link_to "首页", './', class:"helperLink" %>
+				<%= link_to "帮助" %>
+				<%= link_to "注册", signup_path %>
+				</div>
+				</div>
+				</div> -->
+
+				<div class="banner-wrap">
+					<p class="rb1">
+						登录
+					</p>
 				</div>
 
 				<!-- logon page content -->
-				<div class="logon-page-main">
-					<div class="logon-form-new">
-						<%= form_tag sessions_path do %>
-						<div class="shake-area" id="shake_area">
-							<div class="enter-area input-group">
-								<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-								<input type="text" class="enter-item form-control" placeholder="邮箱/用户名" id="email_username" name="email_username" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,6}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,}$)" autocomplete="on">
-								<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
-							</div>
-							<div class="enter-area input-group">
-								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-								<input type="password" class="enter-item form-control" placeholder="密码" id="password" name="password" autocomplete="off" data-rule="">
-								<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
-							</div>
-						</div>
+				<div class="logon-container">
+					<%= form_tag sessions_path do %>
+					<ul class="logon-form-new">
+						<li class="enter-area input-group">
+							<input type="text" class="enter-item form-control" placeholder="邮箱/用户名" id="email_username" name="email_username" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,6}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,}$)" autocomplete="on">
+							<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
+						</li>
+						<li class="enter-area input-group">
+							<input type="password" class="enter-item form-control" placeholder="密码" id="password" name="password" autocomplete="off" data-rule="">
+							<span class="error-tip"><em class="error-ico"></em><span class="error-msg"></span></span>
+						</li>
 
-						<div class="enter-area img-code-area" id="img_code_area" style="display:none;">
+						<li class="enter-area img-code-area" id="img_code_area" style="display:none;">
 							<img src="" class="code-img" id="code_img">
 							<input type="text" class="enter-item code-enter-item" id="miniLogin_captCode" autocomplete="off" maxlength="12">
 							<i class="placeholder" id="message_INPUT_CONFIRM">验证码</i>
 							<span class="error-tip"><em class="error-ico"></em><span class="error-msg" id="code_error_tips"></span></span>
-						</div>
+						</li>
 
-						<div class="ng-cookie-area" id="cookie_area">
-							<input type="checkbox" id="auto_login_two_weeks" >
+						<li class="ng-cookie-area" id="cookie_area">
+							<input type="checkbox" id="auto_login_two_weeks" checked="checked" >
 							<span id="message_AUTOLOGIN_TWOWEEKS" class="auto_login_text">自动登录</span>
-						</div>
+						</li>
 
-						<%= submit_tag "立即登录", class:"button orange btn_submit" %>
+						<li>
+							<%= submit_tag "立即登录", class:"button submitBtn logon-button" %>
 
-						<%= link_to "免费注册", signup_path, class:"button logon-reg-btn" %>
-
-						<a style="display:none" id="redirectLink" href="" target="_top"></a>
-						<a style="display:none" id="redirectTwoPhraseLoginLink" href=""></a>
-						<% end %>
-					</div>
-
+							<label class="label-login">没有账号？<%= link_to "立即注册",  signup_path, class:"cor_yellow", target: "_blank" %></label>
+						</li>
+					</ul>
+					<% end %>
 				</div>
 
 			</div>
+
+		</div>
 		</div>
 
 		<%= render "layouts/footer" %>

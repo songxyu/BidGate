@@ -10,10 +10,9 @@
 
 		<div class="user_page_area">
 			<div class="reg_page">
-				<%= render "users/reg_header" %>
 				<% request_name = request.path %>
 				<% if 	request_name == "/signup" %>
-				<%= render "reg_basic_info" %>
+				<%= render "reg_basic" %>
 				<% elsif  request_name == "/register_details" %>
 				<%= render "reg_phone_verify" %>
 				<% elsif  request_name == "/signup_success" %>

@@ -84,6 +84,7 @@
 		</ul>
 		<div class="button-rows">
 			<%= submit_tag("立即竞价", class: 'btn btn-primary') %>
+			<%= hidden_field_tag(:redirect_path, params[:redirect_path] )%>
             <div class="btn btn-default btn-cancel">取消</div>
 		</div>
 		

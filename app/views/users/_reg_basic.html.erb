@@ -1,0 +1,77 @@
+<div class="regContainer">
+	<div class="banner-wrap">
+		<p class="rb1">
+			免费注册，简单易用
+		</p>
+	</div>
+
+	<div class="userBasicInfoContainer">
+
+		<% user_form = nil %>
+		<%= simple_form_for @user do |f| %>
+
+		<!-- user basic info area table -->
+		<% user_form = f %>
+		<ul class="userBasicInfo">
+			<li>
+				<div class="input-group fieldInput">
+					<%= f.text_field :username, :class => "form-control", :placeholder => "用户名（必填）" %>
+				</div>
+			</li>
+
+			<li>
+				<div class="input-group fieldInput">
+					<%= f.password_field :password, :class => "form-control", :placeholder => "登录密码（必填）" %>
+				</div>
+			</li>
+
+<!--
+			<li>
+				<div class="input-group fieldInput">
+					<%= f.text_field :contact_cellphone, :class => "form-control", :placeholder => "手机号码（必填）" %>
+				</div>
+			</li>
+-->
+			
+			<li>
+				<div class="input-group fieldInput">
+					<%= f.text_field :email, :class => "form-control", :placeholder => "邮箱（必填）" %>
+				</div>
+			</li>
+			
+			<li>
+				<div class="input-group fieldInput">
+					<%= f.simple_fields_for :company do |com|%>
+					<%= com.input :name, label: false, required: false, placeholder: "公司名称（必填）", input_html: {:class => "form-control"} %>
+					<% end %>
+				</div>
+			</li>
+
+			<li>
+				<!-- <div class="fieldVerifyCode">
+				<input type="text" class="form-control reg-verify-code">
+				</div> -->
+				<div class="fieldInput">
+					<input type="text" class="form-control reg-verify-code" placeholder="验证码（必填）">
+				</div>
+			</li>
+
+			<li>
+				<div class="checkbox agreementArea">
+					<label>
+						<input type="checkbox" checked="true">
+						<span class="agree-text">我已阅读并同意<a href="" target="_blank">《壹百万网站服务协议》</a></span></label>
+				</div>
+			</li>
+			<li>
+				<%= f.submit "立即注册", :class => "button submitBtn", :id => "btn_submit_reg", :remote => true %>
+				<label class="label-login">已有账号？<%= link_to "立即登录",  logon_page_path, class:"cor_yellow" %></label>
+			</li>
+
+		</ul>
+		<% end %>
+
+	</div>
+
+</div>
+

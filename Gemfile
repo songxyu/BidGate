@@ -55,6 +55,9 @@ gem 'activemerchant'
 gem 'activemerchant_patch_for_china'
 gem "pay_fu"
 
+# simple form
+gem 'simple_form'
+
 
 group :development do
   gem 'meta_request','0.2.8'

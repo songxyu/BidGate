@@ -47,11 +47,12 @@
 .header .headMain {
 	height: 50px;
 	background-color: #fff;
+	padding-left: 100px;
 }
 
 .header .masthead {
-	width: 1200px;
-	margin: 0 auto;
+	max-width: 1404px;
+  padding: 0 40px;
 }
 
 .header .masthead .logoWrapper {

@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :nickname, :status, :company_id, :email, :password, :signup_time,
               :last_signin_time,  :last_signin_ip, :password_confirmation, :username,
               :contact, :contact_cellphone, :contact_tel, :contact_title
-
+              
+  #accepts_nested_attributes_for :company
   #attr_accessor :password # do not set this accessor!
   before_save { self.email = email.downcase } #:encrypt_password
 

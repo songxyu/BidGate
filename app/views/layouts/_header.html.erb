@@ -106,7 +106,7 @@
 						<div class="btn-group">
 							<div class="user-avator " data-hover="dropdown" data-delay="100">
 								<%= link_to dashboard_path(:breadcrumb_path_key => 'homepage,dashboard'), :class=>"dash-profile", :remote => true do %>
-								<span>您好，<b><%= current_user.nickname %> </b> </span>
+								<span>您好，<b><%= current_user.username %> </b> </span>
 								<span class="caret"></span>
 								<% end %>
 							</div>
@@ -185,13 +185,11 @@
 					<% else %>
 					<li class="logon-register">
 						<div>
-						<%= link_to login_path, :class=>"", remote: true do %>
-						<span>登录</span>
-						<% end %>
+						<%= link_to "登录",  logon_page_path, class:"", target: "_blank" %>
 						</div>
 					</li>
 					<li class="logon-register">
-						<%= link_to "注册", signup_path %>
+						<%= link_to "注册", signup_path, target: "_blank" %>
 					</li>
 
 					<% end %>

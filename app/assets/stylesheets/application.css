@@ -41,8 +41,6 @@ body, input, select, textarea, button {
 .main {
 	/*background: url("../img/main-bg.jpg") repeat;*/
 	/*background: #F2F2F2;*/
-	margin-left: 120px;
-	padding-left: 20px;
 }
 
 media="screen"
@@ -71,8 +69,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	color: #fff;
 	background: #359ade;
 	display: inline-block;
-	min-height: 20px;
-	min-width: 50px;
+	min-height: 30px;
+	min-width: 60px;
 	width: auto;
 	margin-bottom: 0;
 	margin-top: 0;
@@ -84,6 +82,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	padding: 0 5px;
 	text-align: center;
 	cursor: pointer;
+}
+
+.button .span {
+    font-size: 18px;
+    line-height: 45px;
+    color: #fff;
 }
 
 .orange {
@@ -143,13 +147,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .content_area {
-	margin: 0 auto;
 	min-height: 500px;
-	min-width: 960px;
+	padding: 0px 30px;
+	min-width: 840px;
+	max-width: 1404px;
 }
 
 .central-screen {
-	max-width: 1200px;
+	margin-left: 100px;
 }
 
 .breadcrumb_area {
@@ -207,8 +212,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 /*** --------------------- left wrapper ---------------------*/
 
 .left-wrapper {
-	width: 120px;
-	background: #0098a6;
+	width: 100px;
+	background: #005a78;
 	height: 100%;
 	float: left;
 	position: fixed;
@@ -243,11 +248,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .left-wrapper li:hover {
-	background: #00818c;
+	background: #00475f;
 }
 
 .left-wrapper li.active {
-	background: #00818c url(../img/menu.png) -80px -44px no-repeat;
+	background: #00475f url(../img/menu.png) -100px -44px no-repeat;
 }
 
 .left-wrapper .triangle-left {
@@ -262,7 +267,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	display: block;
 	line-height: 55px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 16px;
 	color: #fff;
 }
 
@@ -360,12 +365,82 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	border-top: none; 
 }
 
+/*** ----------------------- user logon / register --------- **/
+
+.userBasicInfo .input-group {
+	display: block;
+}
+
+.fieldInput {
+    position: relative;
+    display: block;
+}
+
+.fieldInput .reg-verify-code {
+	width: 120px;
+    height: 45px;
+}
+
+.fieldInput .form-control {
+	border-radius: 2px;
+	height: 45px;
+}
+
+.label-login {
+  margin-left: 20px;
+  position: relative;
+  font-weight: normal;
+}
+
+.banner-wrap {
+  position: relative;
+  margin: 0 auto;
+}
+
+.banner-wrap .rb1 {
+    font-size: 30px;
+    color: #FFF;
+    line-height: 80px;
+    text-align: center;
+}
+
+.banner-wrap .rb2 {
+    font-size: 24px;
+    color: #FFF;
+    line-height: 60px;
+    text-align: center;
+}
+
+.banner-wrap img {
+    width: 46px;
+    margin-right: 10px;
+}
+
+
+.logon-form-new .enter-area {
+    width: 100%;
+    height: 45px;
+  }
+
+.logon-form-new .enter-item {
+  height: 45px;
+  font-size: 15px;
+}
+
+.submitBtn {
+	min-width: 150px;
+	height: 40px;
+}
+
+.ng-cookie-area {
+	line-height: 30px;
+}
+
 /*** ----------------------- footer ------------------------ */
 .footer {
 	clear: both;
 	width: 100%;
 	margin-top: 20px;
-	padding-bottom: 20px;
 	text-align: center;
 	border-top: solid 1px #999;
 }

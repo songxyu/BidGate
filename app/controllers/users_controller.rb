@@ -31,16 +31,49 @@ def create
   
     createdUserInfo = params[:user]
 
-    # TODO
-    createdUserInfo['company_id'] = -1
-    createdUserInfo['nickname'] = createdUserInfo['username']
-    
-    
+    # handle company reg cases
+    company_acc_num = createdUserInfo[:company][:account_num] # no [:user][:company] !
+    company_legal_person = createdUserInfo[:company][:legal_person]
+    if company_acc_num
+      # reg via existing company
+      logger.debug "*** reged company account num= "+ company_acc_num
+      reged_comp = Company.check_existing( company_acc_num, company_legal_person)  # DO NOT miss .first , otherwise, reged_comp.id will error!
+      if reged_comp
+        createdUserInfo['company_id'] = reged_comp.id
+      else
+        logger.debug "Invalid Company account!! redirect to reg page..."
+        flash.now.alert = "Invalid Company account!"
+        @user = User.new
+        render "new" and return
+      end
+    else
+    # reg with new company
+      new_company_params = createdUserInfo[:company] # no [:user][:company] !
+      new_company_params["account_num"] = SecureRandom.uuid
+
+      logger.debug "*** new company info= " + new_company_params.to_s
+      new_company = Company.new(new_company_params)
+      if new_company.save
+        createdUserInfo['company_id'] = new_company.id
+      else
+        logger.debug "Fail to create company! redirect to reg page..."
+        flash.now.alert = "Fail to create company!"
+        @user = User.new
+        render "new" and return
+      end
+    end
+
+    # TODO: check username / email duplicate?
+
+    # fill more user info
     createdUserInfo['status'] = 0
     createdUserInfo['signup_time'] = DateTime.current
     createdUserInfo['last_signin_time'] = DateTime.current
     createdUserInfo['last_signin_ip'] = request.remote_ip # retrieve user client ip
 
+    #remove company info node
+    createdUserInfo.delete('company');
+    
     # create the new user
     @user = User.new(createdUserInfo)
     logger.debug '=========== before encypted password user info: '
@@ -51,6 +84,7 @@ def create
       logger.debug @user.to_s
 
       session[:user_id] = @user.id
+      @company = Company.new
       redirect_to signup_success_url #, :notice => "注册成功!"
     else
       logger.debug "Fail to create new user! redirect to reg page..."

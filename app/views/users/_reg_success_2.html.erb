@@ -1,0 +1,66 @@
+<div class="regContainer">
+	<div class="regMain">
+		<div class="banner-wrap">
+			<p class="rb2">
+				<img src="../img/reg/register_success.png">服务已开通，请进行系统初始化设置
+			</p>
+		</div>
+		<div class="reg-bg"></div>
+
+		<div class="userBasicInfoContainer">
+
+			<% user_form = nil %>
+			<%= form_for current_user do |f| %>
+
+			<!-- user basic info area table -->
+			<% user_form = f %>
+			<span>请填写以下信息，即可启用服务</span>
+			<ul class="userBasicInfo">
+				<li>
+					<div class="input-group fieldInput">
+						<!--
+						<%= render :partial => 'companies/basic_info', :locals => {:company => @company } %>
+						-->
+						
+						<%= f.text_field :company, :class => "form-control reg-input", :placeholder => "公司名称（必填）" %>
+					</div>
+				</li>
+				
+				<li>
+					<div class="input-group fieldInput">
+						<%= f.text_field :contact, :class => "form-control reg-input", :placeholder => "您的姓名（必填）" %>
+					</div>
+				</li>
+
+				<li>
+					<div class="input-group fieldInput">
+						<%= f.text_field :contact_cellphone, :class => "form-control reg-input", :placeholder => "手机号码（必填）" %>
+					</div>
+				</li>
+
+				<li>
+					<div class="fieldRole">
+						<div>
+							<div id="role_purchaser" class="role_selection">
+								<span>采购经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
+							</div>
+							<div id="role_vendor" class="role_selection">
+								<span>销售经理</span><span class="glyphicon glyphicon-ok role-icon"></span>
+							</div>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<%= f.submit "立即启用", :class => "button submitBtn", :id => "btn_submit_reg", :remote => true %>
+				</li>
+
+			</ul>
+			<% end %>
+
+		</div>
+
+	</div>
+
+</div>
+
