@@ -7,8 +7,15 @@
 		<div class="summary-left">
 			<img src="../img/default_user_portrait.gif" class="user-comp-default">
 			<p class="welcome-title">
-				欢迎您，<b>songxyu</b>
+				欢迎您，<b><%= @user ? @user.nickname : "" %></b>
 			</p>
+			<div class="my-profile">
+				<%= link_to dashboard_profile_path, :class=>" ", remote: true  do %>
+					<i class="glyphicon  glyphicon-home span-icon"></i>
+					<span class=" span-text" href="">我的帐户</span> 
+				<% end %>
+			</div>
+		
 		</div>
 
 		<ul class="summary-right">

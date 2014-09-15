@@ -9,20 +9,26 @@
 %>
 
 
-<% if ctrl_name == "dashboard" %>
+<% if ctrl_name == "dashboard" %>  // dashboard
 	var $dashboard_rightarea =  $(".content_area .dashboard-page .right-area");
 	
-	<% if action_name == 'changepw' %>	 
-	 $dashboard_rightarea.find('#password-edit').html("<%= escape_javascript render(:partial => 'users/edit_pw') %>");
-	<% end %>
+	<% if action_name == 'user_profile' %>	 
+		 $dashboard_rightarea.html("<%= escape_javascript render(:partial => 'dashboard/my_profile') %>");
+	<% else %>
 	
-	<% if action_name == 'edit_profile' || action_name == 'update_profile' %>	 
-	 $dashboard_rightarea.find('#account-profile').html("<%= escape_javascript render(:partial => 'users/edit') %>");
-	<% end %>
-	
-	
-	<% if action_name == 'edit_company' %>	 
-	 $dashboard_rightarea.find('#company-profile').html("<%= escape_javascript render(:partial => 'companies/edit') %>");
+		<% if action_name == 'changepw' %>	 
+		 $dashboard_rightarea.find('#password-edit').html("<%= escape_javascript render(:partial => 'users/edit_pw') %>");
+		<% end %>
+		
+		<% if action_name == 'edit_profile' || action_name == 'update_profile' %>	 
+		 $dashboard_rightarea.find('#account-profile').html("<%= escape_javascript render(:partial => 'users/edit') %>");
+		<% end %>
+		
+		
+		<% if action_name == 'edit_company' %>	 
+		 $dashboard_rightarea.find('#company-profile').html("<%= escape_javascript render(:partial => 'companies/edit') %>");
+		<% end %>
+		
 	<% end %>
 	
 <% end %>	
@@ -38,3 +44,15 @@
 	 $dashboard_rightarea.find('#company-profile').html("<%= escape_javascript render(:partial => 'companies/edit') %>");
 
 <% end %>
+
+
+
+// change password tab
+var fnShowChangePwTab = function(){
+	$('.my-profile-page .tab-items a[href="#password-edit"]').tab('show');
+};
+
+$('#account-profile ').on('click', '.link-to-change-pw', function(){
+	fnShowChangePwTab();
+});
+

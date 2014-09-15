@@ -66,6 +66,12 @@
           padding: 10px;
           max-width: 200px;
         }
+        
+        .my-profile{
+        	float: left;
+          	padding: 10px;
+        }
+        
       }
       
       .summary-right {
@@ -215,6 +221,8 @@
 					   margin-top: 10px;
   					.action-link{
   						float: left;
+  						cursor: pointer;
+  						color: #428bca;
   						
   						.action-text {
   						  padding-left: 20px;
@@ -288,6 +296,10 @@
                 color: red;
                 font-size: 14px;
               }
+            }
+            
+            tr.hist_hidden_row{
+            	display: none;
             }
             
             tr:hover>td {

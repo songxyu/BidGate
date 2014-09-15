@@ -69,11 +69,9 @@
 
 				<div class="row-height row-action">
 
-					<% if bid_history_count > 0 %>
+					<% if bid_history_count > 5 %>
 					<div class="action-link">
-						<%= link_to order, :class=>"action-text", remote: true  do %>
-						<span>查看所有报价</span>
-						<% end %>
+						<span class="action-text display_all_biddings">查看所有报价</span>
 					</div>
 					<% end %>
 
@@ -104,11 +102,13 @@
 					<% if bid_history_count>0 %>
 					<tbody>
 						<%  # sort by bid_time desc
+						hist_idx = 0;
 						sortedHistArray = order.order_price_histories.sort {|a, b| b.bid_time <=> a.bid_time}
 						sortedHistArray.each do |order_hist|
+							hist_idx = hist_idx + 1;
 						%>
 
-						<tr class="price-hist-row <% if order_hist.is_valid %> valid active<%end%>"  >
+						<tr class="price-hist-row <% if order_hist.is_valid %> valid active<%end%> <%if hist_idx > 5 %> hist_hidden_row <%end%>"  >
 							<td class="approve-btn"> <% if order_hist.is_valid %>
 							<input type="radio" name="select-bid-item-<%= order_hist.order_id%>"
 							class="radio-button-approve-vendor" data-histid="<%= order_hist.id%>"

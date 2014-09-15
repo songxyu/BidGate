@@ -102,6 +102,20 @@ $bidListApprBtn.on('click', '', function(){
 	
 });
 
+
+var $orderBiddingListPage =  $dashboard_rightarea.find(".all-bidding-page");
+var $btn_display_all_biddings = $orderBiddingListPage.find('.display_all_biddings');
+$btn_display_all_biddings.on('click', '', function(){
+	var $orderItemArea =  $(this).parents('.panel-body');
+	if( $orderItemArea.length>0){
+		var $hist_list = $($orderItemArea[0]).find('.bid-hist-list');
+		$hist_list.find('tbody tr.hist_hidden_row').removeClass('hist_hidden_row');
+		$(this).hide();
+	}	
+});
+
+
+
 var $orderListPagesCanbeCancelled = $dashboard_rightarea.find(".all-forpaid-page, .all-bidding-page");
 var $orderListCancelLink = $orderListPagesCanbeCancelled.find('.panel-body .action-cancel-order');
 //$orderListCancelLink.off('click');
