@@ -213,7 +213,7 @@
 					最新竞拍金额（元）
 				</div>
 				<div class="price">
-					<span>¥ </span><%= get_order_lastest_bid_price(@order) %></span>
+					<span>¥ <% bd_price =  get_order_lastest_bid_price(@order) %> <%= bd_price ? bd_price.round : ""%></span>
 				</div>
 			</div>
 			<div class="bidStatusTag">

@@ -90,7 +90,7 @@ module OrdersHelper
   def get_order_lastest_bid_price(order)
     bid_history_count = order.order_price_histories.count
     bid_price = order.order_price_histories[bid_history_count-1] ? 
-        order.order_price_histories[bid_history_count-1].price : ""
+        order.order_price_histories[bid_history_count-1].price : nil
     return bid_price
   end
   

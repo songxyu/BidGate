@@ -45,8 +45,8 @@
 				<div class="fieldLabel">
 					<i class="mustsign">*</i><span>最新竞价：</span>
 				</div>
-				<div class="fieldValue">
-					<span class="dialog-bid-price">¥ <%= get_order_lastest_bid_price(@order) %></span>
+				<div class="fieldValue"><% lastest_bid_price = get_order_lastest_bid_price(@order) %>
+					<span class="dialog-bid-price">¥ <%= lastest_bid_price ? lastest_bid_price.round : "" %></span>
 				</div>
 			</li>
 

@@ -25,7 +25,7 @@
 				成交日期：<%= @so.deal_date ? @so.deal_date.strftime('%Y-%m-%d') : "" %>
 			</div>
 			<div class="so-dealprice">
-				成交价格：￥<%= @so.deal_price %>
+				成交价格：￥<%= @so.deal_price ? @so.deal_price.round : ""%>
 			</div>
 			<!-- <div class="so-bidcount">总竞拍次数：12</div> -->
 			<div class="so-vendor">

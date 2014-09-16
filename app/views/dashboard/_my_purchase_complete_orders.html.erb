@@ -34,12 +34,12 @@
 			<div class="order-digest">
 				<div class="row-height">
 					<span>采购: <%= item_info_text %> ...</span>
-					<span class="algin_left">订单起拍价: <%= order.price %> 元 </span>
+					<span class="algin_left">订单起拍价: <%= order.price.round %> 元 </span>
 				</div>
 
 				<div class="row-height">
 					<span class="algin_left"> 成交价: </span>
-					<span class="highlight_text"><%= order.deal_price %> 元</span>
+					<span class="highlight_text"><%= order.deal_price.round %> 元</span>
 					<span class="algin_left"> 成交日期: </span>
 					<span class="highlight_text"><%= order.deal_date ? order.deal_date.strftime('%Y-%m-%d %H:%M')  : ""%> </span>
 				</div>

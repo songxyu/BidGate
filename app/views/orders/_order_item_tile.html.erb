@@ -40,8 +40,8 @@
 			<div class="row_margin">
 				<%= bid_history_count %> 个竞拍
 			</div>
-			<div class="row_margin">
-				<span>最新订单竞价: ￥</span><span class="highlight_text"><%= @order.order_price_histories[bid_history_count-1] ? @order.order_price_histories[bid_history_count-1].price : "" %></span>
+			<div class="row_margin"><% latest_bid = @order.order_price_histories[bid_history_count-1] %>
+				<span>最新订单竞价: ￥</span><span class="highlight_text"><%= latest_bid ? (latest_bid.price ? latest_bid.price.round : "") : "" %></span>
 			</div>
 
 			<div class="bid_progressbar_area  row_margin">

@@ -53,7 +53,10 @@
 				<div class="row-height">
 					<% if bid_history_count > 0 %>
 					<span>最新报价: </span>
-					<span class="highlight_text">￥ <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %></span>
+					<% latest_bid = order.order_price_histories[bid_history_count-1]  
+					logger.debug 'latest_bid: ' + latest_bid.price.round.to_s
+					%>
+					<span class="highlight_text">￥ <%= ( latest_bid ? (latest_bid.price ? latest_bid.price.round : "") : "") %></span>
 					<% end %>
 				</div>
 
@@ -122,7 +125,7 @@
 								<% end %>
 								 </td>
 							<td> <%= order_hist.vendor.contact%> </td>
-							<td class="text-right"> ￥<%= order_hist.price%> </td>
+							<td class="text-right"> ￥<%= order_hist.price.round %> </td>
 							<!-- TODO -->
 							<td> <%= order_hist.bid_time ? order_hist.bid_time.strftime('%Y-%m-%d %H:%M')  : ""%></td>
 							<td> <%= getVendorTypeName(order_hist.vendor.company.vendor_type)%></td>

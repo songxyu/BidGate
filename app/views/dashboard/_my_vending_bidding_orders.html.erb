@@ -63,12 +63,12 @@
 				</div>
 
 				<div class="row-height">
-					<span>最新订单竞价: </span>
-					<span class="highlight_text">￥ <%= order.order_price_histories[bid_history_count-1] ? order.order_price_histories[bid_history_count-1].price : "" %></span>
+					<span>最新订单竞价: </span> <% latest_bid = order.order_price_histories[bid_history_count-1] %>
+					<span class="highlight_text">￥ <%= latest_bid ? (latest_bid.price ? latest_bid.price.round : "") : "" %></span>
 				</div>
 
 				<div class="row-height">
-					<span>我的最新竞价: ￥<%= my_latest_bid_price %></span>
+					<span>我的最新竞价: ￥<%= my_latest_bid_price ? my_latest_bid_price.round: "" %></span>
 				</div>
 
 			</div>
@@ -121,7 +121,7 @@
 						<% if order_hist.is_valid %> active
 						<% end %>">
 							<td> <%= order_hist.bid_time.strftime('%Y-%m-%d %H:%M') %> </td>
-							<td class="bid-price">￥ <%= order_hist.price %> </td>
+							<td class="bid-price">￥ <%= order_hist.price ? order_hist.price.round : ""  %> </td>
 							<td> <% if order_hist.delivery_days %>  <%= order_hist.delivery_days.to_s %> 天
 							<% end %> </td>
 							<td> <%= order_hist.bid_memo %> </td>
