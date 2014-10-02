@@ -3,7 +3,7 @@
 .home_filter_bar_area {
   width: 100%;
   border-bottom: 1px solid #ddd;
-  background-color: #fff;
+  //background-color: #fff;
   margin-top: 1px;
 }
 
@@ -31,6 +31,7 @@
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   -webkit-border-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: #eee;
 }
 
 .home_filter_bar_area.fixed .filter_bar {
