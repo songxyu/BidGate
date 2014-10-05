@@ -216,6 +216,18 @@
     float: left;
     width: 270px;
   }
+  
+  .location{
+  	width: 80px;
+  }
+  
+  .delivery-addr{
+  	width: 150px;
+  }
+  
+   .date-input{
+  	width: 110px;
+  }
 }
 
 .orderDetailPage .orderSummary {
@@ -807,4 +819,10 @@ hr.dashed {
 
 .order_item .order_quickview .quickViewButton:hover {
   background: #eee;
+}
+
+
+.submit-area{
+	clear: both;
+	padding: 10px;
 }

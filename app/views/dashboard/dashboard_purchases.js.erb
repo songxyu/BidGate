@@ -188,7 +188,7 @@ $orderListReopenLink.on('click', '', function(){
 		// NOTE: the html is rendered in reopen.js.erb!
 		$overlayDialog.html(data);
 		$overlayDialog.overlay().load();
-		$overlayDialog.find('.btn-close, .close_btn, .linkto-order-detail').click(function(){
+		$overlayDialog.find('.btn-close, .close_btn, .linkto-order-detail, .linkto-order-edit').click(function(){
 		    $overlayDialog.overlay().close();
 		});
 		

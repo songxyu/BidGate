@@ -1,6 +1,14 @@
 
 <%= render "layouts/breadcrumb" %>
 
+<%  isEdit = false
+	if params[:is_edit]
+		isEdit = true
+	end
+
+	logger.debug "_show.html.erb: params[:is_edit]="+params[:is_edit].to_s + ", isEdit="+ isEdit.to_s
+%>
+
 <div class="orderDetailPage">
 
 	<div class="leftWrapper">
@@ -28,14 +36,25 @@
 									<p class="title">
 										交货城市
 									</p>
+									<% if isEdit %>
+									<input class="city_input location" value="<%= @order.location ? @order.location.name : '' %>"/>
+									<% else %>
+									<br/>
 									<span class="value"><%= @order.location ? @order.location.name : '' %></span>
+									<%end%>										
 								</li>
 								
 								<li>
 									<p class="title">
-										交货周期
+										交货日期
 									</p>
-									<span class="count"> XX3周XX</span>
+									<% if isEdit %>
+										<input class="date-input delivery-date" value="<%= @order.delivery_date ? @order.delivery_date.strftime('%Y年%m月%d日'): "" %>"/>
+									<% else %>
+									<br/>
+										<span class="count"> <%= @order.delivery_date ? @order.delivery_date.strftime('%Y年%m月%d日') : "" %></span>
+									<%end%>								 
+									
 								</li>
 
 								<li>
@@ -49,9 +68,14 @@
 										</div>
 									</div>
 									<div>
-										<span class="deadline">截止日期：
-											<br/>
-											<%= @order.deadline.strftime('%Y年%m月%d日') %></span>
+										<span class="deadline">截止日期：											
+											<% if isEdit %>
+												<input class="date-input deadline" value="<%= @order.deadline ? @order.deadline.strftime('%Y年%m月%d日') :'' %>"/>
+											<% else %>
+												<br/>
+												<%= @order.deadline ? @order.deadline.strftime('%Y年%m月%d日') : '' %>
+											<%end%>											
+										</span>
 									</div>
 								</li>
 
@@ -94,7 +118,7 @@
 							<tr class="title">
 								<th>物料名称</th>
 								<th>型号</th>
-								<th>数量(<%= @category_unit.unit_name %>)</th>
+								<th>数量(<%= @category_unit ? @category_unit.unit_name : "" %>)</th>
 								<th>描述</th>
 								<% @dynamic_goods_props.each do |prop|%>
 								<th><%= prop.name %></th>
@@ -154,12 +178,35 @@
 									<td class="value"><%= @order.buyer.company.name %></td>
 								</tr>
 								<tr>
-									<td>收货地址：</td>
-									<td class="value"><%= @order.location ? @order.location.full_location_name : ""%></td>
+									<td>总金额：</td>
+									<td class="value">
+										<% if isEdit %>
+										<input class="price" value="<%= @order.price ? @order.price.round : ''%>"/>
+									<% else %>										 
+										<%= @order.price ? @order.price.round : '' %>
+									<%end%>	
+									</td>
 								</tr>
 								<tr>
-									<td>X收货日期：</td>
-									<td class="value">2014年3月15日</td>
+									<td>收货地址：</td>
+									<td class="value">
+									<% if isEdit %>
+										<input class="delivery-addr" value="<%= @order.delivery_addr  %>"/>
+									<% else %>
+										<br/>
+										<%= @order.delivery_addr %>
+									<%end%>	
+									</td>
+								</tr>
+								<tr>
+									<td>收货日期：</td>
+									<td class="value"><% if isEdit %>
+										<input class="date-input delivery-date" value="<%= @order.delivery_date ? @order.delivery_date.strftime('%Y年%m月%d日') : "" %>"/>
+									<% else %>
+										<br/>
+										<%= @order.delivery_date ? @order.delivery_date.strftime('%Y年%m月%d日') : '' %>
+									<%end%> 
+									</td>
 								</tr>
 								<!-- <tr>
 									<td>竞拍截止时间：</td>
@@ -292,3 +339,14 @@
 	</div>
 
 </div>
+
+
+
+<% if isEdit %>
+
+	<div class="submit-area">
+		<button type="button" class="btn btn-default order-edit-btn"  >
+			提交修改
+		</button>
+	</div>
+<%end%>

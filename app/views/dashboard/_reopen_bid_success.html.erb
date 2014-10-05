@@ -19,6 +19,10 @@
     	<%= link_to order_path(:id => @order ? @order.id : 0), :class=>"linkto-order-detail", remote: true do %>
 			<div class="btn-preview-detail btn btn-primary">查看采购单</div>
 		<% end %>
+		
+		<%= link_to order_path({:id => @order ? @order.id : 0, :breadcrumb_path_key => 'homepage,dashboard,edit', :is_edit => true }), :class=>"linkto-order-edit",  remote: true  do %>
+			<div class="btn-edit-detail btn btn-primary">修改订单</div>
+		<% end %>
       
       <div class="btn-close btn btn-primary">关闭</div>
     </div>

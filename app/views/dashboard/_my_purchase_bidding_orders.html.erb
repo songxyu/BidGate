@@ -77,6 +77,16 @@
 						<span class="action-text display_all_biddings">查看所有报价</span>
 					</div>
 					<% end %>
+					
+					<% if bid_history_count == 0 %>
+					<div class="action-link">
+						<%= link_to order_path({:id => order.id, :breadcrumb_path_key => 'homepage,dashboard,edit', :is_edit => true }), :class=>" ",  remote: true  do %>
+							<span class="action-text edit_order">修改订单</span>
+						<% end %>
+			
+						
+					</div>
+					<% end %>
 
 					<div class="action-link" data-orderid="<%= order.id%>" data-ordernum="<%= order.order_num%>">
 						<%= link_to "#cancel_bid", :class=>"action-cancel-order action-text", remote: true  do %>
@@ -161,3 +171,4 @@
 	</div>
 	<%end%>
 </div>
+

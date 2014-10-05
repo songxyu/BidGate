@@ -4,3 +4,35 @@ $(".content_area").html("<%= escape_javascript render(:partial => 'orders/show')
 
 var $filterArea = $(".home_filter_bar_area");
 $filterArea.hide();
+
+
+<%
+	logger.debug '******* params[:is_edit]: '+ params[:is_edit].to_s
+ if params[:is_edit] %>
+  var dateCtrolsSel = ".date-input";
+  $(dateCtrolsSel).datepicker();
+  $(dateCtrolsSel).datepicker('option', 'dateFormat', 'yy年m月dd日');
+    
+  $('.order-edit-btn').click(function(){
+  			$orderDetailArea = $('.orderDetailPage');
+  			var id = <%=@order.id%>
+  			var postData = {
+  				'deadline': $orderInfoArea.find('.deadline').val(),
+				'delivery_date': $orderInfoArea.find('.delivery-date').val(),
+				'location': $orderInfoArea.find('.city_input.location').val(),
+				'delivery_addr': $orderInfoArea.find('.delivery-addr').val(),
+				'delivery_addr': $orderInfoArea.find('.delivery-addr').val()
+  			};
+  	
+  			$.ajax({
+			url : '/orders/'+ id +'/edit',  
+			type : 'put',
+			dataType: 'html', 
+			data : postData
+		}).done(function(data) {
+						
+		}).fail(function(jqXHR, textStatus) {
+			console.log("Request failed: " + JSON.stringify(textStatus));
+		});
+  });
+<%end%>

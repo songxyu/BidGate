@@ -161,6 +161,7 @@ class OrdersController < CommonController
     str_time_millsec = Time.now.strftime('%Y%m%d%H%M%S%L')
     loc_name = params[:location]
     delivery_date = params[:delivery_date]
+    delivery_addr = params[:delivery_addr]
     
     puts   cateId
     puts   loc_name
@@ -171,7 +172,8 @@ class OrdersController < CommonController
     @order = Order.new(order_num: str_time_millsec, create_time: DateTime.current, deadline: params[:deadline],
       price: params[:price], buyer_id: session[:user_id], vendor_id: nil, price_type: params[:price_type], 
       status: 1, category_id: cateId, currency: 1, vendor_list: params[:vendor_list], order_memo: params[:memo],
-      payment_method: params[:payment_method], location_id: 1, location_searchable: loc_name )
+      payment_method: params[:payment_method], location_id: 1, location_searchable: loc_name, delivery_date: delivery_date, 
+      delivery_addr: delivery_addr )
        
     puts "params[:order_items]: ", params[:order_items] 
     
@@ -307,7 +309,9 @@ class OrdersController < CommonController
   
   def edit
     @order = Order.find(params[:id])
-    common_response
+    @order.save    
+    render "show"
+    # common_response
   end
     
     

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140904151934) do
+ActiveRecord::Schema.define(:version => 20141005145010) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20140904151934) do
     t.string   "location_searchable"
     t.string   "order_memo"
     t.datetime "delivery_date"
+    t.string   "delivery_addr"
   end
 
   create_table "pay_fu_transactions", :force => true do |t|
