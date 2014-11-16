@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141005145010) do
+ActiveRecord::Schema.define(:version => 20141014165627) do
+
+  create_table "bid_status_reasons", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.integer  "reason"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bid_status_reasons", ["order_id"], :name => "index_bid_status_reasons_on_order_id"
+  add_index "bid_status_reasons", ["user_id"], :name => "index_bid_status_reasons_on_user_id"
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"

@@ -12,25 +12,39 @@ $filterArea.hide();
   var dateCtrolsSel = ".date-input";
   $(dateCtrolsSel).datepicker();
   $(dateCtrolsSel).datepicker('option', 'dateFormat', 'yy年m月dd日');
+  
+  $('.date-input.delivery-date').datepicker("setDate" ,'<%= @order.delivery_date ? @order.delivery_date.strftime("%Y年%m月%d日") : "" %>');
+  $('.date-input.deadline').datepicker("setDate" ,'<%= @order.deadline ? @order.deadline.strftime("%Y年%m月%d日") : "" %>');
+  
     
   $('.order-edit-btn').click(function(){
   			$orderDetailArea = $('.orderDetailPage');
-  			var id = <%=@order.id%>
+  			var id = <%=@order.id%>;
   			var postData = {
-  				'deadline': $orderInfoArea.find('.deadline').val(),
-				'delivery_date': $orderInfoArea.find('.delivery-date').val(),
-				'location': $orderInfoArea.find('.city_input.location').val(),
-				'delivery_addr': $orderInfoArea.find('.delivery-addr').val(),
-				'delivery_addr': $orderInfoArea.find('.delivery-addr').val()
+  				'id': id,
+  				'order': {
+	  				'deadline': $orderDetailArea.find('.date-input.deadline').datepicker( "getDate" ),
+					'delivery_date': $orderDetailArea.find('.date-input.delivery-date').datepicker( "getDate" ),
+					'location': $orderDetailArea.find('.city_input.location').val(),
+					'delivery_addr': $orderDetailArea.find('.delivery-addr').val(),
+					'price': $orderDetailArea.find('.price').val()
+				}
   			};
   	
   			$.ajax({
-			url : '/orders/'+ id +'/edit',  
+			url : '/orders/'+ id,  
 			type : 'put',
 			dataType: 'html', 
 			data : postData
-		}).done(function(data) {
-						
+		}).done(function(data) {			 
+			$('#order-create-success-dialog').show().overlay().load();		
+			var $overlayDialog = $("#order-edit-msg-dialog");
+		    $overlayDialog.html("<%= escape_javascript render(:partial => 'dashboard/cancel_bid_confirm_dialog')%>");
+		    $overlayDialog.overlay().load();
+		    $overlayDialog.find('.btn-close, .close_btn').click(function(){
+		        $overlayDialog.overlay().close();
+		    });
+    	
 		}).fail(function(jqXHR, textStatus) {
 			console.log("Request failed: " + JSON.stringify(textStatus));
 		});

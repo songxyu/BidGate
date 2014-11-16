@@ -309,9 +309,31 @@ class OrdersController < CommonController
   
   def edit
     @order = Order.find(params[:id])
-    @order.save    
-    render "show"
-    # common_response
+    common_response
+  end
+  
+  def update
+     @order = Order.find(params[:id])
+    changedOrderInfo = params[:order]
+    
+    locText = changedOrderInfo['location']
+    
+    locRet = Location.where(name: locText)[0]
+    
+    loc_id = locRet ? locRet.id : 0
+    changedOrderInfo['location_id'] = loc_id
+    changedOrderInfo.delete('location')
+    if @order.update_attributes(changedOrderInfo)    
+       logger.debug "edit order success!"
+       flash.now.notice = "修改成功!"
+    else
+      logger.error "Fail to update order!"
+      flash.now.alert = "无法修改订单!"
+    end
+        
+    @dynamic_goods_props = CategoriesHelper.get_dyn_props_by_category(@order.category_id)
+    @category_unit = CategoriesHelper.get_category_unit(@order.category_id)
+    render "show" and return
   end
     
     

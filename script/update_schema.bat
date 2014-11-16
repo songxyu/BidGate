@@ -91,5 +91,9 @@ echo add delivery_addr column on table orders
 call rails generate migration AddDeliveryAddrToOrders delivery_addr:string
 
 
+echo add table for non-deal order reason
+call rails generate model BidStatusReason  order:references user:references status:integer reason:integer
+
+
 echo  ----- finished changes ----
 pause
